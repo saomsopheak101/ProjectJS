@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: rgb(255, 255, 255);
+}
+
+.c-item {
+    height: 80vh;
+
+}
+
+.color-text {
+    color: #f49943;
+}
+
+.color-bg {
+    background-color: #f49943;
+
+}
+
+.c-img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.margin-bottom {
+    margin-bottom: 120px;
+}
+
+.section-top {
+    margin-top: -50px;
+}
+
+.navbar .navbar-brand img {
+    transform: scale(1.5);
+}
+
+/* .navbar {
+    background-color: transparent;
+} */
+.navbar>.container-xxl {
+    position: relative;
+}
+
+.navbar .megamenu {
+    position: static;
+}
+
+.navbar .dropdown .dropdown-menu {
+    border: 0 !important;
+}
+
+.navbar .megamenu .dropdown-menu {
+    background-color: transparent !important;
+    padding-inline: 0rem !important;
+    padding-block: 1.5rem !important;
+}
+
+.navbar .navbar-nav .nav-item .nav-link {
+    font-weight: 400;
+    font-size: 18px;
+    transition: 0.3s;
+    text-wrap: nowrap;
+    align-items: center;
+}
+
+.navbar .navbar-nav .nav-item .nav-link::before {
+    content: "";
+    width: 100%;
+    height: 20px;
+    background-color: transparent;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+}
+.navbar .dropdown.megamenu .dropdown-menu ul {
+    padding-left: 0 !important;
+    padding-top: 0 !important;
+    list-style-type: none;
+}
+
+.navbar .dropdown.megamenu .dropdown-menu ul li .dropdown-item {
+    padding-inline: 1.5rem !important;
+}
+
+.navbar .dropdown.megamenu .dropdown-menu ul li .dropdown-item:hover {
+    background-color: transparent !important;
+    color: rgb(169, 169, 169) !important;
+}
+
+
+
+.navbar .dropdown .dropdown-menu .dropdown-item {
+
+    font-size: 20px !important;
+    font-weight: 500;
+}
+
+.navbar .dropdown:not(.megamenu) .dropdown-menu {
+    top: 60px;
+    background-color: transparent;
+    /* padding: 0.75rem !important; */
+}
+
+.navbar .dropdown:not(.megamenu) .dropdown-menu ::before {
+    top: 60px;
+    background-color: transparent;
+    /* padding: 0.75rem !important; */
+}
+
+.navbar .dropdown:not(.megamenu) .dropdown-menu .dropdown-item:hover {
+    color:#f49943 !important;
+    background-color: transparent !important;
+}
+
+.navbar .dropdown .dropdown-toggle::after {
+    margin-left: 0 !important;
+}
+
+
+.navbar .dropdown-account .dropdown-menu {
+    left: -500% !important;
+}
+
+.navbar .btn-icon {
+    font-size: 1.6rem;
+    border: 0;
+}
+
+.home-page .about img {
+    width: 100%;
+}
+
+.home-page .about .px-text {
+    padding: 0% 5%;
+}
+
+.home-page .h3 {
+    font-weight: bold;
+}
+
+.home-page .little-facts {
+    width: 100%;
+    height: 450px;
+    background-color: #f49943;
+}
+
+.home-page .little-facts img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(35%);
+}
+
+.home-page .little-facts h1 {
+    margin-top: 17%;
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.home-page .little-facts .box {
+    width: 900px;
+    height: 120px;
+    margin-bottom: -3%;
+    background-color: #f49943;
+    z-index: 9;
+    margin-left: 10%;
+    border-radius: 12px;
+}
+
+.home-page .benefits {
+    margin-top: 10%;
+}
+
+.home-page .benefits img {
+    width: 100%;
+    height: 100%;
+}
+
+.home-page .accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+}
+
+.home-page .accordion-button:not(.collapsed)::after {
+    background-image: none;
+    content: "\f068";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    transform: rotate(0deg) !important;
+}
+
+.home-page .accordion-button::after {
+    content: "\2b";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    background-image: none;
+   
+}
+
+.home-page .accordion-body {
+    font-size: 15px;
+
+}
+
+.home-page .gallery .box {
+    background-color: transparent;
+    height: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.home-page .gallery .box img {
+    transition: .8s;
+}
+/* 
+.gallery .box:hover img {
+    transform: scale(1.1);
+} */
+
+.home-page .feedback .text{
+    width: 700px;
+    align-items: center;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.home-page .imge-pf{
+    margin-top: 30px;
+    width: 800px;
+    height: 300px;  
+    border-radius: 12px;
+    background-color: aqua;
+    
+}
+
+footer{
+    width: 100%;
+    /* height: 100px; */
+}
