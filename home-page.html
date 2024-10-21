@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-xl fixed-top navbar-dark align-items-center z-3">
+            <div class="container-xxl px-4 ">
+                <a class="navbar-brand" href="">
+                    <h3 class="text-black m-0">PetZone</h3>
+                </a>
+                <div class="offcanvas offcanvas-start bg-offcanvasNavbar" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel" data-bs-scroll="true" data-bs-backdrop="false">
+
+                    <div class="offcanvas-body bg-transparent">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 me-5 ms-xl-4 ms-xxl-5 ">
+                            <li class="nav-item mx-lg-2">
+                                <a class="nav-link text-black fw-medium" href="">Home</a>
+                            </li>
+
+                            <li class="nav-item mx-lg-2 dropdown">
+                                <a class="nav-link dropdown-toggle text-black fw-medium" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Service
+                                </a>
+                                <ul class="dropdown-menu bg-black">
+                                    <li><a class="dropdown-item text-white" href="">Pet training</a>
+                                    </li>
+                                    <li><a class="dropdown-item text-white" href="">Pet
+                                            Consulting</a></li>
+                                    <li><a class="dropdown-item text-white" href="">Pet Grooming</a>
+                                    </li>
+                                    <li><a class="dropdown-item text-white" href="">Pet Day care</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item mx-lg-2 dropdown ">
+                                <a class="nav-link dropdown-toggle text-black fw-medium" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    About
+                                </a>
+                                <ul class="dropdown-menu bg-black text-black fw-medium">
+                                    <li><a class="dropdown-item text-white" href="">About us</a></li>
+                                    <li><a class="dropdown-item text-white" href="">About
+                                            PetZone</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item mx-lg-2">
+                                <a class="nav-link text-black fw-medium" href="">Feedback</a>
+                            </li>
+                            <li class="nav-item mx-lg-2">
+                                <a class="nav-link text-black fw-medium" href="">Contact</a>
+                            </li>
+                            <!-- <li class="nav-item mx-lg-2 dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    
+                                </a>
+                                <ul class="dropdown-menu ">
+                                    <li><a class="dropdown-item" href="contact.html">ទំនាក់ទំនងយើង</a></li>
+                                    <li><a class="dropdown-item" href="faq-page.html">សំណួរ​
+                                            និងចម្លើយ</a></li>
+                                </ul>
+                            </li> -->
+                        </ul>
+                        <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-center">
+                                <button class="py-2 px-4 rounded-2 border-0">Booking</button>
+                                <form class="d-none d-xl-flex" role="search" title="ស្វែងរក">
+                                    <button class="btn btn-icon" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#searchModal">
+                                        <i class="fa-solid fa-search"></i>
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div class="dropdown-center dropdown-account">
+                                <ul class="dropdown-menu  mt-4 rounded-3 py-2">
+                                    <div class="card border-0 ">
+                                        <div class="account-header d-flex flex-column align-items-center px-5 pt-2">
+                                            <div class="mb-2">
+                                                <img class="border border-brand border-2 rounded-circle object-fit-cover"
+                                                    src="" alt="#" width="60px">
+                                            </div>
+                                            <div
+                                                class="d-flex flex-column align-items-center justify-content-center text-whitee">
+                                                <h5 class="mb-0">NIKI</h5>
+                                                <p>niki@gmail.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <li>
+                                        <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                            aria-current="page">
+                                            <div>
+                                                <i class="fa-solid fa-address-card me-3"></i>
+                                            </div>
+                                            My Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                            aria-current="page">
+                                            <div>
+                                                <i class="fa-solid fa-bag-shopping me-3"></i>
+                                            </div>
+                                            Booking
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                            aria-current="page">
+                                            <div>
+                                                <i class="fa-solid fa-ticket me-3"></i>
+                                            </div>
+                                            Review
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                            aria-current="page">
+                                            <div>
+                                                <i class="fa-solid fa-bell me-3"></i>
+                                            </div>
+                                            Notification
+                                            <span class="badge ms-auto bg-brand rounded-pill fw-normal">6</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                            aria-current="page">
+                                            <div>
+                                                <i class="fa-solid fa-book me-3"></i>
+
+                                            </div>
+                                            Privacy
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href=""
+                                            class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
+                                            aria-current="page">
+                                            <div>
+                                                <i class="fa-solid fa-right-from-bracket me-3"></i>
+                                            </div>
+                                            Log out
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="py-0  position-relative z-0">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade ">
+                <div class="carousel-inner">
+                    <div class="carousel-item active c-item ">
+                        <img src="images/img-pet/cat and dog-4.jpg" class="d-block w-100 c-img z-0" alt="...">
+                    </div>
+                    <div class="carousel-item c-item ">
+                        <img src="images/img-pet/cat and dog-2.jpg.jpg" class="d-block w-100 c-img m-0" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+            </div>
+        </section>
+        <section class="margin-bottom section-top z-3">
+            <div class="container">
+                <div class="servie d-flex gap-3">
+                    <div class="col-3">
+                        <div class="card text-center align-items-center py-3">
+                            <i class="fa-solid fa-house-laptop fs-2 "></i>
+                            <p class="fs-3 mb-0">Grooming</p>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card text-center align-items-center py-3">
+                            <i class="fa-solid fa-house-laptop fs-2 "></i>
+                            <p class="fs-3 mb-0">Grooming</p>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card text-center align-items-center py-3">
+                            <i class="fa-solid fa-house-laptop fs-2 "></i>
+                            <p class="fs-3 mb-0">Grooming</p>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card text-center align-items-center py-3">
+                            <i class="fa-solid fa-house-laptop fs-2 "></i>
+                            <p class="fs-3 mb-0">Grooming</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="about margin-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <img src="images/img-pet/dog-edit.jpg" alt="">
+                    </div>
+                    <div class="col-6 px-text pt-5">
+                        <p class="fw-bold color-text">About Us</p>
+                        <h3 class="">
+                            We Love to Take Care of Your Pets
+                        </h3>
+                        <p>Pawscare is the largest specialty pet retailer of services and solutions for the lifetime
+                            needs of pets. At Pawscare, we love pets, and we believe pets make us better people.</p>
+
+                        <div class="row pt-3">
+                            <div class="col-6 d-flex">
+                                <i class="fa-regular fa-circle-check fs-3 color-text"></i>
+                                <p class="ps-3">Pets Care 24/7</p>
+                            </div>
+                            <div class="col-6 d-flex">
+                                <i class="fa-regular fa-circle-check fs-3 color-text"></i>
+                                <p class="ps-3">Skilled Personal</p>
+                            </div>
+                            <div class="col-6 d-flex pt-2">
+                                <i class="fa-regular fa-circle-check fs-3 color-text"></i>
+                                <p class="ps-3">Best Service</p>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="little-facts margin-bottom position-relative">
+            <img src="images/img-pet/dog-2.jpg" class="position-absolute" alt="">
+            <div class="container">
+                <div class="row d-flex position-relative">
+                    <div class="col-6 flex-column px-4  text-white position-absolute">
+                        <h1>Some Little Facts About Our Company</h1>
+                        <button type="button" class="btn color-bg text-white py-2 px-4 mt-3">Learn more</button>
+                    </div>
+                    <!-- <div class="col-6 bottom-0">
+                        <div class="row d-flex">
+                            <div class="col-2 position-absolute">
+                                <div class="box">
+                                    <p>hello</p>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div> -->
+                </div>
+                <div class="box position-absolute bottom-0">
+                    <div class="row ps-4 pt-4 d-flex  justify-content-between align-items-center text-center">
+                        <div class="col-2 ">
+                            <img src="https://wgl-dsites.net/pawscare/wp-content/uploads/2021/06/p1.png" alt="">
+                        </div>
+                        <div class="col-2">
+                            <img src="https://wgl-dsites.net/pawscare/wp-content/uploads/2021/06/p2.png" alt="">
+                        </div>
+                        <div class="col-2">
+                            <img src=" https://wgl-dsites.net/pawscare/wp-content/uploads/2021/06/p3.png" alt="">
+                        </div>
+                        <div class="col-2">
+                            <img src=" https://wgl-dsites.net/pawscare/wp-content/uploads/2021/06/p3.png" alt="">
+                        </div>
+                        <div class="col-2">
+                            <img src=" https://wgl-dsites.net/pawscare/wp-content/uploads/2021/06/p3.png" alt="">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="benefits  margin-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+
+                        <p class="fw-bold color-text">Benefits</p>
+                        <h3>
+                            Why Choose Our Pet Care Company?
+                        </h3>
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item" data-aos-once="true">
+                                <h2 class="accordion-header pt-4 pb-1">
+                                    <button class=" accordion-button shadow-none collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                        aria-expanded="false" aria-controls="flush-collapseOne">
+                                        <i class="fa-solid fa-star me-2 color-text"></i>
+                                        <span class="fs-5 ">Quality toys & food for your pets</span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body ">
+                                        Please be aware that you will be charged for the rest of your pet’s meals up to
+                                        $5/meal. If you do not bring your pet’s own food, we offer our Fromm’s house
+                                        cuisine.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item" data-aos-once="true">
+                                <h2 class="accordion-header pt-4 pb-1">
+                                    <button class=" accordion-button shadow-none collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+                                        aria-expanded="false" aria-controls="flush-collapseTwo">
+                                        <i class="fa-solid fa-star me-2 color-text"></i>
+                                        <span class="fs-5">Quality toys & food for your pets</span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body ">
+                                        Please be aware that you will be charged for the rest of your pet’s meals up to
+                                        $5/meal. If you do not bring your pet’s own food, we offer our Fromm’s house
+                                        cuisine.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item" data-aos-once="true">
+                                <h2 class="accordion-header pt-4 pb-1">
+                                    <button class=" accordion-button shadow-none collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+                                        aria-expanded="false" aria-controls="flush-collapseThree">
+                                        <i class="fa-solid fa-star me-2 color-text"></i>
+                                        <span class="fs-5">Quality toys & food for your pets</span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body ">
+                                        Please be aware that you will be charged for the rest of your pet’s meals up to
+                                        $5/meal. If you do not bring your pet’s own food, we offer our Fromm’s house
+                                        cuisine.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item" data-aos-once="true">
+                                <h2 class="accordion-header pt-4 pb-1">
+                                    <button class="accordion-button shadow-none collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseFour"
+                                        aria-expanded="false" aria-controls="flush-collapseFour">
+                                        <i class="fa-solid fa-star me-2 color-text"></i>
+                                        <span class="fs-5">Quality toys & food for your pets</span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseFour" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body ">
+                                        Please be aware that you will be charged for the rest of your pet’s meals up to
+                                        $5/meal. If you do not bring your pet’s own food, we offer our Fromm’s house
+                                        cuisine.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <img src="images/img-pet/cat-edit.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery margin-bottom">
+            <div class="container-fluid">
+                <div class="row g-4" id="lightgallery">
+                    <div class="col-md-12 col-lg-6">
+                        <div class="box">
+                            <a href="" role="button">
+                                <img src="images/img-pet/cat-1.jpg" class="w-100 h-100 object-fit-cover" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="box">
+                            <a href="">
+                                <img src="images/img-pet/cat-1.jpg" class="w-100 h-100 object-fit-cover" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="box">
+                            <a href="">
+                                <img src="images/img-pet/cat-1.jpg" class="w-100 h-100 object-fit-cover" alt="" /><img
+                                    class="w-100 h-100 object-fit-cover" src="" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-lg-4">
+                        <div class="box">
+                            <a href="">
+                                <img src="images/img-pet/cat-1.jpg" class="w-100 h-100 object-fit-cover" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-4">
+                        <div class="box">
+                            <a href="">
+                                <img src="images/img-pet/cat-1.jpg" class="w-100 h-100 object-fit-cover" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feedback margin-bottom">
+            <div class="container">
+                <div class="text text-center ">
+                    <p class="fw-bold color-text ">About Us</p>
+                    <h3 class="">
+                        Here from Our Happy Pet Owners.
+                    </h3>
+                    <p>PawsZone is the largest specialty pet retailer of services and solutions for the lifetime
+                        needs of pets. At Pawscare, we love pets, and we believe pets make us better people.</p>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+
+                    </div>
+                </div>
+            </div>
+
+    </section>	
+    </main>
+
+    <footer class="color-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <a class="" href="">
+                        <p>PetZone</p>
+                    </a>
+                </div>
+                <div class="col-6"></div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const myCarouselElement = document.querySelector('#myCarousel')
+        const carousel = new bootstrap.Carousel(myCarouselElement, {
+            touch: false
+        })
+
+    </script>
+
+</body> 
+</html>
