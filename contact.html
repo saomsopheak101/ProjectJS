@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css/bootstrap-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .hero-contact {
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-size: 3rem;
+            padding: 20px;
+            margin-bottom: 50px;
+        }
+
+        .hero-contact h1 {
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .breadcrumb {
+            background-color: #fff;
+            padding: 8px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .breadcrumb a,
+        .breadcrumb span {
+            font-weight: bold;
+            color: orange;
+        }
+
+        .breadcrumb span::before {
+            content: ">";
+            color: orange;
+            margin-right: 5px;
+        }
+
+        .contact-information .subtile-con {
+            margin: 0 0 9px;
+            padding: 6px 15px;
+            width: 120px;
+            border-radius: 5px;
+            color: #F69946;
+            background-color: #FFFFFF;
+            box-shadow: 4px 3px 9px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-information h1 {
+            font-size: 35px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .socail-contact .phone-num,
+        .socail-contact .work-time,
+        .socail-contact .email-add,
+        .socail-contact .socail-media{
+            border-radius: 10px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .socail-contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #F69946;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .socail-contact-title h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .email-add,
+        .socail-media,
+        .work-time {
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .email-add i,
+        .socail-media i,
+        .work-time i {
+            margin-right: 5px;
+        }
+
+        .contact-map {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section>
+            <div class="hero-contact d-flex flex-column"
+                style="background-image: url(https://wgl-dsites.net/pawscare/wp-content/uploads/2021/05/bg-title-contact.jpg);">
+                <h1 class="text-white">Contact Us</h1>
+                <div class="breadcrumb">
+                    <a href="#" class="me-2">Home</a>
+                    <span>Contact</span>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-4 contact-information">
+                        <div class="subtile-con fw-bold">GET IN TOUCH</div>
+                        <h1>Stay Connected</h1>
+                        <p>Ullamcorper malesuada proin libero nunc. Tempor commodo ullamcorper a lacus vestibulum sed.</p>
+                        <div class="socail-contact">
+                            <div class="phone-num">
+                                <div class="socail-contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="socail-contact-title">
+                                    <h3>Our Phone Number</h3>
+                                    091-235 2574 2566
+                                </div>
+                            </div>
+                            <div class="email-add">
+                                <div class="socail-contact-icon">
+                                     <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="socail-contact-title">
+                                    <h3>Email Address</h3>
+                                     <a href="mailto:pawscare@example.com">pawscare@example.com</a>
+                                </div>
+                            </div>
+                            <div class="work-time">
+                                <div class="socail-contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="socail-contact-title">
+                                    <h3>Working Hours</h3>
+                                    Mon-Fri: 8:00 AM - 6:00 PM<br>
+                                </div>
+                            </div>
+                            <div class="socail-media d-flex justify-content-center align-items-center">
+                                <div class="socail-contact-icon">
+                                    <i class="fab fa-telegram"></i>
+                                </div>
+                                <div class="socail-contact-icon">
+                                    <i class="fab fa-facebook-square"></i>
+                                </div>
+                                <div class="socail-contact-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8 contact-map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1950.9742378625174!2d104.88801101097519!3d11.572213192346236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109519e0c9b2109%3A0x8b8d35d80b920ffc!2sANT%20Technology%20Training%20School!5e0!3m2!1sen!2skh!4v1729427594695!5m2!1sen!2skh"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contact-form">
+            <div class="container">
+                <h2 class="text-center mb-4">Get in Touch</h2>
+                <div class="form-contact">
+                    <form action="">
+                        <div class="row card py-4">
+                            <div class="col-12 col-md-6 mb-3">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <div class="form-group">
+                                    <label for="subject">website</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="Enter website" required>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea class="form-control" id="message" rows="4" placeholder="Your message here..."  required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+</body>
+
+</html>
