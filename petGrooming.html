@@ -11,7 +11,6 @@
         body {
             background-color: #ffffff;
         }
-
         .hero-banner {
             height: 70vh;
             /* Full height of the viewport */
@@ -26,7 +25,6 @@
 </head>
 
 <body>
-
     <main>
         <section>
             <div class="hero-banner">
@@ -59,10 +57,10 @@
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="floatingInput"
                                         placeholder="name@example.com">
-                                    <label for="floatingInput">Full Name</label>
+                                    <label for="floatingInput">Your Name</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput"
+                                    <input type="tel" class="form-control" id="floatingInput"
                                         placeholder="name@example.com">
                                     <label for="floatingInput">Contact Number</label>
                                 </div>
@@ -73,57 +71,58 @@
                                     <option value="1">Bathing and Drying</option>
                                     <option value="1">Hair DIY</option>
                                 </select>
-                                <div class="form-floating mb-3">
-                                    <input type="date" class="form-control" id="floatingInput"
-                                        placeholder="name@example.com">
-                                    <label for="floatingInput">Date</label>
+                                <div class="input-group mb-3">
+                                    <input type="date" class="form-control" placeholder="Date" aria-label="Username"
+                                        aria-describedby="basic-addon1">
+                                    <span class="input-group-text" id="basic-addon1"><i
+                                            class="fa-regular fa-calendar-days"></i></span>
                                 </div>
                                 <div class="d-flex flex-wrap column-gap-2">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
+                                            id="flexRadioDefault1" value="8:00am">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             8:00am
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
+                                            id="flexRadioDefault1" value="9:00am">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             9:00am
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
+                                            id="flexRadioDefault1" value="11:00am">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             11:00am
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
+                                            id="flexRadioDefault1" value="1:00pm">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             1:00pm
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
+                                            id="flexRadioDefault1" value="2:00pm">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             2:00pm
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
+                                            id="flexRadioDefault1" value="3:00pm">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             3:00pm
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
+                                            id="flexRadioDefault1" value="4:00pm">
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             4:00pm
                                         </label>
@@ -138,8 +137,6 @@
         </section>
         <section class="my-5">
             <div class="container">
-                <h1 class="text-center fw-bold">Pricing</h1>
-                <h6 class="text-center"><span class="badge text-bg-warning text-white">Service price list</span></h6>
                 <div class="row my-5">
                     <div class="col-6">
                         <div class="row row-gap-3">
@@ -153,89 +150,102 @@
                                 <img src="images/service/nail-trimming.jpg" class="w-100" alt="">
                             </div>
                             <div class="col-6 overflow-hidden" style="height: 180px;">
+                                <img src="images/service/teeth_brushing.jpeg" class="w-100" alt="">
+                            </div>
+                            <div class="col-6 overflow-hidden" style="height: 180px;">
                                 <img src="images/service/brushing.jpg" class="w-100" alt="">
+                            </div>
+                            <div class="col-6 overflow-hidden" style="height: 180px;">
+                                <img src="images/service/hairDIY.jpg" class="w-100" alt="">
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 d-flex justify-content-center">
-                        <div class="bg-body-secondary p-5 rounded-4 text-black shadow">
-                            <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active text-black" id="home-tab" data-bs-toggle="tab"
-                                        data-bs-target="#home-tab-pane" type="button" role="tab"
-                                        aria-controls="home-tab-pane" aria-selected="true">Dog</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link text-black" id="profile-tab" data-bs-toggle="tab"
-                                        data-bs-target="#profile-tab-pane" type="button" role="tab"
-                                        aria-controls="profile-tab-pane" aria-selected="false">Cat</button>
-                                </li>
-                            </ul>
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane show active" id="home-tab-pane" role="tabpanel"
-                                    aria-labelledby="home-tab" tabindex="0">
-                                    <p class="fs-4 mb-0">Nail
-                                        Trimming...............................................................
-                                        <span>10$</span>/day
-                                    </p>
-                                    <p class="fs-4 mb-0">Coat
-                                        Trimming.........................................................
-                                        <span>10$</span>/day
-                                    </p>
-                                    <p class="fs-4 mb-0">Bathing and
-                                        Drying...............................................
-                                        <span>15$</span>/day
-                                    </p>
-                                    <p class="fs-4 mb-0">Brushing and
-                                        Haircuts............................................
-                                        <span>15$</span>/day
-                                    </p>
-                                    <p class="fs-4 mb-0"> Paw Pad
-                                        Care........................................................
-                                        <span>8$</span>/day
-                                    </p>
-                                    <p class="fs-4 mb-0">Ear and Oral
-                                        Care........................................................
-                                        <span>12$</span>/day
-                                    </p>
-                                    <p class="fs-4 mb-0">Hair
-                                        DIY............................................................................
-                                        <span>10$</span>/day
-                                    </p>
-                                </div>
-                                <div class="tab-pane" id="profile-tab-pane" role="tabpanel"
-                                    aria-labelledby="profile-tab" tabindex="0">
-                                    <p class="fs-4 mb-0">Nail
-                                        Trimming...............................................................
-                                        <span>8$</span>/day
-                                    </p>
-                                    <p class="fs-4 mb-0">Coat
-                                        Trimming.........................................................
-                                        <span>8$</span>/day
-                                    </p>
-                                    <p class="fs-4 mb-0">Bathing and
-                                        Drying...............................................
-                                        <span>10$</span>/day
-                                    </p>
-                                    <p class="fs-4 mb-0">Brushing and
-                                        Haircuts............................................
-                                        <span>12$</span>/day
-                                    </p>
-                                    <p class="fs-4 mb-0"> Paw Pad
-                                        Care........................................................
-                                        <span>6$</span>/day
-                                    </p>
-                                    <p class="fs-4 mb-0">Ear and Oral
-                                        Care........................................................
-                                        <span>10$</span>/day
-                                    </p>
-                                    <p class="fs-4 mb-0">Hair
-                                        DIY............................................................................
-                                        <span>10$</span>/day
-                                    </p>
-                                </div>
-                            </div>
+                    <div class="col-6">
+                        <h1 class=" fw-bold">Pricing</h1>
+                        <h6><span class="badge text-bg-warning text-white mb-3">Pricing list</span>
+                        </h6>
+                        <div class="d-flex justify-content-center">
 
+
+                            <div class="bg-body-secondary p-5 rounded-4 text-black shadow">
+                                <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active text-black" id="home-tab" data-bs-toggle="tab"
+                                            data-bs-target="#home-tab-pane" type="button" role="tab"
+                                            aria-controls="home-tab-pane" aria-selected="true">Dog</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link text-black" id="profile-tab" data-bs-toggle="tab"
+                                            data-bs-target="#profile-tab-pane" type="button" role="tab"
+                                            aria-controls="profile-tab-pane" aria-selected="false">Cat</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane show active" id="home-tab-pane" role="tabpanel"
+                                        aria-labelledby="home-tab" tabindex="0">
+                                        <p class="fs-4 mb-0">Nail
+                                            Trimming...............................................................
+                                            <span>10$</span>/day
+                                        </p>
+                                        <p class="fs-4 mb-0">Coat
+                                            Trimming.........................................................
+                                            <span>10$</span>/day
+                                        </p>
+                                        <p class="fs-4 mb-0">Bathing and
+                                            Drying...............................................
+                                            <span>15$</span>/day
+                                        </p>
+                                        <p class="fs-4 mb-0">Brushing and
+                                            Haircuts............................................
+                                            <span>15$</span>/day
+                                        </p>
+                                        <p class="fs-4 mb-0"> Paw Pad
+                                            Care........................................................
+                                            <span>8$</span>/day
+                                        </p>
+                                        <p class="fs-4 mb-0">Ear and Oral
+                                            Care........................................................
+                                            <span>12$</span>/day
+                                        </p>
+                                        <p class="fs-4 mb-0">Hair
+                                            DIY............................................................................
+                                            <span>10$</span>/day
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane" id="profile-tab-pane" role="tabpanel"
+                                        aria-labelledby="profile-tab" tabindex="0">
+                                        <p class="fs-4 mb-0">Nail
+                                            Trimming...............................................................
+                                            <span>8$</span>/day
+                                        </p>
+                                        <p class="fs-4 mb-0">Coat
+                                            Trimming.........................................................
+                                            <span>8$</span>/day
+                                        </p>
+                                        <p class="fs-4 mb-0">Bathing and
+                                            Drying...............................................
+                                            <span>10$</span>/day
+                                        </p>
+                                        <p class="fs-4 mb-0">Brushing and
+                                            Haircuts............................................
+                                            <span>12$</span>/day
+                                        </p>
+                                        <p class="fs-4 mb-0"> Paw Pad
+                                            Care........................................................
+                                            <span>6$</span>/day
+                                        </p>
+                                        <p class="fs-4 mb-0">Ear and Oral
+                                            Care........................................................
+                                            <span>10$</span>/day
+                                        </p>
+                                        <p class="fs-4 mb-0">Hair
+                                            DIY............................................................................
+                                            <span>10$</span>/day
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -250,6 +260,7 @@
                     <div class="col-6">
                         <form action="" class="bg-body-secondary p-3">
                             <div class="row">
+                                <h4 class="fw-bold text-black-50">Add You Review Here!</h4>
                                 <div class="col-7">
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="floatingInput"
@@ -282,7 +293,9 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <div class="row">
-                                        <img src="images/avatar/5.jpg" alt="" class="rounded-circle position-absolute z-2" style="width: 70px;left: 100px;bottom: 0;">
+                                        <img src="images/avatar/5.jpg" alt=""
+                                            class="rounded-circle position-absolute z-2"
+                                            style="width: 70px;left: 100px;bottom: 0;">
                                         <div class="col-4 position-relative">
                                             <img src="images/avatar/3.jpg" alt="" class="rounded-circle">
                                         </div>
@@ -296,7 +309,9 @@
                                 </div>
                                 <div class="carousel-item">
                                     <div class="row">
-                                        <img src="images/avatar/5.jpg" alt="" class="rounded-circle position-absolute z-2" style="width: 70px;left: 100px;bottom: 0;">
+                                        <img src="images/avatar/5.jpg" alt=""
+                                            class="rounded-circle position-absolute z-2"
+                                            style="width: 70px;left: 100px;bottom: 0;">
                                         <div class="col-4 position-relative">
                                             <img src="images/avatar/3.jpg" alt="" class="rounded-circle">
                                         </div>
@@ -310,7 +325,9 @@
                                 </div>
                                 <div class="carousel-item">
                                     <div class="row">
-                                        <img src="images/avatar/5.jpg" alt="" class="rounded-circle position-absolute z-2" style="width: 70px;left: 100px;bottom: 0;">
+                                        <img src="images/avatar/5.jpg" alt=""
+                                            class="rounded-circle position-absolute z-2"
+                                            style="width: 70px;left: 100px;bottom: 0;">
                                         <div class="col-4 position-relative">
                                             <img src="images/avatar/3.jpg" alt="" class="rounded-circle">
                                         </div>
@@ -324,7 +341,9 @@
                                 </div>
                                 <div class="carousel-item">
                                     <div class="row">
-                                        <img src="images/avatar/5.jpg" alt="" class="rounded-circle position-absolute z-2" style="width: 70px;left: 100px;bottom: 0;">
+                                        <img src="images/avatar/5.jpg" alt=""
+                                            class="rounded-circle position-absolute z-2"
+                                            style="width: 70px;left: 100px;bottom: 0;">
                                         <div class="col-4 position-relative">
                                             <img src="images/avatar/3.jpg" alt="" class="rounded-circle">
                                         </div>
