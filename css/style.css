@@ -1,3 +1,4 @@
+ 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
@@ -10,159 +11,6 @@ body {
     font-family: "Poppins", sans-serif;
     background-color: rgb(255, 255, 255);
 }
-
-/* start service */
-.main-services .main-section{
-
-.main-section {
-    height: 80vh;
-    background-image: url(../images/service/pet-service.webp);
-.main-section{
-    height: 60vh;
-    background-image: url(../images/service/images\ \(1\).jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    /* background-position: center; */
-}
-.main-services .consult .container{
-.consult .container {
-    width: 1200px !important;
-}
-
-.main-section .overlay {
-    height: 80vh;
-    background-color: rgba(68, 68, 68, 0.5);
-}
-
-.main-section .container .main-content {
-    text-align: center;
-.main-section .overlay{
-    height: 60vh;
-    background-color: rgba(68, 68, 68, 0.35);
-}
-.main-section .container .main-content{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-top: 130px;
-    /* background-color: aqua; */
-}
-
-.services .card .card-body {
-    height: 351.7px;
-}
-
-.consult .consult-content {
-    background-color: rgb(185, 185, 231);
-.main-section .container .main-content .content h1{
-   font-size: 40px;
-}
-.services .card .card-body{
-    height: 351.7px;
-}
-.main-services .consult .container{
-
-    background-image: url(../images/service/daycare.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.main-services .consult .cosult-section{
-    background-color: rgba(185, 185, 231,0.5);
-}
-.main-services .consult .consult-content .content h2{
-
-.consult .consult-content .content h2 {
-    width: 150px;
-    background-color: white;
-
-}
-
-.consult .container .image {
-    background-color: #f1f1f1;
-    
-}
-/* .services .service-section .card .card-body .btn{
-    background-color: #f49943;
-} */
-
-.services .service-section .card{
-    transition: .5s;
-    position: relative;
-    overflow: hidden;
-    border: none;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
-   
-}
-.main-services p{
-    color: #000;
-}
-.services .service-section .card .card-body{
-    transition: .5s;
-}
-.services .service-section .card:hover .card-body{
-    transform: scale(1.03,1.03);
-    transition: .5s;
-}
-.main-services .benifit .benifit-content .col-3 .image{
-    width: 140px;
-    height: 140px;
-    border-radius: 100%;
-}
-.main-services .benifit .benifit-content .col-3{
-    border-radius: 100%;
-    width: 140px;
-    height: 140px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    /* background-color: #f49943; */
-
-}
-.main-services .benifit .benifit-content .col-3 .image img{
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    object-fit: cover;
-}
-.main-services .benifit .benifit-content .col-9 h2{
-    color: #f49943;
-}
-
-
-/* .services .service-section .card::after{
-    content: '';
-    width: 100%;
-    height: 100%;
-    background-color: #f5ae6b;
-    position: absolute;
-    left: -100%;
-    transition: 0.5s;
-    transform: scale(1.02,1.02);
-} */
-
-.services .service-section .card:hover::after{
-    left: 0;
-}
-.services .service-section .card .card-body{
-    position: relative;
-    z-index: 2;
-}
-.consult .content input,
-.consult .content textarea{
-    background-color: #f1f1f1;
-}
-.consult .container .image{
-    margin-right: 0 !important;
-    padding-right: 0 !important;
-}
-
-/* end service */
 
 .c-item {
     height: 80vh;
@@ -378,6 +226,7 @@ body {
     position: relative;
 }
 
+
 .home-page .gallery .box img {
     transition: .8s;
 }
@@ -541,3 +390,130 @@ footer .copyright a{
     text-decoration: none;
     color: #fff;
 }
+
+
+/* =========sithat==== */
+/* start service */
+.main-services .main-section{
+    height: 60vh;
+    background-image: url(../images/service/images\ \(1\).jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    /* background-position: center; */
+}
+.main-services .consult .container{
+    width: 1200px !important;
+}
+.main-services .main-section .overlay{
+    height: 60vh;
+    background-color: rgba(68, 68, 68, 0.35);
+}
+.main-services .main-section .container .main-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 130px;
+    /* background-color: aqua; */
+}
+.main-services .main-section .container .main-content .content h1{
+   font-size: 40px;
+}
+.main-services .services .card .card-body{
+    height: 351.7px;
+}
+.main-services .consult .container{
+
+    background-image: url(../images/service/daycare.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.main-services .consult .cosult-section{
+    background-color: rgba(185, 185, 231,0.5);
+}
+.main-services .consult .consult-content .content h2{
+    width: 150px;
+    background-color: #f1f1f1;
+    
+}
+/* .services .service-section .card .card-body .btn{
+    background-color: #f49943;
+} */
+
+.main-services .services .service-section .card{
+    transition: .5s;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+   
+}
+.main-services p{
+    color: #0000;
+}
+.main-services .services .service-section .card .card-body{
+    transition: .5s;
+}
+.main-services .services .service-section .card:hover .card-body{
+    transform: scale(1.03,1.03);
+    transition: .5s;
+}
+.main-services .benifit .benifit-content .col-3 .image{
+    width: 140px;
+    height: 140px;
+    border-radius: 100%;
+}
+.main-services .benifit .benifit-content .col-3{
+    border-radius: 100%;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /* background-color: #f49943; */
+
+}
+.main-services .benifit .benifit-content .col-3 .image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    object-fit: cover;
+}
+.main-services .benifit .benifit-content .col-9 h2{
+    color: #f49943;
+}
+
+
+/* .services .service-section .card::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #f5ae6b;
+    position: absolute;
+    left: -100%;
+    transition: 0.5s;
+    transform: scale(1.02,1.02);
+} */
+
+.main-services .services .service-section .card:hover::after{
+    left: 0;
+}
+.main-services .services .service-section .card .card-body{
+    position: relative;
+    z-index: 2;
+}
+.main-services .consult .content input,
+.consult .content textarea{
+    background-color: #f1f1f1;
+}
+.main-services .consult .container .image{
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* end service */
