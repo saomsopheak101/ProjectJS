@@ -1,6 +1,6 @@
 
 /* start service */
-.main-section{
+.main-services .main-section{
     height: 60vh;
     background-image: url(../images/service/images\ \(1\).jpg);
     background-size: cover;
@@ -8,7 +8,7 @@
     width: 100%;
     /* background-position: center; */
 }
-.consult .container{
+.main-services .consult .container{
     width: 1200px !important;
 }
 .main-section .overlay{
@@ -32,16 +32,16 @@
 .services .card .card-body{
     height: 351.7px;
 }
-.consult .container{
+.main-services .consult .container{
 
     background-image: url(../images/service/daycare.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
-.consult .cosult-section{
+.main-services .consult .cosult-section{
     background-color: rgba(185, 185, 231,0.5);
 }
-.consult .consult-content .content h2{
+.main-services .consult .consult-content .content h2{
     width: 150px;
     background-color: #f1f1f1;
     
