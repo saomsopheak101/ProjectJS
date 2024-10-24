@@ -39,9 +39,16 @@
 
 	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 	<link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-	<link href="../../cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css" rel="stylesheet">
+	<!-- <link href="../../cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css" rel="stylesheet"> -->
+	<link href="vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="vendor/fullcalendar/calendar-gc.min.css"> -->
+
+
+	<!-- Clockpicker -->
+	<link href="vendor/clockpicker/css/bootstrap-clockpicker.min.css" rel="stylesheet">
 	<link href="vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
+	<link rel="stylesheet" href="vendor/fullcalendar/css/main.min.css">
 	<!-- tagify-css -->
 	<link href="vendor/tagify/dist/tagify.css" rel="stylesheet">
 
@@ -49,7 +56,14 @@
 	<link href="css/bootstrap-min.css" rel="stylesheet">
 
 </head>
+<style>
+	.fa-chevron-right{
+		text-align: center;
+	}
 
+
+
+</style>
 <body>
 
 	<!--*******************
@@ -1220,12 +1234,12 @@
 							<span class="nav-text">Consult</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="task.html">Tasks</a></li>
-							<li><a href="task-summary.html">Task Summary</a></li>
+							<li><a href="consult-reply.html">Reply Clients</a></li>
+							<li><a href="consult-table.html">History Clients</a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="performance.html" aria-expanded="false">
+						<a href="trainee.html" aria-expanded="false">
 							<div class="menu-icon">
 								<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
 									xmlns="http://www.w3.org/2000/svg">
@@ -1240,7 +1254,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="project.html" aria-expanded="false">
+						<a href="manage-acc.html" aria-expanded="false">
 							<div class="menu-icon">
 								<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
 									xmlns="http://www.w3.org/2000/svg">
@@ -1258,109 +1272,27 @@
 							<span class="nav-text">Manage Clients</span>
 						</a>
 					</li>
-					<li>
-						<a href="reports.html" aria-expanded="false">
-							<div class="menu-icon">
-								<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path fill-rule="evenodd" clip-rule="evenodd"
-										d="M13.5096 2.53165H7.41104C5.50437 2.52432 3.94146 4.04415 3.89654 5.9499V15.7701C3.85437 17.7071 5.38979 19.3121 7.32671 19.3552C7.35512 19.3552 7.38262 19.3561 7.41104 19.3552H14.7343C16.6538 19.2773 18.1663 17.6915 18.1525 15.7701V7.36798L13.5096 2.53165Z"
-										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
-									<path
-										d="M13.2688 2.52084V5.18742C13.2688 6.48909 14.3211 7.54417 15.6228 7.54784H18.1482"
-										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M13.0974 14.0786H8.1474" stroke="#888888" stroke-linecap="round"
-										stroke-linejoin="round" />
-									<path d="M11.2229 10.6388H8.14655" stroke="#888888" stroke-linecap="round"
-										stroke-linejoin="round" />
-								</svg>
-							</div>
-							<span class="nav-text">Feedback</span>
-						</a>
-					</li>
-					<li class="menu-title">OUR FEATURES</li>
-					<li>
+					
+                    <li>
 						<a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
 							<div class="menu-icon">
-								<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path fill-rule="evenodd" clip-rule="evenodd"
-										d="M10.986 14.0673C7.4407 14.0673 4.41309 14.6034 4.41309 16.7501C4.41309 18.8969 7.4215 19.4521 10.986 19.4521C14.5313 19.4521 17.5581 18.9152 17.5581 16.7693C17.5581 14.6234 14.5505 14.0673 10.986 14.0673Z"
-										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
-									<path fill-rule="evenodd" clip-rule="evenodd"
-										d="M10.986 11.0054C13.3126 11.0054 15.1983 9.11881 15.1983 6.79223C15.1983 4.46564 13.3126 2.57993 10.986 2.57993C8.65944 2.57993 6.77285 4.46564 6.77285 6.79223C6.76499 9.11096 8.63849 10.9975 10.9563 11.0054H10.986Z"
-										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+								<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M13.5096 2.53165H7.41104C5.50437 2.52432 3.94146 4.04415 3.89654 5.9499V15.7701C3.85437 17.7071 5.38979 19.3121 7.32671 19.3552C7.35512 19.3552 7.38262 19.3561 7.41104 19.3552H14.7343C16.6538 19.2773 18.1663 17.6915 18.1525 15.7701V7.36798L13.5096 2.53165Z" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
+									<path d="M13.2688 2.52084V5.18742C13.2688 6.48909 14.3211 7.54417 15.6228 7.54784H18.1482" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
+									<path d="M13.0974 14.0786H8.1474" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
+									<path d="M11.2229 10.6388H8.14655" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
 								</svg>
-							</div>
-							<span class="nav-text">Profile <span
-									class="badge badge-danger badge-xs ms-1">NEW</span></span>
+							</div>	
+							<span class="nav-text">Feedback</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="profile/overview.html">Overview</a></li>
-							<li><a href="profile/projects.html">Projects</a></li>
-							<li><a href="profile/projects-details.html">Projects Details</a></li>
-							<li><a href="profile/campaigns.html">Campaigns</a></li>
-							<li><a href="profile/documents.html">Documents</a></li>
-							<li><a href="profile/followers.html">Followers</a></li>
-							<li><a href="profile/activity.html">Activity</a></li>
+							<li><a href="feedback-check.html">Verify Reviews</a></li>
+							<li><a href="feedback-table.html">History Reviews</a></li>
 						</ul>
-					</li>
-					<li>
-						<a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
-							<div class="menu-icon">
-								<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path fill-rule="evenodd" clip-rule="evenodd"
-										d="M10.986 14.0673C7.4407 14.0673 4.41309 14.6034 4.41309 16.7501C4.41309 18.8969 7.4215 19.4521 10.986 19.4521C14.5313 19.4521 17.5581 18.9152 17.5581 16.7693C17.5581 14.6234 14.5505 14.0673 10.986 14.0673Z"
-										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
-									<path fill-rule="evenodd" clip-rule="evenodd"
-										d="M10.986 11.0054C13.3126 11.0054 15.1983 9.11881 15.1983 6.79223C15.1983 4.46564 13.3126 2.57993 10.986 2.57993C8.65944 2.57993 6.77285 4.46564 6.77285 6.79223C6.76499 9.11096 8.63849 10.9975 10.9563 11.0054H10.986Z"
-										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
-							</div>
-							<span class="nav-text">Account<span
-									class="badge badge-danger badge-xs ms-1">NEW</span></span>
-						</a>
-						<ul aria-expanded="false">
-							<li><a href="account/overview.html">Overview</a></li>
-							<li><a href="account/settings.html">Settings</a></li>
-							<li><a href="account/security.html">Security</a></li>
-							<li><a href="account/activity.html">Activity</a></li>
-							<li><a href="account/billing.html">Billing</a></li>
-							<li><a href="account/statements.html">Statements</a></li>
-							<li><a href="account/referrals.html">Referrals</a></li>
-							<li><a href="account/api-keys.html">Api Keys</a></li>
-							<li><a href="account/logs.html">Logs</a></li>
-						</ul>
-					</li>
-
-					<li>
-						<a href="widget-basic.html" class="" aria-expanded="false">
-							<div class="menu-icon">
-								<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path fill-rule="evenodd" clip-rule="evenodd"
-										d="M2.75 5.95833C2.75 3.55189 2.77577 2.75 5.95833 2.75C9.1409 2.75 9.16667 3.55189 9.16667 5.95833C9.16667 8.36478 9.17682 9.16667 5.95833 9.16667C2.73985 9.16667 2.75 8.36478 2.75 5.95833Z"
-										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
-									<path fill-rule="evenodd" clip-rule="evenodd"
-										d="M12.8333 5.95833C12.8333 3.55189 12.8591 2.75 16.0416 2.75C19.2242 2.75 19.25 3.55189 19.25 5.95833C19.25 8.36478 19.2601 9.16667 16.0416 9.16667C12.8232 9.16667 12.8333 8.36478 12.8333 5.95833Z"
-										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
-									<path fill-rule="evenodd" clip-rule="evenodd"
-										d="M2.75 16.0417C2.75 13.6352 2.77577 12.8333 5.95833 12.8333C9.1409 12.8333 9.16667 13.6352 9.16667 16.0417C9.16667 18.4481 9.17682 19.25 5.95833 19.25C2.73985 19.25 2.75 18.4481 2.75 16.0417Z"
-										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
-									<path fill-rule="evenodd" clip-rule="evenodd"
-										d="M12.8333 16.0417C12.8333 13.6352 12.8591 12.8333 16.0416 12.8333C19.2242 12.8333 19.25 13.6352 19.25 16.0417C19.25 18.4481 19.2601 19.25 16.0416 19.25C12.8232 19.25 12.8333 18.4481 12.8333 16.0417Z"
-										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
-							</div>
-							<span class="nav-text">Widget</span>
-						</a>
 					</li>
 
 				</ul>
-				<div class="help-desk">
-					<a href="javascript:void(0)" class="btn btn-primary">Help Desk</a>
-				</div>
+		
 			</div>
 		</div>
 
@@ -1406,17 +1338,17 @@
 											<li class="nav-item">
 												<a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
 													href="#pills-home" role="tab" aria-controls="pills-home"
-													aria-selected="true">Pending approval</a>
+													aria-selected="true">Pending</a>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+												<a class="nav-link mx-2" id="pills-profile-tab" data-bs-toggle="pill"
 													href="#pills-profile" role="tab" aria-controls="pills-profile"
-													aria-selected="false">Aproved</a>
+													aria-selected="false">Approved</a>
 											</li>
 											<li class="nav-item">
 												<a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
 													href="#pills-contact" role="tab" aria-controls="pills-contact"
-													aria-selected="false">Contact</a>
+													aria-selected="false">Calendar</a>
 											</li>
 										</ul>
 									</div>
@@ -1429,56 +1361,81 @@
 													<!-- Center alignment -->
 													<div class="card ">
 														<div class="card-header d-flex ">
-															<span class="text-secondary fw-medium fs-20">29 Nov 24</span>
-															<span class="text-success fs">11:35	 PM</span>
+															<span class="text-secondary fw-medium fs-20">29 Nov
+																24</span>
+															<span class="text-success fs">11:35 PM</span>
 														</div>
 														<div class="card-body p-0 w">
-															<table  class="table-warning  w-100">
-                                                                <thead class="px-2">
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light  col-5">Owner Name  </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Mr Hong</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Phone Number </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span> 078 868 213</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Pet Type </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span> poodle US</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Pet Name </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Leap Leap</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Weight</th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>18 Kilos</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Year old </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>5 Years</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Paid </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>50%</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Service </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Grooming</span></td>
-                                                                    </tr>
-                                                                    <tbody>
-                                                                    
-                                                                    </tbody>
-                                                                </thead>
-                                                            </table>
+															<table class="table-warning  w-100">
+																<thead class="px-2">
+																	<tr>
+																		<th class="text-start text-bg-light  col-5">
+																			Owner Name </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Mr Hong</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Phone
+																			Number </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span> 078 868 213</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Pet Type
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span> poodle US</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Pet Name
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Leap Leap</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Weight</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>18 Kilos</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Year old
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>5 Years</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Paid </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>50%</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Service
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Grooming</span></td>
+																	</tr>
+																<tbody>
+
+																</tbody>
+																</thead>
+															</table>
 														</div>
 														<div class="card-footer d-flex ">
-                                                            <div class="col-5"> 
-                                                                <button class="btn btn-danger w-100  rounded-5">Cancel</button>
-                                                            </div>
-                                                            <button class="btn btn-info rounded-5 mx-auto w-50">Confirm</button>
-                                                            <p></p>
+															<div class="col-5">
+																<button
+																	class="btn btn-danger w-100  rounded-5">Cancel</button>
+															</div>
+															<button
+																class="btn btn-info rounded-5 mx-auto w-50">Confirm</button>
+															<p></p>
 														</div>
 													</div>
 												</div>
@@ -1486,56 +1443,81 @@
 													<!-- Center alignment -->
 													<div class="card ">
 														<div class="card-header d-flex ">
-															<span class="text-secondary fw-medium fs-20">29 Nov 24</span>
-															<span class="text-success fs">11:35	 PM</span>
+															<span class="text-secondary fw-medium fs-20">29 Nov
+																24</span>
+															<span class="text-success fs">11:35 PM</span>
 														</div>
 														<div class="card-body p-0 w">
-															<table  class="table-warning  w-100">
-                                                                <thead class="px-2">
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light  col-5">Owner Name  </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Mr Hong</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Phone Number </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span> 078 868 213</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Pet Type </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span> poodle US</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Pet Name </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Leap Leap</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Weight</th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>18 Kilos</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Year old </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>5 Years</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Paid </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>50%</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Service </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Grooming</span></td>
-                                                                    </tr>
-                                                                    <tbody>
-                                                                    
-                                                                    </tbody>
-                                                                </thead>
-                                                            </table>
+															<table class="table-warning  w-100">
+																<thead class="px-2">
+																	<tr>
+																		<th class="text-start text-bg-light  col-5">
+																			Owner Name </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Mr Hong</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Phone
+																			Number </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span> 078 868 213</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Pet Type
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span> poodle US</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Pet Name
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Leap Leap</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Weight</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>18 Kilos</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Year old
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>5 Years</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Paid </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>50%</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Service
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Grooming</span></td>
+																	</tr>
+																<tbody>
+
+																</tbody>
+																</thead>
+															</table>
 														</div>
 														<div class="card-footer d-flex ">
-                                                            <div class="col-5"> 
-                                                                <button class="btn btn-danger w-100  rounded-5">Cancel</button>
-                                                            </div>
-                                                            <button class="btn btn-info rounded-5 mx-auto w-50">Confirm</button>
-                                                            <p></p>
+															<div class="col-5">
+																<button
+																	class="btn btn-danger w-100  rounded-5">Cancel</button>
+															</div>
+															<button
+																class="btn btn-info rounded-5 mx-auto w-50">Confirm</button>
+															<p></p>
 														</div>
 													</div>
 												</div>
@@ -1543,56 +1525,81 @@
 													<!-- Center alignment -->
 													<div class="card ">
 														<div class="card-header d-flex ">
-															<span class="text-secondary fw-medium fs-20">29 Nov 24</span>
-															<span class="text-success fs">11:35	 PM</span>
+															<span class="text-secondary fw-medium fs-20">29 Nov
+																24</span>
+															<span class="text-success fs">11:35 PM</span>
 														</div>
 														<div class="card-body p-0 w">
-															<table  class="table-warning  w-100">
-                                                                <thead class="px-2">
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light  col-5">Owner Name  </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Mr Hong</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Phone Number </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span> 078 868 213</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Pet Type </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span> poodle US</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Pet Name </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Leap Leap</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Weight</th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>18 Kilos</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Year old </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>5 Years</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Paid </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>50%</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Service </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Grooming</span></td>
-                                                                    </tr>
-                                                                    <tbody>
-                                                                    
-                                                                    </tbody>
-                                                                </thead>
-                                                            </table>
+															<table class="table-warning  w-100">
+																<thead class="px-2">
+																	<tr>
+																		<th class="text-start text-bg-light  col-5">
+																			Owner Name </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Mr Hong</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Phone
+																			Number </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span> 078 868 213</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Pet Type
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span> poodle US</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Pet Name
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Leap Leap</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Weight</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>18 Kilos</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Year old
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>5 Years</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Paid </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>50%</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Service
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Grooming</span></td>
+																	</tr>
+																<tbody>
+
+																</tbody>
+																</thead>
+															</table>
 														</div>
 														<div class="card-footer d-flex ">
-                                                            <div class="col-5"> 
-                                                                <button class="btn btn-danger w-100  rounded-5">Cancel</button>
-                                                            </div>
-                                                            <button class="btn btn-info rounded-5 mx-auto w-50">Confirm</button>
-                                                            <p></p>
+															<div class="col-5">
+																<button
+																	class="btn btn-danger w-100  rounded-5">Cancel</button>
+															</div>
+															<button
+																class="btn btn-info rounded-5 mx-auto w-50">Confirm</button>
+															<p></p>
 														</div>
 													</div>
 												</div>
@@ -1600,56 +1607,81 @@
 													<!-- Center alignment -->
 													<div class="card ">
 														<div class="card-header d-flex ">
-															<span class="text-secondary fw-medium fs-20">29 Nov 24</span>
-															<span class="text-success fs">11:35	 PM</span>
+															<span class="text-secondary fw-medium fs-20">29 Nov
+																24</span>
+															<span class="text-success fs">11:35 PM</span>
 														</div>
 														<div class="card-body p-0 w">
-															<table  class="table-warning  w-100">
-                                                                <thead class="px-2">
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light  col-5">Owner Name  </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Mr Hong</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Phone Number </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span> 078 868 213</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Pet Type </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span> poodle US</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Pet Name </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Leap Leap</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Weight</th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>18 Kilos</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Year old </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>5 Years</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Paid </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>50%</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Service </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Grooming</span></td>
-                                                                    </tr>
-                                                                    <tbody>
-                                                                    
-                                                                    </tbody>
-                                                                </thead>
-                                                            </table>
+															<table class="table-warning  w-100">
+																<thead class="px-2">
+																	<tr>
+																		<th class="text-start text-bg-light  col-5">
+																			Owner Name </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Mr Hong</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Phone
+																			Number </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span> 078 868 213</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Pet Type
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span> poodle US</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Pet Name
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Leap Leap</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Weight</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>18 Kilos</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Year old
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>5 Years</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Paid </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>50%</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Service
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Grooming</span></td>
+																	</tr>
+																<tbody>
+
+																</tbody>
+																</thead>
+															</table>
 														</div>
 														<div class="card-footer d-flex ">
-                                                            <div class="col-5"> 
-                                                                <button class="btn btn-danger w-100  rounded-5">Cancel</button>
-                                                            </div>
-                                                            <button class="btn btn-info rounded-5 mx-auto w-50">Confirm</button>
-                                                            <p></p>
+															<div class="col-5">
+																<button
+																	class="btn btn-danger w-100  rounded-5">Cancel</button>
+															</div>
+															<button
+																class="btn btn-info rounded-5 mx-auto w-50">Confirm</button>
+															<p></p>
 														</div>
 													</div>
 												</div>
@@ -1657,202 +1689,278 @@
 													<!-- Center alignment -->
 													<div class="card ">
 														<div class="card-header d-flex ">
-															<span class="text-secondary fw-medium fs-20">29 Nov 24</span>
-															<span class="text-success fs">11:35	 PM</span>
+															<span class="text-secondary fw-medium fs-20">29 Nov
+																24</span>
+															<span class="text-success fs">11:35 PM</span>
 														</div>
 														<div class="card-body p-0 w">
-															<table  class="table-warning  w-100">
-                                                                <thead class="px-2">
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light  col-5">Owner Name  </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Mr Hong</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Phone Number </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span> 078 868 213</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Pet Type </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span> poodle US</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Pet Name </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Leap Leap</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Weight</th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>18 Kilos</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Year old </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>5 Years</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Paid </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>50%</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="text-start text-bg-light">Service </th>
-                                                                        <td class="text-center  text-white  text-bg-info"><span>Grooming</span></td>
-                                                                    </tr>
-                                                                    <tbody>
-                                                                    
-                                                                    </tbody>
-                                                                </thead>
-                                                            </table>
+															<table class="table-warning  w-100">
+																<thead class="px-2">
+																	<tr>
+																		<th class="text-start text-bg-light  col-5">
+																			Owner Name </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Mr Hong</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Phone
+																			Number </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span> 078 868 213</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Pet Type
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span> poodle US</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Pet Name
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Leap Leap</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Weight</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>18 Kilos</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Year old
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>5 Years</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Paid </th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>50%</span></td>
+																	</tr>
+																	<tr>
+																		<th class="text-start text-bg-light">Service
+																		</th>
+																		<td
+																			class="text-center  text-white  text-bg-info">
+																			<span>Grooming</span></td>
+																	</tr>
+																<tbody>
+
+																</tbody>
+																</thead>
+															</table>
 														</div>
 														<div class="card-footer d-flex ">
-                                                            <div class="col-5"> 
-                                                                <button class="btn btn-danger w-100  rounded-5">Cancel</button>
-                                                            </div>
-                                                            <button class="btn btn-info rounded-5 mx-auto w-50">Confirm</button>
-                                                            <p></p>
+															<div class="col-5">
+																<button
+																	class="btn btn-danger w-100  rounded-5">Cancel</button>
+															</div>
+															<button
+																class="btn btn-info rounded-5 mx-auto w-50">Confirm</button>
+															<p></p>
 														</div>
 													</div>
 												</div>
-										
+
 											</div>
 
 										</div>
 										<div class="tab-pane fade" id="pills-profile" role="tabpanel"
-											aria-labelledby="pills-profile-tab">	
-                                            <table id="empoloyees-tblwrapperr" class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Owner Name</th>
-                                                        <th>Phone Number</th>
-                                                        <th>Pet Types</th>
-                                                        <th>Pet Name</th>
-                                                        <th>Weight</th>
-                                                        <th>Year Old</th>
-                                                        <th>Service Name</th>
-                                                        <th>Paid</th>
-                                                        <th class="text-center">Actions</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><span>Mr Hong</span></td>
-                                                        <td>
-                                                            <span class="text-primary">+91 123 456 7890</span>
-                                                        </td>
-                                                        <td><span class="text-purple">Poodle US</span></td>
-                                                        <td>
-                                                            <span class="">Leap Leap</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-success">15 Kilo</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-blue">5 Years</span>
-                                                        </td>	
-                                                        <td>
-                                                            <span class="">Grooming</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="badge badge-danger light border-0">50%</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="">
-                                                               
-                                                                <button type="button" class="btn btn-danger btn-icon-md px-4 rounded-5 btn-icon-xs"><i class="fa-sharp fa-solid fa-bell"></i> Set Reminder</button>
-                                                                
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span>Mr Hong</span></td>
-                                                        <td>
-                                                            <span class="text-primary">+91 123 456 7890</span>
-                                                        </td>
-                                                        <td><span class="text-purple">Poodle US</span></td>
-                                                        <td>
-                                                            <span class="">Len Len</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-success">15 Kilo</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-blue">5 Years</span>
-                                                        </td>	
-                                                        <td>
-                                                            <span class="">Daycare</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="badge badge-success light border-0">100%</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="">
-                                                               
-                                                                <button type="button" class="btn btn-danger btn-icon-md px-4 rounded-5 btn-icon-xs"><i class="fa-sharp fa-solid fa-bell"></i> Set Reminder</button>
-                                                                
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-                                                   
-        
-                                    
-                                                </tbody>
-                                                
-                                            </table>
+											aria-labelledby="pills-profile-tab">
+											<table id="empoloyees-tblwrapperr" class="table">
+												<thead>
+													<tr>
+														<th>Owner Name</th>
+														<th>Phone Number</th>
+														<th>Pet Types</th>
+														<th>Pet Name</th>
+														<th>Weight</th>
+														<th>Year Old</th>
+														<th>Service Name</th>
+														<th>Paid</th>
+														<th class="text-center">Actions</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><span>Mr Hong</span></td>
+														<td>
+															<span class="text-primary">+91 123 456 7890</span>
+														</td>
+														<td><span class="text-purple">Poodle US</span></td>
+														<td>
+															<span class="">Leap Leap</span>
+														</td>
+														<td>
+															<span class="text-success">15 Kilo</span>
+														</td>
+														<td>
+															<span class="text-blue">5 Years</span>
+														</td>
+														<td>
+															<span class="">Grooming</span>
+														</td>
+														<td>
+															<span class="badge badge-danger light border-0">50%</span>
+														</td>
+														<td>
+															<span class="">
+
+																<button type="button"
+																	class="btn btn-danger btn-icon-md px-4 rounded-5 btn-icon-xs"><i
+																		class="fa-sharp fa-solid fa-bell"></i> Set
+																	Reminder</button>
+
+															</span>
+														</td>
+													</tr>
+													<tr>
+														<td><span>Mr Hong</span></td>
+														<td>
+															<span class="text-primary">+91 123 456 7890</span>
+														</td>
+														<td><span class="text-purple">Poodle US</span></td>
+														<td>
+															<span class="">Len Len</span>
+														</td>
+														<td>
+															<span class="text-success">15 Kilo</span>
+														</td>
+														<td>
+															<span class="text-blue">5 Years</span>
+														</td>
+														<td>
+															<span class="">Daycare</span>
+														</td>
+														<td>
+															<span class="badge badge-success light border-0">100%</span>
+														</td>
+														<td>
+															<span class="">
+
+																<button type="button"
+																	class="btn btn-danger btn-icon-md px-4 rounded-5 btn-icon-xs"><i
+																		class="fa-sharp fa-solid fa-bell"></i> Set
+																	Reminder</button>
+
+															</span>
+														</td>
+													</tr>
+
+
+
+												</tbody>
+
+											</table>
 
 										</div>
 										<div class="tab-pane fade" id="pills-contact" role="tabpanel"
 											aria-labelledby="pills-contact-tab">
 											<div class="col-xl-12 col-md-6">
-								<div class="card">
-									<div class="card-header border-0">
-										<h4 class="heading mb-0">Upcoming Holidays</h4>
-									</div>
-									<div class="card-body schedules-cal p-2">
-										<input type="text" class="form-control d-none" id="datetimepicker1">
-										<div class="events">
-											<h6>events</h6>
-											<div class="dz-scroll event-scroll">
-												<div class="event-media">
-													<div class="d-flex align-items-center">
-														<div class="event-box">
-															<h5 class="mb-0">20</h5>
-															<span>Mon</span>
+												<div class="card">
+													<div class="card-header border-0">
+														<h4 class="heading mb-0">Upcoming Holidays</h4>
+													</div>
+<!-- Calendar =========== -->
+													<div class="row">
+														<div class="col-xxl-3 col-xl-4">
+															<div class="card">
+																<div class="card-body">
+																	<h4 class="card-intro-title">Calendar</h4>
+									
+																	<div class="">
+																		<div id="external-events" class="my-3">
+																			<p>Drag and drop your event or click in the calendar</p>
+																			<div class="external-event btn-primary light" data-class="bg-primary"><i class="fa fa-move"></i><span>New Theme Release</span></div>
+																			<div class="external-event btn-warning light" data-class="bg-warning"><i class="fa fa-move"></i>My Event
+																			</div>
+																			<div class="external-event btn-danger light" data-class="bg-danger"><i class="fa fa-move"></i>Meet manager</div>
+																			<div class="external-event btn-info light" data-class="bg-info"><i class="fa fa-move"></i>Create New theme</div>
+																			<div class="external-event btn-dark light" data-class="bg-dark"><i class="fa fa-move"></i>Project Launch</div>
+																			<div class="external-event btn-secondary light" data-class="bg-secondary"><i class="fa fa-move"></i>Meeting</div>
+																		</div>
+																		<!-- checkbox -->
+																		<div class="checkbox form-check checkbox-event custom-checkbox pt-3 pb-5">
+																			<input type="checkbox" class="form-check-input" id="drop-remove">
+																			<label class="form-check-label" for="drop-remove">Remove After Drop</label>
+																		</div>
+																		<a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#add-category" class="btn btn-primary btn-event w-100">
+																			<span class="align-middle"><i class="ti-plus me-2"></i></span> Create New
+																		</a>
+																	</div>
+																</div>
+															</div>
 														</div>
-														<div class="event-data ms-2">
-															<h5 class="mb-0">Development planning</h5>
-															<span>w3it Technologies</span>
+														<div class="col-xxl-9 col-xl-8">
+															<div class="card" onload="">
+																<div class="card-body">
+																	<div id="calendar" class="app-fullcalendar"></div>
+																</div>
+															</div>
+														</div>
+														<!-- BEGIN MODAL -->
+														<div class="modal fade none-border" id="event-modal">
+															<div class="modal-dialog">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h4 class="modal-title"><strong>Add New Event</strong></h4>
+																	</div>
+																	<div class="modal-body"></div>
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-default waves-effect" data-bs-dismiss="modal">Close</button>
+																		<button type="button" class="btn btn-success save-event waves-effect waves-light">Create
+																			event</button>
+									
+																		<button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-bs-toggle="modal">Delete</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!-- Modal Add Category -->
+														<div class="modal fade none-border" id="add-category">
+															<div class="modal-dialog modal-dialog-centered">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h4 class="modal-title"><strong>Add a category</strong></h4>
+																		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+																	</div>
+																	<div class="modal-body">
+																		<form>
+																			<div class="row">
+																				<div class="col-md-6">
+																					<label class="control-label form-label">Category Name</label>
+																					<input class="form-control form-white" placeholder="Category Name" type="text" name="category-name">
+																				</div>
+																				<div class="col-md-6">
+																					<label class="control-label form-label">Choose Category Color</label>
+																					<select class="form-control default-select form-white" data-placeholder="Choose a color..." name="category-color">
+																						<option value="success">Success</option>
+																						<option value="danger">Danger</option>
+																						<option value="info">Info</option>
+																						<option value="pink">Pink</option>
+																						<option value="primary">Primary</option>
+																						<option value="warning">Warning</option>
+																					</select>
+																				</div>
+																			</div>
+																		</form>
+																	</div>
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-danger light waves-effect" data-bs-dismiss="modal">Close</button>
+																		<button type="button" class="btn btn-primary waves-effect waves-light save-category" data-bs-toggle="modal">Save</button>
+																	</div>
+																</div>
+															</div>
 														</div>
 													</div>
-													<span class="text-secondary">12:05 PM</span>
 												</div>
-												<div class="event-media">
-													<div class="d-flex align-items-center">
-														<div class="event-box">
-															<h5 class="mb-0">21</h5>
-															<span>Wed</span>
-														</div>
-														<div class="event-data ms-2">
-															<h5 class="mb-0">W3CRM planning</h5>
-															<span>Dexignzone Technologies</span>
-														</div>
-													</div>
-													<span class="text-secondary">12:05 PM</span>
-												</div>
-												<div class="event-media">
-													<div class="d-flex align-items-center">
-														<div class="event-box">
-															<h5 class="mb-0">20</h5>
-															<span>Mon</span>
-														</div>
-														<div class="event-data ms-2">
-															<h5 class="mb-0">Development planning</h5>
-															<span>w3it Technologies</span>
-														</div>
-													</div>
-													<span class="text-secondary">12:05 PM</span>
-												</div>
-											</div>	
-										</div>
-									</div>
-								</div>
-							</div>
+											</div>
 
 										</div>
 									</div>
@@ -1948,13 +2056,14 @@
 	<script src="vendor/datatables/js/jszip.min.js"></script>
 	<script src="js/plugins-init/datatables.init.js"></script>
 
+	<!-- <script src="vendor/fullcalendar/calendar-gc.min.js"></script> -->
+  <script src="vendor/fullcalendar/js/main.min.js"></script>
+	<script src="js/plugins-init/fullcalendar-init.js"></script>
+	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	
 
-		 <!-- clockpicker -->
-		 <script src="vendor/clockpicker/js/bootstrap-clockpicker.min.js"></script>
-	
-		 <!-- Clockpicker init -->
-		 <script src="js/plugins-init/clock-picker-init.js"></script>
-	
+	<script src="js/fullcalendar-init.js"></script>
+
 	<!-- Apex Chart -->
 	<script src="js/custom.js"></script>
 	<script src="js/deznav-init.js"></script>

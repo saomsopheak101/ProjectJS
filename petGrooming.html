@@ -11,6 +11,7 @@
         body {
             background-color: #ffffff;
         }
+
         .hero-banner {
             height: 70vh;
             /* Full height of the viewport */
@@ -18,8 +19,88 @@
             /* Add your background image */
             background-size: cover;
             /* Cover the entire area */
-            background-position: left center;
+            background-position: left bottom;
             /* Center the background image */
+        }
+
+        .paw1,
+        .paw2,
+        .paw3 {
+            opacity: 0;
+        }
+
+        .cat {
+            animation-name: rotate;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+        }
+        .paw1 {
+            animation-name: paw1-display;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+            animation-delay: 3s;
+        }
+
+        .paw2 {
+            animation-name: paw2-display;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+            animation-delay: 2s;
+        }
+
+        .paw3 {
+            animation-name: paw3-display;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+        }
+
+        @keyframes rotate {
+            0% {
+               transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(3deg);
+            }100%{
+                transform: rotate(-3deg);
+            }
+        }
+        @keyframes paw1-display {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes paw2-display {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes paw3-display {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -36,7 +117,7 @@
                                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt dolorem ea
                                     delectus dolor corrupti nisi veritatis, quae fuga, nam eaque expedita eius dicta
                                     obcaecati illo harum sequi officia ut consequatur.</p>
-                                <button class="btn btn-outline-warning" type="button" data-bs-toggle="offcanvas"
+                                <button class="btn btn-warning" type="button" data-bs-toggle="offcanvas"
                                     data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Book
                                     Now</button>
                             </div>
@@ -137,7 +218,101 @@
         </section>
         <section class="my-5">
             <div class="container">
-                <div class="row my-5">
+                <div class="row my-5 position-relative">
+                    <div class="col-6 position-relative">
+                        <img src="images/service/paw.png" class="paw1 position-absolute" alt=""
+                            style="width: 20px;z-index: 99;top: -80px;left: -40px;transform: rotate(30deg);">
+                        <img src="images/service/paw.png" class="paw2 position-absolute" alt=""
+                            style="width: 50px;z-index: 99;left: -100px;top: 20px;">
+                        <img src="images/service/paw.png" class="paw3 position-absolute" alt=""
+                            style="width: 40px;z-index: 99;left: -70px; top: 120px;">
+                        <h1 class=" fw-bold">Pricing</h1>
+                        <h6><span class="badge bg-white shadow text-warning mb-3 text-center">Pricing list</span>
+                        </h6>
+                        <div class="d-flex">
+
+
+                            <div class="bg-white p-5 rounded-4 text-black shadow">
+                                <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active text-black" id="home-tab" data-bs-toggle="tab"
+                                            data-bs-target="#home-tab-pane" type="button" role="tab"
+                                            aria-controls="home-tab-pane" aria-selected="true">Dog</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link text-black" id="profile-tab" data-bs-toggle="tab"
+                                            data-bs-target="#profile-tab-pane" type="button" role="tab"
+                                            aria-controls="profile-tab-pane" aria-selected="false">Cat</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane show active" id="home-tab-pane" role="tabpanel"
+                                        aria-labelledby="home-tab" tabindex="0">
+                                        <p class="fs-6 mb-0">Nail
+                                            Trimming...............................................................
+                                            <span>10$</span>/day
+                                        </p>
+                                        <p class="fs-6 mb-0">Coat
+                                            Trimming.........................................................
+                                            <span>10$</span>/day
+                                        </p>
+                                        <p class="fs-6 mb-0">Bathing and
+                                            Drying...............................................
+                                            <span>15$</span>/day
+                                        </p>
+                                        <p class="fs-6 mb-0">Brushing and
+                                            Haircuts............................................
+                                            <span>15$</span>/day
+                                        </p>
+                                        <p class="fs-6 mb-0"> Paw Pad
+                                            Care........................................................
+                                            <span>8$</span>/day
+                                        </p>
+                                        <p class="fs-6 mb-0">Ear and Oral
+                                            Care........................................................
+                                            <span>12$</span>/day
+                                        </p>
+                                        <p class="fs-6 mb-0">Hair
+                                            DIY............................................................................
+                                            <span>10$</span>/day
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane" id="profile-tab-pane" role="tabpanel"
+                                        aria-labelledby="profile-tab" tabindex="0">
+                                        <p class="fs-6 mb-0">Nail
+                                            Trimming...............................................................
+                                            <span>8$</span>/day
+                                        </p>
+                                        <p class="fs-6 mb-0">Coat
+                                            Trimming.........................................................
+                                            <span>8$</span>/day
+                                        </p>
+                                        <p class="fs-6 mb-0">Bathing and
+                                            Drying...............................................
+                                            <span>10$</span>/day
+                                        </p>
+                                        <p class="fs-6 mb-0">Brushing and
+                                            Haircuts............................................
+                                            <span>12$</span>/day
+                                        </p>
+                                        <p class="fs-6 mb-0"> Paw Pad
+                                            Care........................................................
+                                            <span>6$</span>/day
+                                        </p>
+                                        <p class="fs-6 mb-0">Ear and Oral
+                                            Care........................................................
+                                            <span>10$</span>/day
+                                        </p>
+                                        <p class="fs-6 mb-0">Hair
+                                            DIY............................................................................
+                                            <span>10$</span>/day
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-6">
                         <div class="row row-gap-3">
                             <div class="col-6" style="height: 180px;">
@@ -160,94 +335,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <h1 class=" fw-bold">Pricing</h1>
-                        <h6><span class="badge text-bg-warning text-white mb-3">Pricing list</span>
-                        </h6>
-                        <div class="d-flex justify-content-center">
-
-
-                            <div class="bg-body-secondary p-5 rounded-4 text-black shadow">
-                                <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active text-black" id="home-tab" data-bs-toggle="tab"
-                                            data-bs-target="#home-tab-pane" type="button" role="tab"
-                                            aria-controls="home-tab-pane" aria-selected="true">Dog</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link text-black" id="profile-tab" data-bs-toggle="tab"
-                                            data-bs-target="#profile-tab-pane" type="button" role="tab"
-                                            aria-controls="profile-tab-pane" aria-selected="false">Cat</button>
-                                    </li>
-                                </ul>
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane show active" id="home-tab-pane" role="tabpanel"
-                                        aria-labelledby="home-tab" tabindex="0">
-                                        <p class="fs-4 mb-0">Nail
-                                            Trimming...............................................................
-                                            <span>10$</span>/day
-                                        </p>
-                                        <p class="fs-4 mb-0">Coat
-                                            Trimming.........................................................
-                                            <span>10$</span>/day
-                                        </p>
-                                        <p class="fs-4 mb-0">Bathing and
-                                            Drying...............................................
-                                            <span>15$</span>/day
-                                        </p>
-                                        <p class="fs-4 mb-0">Brushing and
-                                            Haircuts............................................
-                                            <span>15$</span>/day
-                                        </p>
-                                        <p class="fs-4 mb-0"> Paw Pad
-                                            Care........................................................
-                                            <span>8$</span>/day
-                                        </p>
-                                        <p class="fs-4 mb-0">Ear and Oral
-                                            Care........................................................
-                                            <span>12$</span>/day
-                                        </p>
-                                        <p class="fs-4 mb-0">Hair
-                                            DIY............................................................................
-                                            <span>10$</span>/day
-                                        </p>
-                                    </div>
-                                    <div class="tab-pane" id="profile-tab-pane" role="tabpanel"
-                                        aria-labelledby="profile-tab" tabindex="0">
-                                        <p class="fs-4 mb-0">Nail
-                                            Trimming...............................................................
-                                            <span>8$</span>/day
-                                        </p>
-                                        <p class="fs-4 mb-0">Coat
-                                            Trimming.........................................................
-                                            <span>8$</span>/day
-                                        </p>
-                                        <p class="fs-4 mb-0">Bathing and
-                                            Drying...............................................
-                                            <span>10$</span>/day
-                                        </p>
-                                        <p class="fs-4 mb-0">Brushing and
-                                            Haircuts............................................
-                                            <span>12$</span>/day
-                                        </p>
-                                        <p class="fs-4 mb-0"> Paw Pad
-                                            Care........................................................
-                                            <span>6$</span>/day
-                                        </p>
-                                        <p class="fs-4 mb-0">Ear and Oral
-                                            Care........................................................
-                                            <span>10$</span>/day
-                                        </p>
-                                        <p class="fs-4 mb-0">Hair
-                                            DIY............................................................................
-                                            <span>10$</span>/day
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             </div>
@@ -255,39 +342,8 @@
         <section class="my-5">
             <div class="container">
                 <h1 class="text-center fw-bold">What Clients' say</h1>
-                <h6 class="text-center"><span class="badge text-bg-warning text-white">User Feedbacks</span></h6>
+                <h6 class="text-center"><span class="badge bg-white text-warning shadow">User Feedbacks</span></h6>
                 <div class="row my-4">
-                    <div class="col-6">
-                        <form action="" class="bg-body-secondary p-3">
-                            <div class="row">
-                                <h4 class="fw-bold text-black-50">Add You Review Here!</h4>
-                                <div class="col-7">
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingInput"
-                                            placeholder="name@example.com">
-                                        <label for="floatingInput">Full Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="input-group mb-3">
-
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="floatingInputGroup1"
-                                                placeholder="Username">
-                                            <label for="floatingInputGroup1">Rating</label>
-                                        </div>
-                                        <span class="input-group-text">/10</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
-                                    style="resize: none;"></textarea>
-                                <label for="floatingTextarea">Feedback</label>
-                            </div>
-                        </form>
-                    </div>
                     <div class="col-6 justify-content-center d-flex align-items-center">
                         <div id="carouselExample" class="carousel slide">
                             <div class="carousel-inner">
@@ -368,6 +424,40 @@
                             </button>
                         </div>
                     </div>
+                    <div class="col-6">
+                        <form action="" class="bg-body-secondary shadow p-3" style="z-index: 99;">
+                            <div class="row position-relative">
+                                <h4 class="fw-bold text-black-50">Add Your Review Here!</h4>
+                                <img src="images/service/grooming-2.png" class="cat position-absolute" alt=""
+                                    style="width: 100px; right: -95px; bottom:-60px;z-index: 66;">
+                                <div class="col-7 position-relative ">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput"
+                                            placeholder="name@example.com">
+                                        <label for="floatingInput">Full Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="input-group mb-3">
+
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="floatingInputGroup1"
+                                                placeholder="Username">
+                                            <label for="floatingInputGroup1">Rating</label>
+                                        </div>
+                                        <span class="input-group-text">/10</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
+                                    style="resize: none;"></textarea>
+                                <label for="floatingTextarea">Feedback</label>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </section>
