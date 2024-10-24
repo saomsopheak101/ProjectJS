@@ -1,596 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <title>Login Form</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .form-logAndris .btn-login a {
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 8px 0;
+            border-radius: 19px;
+            background-color: #f49943;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .form-logAndris .separator {
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.246);
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-logAndris .separator div {
+            position: absolute;
+            background-color: #ffffff;
+        }
+
+        .form-logAndris .socail-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 40px;
+            border-radius: 19px;
+            border: 1px solid #a4a4a4;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            transition: background-color 0.3s ease;
+            gap: 10px;
+        }
+
+        .form-logAndris .socail-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .form-logAndris .socail-btn p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .form-logAndris .img-form {
+            width: 100%;
+            height: 100%;
+            background-color: #f49943;
+        }
+
+        .form-logAndris .img-form img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .form-logAndris .img-logoform {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            background-color: #ffffff;
+        }
+
+        .form-logAndris .img-logoform img {
+
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .form-logAndris .input-with-icon {
+            padding-left: 35px;
+        }
+
+        .form-logAndris .icon-position {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: #aaa;
+            pointer-events: none;
+        }
+    </style>
 </head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .login-section{
-        width: 100vw;
-        height: 100vh;
-        background-color: #dfeffc;
-        overflow: hidden;
-        font-size: 12px;
-    }
-
-    .inspiration {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        padding: 10px;
-        text-align: center;
-        text-decoration: none;
-        font-family: 'Gill Sans', sans-serif;
-        font-size: 12px;
-        color: #969696;
-    }
-
-    .inspiration img {
-        width: 60px;
-    }
-
-    .center {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        display: inline-block;
-        width: 300px;
-        height: 510px;
-        border-radius: 3px;
-        transform: translate(-50%, -50%);
-        overflow: hidden;
-        background-image: linear-gradient(to top right, #f9a743, #f9db5f);
-    }
-
-    @media screen and (max-height: 500px) {
-        .center {
-            transition: transform 0.5s;
-            transform: translate(-50%, -50%) scale(0.8);
-        }
-    }
-
-    .center .ear {
-        position: absolute;
-        top: -110px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background-color: #243946;
-    }
-
-    .center .ear.ear--left {
-        left: -135px;
-    }
-
-    .center .ear.ear--right {
-        right: -135px;
-    }
-
-    .center .face {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 200px;
-        height: 150px;
-        margin: 80px auto 10px;
-        --rotate-head: 0deg;
-        transform: rotate(var(--rotate-head));
-        transition: transform 0.2s;
-        transform-origin: center 20px;
-    }
-
-    .center .eye {
-        display: inline-block;
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        background-color: #243946;
-    }
-
-    .center .eye.eye--left {
-        margin-right: 40px;
-    }
-
-    .center .eye.eye--right {
-        margin-left: 40px;
-    }
-
-    .center .eye .glow {
-        position: relative;
-        top: 3px;
-        right: -12px;
-        width: 12px;
-        height: 6px;
-        border-radius: 50%;
-        background-color: #fff;
-        transform: rotate(38deg);
-    }
-
-    .center .nose {
-        position: relative;
-        top: 30px;
-        transform: scale(1.1);
-    }
-
-    .center .nose .glow {
-        position: absolute;
-        top: 3px;
-        left: 32%;
-        width: 15px;
-        height: 8px;
-        border-radius: 50%;
-        background-color: #476375;
-    }
-
-    .center .mouth {
-        position: relative;
-        margin-top: 45px;
-    }
-
-    .center svg.smile {
-        position: absolute;
-        left: -28px;
-        top: -19px;
-        transform: scaleX(1.1);
-        stroke: #243946;
-    }
-
-    .center .mouth-hole {
-        position: absolute;
-        top: 0;
-        left: -50%;
-        width: 60px;
-        height: 15px;
-        border-radius: 50%/100% 100% 0% 0;
-        transform: rotate(180deg);
-        background-color: #243946;
-        z-index: -1;
-    }
-
-    .center .tongue {
-        position: relative;
-        top: 5px;
-        width: 30px;
-        height: 20px;
-        background-color: #ffd7dd;
-        transform-origin: top;
-        transform: rotateX(60deg);
-    }
-
-    .center .tongue.breath {
-        -webkit-animation: breath 0.3s infinite linear;
-        animation: breath 0.3s infinite linear;
-    }
-
-    .center .tongue-top {
-        position: absolute;
-        bottom: -15px;
-        width: 30px;
-        height: 30px;
-        border-radius: 15px;
-        background-color: #ffd7dd;
-    }
-
-    .center .line {
-        position: absolute;
-        top: 0;
-        width: 30px;
-        height: 5px;
-        background-color: #fcb7bf;
-    }
-
-    .center .median {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 4px;
-        height: 25px;
-        border-radius: 5px;
-        background-color: #fcb7bf;
-    }
-
-    .center .hands {
-        position: relative;
-    }
-
-    .center .hands .hand {
-        position: absolute;
-        top: -6px;
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        z-index: 1;
-    }
-
-    .center .hands .hand--left {
-        left: 50px;
-    }
-
-    .center .hands .hand--left.hide {
-        transform: translate(2px, -155px) rotate(-160deg);
-    }
-
-    .center .hands .hand--left.peek {
-        transform: translate(0px, -120px) rotate(-160deg);
-    }
-
-    .center .hands .hand--right {
-        left: 170px;
-    }
-
-    .center .hands .hand--right.hide {
-        transform: translate(-6px, -155px) rotate(160deg);
-    }
-
-    .center .hands .hand--right.peek {
-        transform: translate(-4px, -120px) rotate(160deg);
-    }
-
-    .center .hands .finger {
-        position: relative;
-        z-index: 0;
-    }
-
-    .center .hands .finger .bone {
-        width: 20px;
-        height: 20px;
-        border: 2px solid #243946;
-        border-bottom: none;
-        border-top: none;
-        background-color: #fac555;
-    }
-
-    .center .hands .finger .nail {
-        position: absolute;
-        left: 0;
-        top: 10px;
-        width: 20px;
-        height: 18px;
-        border-radius: 50%;
-        border: 2px solid #243946;
-        background-color: #fac555;
-        z-index: -1;
-    }
-
-    .center .hands .finger:nth-child(1),
-    .center .hands .finger:nth-child(3) {
-        left: 4px;
-        z-index: 1;
-    }
-
-    .center .hands .finger:nth-child(1) .bone,
-    .center .hands .finger:nth-child(3) .bone {
-        height: 10px;
-    }
-
-    .center .hands .finger:nth-child(3) {
-        left: -4px;
-    }
-
-    .center .hands .finger:nth-child(2) {
-        top: -5px;
-        z-index: 2;
-    }
-
-    .center .hands .finger:nth-child(1) .nail,
-    .center .hands .finger:nth-child(3) .nail {
-        top: 0px;
-    }
-
-    .center .login {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .center .login label {
-        position: relative;
-        padding: 0 20px;
-    }
-
-    .center .login label .fa {
-        position: absolute;
-        top: 40%;
-        left: 35px;
-        color: #bbb;
-    }
-
-    .center .login label .fa:before {
-        position: relative;
-        left: 1px;
-    }
-
-    .center .login input,
-    .center .login .login-button {
-        width: 100%;
-        height: 35px;
-        border: none;
-        border-radius: 30px;
-    }
-
-    .center .login input {
-        padding: 0 20px 0 40px;
-        margin: 5px 0;
-        box-shadow: none;
-        outline: none;
-    }
-
-    .center .login input::-moz-placeholder {
-        color: #ccc;
-    }
-
-    .center .login input:-ms-input-placeholder {
-        color: #ccc;
-    }
-
-    .center .login input::placeholder {
-        color: #ccc;
-    }
-
-    .center .login input.password {
-        padding: 0 90px 0 40px;
-    }
-
-    .center .login .password-button {
-        position: absolute;
-        top: 9px;
-        right: 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50px;
-        height: 27px;
-        border-radius: 20px;
-        border: none;
-        outline: none;
-        background-color: #243946;
-        color: #fff;
-    }
-
-    .bx-show {
-        font-size: 20px;
-    }
-
-    .center .login .password-button:active {
-        transform: scale(0.95);
-    }
-
-    .center .login .login-button {
-        width: calc(100% - 40px);
-        margin: 20px 20px 0;
-        outline: none;
-        background-color: #243946;
-        color: #fff;
-        transition: transform 0.1s;
-    }
-
-    .center .login .login-button:active {
-        transform: scale(0.95);
-    }
-
-    .center .social-buttons {
-        display: flex;
-        justify-content: center;
-        margin-top: 25px;
-    }
-
-    .center .social-buttons .social {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 35px;
-        height: 35px;
-        margin: 0 10px;
-        border-radius: 50%;
-        background-color: #243946;
-        color: #fff;
-        font-size: 18px;
-    }
-
-    .center .social-buttons .social:active {
-        transform: scale(0.95);
-    }
-
-    .center .footer {
-        text-align: center;
-        margin-top: 15px;
-    }
-
-    @-webkit-keyframes breath {
-
-        0%,
-        100% {
-            transform: rotateX(0deg);
-        }
-
-        50% {
-            transform: rotateX(60deg);
-        }
-    }
-
-    @keyframes breath {
-
-        0%,
-        100% {
-            transform: rotateX(0deg);
-        }
-
-        50% {
-            transform: rotateX(60deg);
-        }
-    }
-    .forgot-password{
-        margin-left: 28px;
-        font-size: 14px;
-        color: #ffffff;
-        text-decoration: underline;
-    }
-</style>
 
 <body>
-    <section class="login-section">
-        <div class="center">
-            <div class="ear ear--left"></div>
-            <div class="ear ear--right"></div>
-            <div class="face">
-                <div class="eyes">
-                    <div class="eye eye--left">
-                        <div class="glow"></div>
+    <header></header>
+    <main>
+        <section class="form-logAndris py-5">
+            <div class="container">
+                <div class="row g-0">
+                    <div class="col-6 shadow-lg px-4 rounded-start-2">
+                        <form action="#" method="post">
+                            <div class="img-logoform mx-auto d-flex justify-content-center align-items-center">
+                                <img src="images/login and signup/PetZone.png" alt="">
+                            </div>
+
+                            <div class="form-group position-relative">
+                                <input type="text" class="form-control mt-3 input-with-icon" id="email"
+                                    name="email" required placeholder="Your email">
+                                <i class="fa-solid fa-envelope icon-position"></i>
+                            </div>
+
+                            <div class="form-group position-relative">
+                                <input type="password" class="form-control mt-3 input-with-icon" id="password" name="password" required
+                                    placeholder="Your password">
+                                    <i class="fa-solid fa-lock icon-position"></i>
+                            </div>
+                            <div class="form-group form-check d-flex justify-content-between mt-3">
+                                <div class="check-box">
+                                    <input type="checkbox" class="form-check-input bg-secondary" id="remember">
+                                    <label class="form-check-label" for="remember">Remember me</label>
+                                </div>
+                                <a href="forgot-pass.html" class="forgot-password text-decoration-none text-secondary">Forgot
+                                    Password?</a>
+                            </div>
+                            <div class="form-group mt-3  btn-login">
+                                <a href="home-page.html"
+                                    class="d-flex justify-content-center align-items-center">Login</a>
+                            </div>
+                            <div class="separator position-relative mt-5">
+                                <div class="position-absolute">
+                                    OR
+                                </div>
+                            </div>
+                            <div class="login-with-socail">
+                                <a href="#" class="socail-btn">
+                                    <img src="images/login and signup/facebookk.png" alt="Facebook">
+                                    <p>Facebook</p>
+                                </a>
+                            </div>
+                            <div class="login-with-socail mt-3">
+                                <a href="#" class="socail-btn">
+                                    <img src="images/login and signup/googlee.png" alt="Facebook">
+                                    <p>Facebook</p>
+                                </a>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <p class="text-center">Don't have an account? <a href="signup.html"
+                                        class="text-decoration-none text-secondary">Sign up</a></p>
+                            </div>
+                        </form>
                     </div>
-                    <div class="eye eye--right">
-                        <div class="glow"></div>
+                    <div class="col-6">
+                        <div class="img-form rounded-end-2">
+                            <img src="images/login and signup/portrait-cute-dog_928869-30668-removebg-preview.png"
+                                alt="" class="rounded-end-2">
+                        </div>
                     </div>
-                </div>
-                <div class="nose">
-                    <svg width="38.161" height="22.03">
-                        <path
-                            d="M2.017 10.987Q-.563 7.513.157 4.754C.877 1.994 2.976.135 6.164.093 16.4-.04 22.293-.022 32.048.093c3.501.042 5.48 2.081 6.02 4.661q.54 2.579-2.051 6.233-8.612 10.979-16.664 11.043-8.053.063-17.336-11.043z"
-                            fill="#243946"></path>
-                    </svg>
-                    <div class="glow"></div>
-                </div>
-                <div class="mouth">
-                    <svg class="smile" viewBox="-2 -2 84 23" width="84" height="23">
-                        <path d="M0 0c3.76 9.279 9.69 18.98 26.712 19.238 17.022.258 10.72.258 28 0S75.959 9.182 79.987.161"
-                            fill="none" stroke-width="3" stroke-linecap="square" stroke-miterlimit="3"></path>
-                    </svg>
-                    <div class="mouth-hole"></div>
-                    <div class="tongue breath">
-                        <div class="tongue-top"></div>
-                        <div class="line"></div>
-                        <div class="median"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="hands">
-                <div class="hand hand--left">
-                    <div class="finger">
-                        <div class="bone"></div>
-                        <div class="nail"></div>
-                    </div>
-                    <div class="finger">
-                        <div class="bone"></div>
-                        <div class="nail"></div>
-                    </div>
-                    <div class="finger">
-                        <div class="bone"></div>
-                        <div class="nail"></div>
-                    </div>
-                </div>
-                <div class="hand hand--right">
-                    <div class="finger">
-                        <div class="bone"></div>
-                        <div class="nail"></div>
-                    </div>
-                    <div class="finger">
-                        <div class="bone"></div>
-                        <div class="nail"></div>
-                    </div>
-                    <div class="finger">
-                        <div class="bone"></div>
-                        <div class="nail"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="login">
-                <label>
-                    <div class="fa fa-phone"></div>
-                    <input class="username" type="text" autocomplete="on" placeholder="username" />
-                </label>
-                <label>
-                    <div class="fa fa-commenting"></div>
-                    <input class="password" type="password" autocomplete="off" placeholder="password" />
-                    <button class="password-button">
-                        <i class="fa-solid fa-eye"></i>
-                    </button>
-                </label>
-                <!-- forgot password -->
-                 <a href="forgot-pass.html" class="forgot-password">Forgot Password?</a>
-                <!-- login button -->
-                <button class="login-button">Login</button>
-                <div class="footer">Don't have an account? <a href="#">Sign up</a></div>
-            </div>
-            <div class="social-buttons">
-                <div class="social">
-                    <i class="fa-brands fa-facebook"></i>
-                </div>
-                <div class="social">
-                    <i class="fa-brands fa-telegram"></i>
-                </div>
-                <div class="social">
-                    <i class="fa-brands fa-instagram"></i>
                 </div>
             </div>
-        </div>
-    </section>
-        <script>
-
-            let usernameInput = document.querySelector('.username');
-            let passwordInput = document.querySelector('.password');
-            let showPasswordButton = document.querySelector('.password-button');
-            let face = document.querySelector('.face');
-
-            passwordInput.addEventListener('focus', event => {
-                document.querySelectorAll('.hand').forEach(hand => {
-                    hand.classList.add('hide');
-                });
-                document.querySelector('.tongue').classList.remove('breath');
-            });
-
-            passwordInput.addEventListener('blur', event => {
-                document.querySelectorAll('.hand').forEach(hand => {
-                    hand.classList.remove('hide');
-                    hand.classList.remove('peek');
-                });
-                document.querySelector('.tongue').classList.add('breath');
-            });
-
-            usernameInput.addEventListener('focus', event => {
-                let length = Math.min(usernameInput.value.length - 16, 19);
-                document.querySelectorAll('.hand').forEach(hand => {
-                    hand.classList.remove('hide');
-                    hand.classList.remove('peek');
-                });
-
-                face.style.setProperty('--rotate-head', `${-length}deg`);
-            });
-
-            usernameInput.addEventListener('blur', event => {
-                face.style.setProperty('--rotate-head', '0deg');
-            });
-
-            usernameInput.addEventListener('input', _.throttle(event => {
-                let length = Math.min(event.target.value.length - 16, 19);
-
-                face.style.setProperty('--rotate-head', `${-length}deg`);
-            }, 100));
-
-            showPasswordButton.addEventListener('click', event => {
-                if (passwordInput.type === 'text') {
-                    passwordInput.type = 'password';
-                    document.querySelectorAll('.hand').forEach(hand => {
-                        hand.classList.remove('peek');
-                        hand.classList.add('hide');
-                    });
-                } else {
-                    passwordInput.type = 'text';
-                    document.querySelectorAll('.hand').forEach(hand => {
-                        hand.classList.remove('hide');
-                        hand.classList.add('peek');
-                    });
-                }
-            });
-        </script>
-    
+        </section>
+    </main>
 </body>
 
 </html>
