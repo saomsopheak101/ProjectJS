@@ -12,6 +12,7 @@ body {
 }
 
 /* start service */
+.main-services .main-section{
 
 .main-section {
     height: 80vh;
@@ -24,6 +25,7 @@ body {
     width: 100%;
     /* background-position: center; */
 }
+.main-services .consult .container{
 .consult .container {
     width: 1200px !important;
 }
@@ -63,15 +65,16 @@ body {
 .services .card .card-body{
     height: 351.7px;
 }
-.consult .container{
+.main-services .consult .container{
 
     background-image: url(../images/service/daycare.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
-.consult .cosult-section{
+.main-services .consult .cosult-section{
     background-color: rgba(185, 185, 231,0.5);
 }
+.main-services .consult .consult-content .content h2{
 
 .consult .consult-content .content h2 {
     width: 150px;
