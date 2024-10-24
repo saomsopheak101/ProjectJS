@@ -3,548 +3,142 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Code</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <title>otp Form</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .form-logAndris {
+            background-color: #fff;
+        }
+
+        .form-logAndris .btn-login,
+        .form-logAndris .btn-next {
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 8px 0;
+            border-radius: 19px;
+            background-color: #f49943;
+            color: #fff;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .form-logAndris .btn-next:hover {
+            background-color: #d2823c;
+        }
+
+        .form-logAndris .separator {
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+            position: relative;
+            text-align: center;
+        }
+
+        .form-logAndris .separator div {
+            background-color: #ffffff;
+            padding: 0 10px;
+        }
+
+        .form-logAndris .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 40px;
+            border-radius: 19px;
+            border: 1px solid #a4a4a4;
+            text-decoration: none;
+            color: #000;
+            transition: background-color 0.3s ease;
+            gap: 10px;
+        }
+
+        .form-logAndris .img-form img,
+        .form-logAndris .img-logoform img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .form-logAndris .img-logoform {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-logAndris .verify-box {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .form-logAndris .verify-box input {
+            width: 60px;
+            height: 40px;
+            border: 2px solid #f49943;
+            color: #f49943;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-logAndris .verify-box input:focus {
+            border-color: #d2823c;
+            outline: none;
+        }
+
+        .img-form {
+            background-color: #f49943;
+            height: 100%;
+            border-radius: 0 15px 15px 0;
+        }
+    </style>
 </head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .otp-section {
-        width: 100vw;
-        height: 100vh;
-        background-color: #dfeffc;
-        overflow: hidden;
-        font-size: 12px;
-    }
-
-    .inspiration {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        padding: 10px;
-        text-align: center;
-        text-decoration: none;
-        font-family: 'Gill Sans', sans-serif;
-        font-size: 12px;
-        color: #969696;
-    }
-
-    .inspiration img {
-        width: 60px;
-    }
-
-    .center {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        display: inline-block;
-        width: 300px;
-        height: 510px;
-        border-radius: 3px;
-        transform: translate(-50%, -50%);
-        overflow: hidden;
-        background-image: linear-gradient(to top right, #ffffff, #ffffff);
-    }
-
-    @media screen and (max-height: 500px) {
-        .center {
-            transition: transform 0.5s;
-            transform: translate(-50%, -50%) scale(0.8);
-        }
-    }
-
-    .center .ear {
-        position: absolute;
-        top: -110px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background-color: #f49943;
-    }
-
-    .center .ear.ear--left {
-        left: -135px;
-    }
-
-    .center .ear.ear--right {
-        right: -135px;
-    }
-
-    .center .face {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 200px;
-        height: 150px;
-        margin: 80px auto 10px;
-        --rotate-head: 0deg;
-        transform: rotate(var(--rotate-head));
-        transition: transform 0.2s;
-        transform-origin: center 20px;
-    }
-
-    .center .eye {
-        display: inline-block;
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        background-color: #243946;
-    }
-
-    .center .eye.eye--left {
-        margin-right: 40px;
-    }
-
-    .center .eye.eye--right {
-        margin-left: 40px;
-    }
-
-    .center .eye .glow {
-        position: relative;
-        top: 3px;
-        right: -12px;
-        width: 12px;
-        height: 6px;
-        border-radius: 50%;
-        background-color: #fff;
-        transform: rotate(38deg);
-    }
-
-    .center .nose {
-        position: relative;
-        top: 30px;
-        transform: scale(1.1);
-    }
-
-    .center .nose .glow {
-        position: absolute;
-        top: 3px;
-        left: 32%;
-        width: 15px;
-        height: 8px;
-        border-radius: 50%;
-        background-color: #476375;
-    }
-
-    .center .mouth {
-        position: relative;
-        margin-top: 45px;
-    }
-
-    .center svg.smile {
-        position: absolute;
-        left: -28px;
-        top: -19px;
-        transform: scaleX(1.1);
-        stroke: #243946;
-    }
-
-    .center .mouth-hole {
-        position: absolute;
-        top: 0;
-        left: -50%;
-        width: 60px;
-        height: 15px;
-        border-radius: 50%/100% 100% 0% 0;
-        transform: rotate(180deg);
-        background-color: #243946;
-        z-index: -1;
-    }
-
-    .center .tongue {
-        position: relative;
-        top: 5px;
-        width: 30px;
-        height: 20px;
-        background-color: #ffd7dd;
-        transform-origin: top;
-        transform: rotateX(60deg);
-    }
-
-    .center .tongue.breath {
-        -webkit-animation: breath 0.3s infinite linear;
-        animation: breath 0.3s infinite linear;
-    }
-
-    .center .tongue-top {
-        position: absolute;
-        bottom: -15px;
-        width: 30px;
-        height: 30px;
-        border-radius: 15px;
-        background-color: #ffd7dd;
-    }
-
-    .center .line {
-        position: absolute;
-        top: 0;
-        width: 30px;
-        height: 5px;
-        background-color: #fcb7bf;
-    }
-
-    .center .median {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 4px;
-        height: 25px;
-        border-radius: 5px;
-        background-color: #fcb7bf;
-    }
-
-    .center .hands {
-        position: relative;
-    }
-
-    .center .hands .hand {
-        position: absolute;
-        top: -6px;
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        z-index: 1;
-    }
-
-    .center .hands .hand--left {
-        left: 50px;
-    }
-
-    .center .hands .hand--left.hide {
-        transform: translate(2px, -155px) rotate(-160deg);
-    }
-
-    .center .hands .hand--left.peek {
-        transform: translate(0px, -120px) rotate(-160deg);
-    }
-
-    .center .hands .hand--right {
-        left: 170px;
-    }
-
-    .center .hands .hand--right.hide {
-        transform: translate(-6px, -155px) rotate(160deg);
-    }
-
-    .center .hands .hand--right.peek {
-        transform: translate(-4px, -120px) rotate(160deg);
-    }
-
-    .center .hands .finger {
-        position: relative;
-        z-index: 0;
-    }
-
-    .center .hands .finger .bone {
-        width: 20px;
-        height: 20px;
-        border: 2px solid #243946;
-        border-bottom: none;
-        border-top: none;
-        background-color: #ffffff;
-    }
-
-    .center .hands .finger .nail {
-        position: absolute;
-        left: 0;
-        top: 10px;
-        width: 20px;
-        height: 18px;
-        border-radius: 50%;
-        border: 2px solid #243946;
-        background-color: #fac555;
-        z-index: -1;
-    }
-
-    .center .hands .finger:nth-child(1),
-    .center .hands .finger:nth-child(3) {
-        left: 4px;
-        z-index: 1;
-    }
-
-    .center .hands .finger:nth-child(1) .bone,
-    .center .hands .finger:nth-child(3) .bone {
-        height: 10px;
-    }
-
-    .center .hands .finger:nth-child(3) {
-        left: -4px;
-    }
-
-    .center .hands .finger:nth-child(2) {
-        top: -5px;
-        z-index: 2;
-    }
-
-    .center .hands .finger:nth-child(1) .nail,
-    .center .hands .finger:nth-child(3) .nail {
-        top: 0px;
-    }
-
-    .center .otp {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-    }
-
-    .center .otp a {
-        color: #bbb;
-        text-decoration: none;
-        cursor: pointer;
-        transition: color 0.2s;
-        font-size: 14px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .center .otp label {
-        display: flex;
-        position: relative;
-        align-items: center;
-        gap: 4;
-        padding: 0 20px;
-    }
-
-    .center .otp label .fa-solid {
-        position: absolute;
-        top: 40%;
-        left: 35px;
-        color: #bbb;
-    }
-
-    .center .otp label .fa-solid:before {
-        position: relative;
-        left: 1px;
-    }
-
-    .center .otp input,
-    .center .otp .otp-button {
-        width: 100%;
-        height: 35px;
-        border: none;
-        border-radius: 10px;
-
-    }
-
-    .center .otp input {
-        padding: 0 20px 0 40px;
-        margin: 5px 0;
-        background-color: #000000;
-        color: #ffffff;
-        
-    }
-
-    .center .otp input::-moz-placeholder {
-        color: #ccc;
-    }
-
-    .center .otp input:-ms-input-placeholder {
-        color: #ccc;
-    }
-
-    .center .otp input::placeholder {
-        color: #ccc;
-    }
-
-    .center .otp input.password {
-        padding: 0 90px 0 40px;
-    }
-
-    .center .otp .password-button {
-        position: absolute;
-        top: 9px;
-        right: 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50px;
-        height: 27px;
-        border-radius: 20px;
-        border: none;
-        outline: none;
-        background-color: #f49943;
-        color: #fff;
-    }
-
-    .bx-show {
-        font-size: 20px;
-    }
-
-    .center .otp .password-button:active {
-        transform: scale(0.95);
-    }
-
-    .center .otp .otp-button {
-        width: calc(100% - 40px);
-        margin: 20px 20px 0;
-        outline: none;
-        background-color: #f49943;
-        color: #fff;
-        transition: transform 0.1s;
-    }
-
-    .center .otp .otp-button:active {
-        transform: scale(0.95);
-    }
-
-    .center .social-buttons {
-        display: flex;
-        justify-content: center;
-        margin-top: 25px;
-    }
-
-    .center .social-buttons .social {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 35px;
-        height: 35px;
-        margin: 0 10px;
-        border-radius: 50%;
-        background-color: #243946;
-        color: #fff;
-        font-size: 18px;
-    }
-
-    .center .social-buttons .social:active {
-        transform: scale(0.95);
-    }
-
-    .center .footer {
-        text-align: center;
-        margin-top: 15px;
-    }
-
-    @-webkit-keyframes breath {
-
-        0%,
-        100% {
-            transform: rotateX(0deg);
-        }
-
-        50% {
-            transform: rotateX(60deg);
-        }
-    }
-
-    @keyframes breath {
-
-        0%,
-        100% {
-            transform: rotateX(0deg);
-        }
-
-        50% {
-            transform: rotateX(60deg);
-        }
-    }
-
-    .otp-password {
-        margin-left: 28px;
-        font-size: 14px;
-        color: #ffffff;
-        text-decoration: underline;
-    }
-</style>
 
 <body>
-    <section class="otp-section">
-        <div class="center">
-            <div class="ear ear--left"></div>
-            <div class="ear ear--right"></div>
-            <div class="face">
-                <div class="eyes">
-                    <div class="eye eye--left">
-                        <div class="glow"></div>
+    <main>
+        <section class="form-logAndris py-5">
+            <div class="container">
+                <div class="row g-0 shadow-lg">
+                    <div class="col-lg-6 p-4">
+                        <form action="#" method="post" class="py-4">
+                            <div class="img-logoform">
+                                <img src="images/login and signup/PetZone.png" alt="PetZone Logo">
+                            </div>
+                            <h3 class="fw-bold text-center mb-4">Verify Email</h3>
+                            <p class="mt-3 text-center">Please check your email to enter the code.</p>
+                            <div class="verify-box">
+                                <input type="text" class="form-control" maxlength="1" required>
+                                <input type="text" class="form-control" maxlength="1" required>
+                                <input type="text" class="form-control" maxlength="1" required>
+                                <input type="text" class="form-control" maxlength="1" required>
+                                <input type="text" class="form-control" maxlength="1" required>
+                            </div>
+                            <div class="mt-4">
+                                <button type="submit" class="btn-next" onclick="window.location.href='confirm-pass.html'">Next</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="eye eye--right">
-                        <div class="glow"></div>
-                    </div>
-                </div>
-                <div class="nose">
-                    <svg width="38.161" height="22.03">
-                        <path
-                            d="M2.017 10.987Q-.563 7.513.157 4.754C.877 1.994 2.976.135 6.164.093 16.4-.04 22.293-.022 32.048.093c3.501.042 5.48 2.081 6.02 4.661q.54 2.579-2.051 6.233-8.612 10.979-16.664 11.043-8.053.063-17.336-11.043z"
-                            fill="#243946"></path>
-                    </svg>
-                    <div class="glow"></div>
-                </div>
-                <div class="mouth">
-                    <svg class="smile" viewBox="-2 -2 84 23" width="84" height="23">
-                        <path
-                            d="M0 0c3.76 9.279 9.69 18.98 26.712 19.238 17.022.258 10.72.258 28 0S75.959 9.182 79.987.161"
-                            fill="none" stroke-width="3" stroke-linecap="square" stroke-miterlimit="3"></path>
-                    </svg>
-                    <div class="mouth-hole"></div>
-                    <div class="tongue breath">
-                        <div class="tongue-top"></div>
-                        <div class="line"></div>
-                        <div class="median"></div>
+                    <div class="col-lg-6">
+                        <div class="img-form">
+                            <img src="images/login and signup/portrait-cute-dog_928869-30668-removebg-preview.png"
+                                alt="Cute Dog">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="hands">
-                <div class="hand hand--left">
-                    <div class="finger">
-                        <div class="bone"></div>
-                        <div class="nail"></div>
-                    </div>
-                    <div class="finger">
-                        <div class="bone"></div>
-                        <div class="nail"></div>
-                    </div>
-                    <div class="finger">
-                        <div class="bone"></div>
-                        <div class="nail"></div>
-                    </div>
-                </div>
-                <div class="hand hand--right">
-                    <div class="finger">
-                        <div class="bone"></div>
-                        <div class="nail"></div>
-                    </div>
-                    <div class="finger">
-                        <div class="bone"></div>
-                        <div class="nail"></div>
-                    </div>
-                    <div class="finger">
-                        <div class="bone"></div>
-                        <div class="nail"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="otp">
-                <label for="otp-input">
-                    <i class="fa-solid fa-key"></i>
-                    <input type="text" id="otp-input" placeholder="Enter OTP" maxlength="6">
-                </label>
-                <!-- otp button -->
-                <a class="otp-button" href="confirm-pass.html">Next</a>
-            </div>
-        </div>
-    </section>
-    <script>
-
-        const togglePassword = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('password');
-
-        togglePassword.addEventListener('click', function () {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            // Toggle the icon
-            this.classList.toggle('fa-eye');
-            this.classList.toggle('fa-eye-slash');
-        });
-    </script>
-
+        </section>
+    </main>
 </body>
 
 </html>
