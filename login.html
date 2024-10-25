@@ -108,34 +108,36 @@
             <div class="container">
                 <div class="row g-0">
                     <div class="col-6 shadow-lg px-4 rounded-start-2">
-                        <form action="#" method="post">
-                            <div class="img-logoform mx-auto d-flex justify-content-center align-items-center">
-                                <img src="images/login and signup/PetZone.png" alt="">
-                            </div>
+                        <div class="img-logoform mx-auto d-flex justify-content-center align-items-center">
+                            <img src="images/login and signup/PetZone.png" alt="">
+                        </div>
+                            <form onsubmit="getdata(); return false;">
+                                <div class="form-group position-relative">
+                                    <input type="email" class="form-control  mt-3 input-with-icon" id="email" name="email"
+                                        placeholder="Your email" required>
+                                    <i class="fa-solid fa-envelope icon-position"></i>
 
-                            <div class="form-group position-relative">
-                                <input type="text" class="form-control mt-3 input-with-icon" id="email"
-                                    name="email" required placeholder="Your email">
-                                <i class="fa-solid fa-envelope icon-position"></i>
-                            </div>
-
-                            <div class="form-group position-relative">
-                                <input type="password" class="form-control mt-3 input-with-icon" id="password" name="password" required
-                                    placeholder="Your password">
-                                    <i class="fa-solid fa-lock icon-position"></i>
-                            </div>
-                            <div class="form-group form-check d-flex justify-content-between mt-3">
-                                <div class="check-box">
-                                    <input type="checkbox" class="form-check-input bg-secondary" id="remember">
-                                    <label class="form-check-label" for="remember">Remember me</label>
                                 </div>
-                                <a href="forgot-pass.html" class="forgot-password text-decoration-none text-secondary">Forgot
-                                    Password?</a>
-                            </div>
-                            <div class="form-group mt-3  btn-login">
-                                <a href="home-page.html"
-                                    class="d-flex justify-content-center align-items-center">Login</a>
-                            </div>
+
+                                <div class="form-group position-relative">
+                                    <input type="password" class="form-control  mt-3 input-with-icon" id="password"
+                                        name="password" placeholder="Your password" required>
+                                    <i class="fa-solid fa-lock icon-position"></i>
+
+                                </div>
+
+                                <div class="form-group form-check d-flex justify-content-between mt-3">
+                                    <div class="check-box">
+                                        <input type="checkbox" class="form-check-input bg-secondary" id="remember" required>
+                                        <label class="form-check-label" for="remember">Remember me</label>
+                                    </div>
+                                    <a href="forgot-pass.html"
+                                        class="forgot-password text-decoration-none text-secondary">Forgot
+                                        Password?</a>
+                                </div>
+                                <div class="form-group mt-3  btn-login ">
+                                    <input type="submit" class="btn btn-warning" value="Login">
+                                </div>
                             <div class="separator position-relative mt-5">
                                 <div class="position-absolute">
                                     OR
@@ -170,6 +172,47 @@
             </div>
         </section>
     </main>
+    <script>
+        function getdata() {
+            let gmail = document.querySelector('#email').value;
+            let password = document.querySelector('#password').value
+
+            console.log(gmail);
+            console.log(password);
+            let formData = new FormData();
+            formData.append('email', gmail);
+            formData.append('password', password);
+
+
+            fetch('https://mps4.chandalen.dev/api/login', {
+                method: 'POST',
+                headers: { "Accept": "application/json" },
+                body: formData
+            })
+
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // Parse the response as JSON
+                })
+                .then(json => {
+                    console.log(json); // Log the response data
+
+                    // Assuming the token is returned as part of the response (modify as needed based on your API structure)
+                    if (json.data.token) {
+                        // Store the token in sessionStorage
+                        sessionStorage.setItem('authToken', json.data.token);
+                        // console.log(json.data.token);
+                        alert(json.message+ " Token stored.");
+                        // location.href = '';
+                    } else {
+                        alert( json.message); // Show error message
+                    }
+                })
+                
+        }
+    </script>
 </body>
 
 </html>
