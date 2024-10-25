@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,12 @@
     <link rel="stylesheet" href="css/bootstrap-min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        .hero-contact {
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        .contact-hero_banner .hero-contact {
             height: 50vh;
             display: flex;
             justify-content: center;
@@ -16,67 +20,47 @@
             text-align: center;
             background-size: cover;
             background-position: center;
-            color: white;
-            font-size: 3rem;
-            padding: 20px;
-            margin-bottom: 50px;
+            color: #fff;
+            font-size: 2.5rem;
+            padding: 1rem;
         }
-
-        .hero-contact h1 {
+        .contact-hero_banner h1 {
             font-weight: 700;
-            margin: 0;
+            margin-bottom: 0.5rem;
         }
-
-        .breadcrumb {
+        .contact-hero_banner .breadcrumb {
             background-color: #fff;
-            padding: 8px;
-            border-radius: 5px;
-            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
         }
-
-        .breadcrumb a,
-        .breadcrumb span {
+        .contact-hero_banner .breadcrumb a,
+        .contact-hero_banner .breadcrumb span {
             font-weight: bold;
-            color: orange;
-        }
-
-        .breadcrumb span::before {
-            content: ">";
-            color: orange;
-            margin-right: 5px;
-        }
-
-        .contact-information .subtile-con {
-            margin: 0 0 9px;
-            padding: 6px 15px;
-            width: 120px;
-            border-radius: 5px;
             color: #F69946;
-            background-color: #FFFFFF;
-            box-shadow: 4px 3px 9px rgba(0, 0, 0, 0.1);
         }
-
+        .contact-information {
+            padding: 2rem 0;
+        }
         .contact-information h1 {
-            font-size: 35px;
+            font-size: 2rem;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 0.5rem;
         }
-
         .socail-contact .phone-num,
-        .socail-contact .work-time,
         .socail-contact .email-add,
-        .socail-contact .socail-media{
-            border-radius: 10px;
+        .socail-contact .work-time,
+        .socail-contact .socail-media {
+            border-radius: 0.5rem;
             box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px;
-            padding: 15px 20px;
+            padding: 1rem;
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
+            background-color: #fff;
         }
-
         .socail-contact-icon {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background-color: #F69946;
             color: white;
@@ -85,53 +69,75 @@
             justify-content: center;
             transition: background-color 0.3s ease;
             cursor: pointer;
-            margin-right: 10px;
+            margin-right: 0.75rem;
         }
-
         .socail-contact-title h3 {
-            font-size: 18px;
+            font-size: 1rem;
             font-weight: 500;
-            margin-bottom: 5px;
+            margin-bottom: 0.25rem;
         }
-
-        .email-add,
-        .socail-media,
-        .work-time {
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .email-add i,
-        .socail-media i,
-        .work-time i {
-            margin-right: 5px;
-        }
-
         .contact-map {
-            margin-top: 20px;
+            margin-top: 1rem;
+        }
+        iframe {
+            border: 0;
+            width: 100%;
+            height: 400px;
+            border-radius: 0.5rem;
+        }
+        .bg-contact {
+            background-color: #ffe8d3;
+            position: relative;
+            top:250px;
+            width: 100%;
+            height: 100%;
+        }
+        .bg-contact img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .form-contact {
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+        .form-contact .form-group {
+            margin-bottom: 1rem;
+        }
+        .btn-primary {
+            background-color: #F69946;
+            border: none;
+            transition: background-color 0.3s ease;
+            padding: 0.75rem 1.5rem;
+        }
+        .btn-primary:hover {
+            background-color: #e58932;
         }
     </style>
 </head>
-
 <body>
+    <header></header>
     <main>
-        <section>
-            <div class="hero-contact d-flex flex-column"
-                style="background-image: url(https://wgl-dsites.net/pawscare/wp-content/uploads/2021/05/bg-title-contact.jpg);">
-                <h1 class="text-white">Contact Us</h1>
+        <section class="contact-hero_banner">
+            <div class="hero-contact d-flex flex-column" style="background-image: url(https://wgl-dsites.net/pawscare/wp-content/uploads/2021/05/bg-title-contact.jpg);">
+                <h1>Contact Us</h1>
                 <div class="breadcrumb">
                     <a href="#" class="me-2">Home</a>
                     <span>Contact</span>
                 </div>
             </div>
         </section>
-        <section>
+        <section class="contact-info">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-4 contact-information">
-                        <div class="subtile-con fw-bold">GET IN TOUCH</div>
+                        <div class="subtile-con">GET IN TOUCH</div>
                         <h1>Stay Connected</h1>
                         <p>Ullamcorper malesuada proin libero nunc. Tempor commodo ullamcorper a lacus vestibulum sed.</p>
                         <div class="socail-contact">
@@ -146,11 +152,11 @@
                             </div>
                             <div class="email-add">
                                 <div class="socail-contact-icon">
-                                     <i class="fas fa-envelope"></i>
+                                    <i class="fas fa-envelope"></i>
                                 </div>
                                 <div class="socail-contact-title">
                                     <h3>Email Address</h3>
-                                     <a href="mailto:pawscare@example.com">pawscare@example.com</a>
+                                    <a href="mailto:pawscare@example.com">pawscare@example.com</a>
                                 </div>
                             </div>
                             <div class="work-time">
@@ -159,10 +165,10 @@
                                 </div>
                                 <div class="socail-contact-title">
                                     <h3>Working Hours</h3>
-                                    Mon-Fri: 8:00 AM - 6:00 PM<br>
+                                    Mon-Fri: 8:00 AM - 6:00 PM
                                 </div>
                             </div>
-                            <div class="socail-media d-flex justify-content-center align-items-center">
+                            <div class="socail-media">
                                 <div class="socail-contact-icon">
                                     <i class="fab fa-telegram"></i>
                                 </div>
@@ -176,19 +182,20 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-8 contact-map">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1950.9742378625174!2d104.88801101097519!3d11.572213192346236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109519e0c9b2109%3A0x8b8d35d80b920ffc!2sANT%20Technology%20Training%20School!5e0!3m2!1sen!2skh!4v1729427594695!5m2!1sen!2skh"
-                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1950.9742378625174!2d104.88801101097519!3d11.572213192346236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109519e0c9b2109%3A0x8b8d35d80b920ffc!2sANT%20Technology%20Training%20School!5e0!3m2!1sen!2skh!4v1729427594695!5m2!1sen!2skh"></iframe>
                     </div>
                 </div>
             </div>
         </section>
         <section class="contact-form">
+            <div class="bg-contact">
+                <img src="images/contact/bg-section-contact.png" alt="">
+            </div>
             <div class="container">
                 <h2 class="text-center mb-4">Get in Touch</h2>
                 <div class="form-contact">
                     <form action="">
-                        <div class="row card py-4">
+                        <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                                 <div class="form-group">
                                     <label for="name">Name</label>
@@ -203,17 +210,17 @@
                             </div>
                             <div class="col-12 mb-3">
                                 <div class="form-group">
-                                    <label for="subject">website</label>
-                                    <input type="text" class="form-control" id="subject" placeholder="Enter website" required>
+                                    <label for="website">Website</label>
+                                    <input type="text" class="form-control" id="website" placeholder="Enter website" required>
                                 </div>
                             </div>
                             <div class="col-12 mb-4">
                                 <div class="form-group">
                                     <label for="message">Message</label>
-                                    <textarea class="form-control" id="message" rows="4" placeholder="Your message here..."  required></textarea>
+                                    <textarea class="form-control" id="message" rows="4" placeholder="Enter your message" required></textarea>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 text-center">
                                 <button type="submit" class="btn btn-primary">Send Message</button>
                             </div>
                         </div>
@@ -221,8 +228,6 @@
                 </div>
             </div>
         </section>
-        
     </main>
 </body>
-
 </html>
