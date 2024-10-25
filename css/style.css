@@ -517,3 +517,99 @@ footer .copyright a{
 }
 
 /* end service */
+ 
+/* Thy register  */
+.form-logAndris .btn-login a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 8px 0;
+    border-radius: 19px;
+    background-color: #f49943;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s;
+}
+
+.form-logAndris .separator {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.246);
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-logAndris .separator div {
+    position: absolute;
+    background-color: #ffffff;
+}
+
+.form-logAndris .socail-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    border-radius: 19px;
+    border: 1px solid #a4a4a4;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: background-color 0.3s ease;
+    gap: 10px;
+}
+
+.form-logAndris .socail-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.form-logAndris .socail-btn p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.form-logAndris .img-form {
+    width: 100%;
+    height: 100%;
+    background-color: #f49943;
+}
+
+.form-logAndris .img-form img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form-logAndris .img-logoform {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.form-logAndris .img-logoform img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form-logAndris .input-with-icon {
+    padding-left: 35px;
+}
+
+.form-logAndris .icon-position {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+    pointer-events: none;
+}
+
+.errorMessages {
+    color: red;
+    margin-top: 10px;
+}
+/* end register */
