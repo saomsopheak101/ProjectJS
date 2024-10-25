@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My profile</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body class="profile-page">
+    <header class="margin-bottom">
+        <nav class="navbar navbar-expand-lg fixed-top z-3 color-bg ">
+            <div class="container">
+                <a class="navbar-brand" href="">
+                    <img src="images/img-pet/logo/PetZone (2).png" style="width: 80px;" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 mt-2 me-5 ms-xl-4 ms-xxl-5 "
+                        style="z-index: 99;">
+                        <li class="nav-item mx-lg-2">
+                            <a class="nav-link  fw-medium" href="">Home</a>
+                        </li>
+                        <li class="nav-item mx-lg-2 dropdown">
+                            <a class="nav-link dropdown-toggle  fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Service
+                            </a>
+                            <ul class="dropdown-menu bg-white">
+                                <li><a class="dropdown-item text-black" href="">Pet training</a>
+                                </li>
+                                <li><a class="dropdown-item text-black" href="">Pet Counseling</a>
+                                </li>
+                                <li><a class="dropdown-item text-black" href="">Pet Grooming</a>
+                                </li>
+                                <li><a class="dropdown-item text-black" href="">Pet Day care</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mx-lg-2 dropdown ">
+                            <a class="nav-link dropdown-toggle fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                About
+                            </a>
+                            <ul class="dropdown-menu bg-white text-black fw-medium">
+                                <li><a class="dropdown-item text-black" href="">About us</a></li>
+                                <li><a class="dropdown-item text-black" href="">About
+                                        PetZone</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mx-lg-2">
+                            <a class="nav-link  fw-medium" href="">Feedback</a>
+                        </li>
+                        <li class="nav-item mx-lg-2">
+                            <a class="nav-link fw-medium" href="">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center mt-2 pb-2">
+                        <div class="d-flex align-items-center">
+                            <button class="py-2 px-4 rounded-2 border-0">Booking</button>
+                            <form class="d-none d-xl-flex" role="search" title="search">
+                                <button class="btn btn-icon" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#searchModal">
+                                    <i class="fa-solid fa-search text-white"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="dropdown-center dropdown-account">
+                            <a class="btn btn-icon d-none d-xl-inline-block position-relative" role="button" href=""
+                                title="profile" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user text-white"></i>
+                                <span
+                                    class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
+                                    <small>3</small>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu  mt-4 rounded-3 py-2">
+                                <div class="card border-0 ">
+                                    <div class="account-header d-flex flex-column align-items-center px-5 pt-2">
+                                        <div class="mb-2">
+                                            <img class="border border-brand border-2 rounded-circle object-fit-cover"
+                                                src="" alt="#" width="60px">
+                                        </div>
+                                        <div
+                                            class="d-flex flex-column align-items-center justify-content-center text-whitee">
+                                            <h5 class="mb-0">NIKI</h5>
+                                            <p>niki@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <li>
+                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-address-card me-3"></i>
+                                        </div>
+                                        My Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-bag-shopping me-3"></i>
+                                        </div>
+                                        Booking
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-ticket me-3"></i>
+                                        </div>
+                                        Review
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-bell me-3"></i>
+                                        </div>
+                                        Notification
+                                        <span class="badge ms-auto bg-brand rounded-pill fw-normal">6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-book me-3"></i>
+
+                                        </div>
+                                        Privacy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-right-from-bracket me-3"></i>
+                                        </div>
+                                        Log out
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="setting-sidebar col-md-4 col-xl-3">
+                        <div class="card border-0 rounded-2 py-4 px-2 ps-0">
+                            <div class="card-header bg-transparent mb-3">
+                                <img class="mb-3" src="images/img-pet/cat-1.jpg" alt>
+                                <h5 class="mb-0" > Kinki</h5>
+                                <span >Kinki@gmail.com</span>
+                            </div>
+                            <ul class="nav">
+                                <li class="nav-item  border-0">
+                                    <a href="" class="nav-link active d-flex" aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-address-card me-3"></i>
+                                        </div>
+                                        My Profile
+                                    </a>
+                                </li>
+                                <li class="nav-item border-0">
+                                    <a href="" class="nav-link d-flex">
+                                        <div>
+                                            <div>
+                                                <i class="fa-solid fa-address-card me-3"></i>
+                                            </div>
+                                        </div>
+                                        My Profile
+                                    </a>
+                                </li>
+                                <li class="nav-item border-0">
+                                    <a href="" class="nav-link d-flex">
+                                        <div>
+                                            <div>
+                                                <i class="fa-solid fa-address-card me-3"></i>
+                                            </div>
+                                        </div>
+                                        My Profile
+                                    </a>
+                                </li>
+                                <li class="nav-item border-0">
+                                    <a href="" class="nav-link d-flex">
+                                        <div>
+                                            <div>
+                                                <i class="fa-solid fa-address-card me-3"></i>
+                                            </div>
+                                        </div>
+                                        My Profile
+                                    </a>
+                                </li>
+                                <li class="nav-item border-0">
+                                    <a href="" class="nav-link d-flex">
+                                        <div>
+                                            <i class="fa-solid fa-book me-3"></i>
+                                        </div>
+                                        Privacy
+                                    </a>
+                                </li>
+                                <li class="nav-item border-0">
+                                    <a href="" class="nav-link d-flex">
+                                        <div>
+                                            <i class="fa-solid fa-right-from-bracket me-3"></i>
+                                        </div>
+                                        Sign up
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
