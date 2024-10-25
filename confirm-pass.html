@@ -76,6 +76,17 @@
             position: relative;
             margin-top: 15px;
         }
+        .form-logAndris .btn-bn {
+            background-color: #f49943;
+            border: none;
+            color: white;
+            padding: 8px 105px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 19px;
+            transition: background-color 0.3s ease;
+        }
     </style>
 </head>
 
@@ -85,22 +96,29 @@
             <div class="container">
                 <div class="row g-0 shadow-lg rounded">
                     <div class="col-lg-6 p-5">
-                        <form action="#" method="post">
+                        <form onsubmit="ConfirmPw(); return false;">
                             <div class="img-logoform">
                                 <img src="images/login and signup/PetZone.png" alt="PetZone Logo">
                             </div>
                             <h3 class="fw-bold text-center mb-4">Enter a new password</h3>
-                            <div class="form-group">
-                                <input type="password" class="form-control input-with-icon" id="password" name="password" required
-                                    placeholder="Your password">
-                                <i class="fa-solid fa-lock icon-position"></i>
+                            <div class="form-group position-relative">
+                                <input type="password" class="form-control  input-with-icon" id="password" name="password"
+                                    placeholder="Your password" required>
+                                    <i class="fa-solid fa-lock icon-position"></i>
+
                             </div>
-                            <div class="form-group mt-4">
-                                <input type="password" class="form-control input-with-icon" id="confirmPassword" name="confirmPassword" required
-                                    placeholder="Confirm password">
-                                <i class="fa-solid fa-lock icon-position"></i>
+                            <div class="form-group position-relative mt-4 mb-2">
+                                <input type="password" class="form-control  input-with-icon" id="passwordCon" name="passwordCon"
+                                    placeholder="Confirm password" required>
+                                    <i class="fa-solid fa-lock icon-position"></i>
+                                
                             </div>
-                            <button type="submit" class="btn-next mt-4" onclick="window.location.href='confirm-pass.html'">Save</button>
+                            <div class="invalid text-danger">
+                                Incorrect password!
+                              </div>
+                            <div class="mt-4 ">
+                                <input type="submit" class="btn-bn w-100 m-0"  value="Save">
+                            </div>
                         </form>
                     </div>
                     <div class="col-lg-6">
@@ -113,6 +131,53 @@
             </div>
         </section>
     </main>
+    <script>
+        console.log(sessionStorage.getItem('optCode'));
+        let optcode = sessionStorage.getItem('optCode');
+        console.log(sessionStorage.getItem('StoreEmail'));
+        let email = sessionStorage.getItem('StoreEmail');
+        document.querySelector('.invalid').style.display = "none";
+        function ConfirmPw(){
+            let password = document.querySelector('#password').value;
+            let ConfirmPw = document.querySelector('#passwordCon').value;
+
+            console.log(password);
+            console.log(ConfirmPw);
+            if(password !== ConfirmPw){
+                document.querySelector('.invalid').style.display = "block";
+            }else{
+                document.querySelector('.invalid').style.display = "none";
+
+                let formdata = new FormData();
+                
+                formdata.append('email',email);
+                formdata.append('otp',optcode);
+                formdata.append('new_pass',password);
+                formdata.append('new_pass_confirmation',ConfirmPw);
+
+                console.log(formdata);
+                fetch('https://mps4.chandalen.dev/api/reset/pass',{
+                method:'POST',
+                headers:{"Accept":"application/json"},
+                body:formdata
+            })
+            .then(res => res.json())
+            .then(json =>{
+                console.log(json);
+                if(json.result === true){
+                    sessionStorage.setItem('password', password);
+                    sessionStorage.setItem('confirm', ConfirmPw);
+                    console.log(json.message);
+                    alert(json.message);
+                    location.href = 'http://127.0.0.1:5502/login.html';
+                }else{
+                    alert(json.message);
+                }
+            })
+            }
+           
+        }
+    </script>
 </body>
 
 </html>
