@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header></header>
     <main>
@@ -16,34 +17,28 @@
             <div class="container">
                 <div class="row g-0">
                     <div class="col-6 shadow-lg px-4 rounded-start-2">
-                        <form id="signupForm" action="#" method="post">
+                        <form id="signupForm" action="#" method="post" onsubmit="submitForm(event)">
                             <div class="img-logoform mx-auto d-flex justify-content-center align-items-center">
                                 <img src="images/login and signup/PetZone.png" alt="Logo">
                             </div>
                             <div class="form-group position-relative">
-                                <input type="text" class="form-control mt-3 input-with-icon" id="first_name"
-                                    name="first_name" required placeholder="Your first name">
+                                <input type="text" class="form-control mt-3 input-with-icon" id="first_name" name="first_name" required placeholder="Your first name">
                                 <i class="fa-solid fa-user icon-position"></i>
                             </div>
                             <div class="form-group position-relative">
-                                <input type="text" class="form-control mt-3 input-with-icon" id="last_name"
-                                    name="last_name" required placeholder="Your last name">
+                                <input type="text" class="form-control mt-3 input-with-icon" id="last_name" name="last_name" required placeholder="Your last name">
                                 <i class="fa-solid fa-user icon-position"></i>
                             </div>
                             <div class="form-group position-relative">
-                                <input type="email" class="form-control mt-3 input-with-icon" id="email" name="email"
-                                    required placeholder="Your email">
+                                <input type="email" class="form-control mt-3 input-with-icon" id="email" name="email" required placeholder="Your email">
                                 <i class="fa-solid fa-envelope icon-position"></i>
                             </div>
-
                             <div class="form-group position-relative">
-                                <input type="password" class="form-control mt-3 input-with-icon" id="password"
-                                    name="password" required placeholder="Your password">
+                                <input type="password" class="form-control mt-3 input-with-icon" id="password" name="password" required placeholder="Your password">
                                 <i class="fa-solid fa-lock icon-position"></i>
                             </div>
                             <div class="form-group position-relative">
-                                <input type="password" class="form-control mt-3 input-with-icon" id="password_confirmation"
-                                    name="password_confirmation" required placeholder="Confirm password">
+                                <input type="password" class="form-control mt-3 input-with-icon" id="password_confirmation" name="password_confirmation" required placeholder="Confirm password">
                                 <i class="fa-solid fa-lock icon-position"></i>
                             </div>
                             <div class="form-group mt-3">
@@ -55,12 +50,10 @@
                                 </div>
                             </div>
                             <div class="form-group mt-3 btn-login">
-                                <a href="#" class="d-flex justify-content-center align-items-center" onclick="ValidateAndSubmit(event)">Sign Up</a>
+                                <input type="submit" class="btn btn-warning" value="Signup">
                             </div>
                             <div class="separator position-relative mt-5">
-                                <div class="position-absolute">
-                                    Or register with
-                                </div>
+                                <div class="position-absolute">Or register with</div>
                             </div>
                             <div class="login-with-socail">
                                 <a href="#" class="socail-btn">
@@ -74,10 +67,10 @@
                                     <p>Google</p>
                                 </a>
                             </div>
-
                             <div class="form-group mt-3">
                                 <p class="text-center">Already have an account? <a href="login.html" class="text-decoration-none text-secondary">Login</a></p>
                             </div>
+                            <div id="errorMessages" class="text-danger text-center"></div>
                         </form>
                     </div>
                     <div class="col-6">
@@ -88,7 +81,6 @@
                 </div>
             </div>
         </section>
-        <div class="errorMessages" id="errorMessages"></div>
     </main>
     <script src="js/resgister.js">
     </script>
