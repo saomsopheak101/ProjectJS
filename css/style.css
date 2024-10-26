@@ -341,11 +341,12 @@ body {
   }
   
 .profile-page .card .card-header img {
-    width: 100px;
-    height: 100%;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    border: 3px solid #f49943;
+    border: 2px solid #f49943;
   }
+
 .profile-page .setting-sidebar .card {
     font-size: 18px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
@@ -368,8 +369,13 @@ body {
     border-left: 3px solid transparent;
     padding-block: 4px;
     text-wrap: nowrap;
-  }
-  
+}
+.profile-page .btn-camera{
+    margin-top: 4%;
+    margin-left: 20%;
+}
+
+
 /* .profile-page  .nav .nav-item .nav-link .badge {
     width: 20px;
     height: 20px;
@@ -389,16 +395,21 @@ body {
 .profile-page .setting-sidebar .nav .nav-item .nav-link.active {
     color: #222222;
     border: 2px solid #f49943;
-    border-radius: 10px;
+    border-radius: 6px;
 }
 
-
-
-
-
-
-
-
+.profile-page .edit-profile{
+    padding-top: 70px;
+}
+.profile-page .btn-edit:hover{
+    background-color: #f49943ce;
+    color: #fff;
+    
+}
+.profile-page .col-form-label {
+    text-wrap: nowrap;
+    font-size: 18px !important;
+}
 
 
 
