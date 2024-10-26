@@ -883,9 +883,18 @@ footer .copyright a{
     color: #aaa;
     pointer-events: none;
 }
-
-.errorMessages {
-    color: red;
-    margin-top: 10px;
+.form-logAndris .btn-login{
+    text-align: center;
 }
+.form-logAndris .btn-login .btn {
+    display: block;
+    width: 100%;
+    padding: 8px 20px;
+    border-radius: 19px;
+    background-color: #f49943;
+    color: white;
+    transition: all 0.3s;
+}
+
+
 /* end register */
