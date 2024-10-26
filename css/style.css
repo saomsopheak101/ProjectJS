@@ -772,9 +772,10 @@ footer .copyright a{
     padding-top: 120px;
     /* background-color: #212529; */
 }
-.main-training .train-course .train-content .carousel-inner .card{
-    background-color: #f1f1f1;
+.main-training .train-course .card{
+    /* background-color: #f1f1f1; */
     height: 350px;
+    position: relative;
     width: 300px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
