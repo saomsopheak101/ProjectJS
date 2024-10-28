@@ -10,10 +10,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
+<style>
+    header {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    transition: 0.3s;
 
+}
+header.sticky {
+    padding: 5px 110px;
+    background-color: #f49943;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+</style>
 <body class="home-page">
-    <header class="bg-transparent">
-        <nav class="navbar navbar-expand-lg fixed-top z-3">
+    <header class="">
+        <nav class="navbar navbar-expand-lg  z-3">
             <div class="container">
                 <a class="navbar-brand" href="">
                     <img src="images/img-pet/logo/PetZone (2).png" style="width: 80px;" alt="">
@@ -27,7 +43,7 @@
                     <ul class="navbar-nav justify-content-center flex-grow-1 mt-3 me-5 ms-xl-4 ms-xxl-5 "
                         style="z-index: 99;">
                         <li class="nav-item mx-lg-2">
-                            <a class="nav-link  fw-medium" href="">Home</a>
+                            <a class="nav-link  fw-medium" href="home-page.html">Home</a>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown">
                             <a class="nav-link dropdown-toggle  fw-medium" href="#" role="button"
@@ -71,18 +87,18 @@
                                     <i class="fa-solid fa-search text-white"></i>
                                 </button>
                             </form>
-                            <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 ">Login</button>
-                            <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button>
+                            <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="login" type="button" onclick="window.location.href='login.html';">Login</button>
+                            <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
                             <!-- <button class="py-2 px-4 rounded-2 border-0">Booking</button> -->
                             
                         </div>
 
                         <!-- User profile -->
-                        <!-- <div class="dropdown-center dropdown-account">
+                        <div class="dropdown-center dropdown-account" id="profiles">
                             <a class="btn btn-icon d-none d-xl-inline-block position-relative" role="button" href=""
                                 title="profile" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="mb-2">
-                                    <img class="border border-brand border-2 rounded-circle object-fit-cover"
+                                    <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
                                         src="images/img-pet/icon/user.png" alt="#" width="35px">
                                 </div>
                                 <span
@@ -94,8 +110,8 @@
                                 <div class="card border-0 ">
                                     <div class="account-header d-flex flex-column align-items-center px-5 pt-2">
                                         <div class="mb-2">
-                                            <img class="border border-brand border-2 rounded-circle object-fit-cover"
-                                                src="images/img-pet/icon/user.png" alt="#" width="60px">
+                                            <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                                src="images/img-pet/icon/user.png" alt="#" width="60px" >
                                         </div>
                                         <div
                                             class="d-flex flex-column align-items-center justify-content-center text-whitee">
@@ -105,7 +121,7 @@
                                     </div>
                                 </div>
                                 <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
                                             <i class="fa-solid fa-address-card me-3"></i>
@@ -152,17 +168,17 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href=""
+                                    <button
                                         class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
-                                        aria-current="page">
-                                        <div>
+                                        aria-current="page" id="logout">
+                                        
                                             <i class="fa-solid fa-right-from-bracket me-3"></i>
-                                        </div>
+                                      
                                         Log out
-                                    </a>
+                                    </button>
                                 </li>
                             </ul>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -740,6 +756,63 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
 
+
+    <script>
+        // ===== change avatar 
+let storedAvatar = sessionStorage.getItem('avatar');
+if (storedAvatar) {
+    document.querySelectorAll('.changeImg').forEach(img => img.src = storedAvatar);
+}
+
+
+            // my script api 
+            console.log(sessionStorage.getItem('authToken'))
+            let authToken = sessionStorage.getItem('authToken')
+            let profiles = document.querySelector('#profiles');
+           let login = document.querySelector('#login');
+        
+            if(!authToken){
+                profiles.style.display = 'none';
+                login.style.display = 'inline'
+            }else{
+              profiles.style.display = 'inline';
+              login.style.display = 'none'
+            }
+            document.querySelector('#logout').addEventListener('click',()=>{
+                logOut()
+            })
+     function logOut(){
+        fetch('https://mps4.chandalen.dev/api/logout',{
+                method:'DELETE',
+                headers:{'Accept':"application/json",
+                    'Authorization':`Bearer ${authToken}`
+                }
+                
+                
+            })
+            .then(res =>res.json())
+            .then(json=>{
+                if(json.result === true){
+                    sessionStorage.removeItem('authToken');
+                    console.log(json.message);
+                    alert(json.message)
+                    action.style.display = 'none';
+                     login.style.display = 'inline';
+                }else{
+                    alert(json.message);
+                }
+            })
+     }
+    </script>
+<script>
+    // for header 
+
+    window.addEventListener("scroll", function () {
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0)
+        })
+
+</script>
     <script>
         const myToastEl = document.getElementById('myToast')
         myToastEl.addEventListener('hidden.bs.toast', () => {
