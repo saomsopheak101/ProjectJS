@@ -187,47 +187,111 @@
                             <div class="bg-white p-5 pt-0 rounded-4 text-black tab-tob">
                                 <ul class="nav nav-tabs border-0 mb-3" id="myTab" role="tablist">
                                     <li class="nav-item " role="presentation">
-                                        <button class="nav-link fs-5 color-text color-bg text-white px-4 py-4" id="training" data-bs-toggle="tab"
-                                            data-bs-target="#profile-tab-pane" type="button" role="tab"
-                                            aria-controls="training-tab" aria-selected="false">Grooming</button>
-                                    </li> 
-                                    <li class="nav-item ms-4" role="presentation">
-                                        <button class="nav-link fs-5 color-text color-bg text-white px-4 py-4" id="training" data-bs-toggle="tab"
-                                            data-bs-target="#profile-tab-pane" type="button" role="tab"
-                                            aria-controls="training-tab" aria-selected="false">Training</button>
+                                        <button class="nav-link fs-5 color-text color-bg text-white px-4 py-4"
+                                            id="training" data-bs-toggle="tab" data-bs-target="#grooming-tab-pane"
+                                            type="button" role="tab" aria-controls="training-tab"
+                                            aria-selected="false">Grooming</button>
                                     </li>
                                     <li class="nav-item ms-4" role="presentation">
-                                        <button class="nav-link fs-5 color-text color-bg text-white px-4 py-4" id="daycare" data-bs-toggle="tab"
-                                            data-bs-target="#home-tab-pane" type="button" role="tab"
-                                            aria-controls="daycare-tab" aria-selected="true">Day care</button>
+                                        <button class="nav-link fs-5 text-white   px-4 py-4 shadow" id="training"
+                                            data-bs-toggle="tab" data-bs-target="#traing-tab-pane" type="button"
+                                            role="tab" aria-controls="training-tab"
+                                            aria-selected="false">Training</button>
                                     </li>
                                     <li class="nav-item ms-4" role="presentation">
-                                        <button class="nav-link fs-5 color-text color-bg text-white px-4 py-4" id="counseling" data-bs-toggle="tab"
-                                            data-bs-target="#profile-tab-pane" type="button" role="tab"
-                                            aria-controls="counseling-tab" aria-selected="false">Counseling</button>
+                                        <button class="nav-link fs-5 color-text color-bg text-white px-4 py-4"
+                                            id="daycare" data-bs-toggle="tab" data-bs-target="#daycare-tab-pane"
+                                            type="button" role="tab" aria-controls="daycare-tab"
+                                            aria-selected="true">Day care</button>
+                                    </li>
+                                    <li class="nav-item ms-4" role="presentation">
+                                        <button class="nav-link fs-5 color-text color-bg text-white px-4 py-4"
+                                            id="counseling" data-bs-toggle="tab" data-bs-target="#counsel-tab-pane"
+                                            type="button" role="tab" aria-controls="counseling-tab"
+                                            aria-selected="false">Counseling</button>
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane show active" id="home-tab-pane" role="tabpanel"
+                                    <div class="tab-pane show active" id="daycare-tab-pane" role="tabpanel"
                                         aria-labelledby="home-tab" tabindex="0">
-                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque perferendis
-                                            impedit dignissimos recusandae harum ratione quia aut accusantium optio
-                                            quidem! Reprehenderit quo fugit ipsa explicabo ab placeat veritatis
-                                            aspernatur suscipit unde rerum nesciunt eum, consequuntur eligendi eaque
-                                            nihil accusamus quod amet? Culpa corporis consequatur dolore quisquam in
-                                            deleniti nesciunt asperiores consequuntur? Magni perspiciatis modi explicabo
-                                            nulla error repudiandae ipsa dolorum porro, ducimus minus accusamus amet
-                                            totam molestias, veniam atque! Magni ullam totam deleniti quia facere
-                                            placeat porro dolorum incidunt nobis. Provident explicabo iusto esse
-                                            repudiandae corrupti assumenda ad libero ipsum cumque commodi vel amet optio
-                                            repellendus tempora recusandae debitis repellat modi aliquam, sunt
-                                            blanditiis asperiores necessitatibus harum voluptatibus. Sit voluptate ipsum
-                                            nisi molestiae ullam itaque vel. Corporis unde mollitia quidem.</p>
+                                        <div class="row">
+                                            <div class="col-12 mb-3 mt-3">
+                                                <h5>Pet Information*</h5>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="mb-4">
+                                                    <select id="select-beast" class="form-control bg-transparent  py-2 fs"
+                                                        placeholder="Pet type" autocomplete="off">
+                                                        <option value="">Pet type</option>
+                                                        <option value="Cat">Cat</option>
+                                                        <option value="Dog">Dog</option>
+                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="mb-4">
+                                                    <input type="text" class="form-control bg-transparent"
+                                                        id="inputEmail" value="" placeholder="Pet name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mb-3 mt-3">
+                                                <h5>Select date*</h5>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="mb-4">
+                                                    <input type="date" class="form-control bg-transparent"
+                                                        id="inputEmail" value="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="mb-4">
+                                                    <input type="number" class="form-control bg-transparent"
+                                                        id="inputEmail" value="" placeholder="Number of day">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mb-3 mt-3">
+                                                <h5>Pet Parent Information*</h5>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control bg-transparent"
+                                                        id="inputEmail" value="" placeholder="Your name">
+                                                </div>
 
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="mb-3">
+                                                    <input type="email" class="form-control bg-transparent"
+                                                        id="inputEmail" value="" placeholder="Email address">
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="mb-3">
+                                                    <input type="email" class="form-control bg-transparent"
+                                                        id="inputEmail" value="" placeholder="+885 Number phone">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mb-3 mt-3">
+                                                <h5>Special Request or Notes*</h5>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="mb-4">
+                                                    <textarea name="" id="" rows="3" role="10"></textarea>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
                                     </div>
                                     <div class="tab-pane" id="profile-tab-pane" role="tabpanel"
                                         aria-labelledby="profile-tab" tabindex="0">
-
                                     </div>
                                 </div>
                             </div>
@@ -238,14 +302,9 @@
                             alt="">
                     </div>
                 </div>
-
             </div>
-
         </section>
     </main>
-
-
-
     <script src="js/bootstrap.bundle.min.js"></script>
 
 </body>
