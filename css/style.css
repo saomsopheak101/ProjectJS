@@ -836,7 +836,7 @@ footer .copyright a{
 /* Trainging */
 .main-training .train-section{
     width: 100%;
-    background-image: url(../images/service/train-banner.jpg);
+    background-image: url(../images/service/Training__1_.webp);
     background-size: cover;
     background-repeat: no-repeat;
     height: 60vh;
@@ -856,11 +856,30 @@ footer .copyright a{
 }
 .main-training .train-course .card{
     /* background-color: #f1f1f1; */
-    height: 350px;
+    height: auto;
     position: relative;
-    width: 300px;
+    width: 290px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+.main-training .train-course .card .card-body .pro-course{
+    position: absolute;
+    left: -16%;
+    top: 9%;
+}
+.main-training .train-course .card-1{
+    background-color: #808080;
+}
+.main-training .train-course .col-3:nth-child(2){
+    margin-left: 45px;
+}
+.main-training .train-course .col-5{
+    margin-left: 40px;
+}
+.main-training .train-course .card .card-body .sub-title{
+    font-size: 15px;
+    
+}
+
 
 
 /* end service */
