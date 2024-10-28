@@ -205,7 +205,7 @@
                         sessionStorage.setItem('authToken', json.data.token);
                         // console.log(json.data.token);
                         alert(json.message+ " Token stored.");
-                        // location.href = '';
+                        location.href = 'http://127.0.0.1:5502/home-page.html';
                     } else {
                         alert( json.message); // Show error message
                     }
