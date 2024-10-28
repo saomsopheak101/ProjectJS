@@ -26,7 +26,7 @@
                     <ul class="navbar-nav justify-content-center flex-grow-1 mt-2 me-5 ms-xl-4 ms-xxl-5 "
                         style="z-index: 99;">
                         <li class="nav-item mx-lg-2">
-                            <a class="nav-link  fw-medium" href="">Home</a>
+                            <a class="nav-link  fw-medium" href="home-page.html">Home</a>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown">
                             <a class="nav-link dropdown-toggle  fw-medium" href="#" role="button"
@@ -72,10 +72,13 @@
                                 </button>
                             </form>
                         </div>
-                        <div class="dropdown-center dropdown-account">
+                        <div class="dropdown-center dropdown-account" id="profiles">
                             <a class="btn btn-icon d-none d-xl-inline-block position-relative" role="button" href=""
                                 title="profile" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-user text-white"></i>
+                                <div class="mb-2">
+                                    <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                        src="images/img-pet/icon/user.png" alt="#" width="35px">
+                                </div>
                                 <span
                                     class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
                                     <small></small>
@@ -85,8 +88,8 @@
                                 <div class="card border-0 ">
                                     <div class="account-header d-flex flex-column align-items-center px-5 pt-2">
                                         <div class="mb-2">
-                                            <img class="border border-brand border-2 rounded-circle object-fit-cover"
-                                                src="" alt="#" width="60px">
+                                            <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                                src="images/img-pet/icon/user.png" alt="#" width="60px" >
                                         </div>
                                         <div
                                             class="d-flex flex-column align-items-center justify-content-center text-whitee">
@@ -96,7 +99,7 @@
                                     </div>
                                 </div>
                                 <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
                                             <i class="fa-solid fa-address-card me-3"></i>
@@ -143,14 +146,14 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href=""
+                                    <button
                                         class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
-                                        aria-current="page">
-                                        <div>
+                                        aria-current="page" id="logout">
+                                        
                                             <i class="fa-solid fa-right-from-bracket me-3"></i>
-                                        </div>
+                                      
                                         Log out
-                                    </a>
+                                    </button>
                                 </li>
                             </ul>
                         </div>
@@ -167,12 +170,12 @@
                         <div class="card border-0 shadow py-4 ">
                             <div class="card-header bg-transparent mb-3">
                                 <a href="#" class="img-pro">
-                                    <img src="images/img-pet/cat-1.jpg" alt="" id="profile-pic">
+                                    <img src="images/img-pet/icon/user.png" alt="" id="profile-pic">
                                 </a>
                                 <label type="button" for="profile" class="btn btn-edit color-bg btn-camera position-absolute rounded-5">
                                     <i class="fa-solid fa-camera text-white"></i>
                                 </label>
-                                <input type="file" class="form-control bg-transparent d-none" id="profile">
+                                <input type="file" class="form-control bg-transparent d-none" id="profile" accept="image/*">
                                 <h5 class="mb-0 mt-4"> Kinki</h5>
                                 <span>Kinki@gmail.com</span>
                             </div>
@@ -245,16 +248,16 @@
                                         <label for="inputEmail"
                                             class="col-sm-3 col-form-label text-black">First name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control bg-transparent" id="inputEmail"
-                                                value="Sari">
+                                            <input type="text" class="form-control bg-transparent"  id="fname"
+                                                value="">
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <label for="inputEmail"
                                             class="col-sm-3 col-form-label text-black">Last name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control bg-transparent" id="inputEmail"
-                                                value="Niki">
+                                            <input type="text" class="form-control bg-transparent" id="lname"
+                                                value="">
                                         </div>
                                     </div>
 
@@ -262,16 +265,16 @@
                                         <label for="inputEmail"
                                             class="col-sm-3 col-form-label text-black">Email Address</label>
                                         <div class="col-sm-9">
-                                            <input type="email" class="form-control bg-transparent" id="inputEmail"
-                                                value="sariniki@gmail.com">
+                                            <input type="email" class="form-control bg-transparent" id="Memail"
+                                                value="">
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <label for="inputEmail"
                                             class="col-sm-3 col-form-label text-black">Phone</label>
                                         <div class="col-sm-9">
-                                            <input type="tel" class="form-control bg-transparent" id="inputEmail"
-                                                value="09623552">
+                                            <input type="tel" class="form-control bg-transparent" id="pnumber"
+                                                value="">
                                         </div>
                                     </div>
 
@@ -279,8 +282,8 @@
                                         <label for="inputEmail"
                                             class="col-sm-3 col-form-label text-black">Address</label>
                                         <div class="col-sm-9">
-                                            <input type="tel" class="form-control bg-transparent" id="inputEmail"
-                                                value="Phone Penh">
+                                            <input type="tel" class="form-control bg-transparent" id="address"
+                                                value="">
                                         </div>
                                     </div>
 
@@ -288,6 +291,7 @@
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="text-right">
                                                 <!-- <button type="button" id="submit" name="submit" class="btn btn-secondary px-4 py-2">Cancel</button> -->
+                                                <button class="btn btn-danger px-4 py-2 me-3" id="delete-acc">Delete Account</button>
                                                 <a href="edit-profile.html">
                                                     <button type="button" id="submit" name="submit"
                                                     class="btn btn-edit color-bg px-4 py-2 text-white">Edit profile</button>
@@ -530,7 +534,170 @@
 
 
     <script src="js/bootstrap.bundle.min.js"></script>
+<script>
+      console.log(sessionStorage.getItem('authToken'))
+     let authToken = sessionStorage.getItem('authToken')
 
+    
+    if(!authToken){
+        location.href = 'http://127.0.0.1:5502/home-page.html';
+    }
+    document.querySelector('#logout').addEventListener('click',()=>{
+                logOut()
+     })
+    function logOut(){
+        fetch('https://mps4.chandalen.dev/api/logout',{
+                method:'DELETE',
+                headers:{'Accept':"application/json",
+                    'Authorization':`Bearer ${authToken}`
+                }
+                
+                
+            })
+            .then(res =>res.json())
+            .then(json=>{
+                if(json.result === true){
+                    sessionStorage.removeItem('authToken');
+                    console.log(json.message);
+                    alert(json.message)
+                    location.href = 'http://127.0.0.1:5502/home-page.html';
+                }else{
+                    alert(json.message);
+                }
+            })
+     }
+
+// =========== change avarta ========= 
+function changeAvarta(){
+
+    let profile = document.querySelector('#profile').files[0];
+
+    // Display the image preview
+    
+   
+
+         const reader = new FileReader();
+            reader.onload = (event) => {
+                let avatar = document.querySelector('#profile-pic');
+                 let profileDrop = document.querySelectorAll('.changeImg');
+                avatar.setAttribute('src',event.target.result);
+                // cuz i want all image work 
+                 profileDrop.forEach(img => img.setAttribute('src',event.target.result));
+
+        // Store base64 image data in sessionStorage
+                sessionStorage.setItem('avatar', event.target.result);
+            }
+         reader.readAsDataURL(profile)
+
+
+
+
+    let formdata = new FormData();
+    formdata.append('avatar',profile);
+
+
+    fetch('https://mps4.chandalen.dev/api/profile/avatar',{
+        method:'POST',
+        headers:{"Accept":"application/json",
+            "Authorization": `Bearer ${authToken}`
+        },
+        body:formdata
+        
+    })
+    .then(res=>res.json())
+    .then(json=>{
+        console.log(json)
+        if(json.result === true){
+            console.log(json.message);
+            alert(json.message)
+        }else{
+            alert(json.message)
+        }
+    })
+
+}
+let storedAvatar = sessionStorage.getItem('avatar');
+if (storedAvatar) {
+    document.querySelector('#profile-pic').src = storedAvatar;
+    document.querySelectorAll('.changeImg').forEach(img => img.src = storedAvatar);
+}
+document.querySelector('#profile').addEventListener('change', changeAvarta);
+
+
+getData();
+function getData(){
+    fetch('https://mps4.chandalen.dev/api/me',{
+        method:'GET',
+        headers:{"Accept":"application/json",
+            "Authorization": `Bearer ${authToken}`
+        }   
+    })
+    .then(res=>res.json())
+    .then(json=>{
+        // Assuming the first name is in json.firstName or a similar field
+        let firstName = json.data.first_name;
+        let lname = json.data.last_name;
+        let email = json.data.email;
+        let phone = json.data.phone;
+        let address = json.data.address;
+        let avatar = json.data.avatar;
+        // console.log(firstName)
+        console.log(avatar)
+        document.querySelector('#fname').value = firstName;
+        document.querySelector('#lname').value = lname;
+        document.querySelector('#Memail').value = email;
+        document.querySelector('#pnumber').value = phone;
+        document.querySelector('#address').value = address;
+        document.querySelectorAll('.changeImg').src = avatar;
+        document.querySelectorAll('#profile-pic').src = avatar;
+
+    })
+}
+function deleteAcc(){
+    fetch('https://mps4.chandalen.dev/api/profile/acc',{
+        method : 'DELETE',
+        headers:{"Accept":"application/json",
+            "Authorization": `Bearer ${authToken}`
+        } 
+        
+    })
+    .then(res => res.json())
+    .then(json=>{
+        if(json.result === true){
+            sessionStorage.removeItem('authToken');
+            console.log(json.message)
+            alert(json.message)
+            location.href = 'http://127.0.0.1:5502/home-page.html';
+        }else{
+            alert(json.message)
+        }
+    })
+}
+document.querySelector('#delete-acc').addEventListener('click',()=>{
+    deleteAcc();
+})
+
+// not yet test it 
+function deleteAvatar(){
+    fetch('https://mps4.chandalen.dev/api/profile/avatar',{
+        method : 'DELETE',
+        headers:{"Accept":"application/json",
+            "Authorization": `Bearer ${authToken}`
+        } 
+        
+    })
+    .then(res => res.json())
+    .then(json=>{
+        if(json.result === true){
+            console.log(json.message)
+            alert(json.message)
+        }else{
+            alert(json.message)
+        }
+    })
+
+}
+</script>
 </body>
 
 </html>
