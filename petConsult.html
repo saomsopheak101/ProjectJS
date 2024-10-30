@@ -6,34 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Day Care</title>
     <link rel="stylesheet" href="css/bootstrap-min.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         body {
             background-color: #ffffff;
+        }
+
+        .hero-banner {
+            height: 540px;
+            background-image: url(./images/service/consult.png);
+        }
+
+        .hero-banner .overlay {
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff80;
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <section>
-            <div class="hero-banner">
-                <div class="hero-content d-flex align-items-center h-100">
-                    <div class="container">
-                        <div class="row justify-content-center w-100">
-                            <div class="col-12 col-md-7">
-                                <h1 class="display-3 fw-bold text-warning">Pet Consulting</h1>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt dolorem ea
-                                    delectus dolor corrupti nisi veritatis, quae fuga, nam eaque expedita eius dicta
-                                    obcaecati illo harum sequi officia ut consequatur.</p>
-                                <button class="btn btn-warning">Book Now</button>
-                            </div>
-                            <div class="col-12 col-md-5"></div>
-                        </div>
+    
+    <section>
+        <div class="hero-banner position-relative z-1">
+            <!-- <div class="overlay position-absolute z-2"></div> -->
+            <div class="hero-content d-flex align-items-center h-100">
+                <div class="container z-3 d-flex justify-content-center">
+                    <div class="text-center">
+                        <h1 class="display-2 fw-bold">Pet Consult</h1>
+                        <p class="fw-bold text-black"><a href="home-page.html" class="color-text">Home</a> <i class="fa-solid fa-chevron-right text-black"></i> Pet Consult</p>
+                        <button class="btn btn-warning me-2">Book Now</button>
+                        <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">Ask a question</button>
+                        
                     </div>
+
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
