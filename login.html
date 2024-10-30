@@ -6,9 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
+        header {
+            position: fixed;
+            z-index: 99;
+            top: 0;
+           
+            width: 100%;
+            height: 80px;
+            transition: 0.3s;
+
+        }
+
+        header.sticky {
+            padding: 5px 110px;
+            background-color: #ffff;
+            color: black;
+
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        }
+
+        header {
+            color: black;
+        }
+
         .form-logAndris .btn-login a {
             display: block;
             text-align: center;
@@ -21,18 +44,18 @@
             transition: all 0.3s;
         }
 
-        .form-logAndris .separator {
+        /* .form-logAndris .separator {
             height: 1px;
             background-color: rgba(0, 0, 0, 0.246);
             margin: 20px 0;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
+        } */
 
         .form-logAndris .separator div {
             position: absolute;
-            background-color: #ffffff;
+            /* background-color: #ffffff; */
         }
 
         .form-logAndris .socail-btn {
@@ -59,32 +82,13 @@
             font-size: 14px;
         }
 
-        .form-logAndris .img-form {
+        /* .form-logAndris .img-form {
             width: 100%;
             height: 100%;
             background-color: #f49943;
-        }
+        } */
 
-        .form-logAndris .img-form img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .form-logAndris .img-logoform {
-            width: 150px;
-            height: 150px;
-            margin-bottom: 20px;
-            border-radius: 50%;
-            background-color: #ffffff;
-        }
-
-        .form-logAndris .img-logoform img {
-
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    
 
         .form-logAndris .input-with-icon {
             padding-left: 35px;
@@ -98,80 +102,299 @@
             color: #aaa;
             pointer-events: none;
         }
+        .form-control{
+            font-size: 15px;
+            height: 45px;
+        }
+        .style-login {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            /* height: 100vh; */
+            background-color: blue;
+
+        }
+        .bg-image-login {
+            background-image: url(https://img.freepik.com/premium-photo/dog-cat-are-laying-rug-with-dog-pet-care-hd-quality-image-website_1286196-1697.jpg?semt=ais_hybrid);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .bg-glass {
+            background-color: #f49943;
+            backdrop-filter: var(--backdrop-filter);
+            background-color: #201f1fb9;
+            color: var(--login-c-text);
+            border-radius: none !important;
+            box-shadow: 0px 0px 10px 5px rgba(100, 100, 100, 0.662);
+        }
+
+        .style-3 {
+            overflow: hidden !important;
+            width: 300px !important;
+            left: -4%;
+            top: -4%;
+            z-index: -1;
+        }
+        .style-4 {
+            overflow: hidden !important;
+            width: 300px !important;
+            bottom: -0%;
+            right: -7%;
+            z-index: -1;
+        }
     </style>
 </head>
 
-<body>
-    <header></header>
-    <main>
-        <section class="form-logAndris py-5">
+<body class="overflow-x-hidden">
+    <header class="bg-black">
+        <nav class="navbar navbar-expand-lg  z-3">
             <div class="container">
-                <div class="row g-0">
-                    <div class="col-6 shadow-lg px-4 rounded-start-2">
-                        <div class="img-logoform mx-auto d-flex justify-content-center align-items-center">
-                            <img src="images/login and signup/PetZone.png" alt="">
+                <a class="navbar-brand" href="">
+                    <img src="images/img-pet/logo/PetZone (2).png" style="width: 70px;" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 me-5 ms-xl-4 ms-xxl-5 "
+                        style="z-index: 99;">
+                        <li class="nav-item mx-lg-2">
+                            <a class="nav-link  fw-medium" href="home-page.html">Home</a>
+                        </li>
+                        <li class="nav-item mx-lg-2 dropdown">
+                            <a class="nav-link dropdown-toggle  fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Service
+                            </a>
+                            <ul class="dropdown-menu bg-white">
+                                <li><a class="dropdown-item text-black" href="">Pet training</a>
+                                </li>
+                                <li><a class="dropdown-item text-black" href="">Pet Counseling</a>
+                                </li>
+                                <li><a class="dropdown-item text-black" href="">Pet Grooming</a>
+                                </li>
+                                <li><a class="dropdown-item text-black" href="">Pet Day care</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mx-lg-2 dropdown ">
+                            <a class="nav-link dropdown-toggle fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                About
+                            </a>
+                            <ul class="dropdown-menu bg-white text-black fw-medium">
+                                <li><a class="dropdown-item text-black" href="">About us</a></li>
+                                <li><a class="dropdown-item text-black" href="">About
+                                        PetZone</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mx-lg-2">
+                            <a class="nav-link  fw-medium" href="">Feedback</a>
+                        </li>
+                        <li class="nav-item mx-lg-2">
+                            <a class="nav-link fw-medium" href="">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center ">
+                        <div class="d-flex align-items-center">
+                            <form class="d-none d-xl-flex" role="search" title="search">
+                                <button class="btn btn-icon" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#searchModal">
+                                    <i class="fa-solid fa-search text-white"></i>
+                                </button>
+                            </form>
+
+                            <button class="py-2 px-4 rounded-2 bg-white border-0 ms-3 " id="login" type="button"
+                                onclick="window.location.href='login.html';">Login</button>
+                            <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
+
+                            <!-- <button class="py-2 px-4 rounded-2 border-0">Booking</button> -->
                         </div>
-                            <form onsubmit="getdata(); return false;">
-                                <div class="form-group position-relative">
-                                    <input type="email" class="form-control  mt-3 input-with-icon" id="email" name="email"
-                                        placeholder="Your email" required>
-                                    <i class="fa-solid fa-envelope icon-position"></i>
+                        <!-- User profile -->
 
+                        <div class="dropdown-center dropdown-account" id="profiles">
+                            <a class="btn btn-icon d-none d-xl-inline-block position-relative" role="button" href=""
+                                title="profile" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="mb-2">
+                                    <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                        src="images/img-pet/icon/user.png" alt="#" width="35px">
                                 </div>
-
-                                <div class="form-group position-relative">
-                                    <input type="password" class="form-control  mt-3 input-with-icon" id="password"
-                                        name="password" placeholder="Your password" required>
-                                    <i class="fa-solid fa-lock icon-position"></i>
-
-                                </div>
-
-                                <div class="form-group form-check d-flex justify-content-between mt-3">
-                                    <div class="check-box">
-                                        <input type="checkbox" class="form-check-input bg-secondary" id="remember" required>
-                                        <label class="form-check-label" for="remember">Remember me</label>
+                                <span
+                                    class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
+                                    <small></small>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu  mt-4 rounded-3 py-2">
+                                <div class="card border-0 ">
+                                    <div class="account-header d-flex flex-column align-items-center px-5 pt-2">
+                                        <div class="mb-2">
+                                            <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                                src="images/img-pet/icon/user.png" alt="#" width="60px">
+                                        </div>
+                                        <div
+                                            class="d-flex flex-column align-items-center justify-content-center text-whitee">
+                                            <h5 class="mb-0">NIKI</h5>
+                                            <p>niki@gmail.com</p>
+                                        </div>
                                     </div>
-                                    <a href="forgot-pass.html"
-                                        class="forgot-password text-decoration-none text-secondary">Forgot
-                                        Password?</a>
                                 </div>
-                                <div class="form-group mt-3  btn-login ">
-                                    <input type="submit" class="btn btn-warning" value="Login">
-                                </div>
-                            <div class="separator position-relative mt-5">
-                                <div class="position-absolute">
-                                    OR
-                                </div>
-                            </div>
-                            <div class="login-with-socail">
-                                <a href="#" class="socail-btn">
-                                    <img src="images/login and signup/facebookk.png" alt="Facebook">
-                                    <p>Facebook</p>
-                                </a>
-                            </div>
-                            <div class="login-with-socail mt-3">
-                                <a href="#" class="socail-btn">
-                                    <img src="images/login and signup/googlee.png" alt="Facebook">
-                                    <p>Facebook</p>
-                                </a>
-                            </div>
+                                <li>
+                                    <a href="profile.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-address-card me-3"></i>
+                                        </div>
+                                        My Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-bag-shopping me-3"></i>
+                                        </div>
+                                        Booking
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-ticket me-3"></i>
+                                        </div>
+                                        Review
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-bell me-3"></i>
+                                        </div>
+                                        Notification
+                                        <span class="badge ms-auto bg-brand rounded-pill fw-normal">6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-book me-3"></i>
 
-                            <div class="form-group mt-3">
-                                <p class="text-center">Don't have an account? <a href="signup.html"
-                                        class="text-decoration-none text-secondary">Sign up</a></p>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-6">
-                        <div class="img-form rounded-end-2">
-                            <img src="images/login and signup/portrait-cute-dog_928869-30668-removebg-preview.png"
-                                alt="" class="rounded-end-2">
+                                        </div>
+                                        Privacy
+                                    </a>
+                                </li>
+                                <li>
+                                    <button class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
+                                        aria-current="page" id="logout">
+
+                                        <i class="fa-solid fa-right-from-bracket me-3"></i>
+
+                                        Log out
+                                    </button>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
+        </nav>
+    </header>
+    <main>
+        <section class="form-logAndris mt-5 pt-4 mb-2">
+            <img src="images/img-pet/style.png " class="position-absolute style style-3" alt="">
+            <div class="container ">
+                <div class="row d-flex justify-content-center rounded rounded-5">
+                    <div class="col-md-10 col-lg-10 bg-image-login rounded rounded-5 mt-5 mb-3">
+                        <div class="row">
+                            <div class="col-7 my-4  m-auto ps-0 d-lg-flex  flex-column justify-content-center align-items-center">
+                                <div class="card bg-glass p-5 rounded-5">
+                                    <div class="  mx-auto d-flex justify-content-center align-items-center mb-3 ">
+                                        <img src="images/img-pet/logo/PetZone (2).png" alt width="220px" >
+                                    </div>
+                                    <form onsubmit="getdata(); return false; " class="row g-3 ">
+                                        <div class="form-group position-relative">
+                                            <input type="email" class="form-control  mt-3 input-with-icon" id="email"
+                                                name="email" placeholder="Your email" required>
+                                            <i class="fa-solid fa-envelope icon-position fs-6 pt-3 ps-2"></i>
+                                        </div>
+                                        <div class="form-group position-relative">
+                                            <i class="fa-solid fa-lock icon-position fs-6 pt-3 ps-2"></i>
+                                            <input type="password" class="form-control  mt-3 input-with-icon"
+                                                id="password" name="password" placeholder="Your password" required>
+
+                                        </div>
+
+                                        <div class="form-group form-check d-flex justify-content-between mt-3 ms-2">
+                                            <div class="check-box">
+                                                <input type="checkbox" class="form-check-input "
+                                                    id="remember" required>
+                                                <label class="form-check-label text-white" for="remember">Remember me</label>
+                                            </div>
+                                            <a href="forgot-pass.html"
+                                                class="forgot-password text-decoration-none color-text pe-2">Forgot
+                                                Password?</a>
+                                        </div>
+                                        <div class="form-group mt-3  btn-login ">
+                                            <input type="submit" class="btn btn-warning" value="Login">
+                                        </div>
+                                        <div class="separator position-relative mt-5">
+                                            <p class="text-white mt-3">OR</p>
+                                            
+                                        </div>
+                                        <div class="login-with-socail">
+                                            <a href="#" class="socail-btn">
+                                                <img src="images/login and signup/facebookk.png" alt="Facebook">
+                                                <p class="text-white">Facebook</p>
+                                            </a>
+                                        </div>
+                                        <div class="login-with-socail mt-3">
+                                            <a href="#" class="socail-btn">
+                                                <img src="images/login and signup/googlee.png" alt="Facebook">
+                                                <p class="text-white">Facebook</p>
+                                            </a>
+                                        </div>
+
+                                        <div class="form-group mt-3">
+                                            <p class="text-center text-white">Don't have an account? <a href="signup.html"
+                                                    class="text-decoration-none color-text">Sign up</a></p>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                            <!-- <div class="col-5 d-none d-lg-flex  flex-column justify-content-center align-items-center">
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="images/img-pet/style.png " class="position-absolute  style-4" alt="">
         </section>
     </main>
+    <footer class="border-1  mt-4">
+        <section class="copyright py-4 border-top">
+            <div class="container-fluid px-md-5">
+                <div class="d-md-flex text-center text-md-start justify-content-between text-white">
+                    <p class="m-0 pt-2 ">Copyright © 2024 by <span class="color-text">PetZone</span> <span>. All
+                            Rights Reserved.</span></p>
+                    <p class="text-wrap mb-0">
+                        <a href=""><i class="fa-brands fa-facebook-f "></i></a>
+                        <a href=""> <i class="fa-brands fa-instagram ms-2"></i></a>
+                        <a href=""><i class="fa-brands fa-tiktok ms-2"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter ms-2"></i></a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </footer>
     <script>
         function getdata() {
             let gmail = document.querySelector('#email').value;
@@ -199,6 +422,17 @@
                 .then(json => {
                     console.log(json); // Log the response data
 
+
+                    // Assuming the token is returned as part of the response (modify as needed based on your API structure)
+                    if (json.data.token) {
+                        // Store the token in sessionStorage
+                        sessionStorage.setItem('authToken', json.data.token);
+                        // console.log(json.data.token);
+                        alert(json.message + " Token stored.");
+                        location.href = 'http://127.0.0.1:5502/home-page.html';
+                    } else {
+                        alert(json.message); // Show error message
+
                     // Check if the response is successful
                     if (json.result === true) {
                         // Check if roles is an array and contains at least one role
@@ -221,9 +455,10 @@
                         }
                     } else {
                         alert("Invalid response. Please try again.");
+
                     }
                 })
-                
+
         }
     </script>
 </body>
