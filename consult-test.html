@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DateTime Picker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Select consultant</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+        <div class="form-group">
+            <input type="datetime-local" id="dateTime" class="form-control" required>
+        </div>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Choose consult way</option>
+            <option value="1">Online</option>
+            <option value="2">Face to face</option>
+        </select>
+
+        <button id="submitBtn" class="btn btn-primary">Submit</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function () {
+            const dateTimeValue = document.getElementById('dateTime').value;
+            const formattedDateTime = formatDateTime(dateTimeValue);
+        });
+
+        function formatDateTime(dateTime) {
+            const date = new Date(dateTime);
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true // Use 12-hour format
+            };
+            return date.toLocaleString('en-US', options);
+        }
+    </script>
+</body>
+
+</html>

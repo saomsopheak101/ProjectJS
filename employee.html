@@ -39,7 +39,7 @@
 
 	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 	<link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-	<link href="../../cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css" rel="stylesheet">
+
 	<link href="vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
 	<!-- tagify-css -->
@@ -1330,8 +1330,9 @@
 										<h4 class="heading mb-0">Employees</h4>
 										<div>
 											<a class="btn btn-primary btn-sm" data-bs-toggle="offcanvas"
-												href="#offcanvasExample" role="button"
-												aria-controls="offcanvasExample">+ Add Employee</a>
+												href="#offcanvasExample" role="button" onclick="document.querySelector('.update-employ').innerHTML = 'Add Employee';
+												document.querySelector('.change-subtxt').innerHTML = 'Submit';" aria-controls="offcanvasExample">+ Add
+												Employee</a>
 
 										</div>
 									</div>
@@ -1349,8 +1350,8 @@
 											</tr>
 										</thead>
 										<tbody class="tbody">
-										
-										
+
+
 
 										</tbody>
 
@@ -1386,7 +1387,7 @@
 
 		<div class="offcanvas offcanvas-end customeoff" tabindex="-1" id="offcanvasExample">
 			<div class="offcanvas-header">
-				<h5 class="modal-title" id="#gridSystemModal">Add Employee</h5>
+				<h5 class="modal-title update-employ" id="#gridSystemModal">Add Employee</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
 					<i class="fa-solid fa-xmark"></i>
 				</button>
@@ -1419,55 +1420,67 @@
 					</div>
 					<form>
 						<div class="row">
-					
+
 							<div class="col-xl-6 mb-3">
-								<label for="exampleFormControlInput2" class="form-label">Employee Name<span
+								<label for="gname" class="form-label">Employee Name<span
 										class="text-danger">*</span></label>
-								<input type="text" class="form-control" id="gname" placeholder="">
+								<input type="text" class="form-control" id="gname" placeholder="Enter employee name">
 							</div>
-							<!-- <div class="col-xl-6 mb-3">
-								<label for="exampleFormControlInput3" class="form-label">Employee Email<span
-										class="text-danger">*</span></label>
-								<input type="email" class="form-control" id="exampleFormControlInput3" placeholder="">
-							</div> -->
+
 							<div class="col-xl-6 mb-3">
 								<label for="pnumber" class="form-label">Phone Number<span
 										class="text-danger">*</span></label>
-								<input type="number" class="form-control" id="exampleFormControlInput88" placeholder="">
+								<input type="number" class="form-control" id="pnumber" placeholder="Enter phone number">
 							</div>
+
 							<div class="col-xl-6 mb-3">
-								<label class="form-label">Roles<span class="text-danger">*</span></label>
-								<select class="default-select style-1 form-control">
-									<option data-display="Select">Please select</option>
-									<option value="html">Doctor</option>
-									<option value="css">Vet</option>
-									<option value="javascript">Trainner</option>
-									<option value="javascripts">Consultant</option>
-								</select>
+								<label for="gaddress" class="form-label">Address<span
+										class="text-danger">*</span></label>
+								<input type="text" class="form-control" id="gaddress" placeholder="Enter address">
 							</div>
+
 							<div class="col-xl-6 mb-3">
-								<label class="form-label">Charge($)<span class="text-danger">*</span></label>
-								<select class="default-select style-1 form-control">
+								<label for="position" class="form-label">Position<span
+										class="text-danger">*</span></label>
+								<select class=" style-1 form-control" id="position">
 									<option data-display="Select">Please select</option>
-									<option value="html">Per day</option>
-									<option value="css">Per hour</option>
-									<option value="javascript">Per vet</option>
-									<option value="javascripts">Per vist</option>
+
 								</select>
 							</div>
 
+							<div class="col-xl-6 mb-3">
+								<label for="worktime" class="form-label">Work Time<span
+										class="text-danger">*</span></label>
+								<select class=" style-1 form-control" id="worktime">
+									<option data-display="Select">Please select</option>
+									<!-- Populate options dynamically with JavaScript -->
+								</select>
+							</div>
+
+							<div class="col-xl-6 mb-3">
+								<label for="workday" class="form-label">Work Day<span
+										class="text-danger">*</span></label>
+								<select class=" style-1 form-control" id="workday">
+									<option data-display="Select">Please select</option>
+									<!-- Populate options dynamically with JavaScript if needed -->
+								</select>
+							</div>
 
 							<div class="col-xl-12 mb-3">
-								<label class="form-label">Description Service<span class="text-danger">*</span></label>
-								<textarea rows="3" class="form-control"></textarea>
+								<label for="gdescription" class="form-label">Description Service<span
+										class="text-danger">*</span></label>
+								<textarea rows="3" class="form-control" id="gdescription"
+									placeholder="Enter service description"></textarea>
 							</div>
 
 						</div>
 						<div>
-							<button class="btn btn-danger light ms-1">Cancel</button>
-							<button class="btn btn-primary me-1">Submit</button>
+							<button type="button" class="btn btn-danger light ms-1">Cancel</button>
+							<button type="button" onclick="handleSubmit();" id="btn-sub"
+								class="btn btn-primary me-1 change-subtxt">Submit</button>
 						</div>
 					</form>
+
 				</div>
 			</div>
 		</div>
@@ -1591,6 +1604,62 @@
 			</div>
 		</div>
 
+		<!-- Modal view -->
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-lg " role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalCenterTitle">View Employee</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+						</button>
+					</div>
+					<div class="modal-body p-3 ">
+						<div class="row ">
+							<div class="col-5">
+								<div class="d-flex align-items-center h-100 ps-1">
+									<img  class=" card-img-top rounded-3" width="285px" height="280px" id="Mimage" alt="">
+								</div>
+							</div>
+							<div class="col-7">
+								<div class="row justify-content-between">
+									
+									<div class="col-6">
+										<p class="text-black fw-bold">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="text-dark fw-medium" id="Mname"></span></p>
+									</div>
+									<div class="col-6">
+										<p class="text-black fw-bold">Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="text-dark fw-medium" id="Mnumber"></span></p>
+									</div>
+									<div class="col-6">
+										<p class="text-black fw-bold">Position &nbsp;&nbsp;&nbsp;: <span class="text-dark fw-medium" id="Mposition"></span></p>
+									</div>
+									<div class="col-6 ">
+										<p class="text-black fw-bold">Workday : <span class="text-dark fw-medium" id="Mworkday"></span></p>
+									</div>
+									<div class="col-6 pe-0">
+										<p class="text-black fw-bold">Worktime : <span class="text-dark fw-medium" id="Mworktime"></span></p>
+									</div>
+									<div class="col-12">
+										<p class="text-black fw-bold">Address&nbsp;&nbsp;: <span class="text-dark fw-medium" id="Maddress"></span></p>
+									</div>
+									<div class="col-3">
+										<p class="text-black fw-bold">Description :</p>
+									</div>
+									<div class="col-9 px-0">
+										<span class="text-dark fw-medium" id="Mdescription">
+										</span>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
 
 		<!--**********************************
            Support ticket button start
@@ -1641,6 +1710,7 @@
 
 		employeeAll();
 		function employeeAll() {
+			let i = 1;
 			let row = '';
 			fetch('https://mps4.chandalen.dev/api/employees?search&page=1&per_page=20', {
 				method: 'GET',
@@ -1648,45 +1718,47 @@
 					'Accept': "application/json",
 					'Authorization': `Bearer ${authToken}`
 				}
-			
+
 			})
 				.then(res => res.json())
 				.then(json => {
 					json.data.forEach(element => {
-						row +=`
+						row += `
 					<tr>
-						<td><span>${element.id}</span></td>
+						<td><span>${i++}</span></td>
 						<td>
 							<div class="products">
 								<img src="${element.image}" class="avatar avatar-md"
 									alt="">
 								<div>
-									<h6>${element.name}</h6>
+									<h6 class="tname">${element.name}</h6>
 									<!-- <span>Web Designer</span>	 -->
 								</div>
 							</div>
 						</td>
-						<td><span class="text-primary">${element.phone}</span></td>
+						<td><span class="text-primary tphone">${element.phone}</span></td>
 						<td>
-							<span class="badge badge-success light border-0">${element.position.name}</span>
+							<span class="badge badge-success light border-0 tposition">${element.position.name}</span>
 						</td>
 						<td>
-							<span class="text-success">${element.work_day.name}</span>
+							<span class="text-success tday">${element.work_day.name}</span>
 						</td>
 						<td>
-							<span class="text-blue">${element.work_time.name}</span>
+							<span class="text-blue ttime">${element.work_time.name}</span>
 						</td>
 						<td>
-							<span class="">${element.created_at}</span>
+							<span class="tcreate">${element.created_at}</span>
 						</td>
 						<td>
 							<span class="">
-								<button type="button" class="btn btn-info btn-icon-xs"><i
-										class="fa-sharp fa-regular fa-eye"></i></button>
-								<button type="button" class="btn btn-primary btn-icon-xs"><i
+								<button type="button" class="btn btn-info btn-icon-xs" data-id="${element.id}" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"  onclick="viewEmployee(this)"><i
+										class="fa-sharp fa-regular fa-eye" ></i></button>
+								<button type="button" class="btn btn-primary btn-icon-xs"  data-id="${element.id}"  data-img="${element.image}" data-des="${element.description}" data-address="${element.address}" id="btn-up" onclick="getUpdate(this)" data-bs-toggle="offcanvas"
+												href="#offcanvasExample" role="button"
+												aria-controls="offcanvasExample"><i
 										class="fa-solid fa-pen-to-square"></i></button>
 								<!-- <button type="button" class="btn btn-warning btn-icon-xs"><i class="fa-solid fa-house-chimney"></i></button> -->
-								<button type="button" class="btn btn-danger btn-icon-xs"><i
+								<button data-id="${element.id}" onclick="DeleteEmploy(this);" type="button" class="btn btn-danger btn-icon-xs"><i
 										class="fa-solid fa-trash"></i></button>
 
 							</span>
@@ -1695,35 +1767,361 @@
 						`
 					});
 					document.querySelector('.tbody').innerHTML = row;
+
 				})
 		}
-		function createEmployee(){
+		function createEmployee() {
+
+			// get value workday 
+			fetch('https://mps4.chandalen.dev/api/work-times', {
+				method: 'GET',
+				headers: {
+					'Accept': "application/json",
+					'Authorization': `Bearer ${authToken}`
+				}
+			})
+				.then(res => res.json())
+				.then(json => {
+					let workTimeSelect = document.querySelector('#worktime');
+					workTimeSelect.innerHTML = '<option data-display="Select">Please select</option>'; // Clear existing options
+
+					json.data.forEach(item => {
+						let option = document.createElement('option');
+						option.value = item.id; // Set the value to the item's id
+						option.textContent = item.name; // Display name for the option
+
+						workTimeSelect.appendChild(option); // Append option to the select
+					});
+
+
+
+				});
+			// get value workday 
+			fetch('https://mps4.chandalen.dev/api/work-days', {
+				method: 'GET',
+				headers: {
+					'Accept': "application/json",
+					'Authorization': `Bearer ${authToken}`
+				}
+			})
+				.then(res => res.json())
+				.then(json => {
+					let workday = document.querySelector('#workday');
+					workday.innerHTML = '<option data-display="Select">Please select</option>';
+
+					json.data.forEach(item => {
+						let option = document.createElement('option');
+						option.value = item.id;
+						option.textContent = item.name;
+
+						workday.appendChild(option);
+					});
+				})
+
+			// get value postion 
+			fetch('https://mps4.chandalen.dev/api/positions', {
+				method: 'GET',
+				headers: {
+					'Accept': "application/json",
+					'Authorization': `Bearer ${authToken}`
+				}
+			})
+				.then(res => res.json())
+				.then(json => {
+					let position = document.querySelector('#position');
+					position.innerHTML = '<option data-display="Select">Please select</option>';
+
+					json.data.forEach(item => {
+						let option = document.createElement('option');
+						option.value = item.id;
+						option.textContent = item.name;
+
+						position.appendChild(option);
+					});
+				})
+
+
+
+		}
+
+		function handleSubmit() {
+
 			let avatar = document.querySelector('#upload-img').files[0];
 			let name = document.querySelector('#gname').value;
+			let number = document.querySelector('#pnumber').value;
+			let worktime = document.querySelector('#worktime').value;
+			let workday = document.querySelector('#workday').value;
+			let position = document.querySelector('#position').value;
+			let description = document.querySelector('#gdescription').value
+
+			// Validate selection
+			if (!worktime) {
+				alert("Please select a work time.");
+				return;
+			}
+			if (!workday) {
+				alert("Please select a work time.");
+				return;
+			}
+			if (!position) {
+				alert("Please select a work time.");
+				return;
+			}
+
+			console.log("Avatar:", avatar);
+			console.log("Name:", name);
+			console.log("Phone Number:", number);
+			console.log("Selected Work Time ID:", worktime);
+			console.log("Selected Work Time ID:", position);
+			console.log("Selected Work Time ID:", workday);
+			console.log("Selected Work Time ID:", description);
+
+			// Prepare form data
+			let formData = new FormData();
+			formData.append("image", avatar); // Append the avatar file
+			formData.append("name", name); // Append the name
+			formData.append("phone", number); // Append the phone number
+			formData.append("work_time_id", worktime);
+			formData.append("work_day_id", workday);
+			formData.append("position_id", position);
+			formData.append("description", description);
+
+			// Post employee data
+			fetch('https://mps4.chandalen.dev/api/employees', {
+				method: 'POST',
+				headers: {
+					'Accept': "application/json",
+					'Authorization': `Bearer ${authToken}`
+				},
+				body: formData // Send the form data
+			})
+				.then(res => res.json())
+				.then(json => {
+					if (json.result === true) {
+						employeeAll();
+						alert(json.message)
+						console.log(json.message)
+					} else {
+						alert(json.message)
+					}
+
+				})
+
+		}
+		function DeleteEmploy(row) {
+			console.log(row.dataset.id);
+			let id = row.dataset.id;
+
+			fetch('https://mps4.chandalen.dev/api/employees/' + id, {
+				method: 'DELETE',
+				headers: {
+					'Accept': "application/json",
+					'Authorization': `Bearer ${authToken}`
+				},
+			})
+				.then(res => res.json())
+				.then(json => {
+					if (json.result === true) {
+						employeeAll();
+						alert(json.message);
+						console.log(json.message)
+					} else {
+						alert(json.message);
+					}
+				})
 		}
 
 
 
 
+		// Event listeners
+		document.addEventListener('DOMContentLoaded', createEmployee);
+		// document.getElementById('btn-sub').addEventListener('click', handleSubmit);
+		// document.getElementById('btn-sub').addEventListener('click', () => {
+		// 	handleSubmit();
+
+		// });
 
 
 
 
+		function getUpdate(row) {
+			document.querySelector('.update-employ').innerHTML = 'Update Employee'
+			document.querySelector('.change-subtxt').innerHTML = 'Save';
+			let get = row.parentElement.parentElement.parentElement;
+
+
+			let name = get.querySelector('.tname').innerHTML;
+			let phone = get.querySelector('.tphone').innerHTML;
+
+			let positionName = get.querySelector('.tposition').innerHTML;
+			let workTime = get.querySelector('.ttime').innerHTML;
+			let workDay = get.querySelector('.tday').innerHTML;
+
+			document.querySelector('#gname').value = name;
+			document.querySelector('#pnumber').value = phone;
+			document.querySelector('#gaddress').value = row.dataset.address;
+			document.querySelector('#gdescription').value = row.dataset.des;
+			let id;
+			id = row.dataset.id
+			console.log('this is id value ', id);
+			// Fetch positions from the API
+			fetch('https://mps4.chandalen.dev/api/positions', {
+				method: 'GET',
+				headers: {
+					'Accept': "application/json",
+					'Authorization': `Bearer ${authToken}`
+				}
+			})
+				.then(res => res.json())
+				.then(json => {
+					// Loop through API data to find a matching position name
+					for (const apiPosition of json.data) {
+						if (apiPosition.name === positionName) { // Match position name
+							document.querySelector('#position').value = apiPosition.id; // Set position by ID
+							break;
+						}
+					}
+				})
+
+			// get value worktime 
+
+			fetch('https://mps4.chandalen.dev/api/work-times', {
+				method: 'GET',
+				headers: {
+					'Accept': "application/json",
+					'Authorization': `Bearer ${authToken}`
+				}
+			})
+				.then(res => res.json())
+				.then(json => {
+					{
+						// console.log(json)
+						for (const apiworkTime of json.data) {
+							if (apiworkTime.name === workTime) {
+								document.querySelector('#worktime').value = apiworkTime.id;
+								break;
+							}
+						}
+					}
+				})
+			// get value workday 
+			fetch('https://mps4.chandalen.dev/api/work-days', {
+				method: 'GET',
+				headers: {
+					'Accept': "application/json",
+					'Authorization': `Bearer ${authToken}`
+				}
+			})
+				.then(res => res.json())
+				.then(json => {
+					{
+						// console.log(json)
+						for (const apiWorkday of json.data) {
+							if (apiWorkday.name === workDay) {
+								document.querySelector('#workday').value = apiWorkday.id;
+								break;
+							}
+						}
+					}
+				})
+
+			document.querySelector('#btn-sub').onclick = function () {
+				{
+
+					let Nname = document.querySelector('#gname').value;
+					let Nnumber = document.querySelector('#pnumber').value;
+					let Naddress = document.querySelector('#gaddress').value;
+					let Ndescriptoion = document.querySelector('#gdescription').value;
+					let Nworkday = document.querySelector('#workday').value;
+					let Nworktime = document.querySelector('#worktime').value;
+					let Nposition = document.querySelector('#position').value;
+					let Navatar = document.querySelector('#upload-img').files[0];
 
 
 
 
+					update(id, Nname, Nnumber, Naddress, Ndescriptoion, Nworkday, Nworktime, Nposition, Navatar);
+				};
+			}
+		}
+		function update(id, name, phone, address, description, workday, worktime, position, avatar) {
+
+			let formData = new FormData();
+			formData.append('name', name);
+			formData.append('phone', phone);
+			formData.append('address', address);
+			formData.append('description', description);
+			formData.append('work_time_id', worktime);
+			formData.append('work_day_id', workday);
+			formData.append('position_id', position);
+			formData.append('image', avatar);
+
+			fetch(`https://mps4.chandalen.dev/api/employees/${id}`, {
+				method: 'POST',
+				headers: {
+					'Accept': "application/json",
+					'Authorization': `Bearer ${authToken}`
+				},
+				body: formData
+			})
+				.then(res => res.json())
+				.then(json => {
+					if (json.result === true) {
+						employeeAll();
+						clearAll()
+						alert(json.message)
+					} else {
+						alert(json.message)
+					}
+				})
+
+		}
+		function clearAll() {
+			document.querySelector('#gname').value = '';
+			document.querySelector('#pnumber').value = '';
+			document.querySelector('#gaddress').value = '';
+			document.querySelector('#gdescription').value = '';
+			document.querySelector('#workday').value = '';
+			document.querySelector('#worktime').value = '';
+			document.querySelector('#position').value = '';
+			document.querySelector('#upload-img').value = '';
+		}
+
+		function viewEmployee(row){
+			
+			let id = row.dataset.id;
+			console.log(id)
+
+				fetch(`https://mps4.chandalen.dev/api/employees/${id}`, {
+					method: 'GET',
+					headers: {
+						'Accept': "application/json",
+						'Authorization': `Bearer ${authToken}`
+					}
+				})
+				.then(res => res.json())
+				.then(json => {
+					console.log(json)
+					document.querySelector('#Mname').innerHTML = json.data.name;
+					document.querySelector('#Mnumber').innerHTML = json.data.phone;
+					document.querySelector('#Maddress').innerHTML = json.data.address;
+					document.querySelector('#Mdescription').innerHTML = json.data.description;
+					document.querySelector('#Mworktime').innerHTML = json.data.work_time.name;
+					document.querySelector('#Mworkday').innerHTML = json.data.work_day.name;
+					document.querySelector('#Mposition').innerHTML = json.data.position.name;
+					document.querySelector('#Mimage').src = json.data.image;
+				})
+		}
 
 
-
-
-
-
-
-
-
-
-
+	</script>
+	<script>
+		// Ensure that Bootstrap's modal is fully loaded and ready
+		// document.addEventListener("DOMContentLoaded", function () {
+		// 	var myModal = new bootstrap.Modal(document.getElementById("exampleModalCenter"));
+		// 	myModal.show();
+		// });
 
 	</script>
 	<!--**********************************
@@ -1742,7 +2140,7 @@
 	<script src="vendor/datatables/js/dataTables.buttons.min.js"></script>
 	<script src="vendor/datatables/js/buttons.html5.min.js"></script>
 	<script src="vendor/datatables/js/jszip.min.js"></script>
-	<script src="js/plugins-init/datatables.init.js"></script>
+
 
 	<!-- Apex Chart -->
 	<script src="js/custom.js"></script>

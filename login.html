@@ -421,18 +421,6 @@
                 })
                 .then(json => {
                     console.log(json); // Log the response data
-
-
-                    // Assuming the token is returned as part of the response (modify as needed based on your API structure)
-                    if (json.data.token) {
-                        // Store the token in sessionStorage
-                        sessionStorage.setItem('authToken', json.data.token);
-                        // console.log(json.data.token);
-                        alert(json.message + " Token stored.");
-                        location.href = 'http://127.0.0.1:5502/home-page.html';
-                    } else {
-                        alert(json.message); // Show error message
-
                     // Check if the response is successful
                     if (json.result === true) {
                         // Check if roles is an array and contains at least one role
@@ -457,7 +445,7 @@
                         alert("Invalid response. Please try again.");
 
                     }
-        }
+        
     })
                 
 
