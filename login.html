@@ -422,6 +422,7 @@
                 .then(json => {
                     console.log(json); // Log the response data
 
+
                     // Assuming the token is returned as part of the response (modify as needed based on your API structure)
                     if (json.data.token) {
                         // Store the token in sessionStorage
@@ -431,6 +432,30 @@
                         location.href = 'http://127.0.0.1:5502/home-page.html';
                     } else {
                         alert(json.message); // Show error message
+
+                    // Check if the response is successful
+                    if (json.result === true) {
+                        // Check if roles is an array and contains at least one role
+                        if (json.data.roles && json.data.roles.length > 0) {
+                            const roleName = json.data.roles[0].name; // Access the first role's name
+
+                            if (roleName === 'Normal User') {
+                                sessionStorage.setItem('authToken', json.data.token);
+                                alert(json.message + " Token stored.");
+                                location.href = 'http://127.0.0.1:5502/home-page.html';
+                            } else if (roleName === 'System Admin') {
+                                sessionStorage.setItem('adminToken', json.data.token);
+                                alert(json.message + " Token stored.");
+                                location.href = 'http://127.0.0.1:5502/employee.html';
+                            } else {
+                                alert("User role not recognized.");
+                            }
+                        } else {
+                            alert("No roles assigned to this user.");
+                        }
+                    } else {
+                        alert("Invalid response. Please try again.");
+
                     }
                 })
 

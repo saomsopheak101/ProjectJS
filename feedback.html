@@ -1,12 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/bootstrap-min.css">
+    <title>Customer Feedback</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        /* Hero Banner Styling */
+        .Feedback .hero-banner {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: url(images/feedback/download-3-1.jpg) center/cover no-repeat;
+        }
+
+        .Feedback .hero-banner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .Feedback .hero-banner .content {
+            position: relative;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .Feedback .hero-banner .content h2 {
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 2.5rem;
+        }
+
+        .Feedback .breadcrumb {
+            background-color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            display: inline-flex;
+            gap: 0.5rem;
+        }
+
+        .Feedback .breadcrumb a {
+            font-weight: bold;
+            color: #0088ff;
+            text-decoration: none;
+        }
+
+        .Feedback .breadcrumb .text-local {
+            font-weight: bold;
+            color: #fdc419;
+        }
+        .customer-feedback{
+            background-image: url(images/feedback/bg-section-9-1.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 50px;
+        }
+        /* Slider Styling */
+        .Feedback .slider {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .Feedback .slide-row {
+            display: flex;
+            justify-content: center;
+            transition: transform 0.5s;
+        }
+
+        .Feedback .slide-col {
+            position: relative;
+            width: 800px;
+            height: 400px;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        .Feedback .hero img {
+            height: 100%;
+            border-radius: 10px;
+            width: 320px;
+            object-fit: cover;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .Feedback .slide-col .content {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 520px;
+            height: 270px;
+            color: #4d4352;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4.5px);
+            -webkit-backdrop-filter: blur(4.5px);
+            border-radius: 10px;
+            padding: 45px;
+            z-index: 2;
+            user-select: none;
+        }
+
+        .Feedback .content h2 {
+            font-size: 1.5rem;
+            color: #4d4352;
+        }
+
+        .Feedback .content p {
+            font-size: 1rem;
+            color: #4d4352;
+        }
+
+        .Feedback .carousel-control-prev,
+        .Feedback .carousel-control-next {
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #f49943;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            transition: background-color 0.3s;
+        }
+
+        .Feedback .carousel-control-prev:hover,
+        .Feedback .carousel-control-next:hover {
+            background-color: #d98236;
+            /* Slightly darker shade for hover effect */
+        }
+
+        /* Form Styling */
+        .Feedback form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .Feedback form .form-label {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .Feedback form .form-control,
+        .Feedback form .form-select {
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            font-size: 1rem;
+            background-color: transparent !important;
+        }
+
+        .Feedback form .form-control:focus,
+        .Feedback form .form-select:focus {
+            border-color: #0088ff;
+            box-shadow: 0 0 5px rgba(0, 136, 255, 0.2);
+        }
+
+        .Feedback form button[type="submit"] {
+            background-color: #0088ff;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .Feedback form button {
+            background-color: #f49943 !important;
+            color: #ffffff;
+        }
+
+        .Feedback form button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .Feedback .carousel-indicators .active {
+            background-color: #fdc419;
+            transform: scale(1.2);
+        }
+
+        /* Carousel Arrow Buttons Styling */
+        .Feedback .carousel-control-prev,
+        .Feedback .carousel-control-next {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            transition: background-color 0.3s;
+        }
+
+        .Feedback .carousel-control-prev:hover,
+        .Feedback .carousel-control-next:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
 </head>
+
 <body>
-    
+    <main class="Feedback">
+        <section class="hero-banner">
+            <div class="content container">
+                <h2 class="display-4 fw-bold mb-4">Customer Feedback</h2>
+                <div class="breadcrumb d-inline-flex align-items-center">
+                    <a href="home-page.html">Home</a>
+                    <span class="mx-2 text-dark fw-bold">
+                        >
+                    </span>
+                    <span class="text-local">Feedback</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="customer-feedback my-5">
+            <div class="container text-center">
+                <h1 class="py-5">What customer says</h1>
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="slider">
+                                <div class="slide-row" id="slide-row">
+                                    <div class="slide-col">
+                                        <div class="content">
+                                            <p>Zen Doan is a business analyst, entrepreneur, media proprietor, and
+                                                investor, also known
+                                                as a best-selling book author.</p>
+                                            <h2>Zen</h2>
+                                            <p>Author</p>
+                                        </div>
+                                        <div class="hero">
+                                            <img src="https://user-images.githubusercontent.com/13468728/234031693-6bbaba7d-632c-4d7d-965f-75a76a549ce2.jpg"
+                                                alt="avatar">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="slider">
+                                <div class="slide-row" id="slide-row">
+                                    <div class="slide-col">
+                                        <div class="content">
+                                            <p>Zen Doan is a business analyst, entrepreneur, media proprietor, and
+                                                investor, also known
+                                                as a best-selling book author.</p>
+                                            <h2>Zen</h2>
+                                            <p>Author</p>
+                                        </div>
+                                        <div class="hero">
+                                            <img src="https://user-images.githubusercontent.com/13468728/234031693-6bbaba7d-632c-4d7d-965f-75a76a549ce2.jpg"
+                                                alt="avatar">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="slider">
+                                <div class="slide-row" id="slide-row">
+                                    <div class="slide-col">
+                                        <div class="content">
+                                            <p>Zen Doan is a business analyst, entrepreneur, media proprietor, and
+                                                investor, also known
+                                                as a best-selling book author.</p>
+                                            <h2>Zen</h2>
+                                            <p>Author</p>
+                                        </div>
+                                        <div class="hero">
+                                            <img src="https://user-images.githubusercontent.com/13468728/234031693-6bbaba7d-632c-4d7d-965f-75a76a549ce2.jpg"
+                                                alt="avatar">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="my-5">
+            <div class="container">
+                <h2 class="mb-4 text-center">Share Your Experience</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="rating" class="form-label">Rating</label>
+                        <select class="form-select" id="rating" required>
+                            <option value="">Choose your service to rate</option>
+                            <option value="1">Pet Grooming</option>
+                            <option value="2">Pet Training</option>
+                            <option value="3">Pet Day Care</option>
+                            <option value="4">Pet Counseling</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="feedback" class="form-label">Feedback</label>
+                        <textarea class="form-control" id="feedback" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
