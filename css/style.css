@@ -646,7 +646,8 @@ footer .copyright a{
     height: 175px !important;
 
 }
-.icon{
+.booking-page .icon
+{
     position: absolute;
     width: 60px;
     height: 60px;
