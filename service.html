@@ -1054,38 +1054,40 @@
 		<!--**********************************
             Content body start
         ***********************************-->
-        <div class="content-body">
-            <!-- row -->	
+		<div class="content-body">
+			<!-- Page Title and Breadcrumb -->
 			<div class="page-titles">
 				<ol class="breadcrumb">
 					<li><h5 class="bc-title">Services</h5></li>
 					<li class="breadcrumb-item"><a href="index.html">
+						<!-- SVG icon -->
 						<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M2.125 6.375L8.5 1.41667L14.875 6.375V14.1667C14.875 14.5424 14.7257 14.9027 14.4601 15.1684C14.1944 15.4341 13.8341 15.5833 13.4583 15.5833H3.54167C3.16594 15.5833 2.80561 15.4341 2.53993 15.1684C2.27426 14.9027 2.125 14.5424 2.125 14.1667V6.375Z" stroke="#2C2C2C" stroke-linecap="round" stroke-linejoin="round"/>
 							<path d="M6.375 15.5833V8.5H10.625V15.5833" stroke="#2C2C2C" stroke-linecap="round" stroke-linejoin="round"/>
-						</svg>
-						Home</a>
-					</li>
+						</svg> Home
+					</a></li>
 					<li class="breadcrumb-item active"><a href="javascript:void(0)">Services</a></li>
 				</ol>
 				<a class="text-primary fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button" aria-controls="offcanvasExample1">+ Add Task</a>
 			</div>
+		
+			<!-- Services Table Section -->
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-xl-12">
 						<div class="card">
 							<div class="card-body p-0">
 								<div class="table-responsive active-projects style-1">
-								<div class="tbl-caption">
-									<h4 class="heading mb-0">Services</h4>
-									<div>
-										<a class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">+ Add Employee</a>
-									
+									<div class="tbl-caption">
+										<h4 class="heading mb-0">Services</h4>
+										<div>
+											<a class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">+ Add Employee</a>
+										</div>
 									</div>
-								</div>
 									<table id="empoloyees-tblwrapper" class="table">
 										<thead>
 											<tr>
+												<th>ID</th>
 												<th>Service Title</th>
 												<th>Service Price</th>
 												<th>Image</th>
@@ -1095,75 +1097,16 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td><span class="text-primary">Pet Grooming</span></td>
-												<td><span class="text-red">90$</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic2.jpg" class="avatar avatar-md" alt="">
-														
-													</div>
-												</td>
-												<td>
-													<span class="text-green">updated with new Lyrics  Lost Panda ....</span>
-												</td>
-									
-												<td>
-													<span class="badge badge-success light border-0">Vet</span>
-												</td>
-									
-												<td>
-													<span class="">
-														<button type="button" class="btn btn-info btn-icon-xs"><i class="fa-sharp fa-regular fa-eye"></i></button>
-														<button type="button" class="btn btn-primary btn-icon-xs"><i class="fa-solid fa-pen-to-square"></i></button>
-														<!-- <button type="button" class="btn btn-warning btn-icon-xs"><i class="fa-solid fa-house-chimney"></i></button> -->
-														<button type="button" class="btn btn-danger btn-icon-xs"><i class="fa-solid fa-trash"></i></button>
-														
-													</span>
-												</td>
-											</tr>
-							
-											<tr>
-												<td><span class="text-primary">Pet Grooming</span></td>
-												<td><span class="text-red">90$</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic2.jpg" class="avatar avatar-md" alt="">
-														
-													</div>
-												</td>
-												<td>
-													<span class="text-green">updated with new Lyrics  Lost Panda ....</span>
-												</td>
-									
-												<td>
-													<span class="badge badge-success light border-0">Vet</span>
-												</td>
-									
-												<td>
-													<span class="">
-														<button type="button" class="btn btn-info btn-icon-xs"><i class="fa-sharp fa-regular fa-eye"></i></button>
-														<button type="button" class="btn btn-primary btn-icon-xs"><i class="fa-solid fa-pen-to-square"></i></button>
-														<!-- <button type="button" class="btn btn-warning btn-icon-xs"><i class="fa-solid fa-house-chimney"></i></button> -->
-														<button type="button" class="btn btn-danger btn-icon-xs"><i class="fa-solid fa-trash"></i></button>
-														
-													</span>
-												</td>
-											</tr>
-							
-
-							
+											<!-- Dynamic content goes here -->
 										</tbody>
-										
 									</table>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			
 			</div>
-        </div>
+		</div>
 		
         <!--**********************************
             Content body end
@@ -1184,65 +1127,39 @@
         ***********************************-->
 		
 		
-		<div class="offcanvas offcanvas-end customeoff" tabindex="-1" id="offcanvasExample">
-		  <div class="offcanvas-header">
-		  <h5 class="modal-title" id="#gridSystemModal">Add Employee</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
-				<i class="fa-solid fa-xmark"></i>
-			</button>
-		  </div>
-		  <div class="offcanvas-body">
-			<div class="container-fluid">
-				<div>
-					<label>Profile Picture</label>
-					<div class="dz-default dlab-message upload-img mb-3">	
-						<form action="#" class="dropzone">
-							<svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M27.1666 26.6667L20.4999 20L13.8333 26.6667" stroke="#DADADA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								<path d="M20.5 20V35" stroke="#DADADA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								<path d="M34.4833 30.6501C36.1088 29.7638 37.393 28.3615 38.1331 26.6644C38.8731 24.9673 39.027 23.0721 38.5703 21.2779C38.1136 19.4836 37.0724 17.8926 35.6111 16.7558C34.1497 15.619 32.3514 15.0013 30.4999 15.0001H28.3999C27.8955 13.0488 26.9552 11.2373 25.6498 9.70171C24.3445 8.16614 22.708 6.94647 20.8634 6.1344C19.0189 5.32233 17.0142 4.93899 15.0001 5.01319C12.9861 5.0874 11.015 5.61722 9.23523 6.56283C7.45541 7.50844 5.91312 8.84523 4.7243 10.4727C3.53549 12.1002 2.73108 13.9759 2.37157 15.959C2.01205 17.9421 2.10678 19.9809 2.64862 21.9222C3.19047 23.8634 4.16534 25.6565 5.49994 27.1667" stroke="#DADADA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-								<path d="M27.1666 26.6667L20.4999 20L13.8333 26.6667" stroke="#DADADA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-							</svg>
-							<div class="fallback">
-								<input name="file" type="file" multiple>
-								
-							</div>
-						</form>
-					</div>	
-				</div>
-				<form>
-					<div class="row">
-						<div class="col-xl-6 mb-3">
-							<label for="exampleFormControlInput1" class="form-label">Service Title<span class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
-						</div>	
-						<div class="col-xl-6 mb-3">
-							<label for="exampleFormControlInput2" class="form-label">Service Price<span class="text-danger">*</span></label>
-							<input type="text" class="form-control" id="exampleFormControlInput2" placeholder="">
-						</div>	
-						<div class="col-xl-6 mb-3">
-							<label for="exampleFormControlInput3" class="form-label">Images<span class="text-danger">*</span></label>
-							<input type="email" class="form-control" id="exampleFormControlInput3" placeholder="">
-						</div>
+<!-- Offcanvas for Add Employee -->
+<div class="offcanvas offcanvas-end customeoff" tabindex="-1" id="offcanvasExample">
+    <!-- Offcanvas Content -->
+    <div class="offcanvas-header">
+        <h5 class="modal-title">Add Employee</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+    <div class="offcanvas-body">
+        <!-- Add Employee Form -->
+        <form>
+            <!-- Input Fields -->
+            <div class="row">
+                <!-- Service Title -->
+                <div class="col-xl-6 mb-3">
+                    <label for="serviceTitle" class="form-label">Service Title<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="serviceTitle" placeholder="">
+                </div>
+                <!-- Service Price -->
+                <div class="col-xl-6 mb-3">
+                    <label for="servicePrice" class="form-label">Service Price<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="servicePrice" placeholder="">
+                </div>
+                <!-- More fields as needed -->
+            </div>
+            <!-- Submit and Cancel buttons -->
+            <button type="button" class="btn btn-danger light ms-1">Cancel</button>
+            <button type="submit" class="btn btn-primary me-1">Submit</button>
+        </form>
+    </div>
+</div>
 		
-						<div class="col-xl-6 mb-3">
-							<label for="exampleFormControlInput5" class="form-label">Features<span class="text-danger">*</span></label>
-							<input type="number" class="form-control" id="exampleFormControlInput5" placeholder="">
-						</div>	
-						<div class="col-xl-12 mb-3">
-							<label class="form-label">Description Service<span class="text-danger">*</span></label>
-							<textarea rows="3" class="form-control"></textarea>
-						</div>
-				
-					</div>
-					<div>
-						<button class="btn btn-danger light ms-1">Cancel</button>
-						<button class="btn btn-primary me-1">Submit</button>
-					</div>
-				</form>
-			  </div>
-		  </div>
-		</div>			
 		
 		<div class="offcanvas offcanvas-end customeoff" tabindex="-1" id="offcanvasExample1">
 		  <div class="offcanvas-header">
@@ -1397,6 +1314,33 @@
 	
 	<!-- tagify -->
 	<script src="vendor/tagify/dist/tagify.js"></script>
+	<script>
+		fetch('https://mps4.chandalen.dev/api/services')
+			.then(res => res.json())
+			.then(data => {
+				let rows = data.data.map(service => {
+					let prices = service.prices.map(price => `${price.animal.name}: $${price.price}`).join('<br>');
+					return `
+						<tr>
+							<td data-id="${service.id}">${service.id}</td>
+							<td>${service.title}</td>
+							<td>${prices}</td>
+							<td><img src="${service.image}" width="100" height="100" alt="Service Image"></td>
+							<td>${service.description || 'N/A'}</td>
+							<td>${service.feature || 'N/A'}</td>
+							<td><button onclick="getDetail(this)" class="btn btn-info btn-icon-xs" aria-label="View Details for ${service.title}">View Detail</button></td>
+						</tr>`;
+				}).join('');
+				document.querySelector('tbody').innerHTML = rows;
+			})
+			.catch(error => console.error('Error:', error));
+	
+		function getDetail(button) {
+			let id = button.closest('tr').querySelector('[data-id]').dataset.id;
+			console.log('View details for service ID:', id);
+		}
+	</script>
+
 	
 </body>
 

@@ -56,13 +56,15 @@
             font-weight: bold;
             color: #fdc419;
         }
-        .customer-feedback{
+
+        .customer-feedback {
             background-image: url(images/feedback/bg-section-9-1.png);
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
             padding: 50px;
         }
+
         /* Slider Styling */
         .Feedback .slider {
             width: 100%;
@@ -144,10 +146,15 @@
 
         /* Form Styling */
         .Feedback form {
-            background: #f8f9fa;
+            margin-top: 130px;
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+            background-image: url(images/feedback/bg-section-9-1.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
         }
 
         .Feedback form .form-label {
@@ -209,6 +216,26 @@
         .Feedback .carousel-control-prev:hover,
         .Feedback .carousel-control-next:hover {
             background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Image Background Feedback Styling */
+        .form-feedback {
+            position: relative;
+        }
+
+        .img-bg-feed {
+            position: absolute;
+            bottom:630px;
+            right: 18%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-bg-feed img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -305,10 +332,10 @@
             </div>
         </section>
 
-        <section class="my-5">
+        <section class=" form-feedback py-5">
             <div class="container">
-                <h2 class="mb-4 text-center">Share Your Experience</h2>
                 <form>
+                    <h2 class="mb-4 text-center">Share Your Experience</h2>
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" required>
@@ -333,10 +360,13 @@
                     </div>
                     <button type="submit" class="btn">Submit</button>
                 </form>
+                <div class="img-bg-feed">
+                    <img src="images/feedback/image-removebg-preview (2).png" alt="">
+                </div>
+
             </div>
         </section>
     </main>
-
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 

@@ -584,30 +584,21 @@ footer .copyright a{
 
 /* =========sithat==== */
 /* start service */
-.main-services .main-section{
+.main-services .main-section .banner-bg{
     width: 100%;
-    background-image: url(../images/service/train-banner.jpg);
-    background-size: cover;
+    height: 60vh;
+    /* background-attachment: fixed; */
     background-repeat: no-repeat;
-    height: 60vh;
+    background-size: cover;
+    filter: brightness(0.4);
+    background-image: url(../images/service/train-banner.jpg);
 }
-.main-services .consult .container{
-    width: 1200px !important;
-}
-.main-services .main-section .overlay{
-    height: 60vh;
-    background-color: rgba(68, 68, 68, 0.35);
-}
-.main-services .main-section .container .main-content{
+.main-services .main-section>.main-content{
     width: 100%;
-    height: 100%;
-    display: flex;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-top: 130px;
-    /* background-color: aqua; */
+    height: 60vh;
+    position: absolute;
+    z-index: 9;
+    top: 0;
 }
 .main-services .main-section .container .main-content .content h1{
    font-size: 40px;
@@ -655,19 +646,52 @@ footer .copyright a{
     height: 175px !important;
 
 }
-.main-services .services .service-section .card .card-body{
+.icon{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 1%;
+    /* top: -100px; */
+    animation-name: animation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-delay: .3s;
+    /* z-index: 22; */
+}
+.icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.icon:nth-child(1){
+    left: 4%;
+}
+
+@keyframes animation {
+    0%{
+        top: -100px;
+        
+    }
+    100%{
+        top: 0;
+        
+    }
+}
+/* .main-services .services .service-section .card .card-body{
     transition: .5s;
 }
 .main-services .services .service-section .card:hover .card-body{
     transform: scale(1.03,1.03);
     transition: .5s;
-}
+} */
 .main-services .benifit .row{
     padding: 0 5px;
 }
 .main-services .benifit .col-3 .image{
     width: 145px;
-    height: 145px;
+    height: 150px;
     border-radius: 100%;
     margin: auto;
     align-items: center;
@@ -675,7 +699,7 @@ footer .copyright a{
 .main-services .benifit .col-3{
     border-radius: 100%;
     width: 145px;
-    height: 145px;
+    height: 150px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -691,6 +715,12 @@ footer .copyright a{
 .main-services .benifit  .col-9 p{
     padding-right: 20px;
 }
+.meaning{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 
 
 /* .services .service-section .card::after{
@@ -704,13 +734,13 @@ footer .copyright a{
     transform: scale(1.02,1.02);
 } */
 
-.main-services .services .service-section .card:hover::after{
+/* .main-services .services .service-section .card:hover::after{
     left: 0;
 }
 .main-services .services .service-section .card .card-body{
     position: relative;
     z-index: 2;
-}
+} */
 .main-services .consult .content input,
 .consult .content textarea{
     background-color: #f1f1f1;
@@ -762,7 +792,7 @@ footer .copyright a{
 
 .nav-timeline::before {
     position: absolute;
-    top: 80px;
+    top: 90px;
     bottom: 0;
     left: 51.5%;
     width: 2px;
@@ -774,8 +804,8 @@ footer .copyright a{
 
 .nav-timeline li {
     position: relative;
-    min-height: 40px;
-    margin-bottom: 40px;
+    min-height: 50px;
+    margin-bottom: 50px;
     padding: 15px 0;
 }
 
@@ -869,6 +899,7 @@ footer .copyright a{
     background-repeat: no-repeat;
     height: 60vh;
 }
+
 .main-training .train-banner .banner-bg{
     width: 100%;
     height: 60vh;
@@ -911,15 +942,22 @@ footer .copyright a{
 }
 .main-training .train-course .card .card-body h5{
     position: absolute;
-    top: 25%;
-    left: 20%;
+    top: 23%;
+    left: 26%;
 }
-/* .main-training .train-course .card .card-body .descript{
-    position: absolute;
-    top: 40%;
-    left: 5%;
+.main-training .train-course .card .card-body .descript{
+  margin-top: 90px;
    
-} */
+}
+.main-training .train-course .card .card-body .pro-course{
+    position: absolute;
+    left: -12%;
+    top: 6%;
+}
+.btn-style:hover{
+    background-color: #f49943;
+    color: #fff
+}
 .main-training .train-course .card{
     /* background-color: #f1f1f1; */
     height: auto;
@@ -927,16 +965,12 @@ footer .copyright a{
     width: 290px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.main-training .train-course .card .card-body .pro-course{
-    position: absolute;
-    left: -16%;
-    top: 7%;
-}
+
 .main-training .train-course .card-1{
     background-color: #808080;
 }
 .main-training .train-course .col-3:nth-child(2){
-    margin-left: 45px;
+    margin-left: 50px;
 }
 .main-training .train-course .col-5{
     margin-left: 40px;
