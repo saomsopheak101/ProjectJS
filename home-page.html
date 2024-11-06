@@ -12,6 +12,7 @@
 </head>
 
 <style>
+
     header {
     position: fixed;
     z-index: 99;
@@ -22,13 +23,18 @@
     transition: 0.3s;
 
 }
-header.sticky {
+header.sticky{
     padding: 5px 110px;
     background-color: #ffff;
-    color: black;
-
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+header .navbar .navbar-nav .nav-item  .nav-link{
+    color: white;
+}
+header.sticky .navbar .navbar-nav .nav-item  .nav-link{
+    color: black;
+}
+
 header{
     color: black;
 }
@@ -50,10 +56,10 @@ header{
                     <ul class="navbar-nav justify-content-center flex-grow-1 me-5 ms-xl-4 ms-xxl-5 "
                         style="z-index: 99;">
                         <li class="nav-item mx-lg-2">
-                            <a class="nav-link  fw-medium" href="home-page.html">Home</a>
+                            <a class="nav-link  fw-medium black-nav" href="home-page.html">Home</a>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown">
-                            <a class="nav-link dropdown-toggle  fw-medium" href="#" role="button"
+                            <a class="nav-link dropdown-toggle  black-nav fw-medium" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Service
                             </a>
@@ -69,7 +75,7 @@ header{
                             </ul>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown ">
-                            <a class="nav-link dropdown-toggle fw-medium" href="#" role="button"
+                            <a class="nav-link dropdown-toggle fw-medium black-nav" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 About
                             </a>
@@ -80,10 +86,10 @@ header{
                             </ul>
                         </li>
                         <li class="nav-item mx-lg-2">
-                            <a class="nav-link  fw-medium" href="">Feedback</a>
+                            <a class="nav-link  fw-medium black-nav" href="">Feedback</a>
                         </li>
                         <li class="nav-item mx-lg-2">
-                            <a class="nav-link fw-medium" href="">Contact</a>
+                            <a class="nav-link fw-medium black-nav" href="">Contact</a>
                         </li>
                     </ul>
                     <div class="d-flex align-items-center ">
@@ -936,9 +942,12 @@ if (storedAvatar) {
     // for header 
 
     window.addEventListener("scroll", function () {
-            var header = document.querySelector("header");
-            header.classList.toggle("sticky", window.scrollY > 0)
-        })
+    var header = document.querySelector("header");
+    
+    // Toggle sticky class
+    header.classList.toggle("sticky", window.scrollY > 0);
+
+});
 
 </script>
     <script>
