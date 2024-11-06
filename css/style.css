@@ -68,7 +68,13 @@ header {
 .navbar .navbar-brand img {
     transform: scale(1.5);
 }
-
+/* kae headerrrr ===========  */
+header .navbar .navbar-nav .nav-item  .nav-link{
+    color: white;
+}
+header.sticky .navbar .navbar-nav .nav-item  .nav-link{
+    color: black;
+}
 /* .navbar {
     background-color: transparent;
 } */
