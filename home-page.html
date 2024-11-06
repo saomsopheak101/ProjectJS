@@ -13,27 +13,29 @@
 
 <style>
     header {
-    position: fixed;
-    z-index: 99;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    transition: 0.3s;
+        position: fixed;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        transition: 0.3s;
 
-}
-header.sticky {
-    padding: 5px 110px;
-    background-color: #ffff;
-    color: black;
+    }
 
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
-header{
-    color: black;
-}
+    header.sticky {
+        padding: 5px 110px;
+        background-color: #ffff;
+        color: black;
 
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+
+    header {
+        color: black;
+    }
 </style>
+
 <body class="home-page overflow-x-hidden">
     <header class="">
         <nav class="navbar navbar-expand-lg  z-3">
@@ -95,7 +97,8 @@ header{
                                 </button>
                             </form>
 
-                            <button class="py-2 px-4 rounded-2 bg-white border-0 ms-3 " id="login" type="button" onclick="window.location.href='login.html';">Login</button>
+                            <button class="py-2 px-4 rounded-2 bg-white border-0 ms-3 " id="login" type="button"
+                                onclick="window.location.href='login.html';">Login</button>
                             <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
 
                             <!-- <button class="py-2 px-4 rounded-2 border-0">Booking</button> -->
@@ -119,7 +122,7 @@ header{
                                     <div class="account-header d-flex flex-column align-items-center px-5 pt-2">
                                         <div class="mb-2">
                                             <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                                src="images/img-pet/icon/user.png" alt="#" width="60px" >
+                                                src="images/img-pet/icon/user.png" alt="#" width="60px">
                                         </div>
                                         <div
                                             class="d-flex flex-column align-items-center justify-content-center text-whitee">
@@ -129,7 +132,8 @@ header{
                                     </div>
                                 </div>
                                 <li>
-                                    <a href="profile.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
                                             <i class="fa-solid fa-address-card me-3"></i>
@@ -176,12 +180,11 @@ header{
                                     </a>
                                 </li>
                                 <li>
-                                    <button
-                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
+                                    <button class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
                                         aria-current="page" id="logout">
-                                        
-                                            <i class="fa-solid fa-right-from-bracket me-3"></i>
-                                      
+
+                                        <i class="fa-solid fa-right-from-bracket me-3"></i>
+
                                         Log out
                                     </button>
                                 </li>
@@ -228,7 +231,6 @@ header{
             </div>
         </section>
         <section class="margin-bottom section-top z-3">
-
             <div class="container">
                 <div class="servie d-flex gap-3">
                     <div class="col-3 ">
@@ -483,22 +485,24 @@ header{
             <img src="images/img-pet/bg-style.png" class="w-100 position-absolute z-0" alt="">
             <div class="container">
                 <div class="row ">
-                    <h4 class="mb-3 text-center z-1"><span class="badge bg-white color-text py-2 shadow">Appointment</span></h4>
-                    <p class="z-1 text-center py-2">Please be aware that if you come in without an appointment,<br> there may be a wait</p>
+                    <h4 class="mb-3 text-center z-1"><span
+                            class="badge bg-white color-text py-2 shadow">Appointment</span></h4>
+                    <p class="z-1 text-center py-2">Please be aware that if you come in without an appointment,<br>
+                        there may be a wait</p>
                     <div class="form-appiont py-4  bg-body-secondary rounded rounded-3">
                         <form action="">
                             <h2 class="px-3 pb-3">Make Your Pet's Appointment</h2>
                             <div class="row">
                                 <div class="col-6 ps-4">
                                     <div class="mb-3">
-                                        <select id="select-beast" class="form-control bg-white  py-2 fs" placeholder="Service"
-                                            autocomplete="off">
-                                            <option value="" >Service</option>
+                                        <select id="select-beast" class="form-control bg-white  py-2 fs"
+                                            placeholder="Service" autocomplete="off">
+                                            <option value="">Service</option>
                                             <option value="Grooming">Grooming</option>
                                             <option value="Training">Training</option>
                                             <option value="Day care">Day care</option>
                                             <option value="Counseling">Counseling</option>
-                                            
+
                                         </select>
                                     </div>
                                 </div>
@@ -542,8 +546,8 @@ header{
                                 </div>
                                 <div class="col-6 ps-4">
                                     <div class="mb-3">
-                                        <input class="form-control py-2 bg-white" type="text" name="weight" placeholder="Weight"
-                                            weight />
+                                        <input class="form-control py-2 bg-white" type="text" name="weight"
+                                            placeholder="Weight" weight />
                                     </div>
                                 </div>
                                 <div class="col-6 ps-4">
@@ -558,10 +562,11 @@ header{
                                 </div>
                                 <div class="col-md-6 ps-4">
                                     <div class="mb-3">
-                                        <input class="form-control py-2 bg-white" type="datetime" placeholder="7 : 00am" />
+                                        <input class="form-control py-2 bg-white" type="datetime"
+                                            placeholder="7 : 00am" />
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-12 ps-4">
                                     <div class="mb-3">
                                         <textarea class="form-control bg-white" aria-label="With textarea" rows="4"
@@ -570,115 +575,13 @@ header{
                                 </div>
 
                                 <div class="col-5 mt-2">
-                                    <button class="btn btn-warning ms-3 color-bg  text-white">Make a appointment</button>
+                                    <button class="btn btn-warning ms-3 color-bg  text-white">Make a
+                                        appointment</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
-            <!-- <div class="row">
-                    <div class="col-6 bg-body-secondary">
-                        <form action="" class="">
-                            <h2 class="p-4 pt-5">Make Your Pet's Appointment</h2>
-                            <div class="row">
-                                <div class="col-md-6 ps-4">
-                                    <div class="mb-4">
-                                        <input class="form-control py-2" type="date" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6 ps-4">
-                                    <div class="mb-4">
-                                        <input class="form-control py-2" type="datetime" placeholder="7 : 00am" />
-                                    </div>
-                                </div>
-                                <div class="col-6 ps-4">
-                                    <div class="mb-4">
-                                        <input class="form-control py-2" type="text" name="cusname"
-                                            placeholder="Your name" />
-                                    </div>
-                                </div>
-                                <div class="col-6 ps-4">
-                                    <div class="mb-4">
-                                        <input class="form-control py-2" type="text" name="petname"
-                                            placeholder="Pet Name" />
-                                    </div>
-                                </div>
-                                <div class="col-6 ps-4">
-                                    <div class="mb-4">
-                                        <input class="form-control py-2" type="email" name="email"
-                                            placeholder="Email" />
-                                    </div>
-                                </div>
-                                <div class="col-6 ps-4">
-                                    <div class="mb-4">
-                                        <input class="form-control py-2" type="number" name="phone"
-                                            placeholder="Phone" />
-                                    </div>
-                                </div>
-                                <div class="col-6 ps-4">
-                                    <div class="mb-4">
-                                        <input class="form-control py-2" type="text" name="weight" placeholder="Weight"
-                                            weight />
-                                    </div>
-                                </div>
-                                <div class="col-6 ps-4">
-                                    <div class="mb-4">
-                                        <input class="form-control py-2" type="text" placeholder="Old year" />
-                                    </div>
-                                </div>
-                                <div class="col-6 ps-4">
-                                    <div class="mb-4">
-                                        <select id="select-beast" class="form-control  py-2 fs"
-                                            placeholder="Amount of pet" autocomplete="off">
-                                            <option value="">Amount of pet</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-6 ps-4">
-                                    <div class="mb-3">
-                                        <select id="select-beast" class="form-control  py-2 fs" placeholder="Service"
-                                            autocomplete="off">
-                                            <option value="">Service</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-12 ps-4">
-                                    <div class="mb-3">
-                                        <textarea class="form-control" aria-label="With textarea" rows="5"
-                                            placeholder="Mess"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-5 mt-2">
-                                    <button class="btn btn-warning ms-3 text-white">Make a appointment</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-6">
-                        <img src="images/img-pet/home-apption.jpg" class="w-100 d-block" alt="">
-                    </div>
-                </div> -->
             </div>
         </section>
 
@@ -739,14 +642,8 @@ header{
                     </button>
                 </div>
             </div>
-        </section> 
-
-
+        </section>
     </main>
-
-
-
-
     <footer class="b">
         <div class="container">
             <section class="top-footer py-5 ">
@@ -881,66 +778,66 @@ header{
 
 
 
-
     <script src="js/bootstrap.bundle.min.js"></script>
 
 
     <script>
         // ===== change avatar 
-let storedAvatar = sessionStorage.getItem('avatar');
-if (storedAvatar) {
-    document.querySelectorAll('.changeImg').forEach(img => img.src = storedAvatar);
-}
+        let storedAvatar = sessionStorage.getItem('avatar');
+        if (storedAvatar) {
+            document.querySelectorAll('.changeImg').forEach(img => img.src = storedAvatar);
+        }
 
 
-            // my script api 
-            console.log(sessionStorage.getItem('authToken'))
-            let authToken = sessionStorage.getItem('authToken')
-            let profiles = document.querySelector('#profiles');
-            let login = document.querySelector('#login');
-        
-            if(!authToken){
-                profiles.style.display = 'none';
-                login.style.display = 'inline'
-            }else{
-              profiles.style.display = 'inline';
-              login.style.display = 'none'
-            }
-            document.querySelector('#logout').addEventListener('click',()=>{
-                logOut()
-            })
-     function logOut(){
-        fetch('https://mps4.chandalen.dev/api/logout',{
-                method:'DELETE',
-                headers:{'Accept':"application/json",
-                    'Authorization':`Bearer ${authToken}`
+        // my script api 
+        console.log(sessionStorage.getItem('authToken'))
+        let authToken = sessionStorage.getItem('authToken')
+        let profiles = document.querySelector('#profiles');
+        let login = document.querySelector('#login');
+
+        if (!authToken) {
+            profiles.style.display = 'none';
+            login.style.display = 'inline'
+        } else {
+            profiles.style.display = 'inline';
+            login.style.display = 'none'
+        }
+        document.querySelector('#logout').addEventListener('click', () => {
+            logOut()
+        })
+        function logOut() {
+            fetch('https://mps4.chandalen.dev/api/logout', {
+                method: 'DELETE',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
                 }
-                
-                
+
+
             })
-            .then(res =>res.json())
-            .then(json=>{
-                if(json.result === true){
-                    sessionStorage.removeItem('authToken');
-                    console.log(json.message);
-                    alert(json.message)
-                    action.style.display = 'none';
-                     login.style.display = 'inline';
-                }else{
-                    alert(json.message);
-                }
-            })
-     }
+                .then(res => res.json())
+                .then(json => {
+                    if (json.result === true) {
+                        sessionStorage.removeItem('authToken');
+                        console.log(json.message);
+                        alert(json.message)
+                        action.style.display = 'none';
+                        login.style.display = 'inline';
+                    } else {
+                        alert(json.message);
+                    }
+                })
+        }
     </script>
-<script>
-    // for header 
+    <script>
+        // for header 
 
-    window.addEventListener("scroll", function () {
+        window.addEventListener("scroll", function () {
             var header = document.querySelector("header");
             header.classList.toggle("sticky", window.scrollY > 0)
         })
 
-</script>
+    </script>
     <script>
         const myToastEl = document.getElementById('myToast')
         myToastEl.addEventListener('hidden.bs.toast', () => {
@@ -967,4 +864,5 @@ if (storedAvatar) {
     </script>
 
 </body>
+
 </html>
