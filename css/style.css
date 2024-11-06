@@ -739,6 +739,49 @@ footer .copyright a{
         
     }
 }
+.main-services .services {
+    position: relative;
+    /* overflow: hidden; */
+}
+.main-services .services .service-section .image{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+}
+.main-services .services .service-section .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.main-services .services .service-section .image:nth-child(1){
+    position: absolute;
+    top: -15%;
+    left: -12%;
+}
+
+.main-services .services .service-section .image:nth-child(2){
+    height: 300px;
+    position: absolute;
+    top: -12%;
+    left: 92%;
+}
+
+.main-services .services .service-section .image:nth-child(3){
+    position: absolute;
+    top: 87%;
+    left: -12%;
+}
+
+.main-services .services .service-section .image:nth-child(4){
+    position: absolute;
+    top: 90%;
+    left: 92%;
+}
+
+
+
 /* .main-services .services .service-section .card .card-body{
     transition: .5s;
 }
