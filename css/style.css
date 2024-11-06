@@ -7,6 +7,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: "Poppins", sans-serif;
     background-color: rgb(255, 255, 255);
@@ -41,7 +42,28 @@ body {
     margin-top: -100px;
 }
 
+header {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    transition: 0.3s;
 
+}
+
+header.sticky {
+    padding: 5px 110px;
+    background-color: #ffff;
+    color: black;
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+header {
+    color: black;
+}
 
 .navbar .navbar-brand img {
     transform: scale(1.5);
@@ -330,13 +352,13 @@ body {
 
 }
 
-.booking-page .hero-banner {
+.hero-banner {
   width: 100%;
   height: 60vh;
   position: relative;  
 }
 
-.booking-page .hero-banner>.banner-bg {
+.hero-banner>.banner-bg {
   width: 100%;
   height: 60vh;
   position: absolute;
@@ -347,13 +369,13 @@ body {
   background-image: url(../images/img-pet/baner-section.jpeg);
 }
 
-.booking-page .hero-banner>.banner-bg img {
+ .hero-banner>.banner-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
   
-.booking-page .hero-banner>.content {
+.hero-banner>.content {
     width: 100%;
     height: 70vh;
     position: absolute;
@@ -415,7 +437,7 @@ body {
 } */
 
 
-.profile-page .card .card-header {
+.card .card-header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -424,30 +446,29 @@ body {
     color: rgb(50, 49, 49)!important;
   }
   
-.profile-page .card .card-header img {
+.card .card-header img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     border: 2px solid #f49943;
   }
 
-.profile-page .setting-sidebar .card {
+.setting-sidebar .card {
     font-size: 18px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     /* background-color: rgb(196, 187, 187); */
   }
-  
-.profile-page .setting-sidebar .nav .nav-item .nav-link>div {
+ .setting-sidebar .nav .nav-item .nav-link>div {
     width: 32px;
     margin-left: 4px;
 }
   
-.profile-page .setting-sidebar .nav .nav-item {
+.setting-sidebar .nav .nav-item {
     width: 100% !important;
     padding-block: 6px;
 }
   
-.profile-page  .nav .nav-item .nav-link {
+.nav .nav-item .nav-link {
     color: #000;
     align-items: center;
     border-left: 3px solid transparent;
@@ -458,32 +479,16 @@ body {
     margin-top: 4%;
     margin-left: 20%;
 }
-
-
-/* .profile-page  .nav .nav-item .nav-link .badge {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    background-color: red;
-    margin-left: auto;
-    border-radius: 50%;
-    font-weight: 500;
-} */
-
-.profile-page .setting-sidebar .nav .nav-item .nav-link:hover {
+ .setting-sidebar .nav .nav-item .nav-link:hover {
     color: #f49943;
   }
-.profile-page .setting-sidebar .nav .nav-item .nav-link.active {
+.setting-sidebar .nav .nav-item .nav-link.active {
     color: #222222;
     border: 2px solid #f49943;
     border-radius: 6px;
 }
-
 .profile-page .edit-profile{
-    padding-top: 70px;
+    padding-top: 9% !important;
 }
 .profile-page .btn-edit:hover{
     background-color: #f49943ce;
@@ -509,6 +514,59 @@ body {
     padding: 10px 35px;
     margin-top: 10px;
 }
+.about-us-page .circle-img img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    
+}
+.imge-profe img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius:0px  0px  150px 150px ;
+}
+.about-us-page .app i{
+    width: 40px;
+    height: 40px;
+    background-color: #f49943;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+}
+.about-us-page .professionals{
+    width: 100%;
+    height: 100%;
+    background-color: #f4994354;
+    padding: 60px 0;
+}
+.about-us-page .feedback-about .imge-style{
+    width: 200px;
+    height: 200px; 
+    position: relative;
+}
+.about-us-page .feedback-about .imge-style img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.sub-imge{
+    width: 100px !important;
+    height: 100px !important;
+    margin-top: -35%;
+    margin-left: 50%;
+}
+.profile-book{
+    padding-top: 9%;
+}
+
+
+
+
+
+
 
 
 
@@ -578,6 +636,7 @@ footer .copyright a{
     text-decoration: none;
     color: #fff;
 }
+
 
 
 
