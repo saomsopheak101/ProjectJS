@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>booking profile</title>
+    <title>About us</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-<body>
-    <header class="margin-bottom ">
-        <nav class="navbar navbar-expand-lg fixed-top z-3 bg-dark ">
+
+<body class="about-us-page">
+    <header class="">
+        <nav class="navbar navbar-expand-lg  z-3">
             <div class="container">
                 <a class="navbar-brand" href="">
-                    <img src="images/img-pet/logo/PetZone (2).png" style="width: 80px;" alt="">
+                    <img src="images/img-pet/logo/PetZone (2).png" style="width: 70px;" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -21,10 +23,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav justify-content-center flex-grow-1 mt-2 me-5 ms-xl-4 ms-xxl-5 "
+                    <ul class="navbar-nav justify-content-center flex-grow-1 me-5 ms-xl-4 ms-xxl-5 "
                         style="z-index: 99;">
                         <li class="nav-item mx-lg-2">
-                            <a class="nav-link  fw-medium" href="">Home</a>
+                            <a class="nav-link  fw-medium" href="home-page.html">Home</a>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown">
                             <a class="nav-link dropdown-toggle  fw-medium" href="#" role="button"
@@ -60,20 +62,30 @@
                             <a class="nav-link fw-medium" href="">Contact</a>
                         </li>
                     </ul>
-                    <div class="d-flex align-items-center mt-2 pb-2">
+                    <div class="d-flex align-items-center ">
                         <div class="d-flex align-items-center">
-                            <button class="py-2 px-4 rounded-2 border-0">Booking</button>
                             <form class="d-none d-xl-flex" role="search" title="search">
                                 <button class="btn btn-icon" type="button" data-bs-toggle="modal"
                                     data-bs-target="#searchModal">
                                     <i class="fa-solid fa-search text-white"></i>
                                 </button>
                             </form>
+
+                            <button class="py-2 px-4 rounded-2 bg-white border-0 ms-3 " id="login" type="button"
+                                onclick="window.location.href='login.html';">Login</button>
+                            <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
+
+                            <!-- <button class="py-2 px-4 rounded-2 border-0">Booking</button> -->
                         </div>
-                        <div class="dropdown-center dropdown-account">
+                        <!-- User profile -->
+
+                        <div class="dropdown-center dropdown-account" id="profiles">
                             <a class="btn btn-icon d-none d-xl-inline-block position-relative" role="button" href=""
                                 title="profile" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-user text-white"></i>
+                                <div class="mb-2">
+                                    <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                        src="images/img-pet/icon/user.png" alt="#" width="35px">
+                                </div>
                                 <span
                                     class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
                                     <small></small>
@@ -83,8 +95,8 @@
                                 <div class="card border-0 ">
                                     <div class="account-header d-flex flex-column align-items-center px-5 pt-2">
                                         <div class="mb-2">
-                                            <img class="border border-brand border-2 rounded-circle object-fit-cover"
-                                                src="" alt="#" width="60px">
+                                            <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                                src="images/img-pet/icon/user.png" alt="#" width="60px">
                                         </div>
                                         <div
                                             class="d-flex flex-column align-items-center justify-content-center text-whitee">
@@ -94,7 +106,8 @@
                                     </div>
                                 </div>
                                 <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
                                             <i class="fa-solid fa-address-card me-3"></i>
@@ -141,14 +154,13 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href=""
-                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
-                                        aria-current="page">
-                                        <div>
-                                            <i class="fa-solid fa-right-from-bracket me-3"></i>
-                                        </div>
+                                    <button class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
+                                        aria-current="page" id="logout">
+
+                                        <i class="fa-solid fa-right-from-bracket me-3"></i>
+
                                         Log out
-                                    </a>
+                                    </button>
                                 </li>
                             </ul>
                         </div>
@@ -158,151 +170,209 @@
         </nav>
     </header>
     <main>
-        <section class="profile-book margin-bottom">
-            <div class="container">
-                <div class="row ">
-                    <div class="setting-sidebar col-md-4 col-xl-3 me-4">
-                        <div class="card border-0 shadow py-4 ">
-                            <div class="card-header bg-transparent mb-3">
-                                <a href="#" class="img-pro">
-                                    <img src="images/img-pet/icon/user.png" alt="" id="profile-pic">
-                                </a>
-                                <label type="button" for="profile" class="btn btn-edit color-bg btn-camera position-absolute rounded-5">
-                                    <i class="fa-solid fa-camera text-white"></i>
-                                </label>
-                                <input type="file" class="form-control bg-transparent d-none" id="profile" accept="image/*">
-                                <h5 class="mb-0 mt-4"> Kinki</h5>
-                                <span>Kinki@gmail.com</span>
-                            </div>
-                            <ul class="nav">
-                                <li class="nav-item border-0">
-                                    <a href="profile.html" class="nav-link d-flex fw-medium px-4" aria-current="page">
-                                        <div>
-                                            <i class="fa-solid fa-address-card me-3"></i>
-                                        </div>
-                                        My Profile
-                                    </a>
-                                </li>
-                                <li class="nav-item border-0">
-                                    <a href="profile-booking.html" class="nav-link active d-flex fw-medium px-4">
-                                        <div>
-                                            <div>
-                                                <i class="fa-solid fa-paw"></i>
-                                            </div>
-                                        </div>
-                                        Booking
-                                    </a>
-                                </li>
-                                <li class="nav-item border-0">
-                                    <a href="profile.html" class="nav-link d-flex fw-medium px-4">
-                                        <div>
-                                            <div>
-                                                <i class="fa-solid fa-repeat"></i>
-                                            </div>
-                                        </div>
-                                        Counselting
-                                    </a>
-                                </li>
-                                <li class="nav-item border-0">
-                                    <a href="profile.html" class="nav-link d-flex fw-medium px-4">
-                                        <div>
-                                            <div>
-                                                <i class="fa-solid fa-repeat"></i>
-                                            </div>
-                                        </div>
-                                        Review
-                                    </a>
-                                </li>
-                                <li class="nav-item border-0">
-                                    <a href="" class="nav-link d-flex fw-medium px-4">
-                                        <div>
-                                            <div>
-                                                <i class="fa-solid fa-bell"></i>
-                                            </div>
-                                        </div>
-                                        Notification
-                                    </a>
-                                </li>
-                                <li class="nav-item border-0">
-                                    <a href="" class="nav-link d-flex fw-medium px-4">
-                                        <div>
-                                            <i class="fa-solid fa-book me-3"></i>
-                                        </div>
-                                        Privacy
-                                    </a>
-                                </li>
-                                <li class="nav-item border-0">
-                                    <a href="" class="nav-link d-flex fw-medium px-4">
-                                        <div>
-                                            <i class="fa-solid fa-right-from-bracket me-3"></i>
-                                        </div>
-                                        Sign up
-                                    </a>
-                                </li>
-                            </ul>
+        <section class="hero-banner position-relative margin-bottom">
+            <div class="banner-bg booking-service"></div>
+            <div class="content d-flex align-items-center">
+                <div class="container">
+                    <div class="text-center text-white-light mb-5">
+                        <h2 class="display-4 my-4 text-white fw-bold">About us</h2>
+                        <div class="fs-6 badge bg-white color-text py-2 shadow">
+                            <a href="home-page.html" class="text-white-light text-decoration-none">Home</a>
+                            <span> &nbsp;>&nbsp; </span>
+                            <span class="text-brand">About us</span>
                         </div>
                     </div>
-                    <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12 col-12">
-                        <div class="card shadow border-0">
-                            <div class="col-xl-12  rounded-2 col-lg-12 px-0 col-md-12 color-bg col-sm-12 col-12">
-                                <h4 class="mb-0 p-3 text-white fw-bold">Booking</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="row gutters p-4"> 
-                                    <div class="row mb-4">
-                                        <label for="inputEmail"
-                                            class="col-sm-3 col-form-label text-black">First name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control bg-transparent"  id="fname"
-                                                value="">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-4">
-                                        <label for="inputEmail"
-                                            class="col-sm-3 col-form-label text-black">Last name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control bg-transparent" id="lname"
-                                                value="">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-4">
-                                        <label for="inputEmail"
-                                            class="col-sm-3 col-form-label text-black">Email Address</label>
-                                        <div class="col-sm-9">
-                                            <input type="email" class="form-control bg-transparent" id="Memail"
-                                                value="">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-4">
-                                        <label for="inputEmail"
-                                            class="col-sm-3 col-form-label text-black">Phone</label>
-                                        <div class="col-sm-9">
-                                            <input type="tel" class="form-control bg-transparent" id="pnumber"
-                                                value="">
-                                        </div>
-                                    </div>
+                </div>
+            </div>
+        </section>
 
-                                    <div class="row mb-4">
-                                        <label for="inputEmail"
-                                            class="col-sm-3 col-form-label text-black">Address</label>
-                                        <div class="col-sm-9">
-                                            <input type="tel" class="form-control bg-transparent" id="address"
-                                                value="">
-                                        </div>
+        <section class="about-us margin-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 px-4">
+                        <img src="images/img-pet/pet-training.jpg" class="w-100 rounded rounded-3" alt="">
+                    </div>
+                    <div class="col-6 px-text px-5 ">
+                        <h5 class="mb-3"><span class="badge bg-white color-text py-2 shadow">About us</span></h5>
+                        <h1 class="fw-bold">
+                            We love to take care of your Pets
+                        </h1>
+                        <p class="pt-2">Pawscare is the largest specialty pet retailer of services and solutions for the
+                            lifetime
+                            needs of pets. At Pawscare, we love pets, and we believe pets make us better people.</p>
+
+                        <div class="circle-img pt-3 d-flex">
+                            <img src="images/img-pet/professtional-img/img-2.jpg" alt="">
+                            <div class="ps-4 mt-3">
+                                <h5 class="color-text fw-medium">Brie Nickelsen</h5>
+                                <p class="fw-medium">company owner</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="color-bg margin-bottom">
+            <div class="container ">
+                <div class="row py-5 ">
+                    <div class="col-3 mt-3">
+                        <div class="text text-center text-white">
+                            <h1 class="fw-bold">250+</h1>
+                            <p class="">Happy clients</p>
+                        </div>
+                    </div>
+                    <div class="col-3 mt-3">
+                        <div class="text text-center text-white">
+                            <h1 class="fw-bold">10+</h1>
+                            <p>Years of work</p>
+                        </div>
+                    </div>
+                    <div class="col-3 mt-3">
+                        <div class="text text-center text-white">
+                            <h1 class="fw-bold">15+</h1>
+                            <p>Team member</p>
+                        </div>
+                    </div>
+                    <div class="col-3 mt-3">
+                        <div class="text text-center text-white">
+                            <h1 class="fw-bold">360+</h1>
+                            <p class="">Happy pet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feedback-about margin-bottom">
+            <div class="container">
+                <h4 class="mb-3 text-center z-1"><span class="badge bg-white color-text py-2 shadow">Feedback</span>Pet Experts</h4>
+                <h1 class="fw-bold text-center mb-5">Here from Our Happy Pet Owners</h1>
+                <div class="row">
+                    <div class="col-6 d-flex">
+                        <div class="col-4">
+                            <div class="imge-style">
+                                <img src="images/img-pet/cat and dog-2.jpg" alt="">
+                                <img src="images/img-pet/cat and dog-2.jpg" class="sub-imge" alt="">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="text-feedback">
+                                <div class="ps-4 mt-3">
+                                    <h5 class="color-text fw-medium">Brie Nickelsen</h5>
+                                    <p class="fw-medium">company owner</p>
+                                    <p> “Guests will feel at home with the around-the-clock care of our pet-loving
+                                        staff. We
+                                        offer a safe, clean, temperature-controlled environment, playtime, exercise.”
+                                    </p>
+                                    <div class="star color-text">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
                                     </div>
-                                    <div class="row gutters mt-4">
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <div class="text-right">
-                                                <!-- <button type="button" id="submit" name="submit" class="btn btn-secondary px-4 py-2">Cancel</button> -->
-                                                <button class="btn btn-danger px-4 py-2 me-3" id="delete-acc">Delete Account</button>
-                                                <a href="edit-profile.html">
-                                                    <button type="button" id="submit" name="submit"
-                                                    class="btn btn-edit color-bg px-4 py-2 text-white">Edit profile</button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>                               
-                                </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 d-flex">
+                        <div class="col-4">
+                            <div class="imge-style">
+                                <img src="images/img-pet/cat and dog-2.jpg" alt="">
+                                <img src="images/img-pet/cat and dog-2.jpg" class="sub-imge" alt="">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="text-feedback">
+                                <div class="ps-4 mt-3">
+                                    <h5 class="color-text fw-medium">Brie Nickelsen</h5>
+                                    <p class="fw-medium">company owner</p>
+                                    <p> “Guests will feel at home with the around-the-clock care of our pet-loving
+                                        staff. We
+                                        offer a safe, clean, temperature-controlled environment, playtime, exercise.”
+                                    </p>
+                                    <div class="star color-text">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="professionals margin-bottom">
+            <div class="container">
+                <h4 class="mb-3 text-center z-1"><span class="badge bg-white color-text py-2 shadow">Pet Experts</span>
+                </h4>
+                <h1 class="fw-bold text-center  mb-4">Our pet care professionals</h1>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card border-1">
+                            <div class="imge-profe">
+                                <img src="images/img-pet/professtional-img/img-3.jpg" class="" alt="">
+                            </div>
+                            <div class="tilte text-center mt-4">
+                                <h4 class="m-0">Hanna Rosime</h4>
+                                <p>Gromer</p>
+                            </div>
+                            <div class="app position-relative d-flex gap-3 mb-4  m-auto">
+                                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href=""> <i class="fa-brands fa-instagram"></i></a>
+                                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card border-1">
+                            <div class="imge-profe">
+                                <img src="images/img-pet/professtional-img/img-4.jpg" class="" alt="">
+                            </div>
+                            <div class="tilte text-center mt-4">
+                                <h4 class="m-0">Hanna Rosime</h4>
+                                <p>Gromer</p>
+                            </div>
+                            <div class="app position-relative d-flex gap-3 mb-4  m-auto">
+                                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href=""> <i class="fa-brands fa-instagram"></i></a>
+                                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card border-1">
+                            <div class="imge-profe">
+                                <img src="images/img-pet/professtional-img/img-3.jpg" class="" alt="">
+                            </div>
+                            <div class="tilte text-center mt-4">
+                                <h4 class="m-0">Hanna Rosime</h4>
+                                <p>Gromer</p>
+                            </div>
+                            <div class="app position-relative d-flex gap-3 mb-4  m-auto">
+                                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href=""> <i class="fa-brands fa-instagram"></i></a>
+                                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card border-1">
+                            <div class="imge-profe">
+                                <img src="images/img-pet/professtional-img/img-3.jpg" class="" alt="">
+                            </div>
+                            <div class="tilte text-center mt-4">
+                                <h4 class="m-0">Hanna Rosime</h4>
+                                <p>Gromer</p>
+                            </div>
+                            <div class="app position-relative d-flex gap-3 mb-4  m-auto">
+                                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href=""> <i class="fa-brands fa-instagram"></i></a>
+                                <a href=""><i class="fa-brands fa-twitter"></i></a>
                             </div>
                         </div>
                     </div>
@@ -310,10 +380,10 @@
             </div>
         </section>
     </main>
-    <footer class="">
+    <footer class="b">
         <div class="container">
             <section class="top-footer py-5 ">
-                <div class="container-fluid px-5">
+                <div class="container-fluid">
                     <div class="row text-white justify-content-center">
                         <div class="col-12 col-md-12 col-xl-3 ">
                             <div class="content-left">
@@ -418,9 +488,7 @@
                                     <p>Mon - Fri: 7am - 6pm
                                         Saturday: 9am - 4pm <br>
                                         Sunday: Closed</p>
-
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -435,7 +503,6 @@
                         </p>
                         <p class="m-0 p-0 ">Copyright © 2024 by <span class="color-text">PetZone</span> <span>. All
                                 Rights Reserved.</span></p>
-
                     </div>
                 </div>
             </section>
@@ -443,7 +510,15 @@
     </footer>
 
 
+
     <script src="js/bootstrap.bundle.min.js"></script>
-    
+    <script>
+        // for header 
+        window.addEventListener("scroll", function () {
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0)
+        })
+
+    </script>
 </body>
 </html>
