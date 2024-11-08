@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
+    <link href="css/tom-select.css" rel="stylesheet">
 </head>
 
 <body class="booking-page">
@@ -221,14 +221,30 @@
                                 <div class="col-12 m-auto mt-3 border p-4">
                                     <div class="row">
                                         <div class="col-6 ">
-                                            <!-- <div class="col-6 ">
-                                                <img src="images/img-pet/pet-day-care.jpg" class="rounded" alt="">
-                                            </div> -->
                                             <h6>Available for:</h6>
                                             <img src="images/service/dog.png" alt="" style="width: 30px;">
                                             <img src="images/service/cat.png" alt="" style="width: 30px;">
                                             <img src="images/service/parrot.png" alt=""
                                                 style="width: 30px; opacity: 0.3;">
+
+                                            <div class="col-12 mt-3">
+                                                <h6>Select service*</h6>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="col-6">
+                                                    <select id="select-state" name="state[]" multiple
+                                                        placeholder="Select a state..." autocomplete="off">
+                                                        <option value="">Select a state...</option>
+                                                        <option value="AL" selected>Nail Trimming</option>
+                                                        <option value="AK" selected>Coat Trimming</option>
+                                                        <option value="AR">Bathing and Drying</option>
+                                                        <option value="AZ">Oral and ear care</option>
+                                                        <option value="tt">Teeth brushing</option>
+                                                        <option value="PC">Paw Care</option>
+                                                        <option value="HD">Hair DIY</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="col-12 mt-3">
                                                 <h6>Select date*</h6>
                                             </div>
@@ -240,61 +256,6 @@
                                                                 type="date" name="" id="" placeholder="">
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="col-12 ">
-                                                        <h6>Check time*</h6>
-                                                    </div> -->
-                                                    <!-- <div class="col-12">
-                                                        <div class="row">
-                                                            <div class="col-6 mb-3">
-                                                                <div class="check-time">
-                                                                    <p>7:00-8:00 am</p>
-
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <div class="check-time">
-                                                                    <p>8:00-9:00 am</p>
-
-                                                                </div>
-                                                            </div>
-                                                            <!-- <div class="col-4"></div>
-                                                    <div class="col-6 mb-3">
-                                                        <div class="check-time">
-                                                            <p>10:00-11:00 am</p>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="check-time">
-                                                            <p>1:00-2:00 pm</p>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- <div class="col-6"></div> 
-                                                    <div class="col-6">
-                                                        <div class="check-time">
-                                                            <p>2:00-3:00 pm</p>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 mb-3">
-                                                        <div class="check-time">
-                                                            <p>3:00-4:00 pm</p>
-                                                        </div>
-                                                    </div>
-                                                    <!-- <div class="col-4"></div>
-                                                    <div class="col-6">
-                                                        <div class="check-time">
-                                                            <p>4:00-5:00 pm</p>
-                                                        </div>
-                                                    </div>
-                                                    <!-- <div class="col-6">
-                                                                <div class="check-time">
-                                                                    <p>10:12</p>
-                                                                </div>
-                                                            </div> 
-                                                </div>
-                                            </div> -->
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -355,7 +316,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex flex-column mt-3">
-                                                                    <span class="short-des pb-2 text-black-50">Click the bank below to get QR Code</span>
+                                                                    <span class="short-des pb-2 text-black-50">Click the
+                                                                        bank below to get QR Code</span>
 
                                                                     <div class="d-flex column-gap-2">
                                                                         <a href="#" type="button" data-bs-toggle="modal"
@@ -364,14 +326,16 @@
                                                                                 style="width: 40px;"
                                                                                 class="rounded-1"></a>
                                                                         <a href="#" type="button" data-bs-toggle="modal"
-                                                                        data-bs-target="#exampleModal1"><img src="images/service/ACLeda.png"
-                                                                                alt="" style="width: 40px;"
+                                                                            data-bs-target="#exampleModal1"><img
+                                                                                src="images/service/ACLeda.png" alt=""
+                                                                                style="width: 40px;"
                                                                                 class="rounded-1"></a>
                                                                     </div>
                                                                 </div>
-                                                                <h1 class="modal-title fs-5 mt-3 mb-2">Transaction file
+                                                                <h1 class="modal-title fs-6 mt-3 mb-2">Transaction file
                                                                 </h1>
-                                                                <input class="form-control py-2 bg-white" type="file" required/>
+                                                                <input class="form-control py-2 bg-white" type="file"
+                                                                    required />
                                                             </form>
                                                         </div>
                                                     </div>
@@ -382,7 +346,7 @@
                                         <div class="col-6 ">
                                             <form action="">
                                                 <div class="col-12 ">
-                                                    <h5 class="fw-medium pb-2">Order Summary</h5>
+                                                    <h6 class="fw-medium pb-2">Order Summary</h6>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="card mb-3" style="max-width: 650px; ">
@@ -395,9 +359,8 @@
                                                             <div class="col-md-8">
                                                                 <div class="card-body d-flex justify-content-between">
                                                                     <div>
-                                                                        <h6 class="card-title">Nail trimming</h6>
-                                                                        <p class="card-text m-0">Size: M</p>
-                                                                        <p class="card-text">Price: 10$</p>
+                                                                        <h6 class="card-title">Nail Trimming</h6>
+                                                                        <p>Price: 5$</p>
                                                                     </div>
                                                                     <div class="icon-1">
                                                                         <i
@@ -406,20 +369,20 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                     </div>
                                                     <div class="card mb-3" style="max-width: 650px; ">
                                                         <div class="row g-0">
                                                             <div class="col-md-4">
-                                                                <img src="images/img-pet/grooming/hari-cutting.jpeg"
+                                                                <img src="images/service/dog-trimming.jpg"
                                                                     class="h-100 object-fit-cover img-fluid rounded-start"
                                                                     alt="...">
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <div class="card-body d-flex justify-content-between">
                                                                     <div>
-                                                                        <h6 class="card-title">Nail trimming</h6>
-                                                                        <p class="card-text m-0">Size: M</p>
-                                                                        <p class="card-text">Price: 10$</p>
+                                                                        <h6 class="card-title">Nail Trimming</h6>
+                                                                        <p>Price: 7$</p>
                                                                     </div>
                                                                     <div class="icon-1">
                                                                         <i
@@ -428,35 +391,32 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                     </div>
                                                 </div>
                                                 <div class="col-12 ">
-                                                    <h5 class="fw-medium pb-2">Payment summary</h5>
+                                                    <h6 class="fw-medium">Payment summary</h6>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="total-section">
-                                                        <div class="d-flex justify-content-between">
-                                                            <div class="fs-6 fw-medium">Serivce </div>
-                                                            <span class="fs-6 fw-medium">(2)</span>
-                                                        </div>
                                                         <div class="d-flex justify-content-between ">
-                                                            <div class="fs-6 fw-medium">Price</div>
-                                                            <span class="fs-6 fw-medium">$20.00</span>
+                                                            <div class="fs-6 fw-medium">Subtotal</div>
+                                                            <span class="fs-6 fw-medium">$12.00</span>
                                                         </div>
                                                         <div
                                                             class="d-flex justify-content-between border-bottom  mb-3 pb-3">
                                                             <div class="fs-6 fw-medium">Pay 50% </div>
-                                                            <span class="fs-6 fw-medium">$10.00</span>
+                                                            <span class="fs-6 fw-medium">$6.00</span>
                                                         </div>
 
                                                         <div class="d-flex justify-content-between">
-                                                            <div class="fs-5 fw-medium">Total:&ZeroWidthSpace;</div>
-                                                            <span class="fs-5 fw-medium">$10.00</span>
+                                                            <div class="fs-6 fw-medium">Total:&ZeroWidthSpace;</div>
+                                                            <span class="fs-6 fw-medium">$6.00</span>
                                                         </div>
                                                         <form action>
                                                             <!-- Button trigger modal -->
                                                             <button type="button"
-                                                                class="btn btn-hover color-bg text-white w-100 fs-5 mt-3 my-2 fw-medium">
+                                                                class="btn btn-hover color-bg text-white w-100 fs-6 mt-3 my-2 fw-medium">
                                                                 Book now
                                                             </button>
                                                         </form>
@@ -472,51 +432,206 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
-                        tabindex="0">...</div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
-                        tabindex="0">...</div>
+                    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                        tabindex="0">
+                        <div class="col-12 m-auto mt-3 border p-4">
+                            <div class="row">
+                                <div class="col-6 ">
+                                    <!-- <div class="col-6 ">
+                                        <img src="images/img-pet/pet-day-care.jpg" class="rounded" alt="">
+                                    </div> -->
+                                    <h6>Available for:</h6>
+                                    <img src="images/service/dog.png" alt="" style="width: 30px;">
+                                    <img src="images/service/cat.png" alt="" style="width: 30px;">
+                                    <img src="images/service/parrot.png" alt="" style="width: 30px; opacity: 0.3;">
+                                    <div class="col-12 my-3">
+                                        <div class="row row-gap-2">
+                                            <div class="col-6">
+                                                <div>
+                                                    <label for="" class="fw-medium">From</label>
+                                                    <input class="form-control bg-transparent  py-2 fs" type="date"
+                                                        name="" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div>
+                                                    <label for="" class="fw-medium">To</label>
+                                                    <input class="form-control bg-transparent  py-2 fs" type="date"
+                                                        name="" id="" placeholder="">
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-6">
+                                                <div>
+                                                    <label for="" class="fw-medium">Arriving Date</label>
+                                                    <input class="form-control bg-transparent  py-2 fs" type="date"
+                                                        name="" id="" placeholder="">
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <h6 class="mt-3">Make a payment</h6>
+                                        <div class="mb-2 mb-lg-5">
+                                            <div class="row g-4 g-lg-5">
+                                                <div class="col-12">
+                                                    <form action="">
+                                                        <div class="d-flex align-items-center my-2 mb-lg-0 flex-wrap">
+                                                            <div
+                                                                class="form-check form-check-inline d-flex align-items-center me-sm-3">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="inlineRadioOptions" id="inlineRadio2" checked>
+                                                                <label class="form-check-label"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#collapseExample"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="collapseExample" for="inlineRadio1">
+                                                                    pay 50%
+                                                                </label>
+                                                            </div>
+                                                            <div
+                                                                class="form-check form-check-inline d-flex align-items-center me-5">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="inlineRadioOptions" id="inlineRadio3"
+                                                                    value="option2">
+                                                                <label class="form-check-label" for="inlineRadio2">pay
+                                                                    100%</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex flex-column mt-3">
+                                                            <span class="short-des pb-2 text-black-50">Click the bank
+                                                                below to get QR Code</span>
+
+                                                            <div class="d-flex column-gap-2">
+                                                                <a href="#" type="button" data-bs-toggle="modal"
+                                                                    data-bs-target="#exampleModal"><img
+                                                                        src="images/service/ABA.png" alt=""
+                                                                        style="width: 40px;" class="rounded-1"></a>
+                                                                <a href="#" type="button" data-bs-toggle="modal"
+                                                                    data-bs-target="#exampleModal1"><img
+                                                                        src="images/service/ACLeda.png" alt=""
+                                                                        style="width: 40px;" class="rounded-1"></a>
+                                                            </div>
+                                                        </div>
+                                                        <h1 class="modal-title fs-6 mt-3 mb-2">Transaction file
+                                                        </h1>
+                                                        <input class="form-control py-2 bg-white" type="file"
+                                                            required />
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-6 ">
+                                    <form action="">
+                                        <div class="col-12 ">
+                                            <h6 class="fw-medium pb-2">Order Summary</h6>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="card mb-3" style="max-width: 650px; ">
+                                                <div class="row g-0">
+                                                    <div class="col-md-4">
+                                                        <img src="images/service/pet-day.png"
+                                                            class="h-100 object-fit-cover img-fluid rounded-start"
+                                                            alt="...">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="card-body d-flex justify-content-between">
+                                                            <div>
+                                                                <h6 class="card-title">Pet Day Care</h6>
+                                                                <p class="mb-0"><span>5</span>day(s)</p>
+                                                                <p><span>date</span>- <span>date</span></p>
+                                                            </div>
+                                                            <div class="icon-1">
+                                                                <i class="fa-solid fa-trash-can text-danger "></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 ">
+                                            <h6 class="fw-medium pb-2">Payment summary</h6>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="total-section">
+                                                <div class="d-flex justify-content-between ">
+                                                    <div class="fs-6 fw-medium">Price</div>
+                                                    <span class="fs-6 fw-medium">$20.00</span>
+                                                </div>
+                                                <div class="d-flex justify-content-between border-bottom  mb-3 pb-3">
+                                                    <div class="fs-6 fw-medium">Pay 50% </div>
+                                                    <span class="fs-6 fw-medium">$10.00</span>
+                                                </div>
+
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="fs-6 fw-medium">Total:&ZeroWidthSpace;</div>
+                                                    <span class="fs-6 fw-medium">$10.00</span>
+                                                </div>
+                                                <form action>
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button"
+                                                        class="btn btn-hover color-bg text-white w-100 fs-6 mt-3 my-2 fw-medium">
+                                                        Book now
+                                                    </button>
+                                                </form>
+
+                                            </div>
+                                            <div class="col-12 mb-3">
+                                                <!-- <input type="button" class="btn btn-primary">Payment</input> -->
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+                        tabindex="0">
+
+                    </div>
                     <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab"
                         tabindex="0">...</div>
                 </div>
             </div>
         </section>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Pay with ABA KHQr</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                       <div class="row">
-                        <div class="col-6">
-                            <img src="images/service/QR-Khmer.png" alt="" class="w-100">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="images/service/QR-Khmer.png" alt="" class="w-100">
+                            </div>
+                            <div class="col-6">
+                                <img src="images/service/QR-Dollar.png" alt="" class="w-100">
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <img src="images/service/QR-Dollar.png" alt="" class="w-100">
-                        </div>
-                       </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-            <div class="modal-dialog">
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Pay with ACleda KHQr</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Pay with ACleda</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                       <div class="row">
-                        <div class="col-6">
-                            <img src="images/service/Acleda-Kh.jpg" alt="" class="w-100">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="images/service/Acleda-Kh.jpg" alt="" class="w-100">
+                            </div>
+                            <div class="col-6">
+                                <img src="images/service/Acleda-Dollar.jpg" alt="" class="w-100">
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <img src="images/service/Acleda-Dollar.jpg" alt="" class="w-100">
-                        </div>
-                       </div>
                     </div>
                 </div>
             </div>
@@ -650,10 +765,13 @@
             </section>
         </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+    <script src="js/tom-select.complete.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-
+    <script>
+        new TomSelect("#select-state", {
+            maxItems: 7
+        });
+    </script>
     <!-- Modal -->
     <script>
         const myModalEl = document.getElementById('myModal')
