@@ -13,15 +13,15 @@
             position: fixed;
             z-index: 99;
             top: 0;
-           
             width: 100%;
             height: 80px;
             transition: 0.3s;
+            padding-top: 10px;
 
         }
 
         header.sticky {
-            padding: 5px 110px;
+            /* padding: 5px 110px; */
             background-color: #ffff;
             color: black;
 
@@ -47,7 +47,7 @@
         /* .form-logAndris .separator {
             height: 1px;
             background-color: rgba(0, 0, 0, 0.246);
-            margin: 20px 0;
+            margin: 25px 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -115,7 +115,7 @@
 
         }
         .bg-image-login {
-            background-image: url(https://img.freepik.com/premium-photo/dog-cat-are-laying-rug-with-dog-pet-care-hd-quality-image-website_1286196-1697.jpg?semt=ais_hybrid);
+            /* background-image: url(https://img.freepik.com/premium-photo/dog-cat-are-laying-rug-with-dog-pet-care-hd-quality-image-website_1286196-1697.jpg?semt=ais_hybrid); */
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -123,12 +123,18 @@
         }
 
         .bg-glass {
-            background-color: #f49943;
+            /* background-color: #f49943; */
             backdrop-filter: var(--backdrop-filter);
-            background-color: #201f1fb9;
-            color: var(--login-c-text);
-            border-radius: none !important;
-            box-shadow: 0px 0px 10px 5px rgba(100, 100, 100, 0.662);
+            /* background-color: #201f1fb9; */
+            /* color: var(--login-c-text); */
+            border-radius: 10px 0px 0 10px ;
+            /* border-radius: none !important; */
+            box-shadow: 0px 0px 10px 5px rgba(218, 218, 218, 0.662);
+        }
+        .img-login{
+            border-radius: 0px 10px 10px 0px ;
+            filter: brightness(70%);
+
         }
 
         .style-3 {
@@ -145,178 +151,52 @@
             right: -7%;
             z-index: -1;
         }
+        header .btn-login{
+            border: 2px solid #f49943;
+            background-color: black;
+            color: white;
+        }
+        header .btn-login:hover{
+            color: #e2e2e2;
+            background-color: #141414;
+
+        }
     </style>
 </head>
 
 <body class="overflow-x-hidden">
     <header class="bg-black">
-        <nav class="navbar navbar-expand-lg  z-3">
+        <nav class="navbar navbar-expand-lg z-3">
             <div class="container">
                 <a class="navbar-brand" href="">
                     <img src="images/img-pet/logo/PetZone (2).png" style="width: 70px;" alt="">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav justify-content-center flex-grow-1 me-5 ms-xl-4 ms-xxl-5 "
-                        style="z-index: 99;">
-                        <li class="nav-item mx-lg-2">
-                            <a class="nav-link  fw-medium" href="home-page.html">Home</a>
-                        </li>
-                        <li class="nav-item mx-lg-2 dropdown">
-                            <a class="nav-link dropdown-toggle  fw-medium" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Service
-                            </a>
-                            <ul class="dropdown-menu bg-white">
-                                <li><a class="dropdown-item text-black" href="">Pet training</a>
-                                </li>
-                                <li><a class="dropdown-item text-black" href="">Pet Counseling</a>
-                                </li>
-                                <li><a class="dropdown-item text-black" href="">Pet Grooming</a>
-                                </li>
-                                <li><a class="dropdown-item text-black" href="">Pet Day care</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item mx-lg-2 dropdown ">
-                            <a class="nav-link dropdown-toggle fw-medium" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                About
-                            </a>
-                            <ul class="dropdown-menu bg-white text-black fw-medium">
-                                <li><a class="dropdown-item text-black" href="">About us</a></li>
-                                <li><a class="dropdown-item text-black" href="">About
-                                        PetZone</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item mx-lg-2">
-                            <a class="nav-link  fw-medium" href="">Feedback</a>
-                        </li>
-                        <li class="nav-item mx-lg-2">
-                            <a class="nav-link fw-medium" href="">Contact</a>
-                        </li>
-                    </ul>
-                    <div class="d-flex align-items-center ">
-                        <div class="d-flex align-items-center">
-                            <form class="d-none d-xl-flex" role="search" title="search">
-                                <button class="btn btn-icon" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#searchModal">
-                                    <i class="fa-solid fa-search text-white"></i>
-                                </button>
-                            </form>
+                <div class="d-flex align-items-center ">
+                    <div class="d-flex align-items-center">
+                        <button class="py-2 px-4 rounded-2 color-bg text-white border-0  ms-3 " id="login" type="button"
+                            onclick="window.location.href='login.html';">Login</button>
+                        <button class="py-2 px-4 rounded-2  ms-3 btn-login " id="login" type="button"
+                            onclick="window.location.href='signup.html';">Sign up</button>
+                        <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
 
-                            <button class="py-2 px-4 rounded-2 bg-white border-0 ms-3 " id="login" type="button"
-                                onclick="window.location.href='login.html';">Login</button>
-                            <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
-
-                            <!-- <button class="py-2 px-4 rounded-2 border-0">Booking</button> -->
-                        </div>
-                        <!-- User profile -->
-
-                        <div class="dropdown-center dropdown-account" id="profiles">
-                            <a class="btn btn-icon d-none d-xl-inline-block position-relative" role="button" href=""
-                                title="profile" data-bs-toggle="dropdown" aria-expanded="false">
-                                <div class="mb-2">
-                                    <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                        src="images/img-pet/icon/user.png" alt="#" width="35px">
-                                </div>
-                                <span
-                                    class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
-                                    <small></small>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu  mt-4 rounded-3 py-2">
-                                <div class="card border-0 ">
-                                    <div class="account-header d-flex flex-column align-items-center px-5 pt-2">
-                                        <div class="mb-2">
-                                            <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                                src="images/img-pet/icon/user.png" alt="#" width="60px">
-                                        </div>
-                                        <div
-                                            class="d-flex flex-column align-items-center justify-content-center text-whitee">
-                                            <h5 class="mb-0">NIKI</h5>
-                                            <p>niki@gmail.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <li>
-                                    <a href="profile.html"
-                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                        aria-current="page">
-                                        <div>
-                                            <i class="fa-solid fa-address-card me-3"></i>
-                                        </div>
-                                        My Profile
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                        aria-current="page">
-                                        <div>
-                                            <i class="fa-solid fa-bag-shopping me-3"></i>
-                                        </div>
-                                        Booking
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                        aria-current="page">
-                                        <div>
-                                            <i class="fa-solid fa-ticket me-3"></i>
-                                        </div>
-                                        Review
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                        aria-current="page">
-                                        <div>
-                                            <i class="fa-solid fa-bell me-3"></i>
-                                        </div>
-                                        Notification
-                                        <span class="badge ms-auto bg-brand rounded-pill fw-normal">6</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                        aria-current="page">
-                                        <div>
-                                            <i class="fa-solid fa-book me-3"></i>
-
-                                        </div>
-                                        Privacy
-                                    </a>
-                                </li>
-                                <li>
-                                    <button class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
-                                        aria-current="page" id="logout">
-
-                                        <i class="fa-solid fa-right-from-bracket me-3"></i>
-
-                                        Log out
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
+                        <!-- <button class="py-2 px-4 rounded-2 border-0">Booking</button> -->
                     </div>
+                    <!-- User profile -->
                 </div>
+
             </div>
         </nav>
     </header>
     <main>
-        <section class="form-logAndris mt-5 pt-4 mb-2">
+        <section class="form-logAndris mt-5 pt-4 mb-2 ">
             <img src="images/img-pet/style.png " class="position-absolute style style-3" alt="">
             <div class="container ">
-                <div class="row d-flex justify-content-center rounded rounded-5">
-                    <div class="col-md-10 col-lg-10 bg-image-login rounded rounded-5 mt-5 mb-3">
+                <div class="row d-flex  justify-content-center ">
+                    <div class="col-md-10 col-lg-10 bg-image-login mt-5 mb-3">
                         <div class="row">
-                            <div class="col-7 my-4  m-auto ps-0 d-lg-flex  flex-column justify-content-center align-items-center">
-                                <div class="card bg-glass p-5 rounded-5">
-                                    <div class="  mx-auto d-flex justify-content-center align-items-center mb-3 ">
+                            <div class="col-7 d-lg-flex pe-0 flex-column justify-content-center align-items-center">
+                                <div class=" bg-glass p-5 my-4 ">
+                                    <div class=" m-auto d-flex justify-content-center align-items-center mb-3 ">
                                         <img src="images/img-pet/logo/PetZone (2).png" alt width="220px" >
                                     </div>
                                     <form onsubmit="getdata(); return false; " class="row g-3 ">
@@ -329,14 +209,13 @@
                                             <i class="fa-solid fa-lock icon-position fs-6 pt-3 ps-2"></i>
                                             <input type="password" class="form-control  mt-3 input-with-icon"
                                                 id="password" name="password" placeholder="Your password" required>
-
                                         </div>
 
                                         <div class="form-group form-check d-flex justify-content-between mt-3 ms-2">
                                             <div class="check-box">
                                                 <input type="checkbox" class="form-check-input "
                                                     id="remember" required>
-                                                <label class="form-check-label text-white" for="remember">Remember me</label>
+                                                <label class="form-check-label text-black" for="remember">Remember me</label>
                                             </div>
                                             <a href="forgot-pass.html"
                                                 class="forgot-password text-decoration-none color-text pe-2">Forgot
@@ -345,33 +224,40 @@
                                         <div class="form-group mt-3  btn-login ">
                                             <input type="submit" class="btn btn-warning" value="Login">
                                         </div>
-                                        <div class="separator position-relative mt-5">
-                                            <p class="text-white mt-3">OR</p>
+                                        <div class="separator position-relative mt-5 ">
+                                            <div class="position-absolute">Or</div>
+                                            <!-- <p class="text-black mt-3">OR</p> -->
                                             
                                         </div>
                                         <div class="login-with-socail">
                                             <a href="#" class="socail-btn">
                                                 <img src="images/login and signup/facebookk.png" alt="Facebook">
-                                                <p class="text-white">Facebook</p>
+                                                <p class="text-black">Facebook</p>
                                             </a>
                                         </div>
                                         <div class="login-with-socail mt-3">
                                             <a href="#" class="socail-btn">
                                                 <img src="images/login and signup/googlee.png" alt="Facebook">
-                                                <p class="text-white">Facebook</p>
+                                                <p class="text-black">Google</p>
                                             </a>
                                         </div>
 
                                         <div class="form-group mt-3">
-                                            <p class="text-center text-white">Don't have an account? <a href="signup.html"
+                                            <p class="text-center text-black">Don't have an account? <a href="signup.html"
                                                     class="text-decoration-none color-text">Sign up</a></p>
                                         </div>
                                     </form>
 
                                 </div>
                             </div>
-                            <!-- <div class="col-5 d-none d-lg-flex  flex-column justify-content-center align-items-center">
-                            </div> -->
+                            <div class="col-5 d-none d-lg-flex my-4 ps-0  position-relative flex-column justify-content-center align-items-center">
+                                <img src="images/img-pet/img-dog.jpg" class="w-100 h-100 object-fit-cover img-login" alt="">
+                                <div class="text position-absolute text-center">
+                                    <h1 class="display-3 fw-bold text-white">Wellcome </h1>
+                                    <h2 class="fw-bold color-text pt-2">PetZonE</h2>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

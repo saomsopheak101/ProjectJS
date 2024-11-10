@@ -90,7 +90,7 @@
                                         <div class="mb-2">
                                             <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
                                                 src="images/img-pet/icon/user.png" alt="#" width="60px" >
-                                        </div>
+                                          </div>
                                         <div
                                             class="d-flex flex-column align-items-center justify-content-center text-whitee">
                                             <h5 class="mb-0">NIKI</h5>
@@ -528,16 +528,15 @@
         </div>
     </footer>
 
-
     <script src="js/bootstrap.bundle.min.js"></script>
 <script>
       console.log(sessionStorage.getItem('authToken'))
      let authToken = sessionStorage.getItem('authToken')
 
     
-    // if(!authToken){
-    //     location.href = 'http://127.0.0.1:5502/home-page.html';
-    // }
+    if(!authToken){
+        location.href = 'http://127.0.0.1:5502/home-page.html';
+    }
     document.querySelector('#logout').addEventListener('click',()=>{
                 logOut()
      })

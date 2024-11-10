@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
 </head>
-
 
 <body class="home-page overflow-x-hidden">
     <header class="">
@@ -69,18 +67,19 @@
                             <form class="d-none d-xl-flex" role="search" title="search">
                                 <button class="btn btn-icon" type="button" data-bs-toggle="modal"
                                     data-bs-target="#searchModal">
-                                    <i class="fa-solid fa-search text-white"></i>
+                                    <i class="fa-solid fa-search"></i>
                                 </button>
                             </form>
-
-                            <button class="py-2 px-4 rounded-2 bg-white border-0 ms-3 " id="login" type="button"
+                            <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="signupForm"
+                                type="button" onclick="window.location.href='signup.html';">Sign up</button>
+                            <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="login" type="button"
                                 onclick="window.location.href='login.html';">Login</button>
                             <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
 
                             <!-- <button class="py-2 px-4 rounded-2 border-0">Booking</button> -->
                         </div>
+                        
                         <!-- User profile -->
-
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <a class="btn btn-icon d-none d-xl-inline-block position-relative" role="button" href=""
                                 title="profile" data-bs-toggle="dropdown" aria-expanded="false">
@@ -158,9 +157,7 @@
                                 <li>
                                     <button class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
                                         aria-current="page" id="logout">
-
                                         <i class="fa-solid fa-right-from-bracket me-3"></i>
-
                                         Log out
                                     </button>
                                 </li>
@@ -173,7 +170,6 @@
     </header>
     <main>
         <section class="py-0  position-relative z-0">
-
             <div class="container">
                 <div class="text-banner">
                     <h5 class="mb-5"><span class="badge bg-white color-text py-2 shadow position-absolute z-3 ">Welcom
@@ -409,7 +405,7 @@
             </div>
         </section>
 
-        <section class="gallery margin-bottom z">
+        <section class="gallery margin-bottom ">
             <div class="container-fluid">
                 <div class="row g-4" id="lightgallery">
                     <h4 class="mb-3 text-center"><span class="badge bg-white color-text py-2 shadow">Gallery</span></h4>
@@ -549,7 +545,6 @@
                                             placeholder="Mess"></textarea>
                                     </div>
                                 </div>
-
                                 <div class="col-5 mt-2">
                                     <button class="btn btn-warning ms-3 color-bg  text-white">Make a
                                         appointment</button>
@@ -560,27 +555,63 @@
                 </div>
             </div>
         </section>
-
         <section class="feedback margin-bottom">
             <div class="container">
                 <div class="row">
+                    <h4 class="mb-3 text-center z-1"><span
+                            class="badge bg-white color-text py-2 shadow">Appointment</span>
+                    </h4>
+                    <h3 class="text-center fw-bold">
+                        Here from Our Happy Pet Owners
+                    </h3>
+                    <p class="z-1 text-center py-2 mb-4">PawsZone is the largest specialty pet retailer of services and
+                        solutions for the lifetime <br>needs
+                        At Pawscare, we love pets, and we believe pets make us better people.
+                    </p>
                     <div class="col-6">
                         <div class="feedback-card d-flex py-4 ">
-                            <div class="img-area w-25">
-                                <img src="images/img-pet/dog1.jpg" class="" alt="...">
+                            <div class="imge position-relative">
+                                <img src="images/avatar/3.jpg" alt="" class="rounded-circle">
                             </div>
-                            <div class="text w-75 px-4">
+                            <div class="style-img position-absolute">
+                                <img src="images/avatar/5.jpg" alt="" class="rounded-circle position-absolute z-2">
+                            </div>
+                            <!-- <img src="images/img-pet/dog1.jpg" class="" alt="..."> -->
+                            <div class="text w-75  ps-5">
                                 <h3 class="">Maria Alinna</h3>
-                                <h6 class="fw-medium">ENGLAND LITTLE COCKAPO</h6>
+                                <h6 class="fw-medium color-text">ENGLAND LITTLE COCKAPO</h6>
                                 <p>“Guests will feel at home with the around-the-clock care of our pet-loving staff. We
                                     offer a safe, clean, temperature-controlled environment, playtime, exercise.”</p>
-
                                 <div class="paw">
-                                    <i class="fa-solid fa-paw"></i>
-                                    <i class="fa-solid fa-paw"></i>
-                                    <i class="fa-solid fa-paw"></i>
-                                    <i class="fa-solid fa-paw"></i>
-                                    <i class="fa-solid fa-paw"></i>
+                                    <i class="fa-solid fa-paw color-text"></i>
+                                    <i class="fa-solid fa-paw color-text"></i>
+                                    <i class="fa-solid fa-paw color-text"></i>
+                                    <i class="fa-solid fa-paw color-text"></i>
+                                    <i class="fa-solid fa-paw color-text"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="feedback-card d-flex py-4 ">
+                            <div class="imge position-relative">
+                                <img src="images/avatar/3.jpg" alt="" class="rounded-circle">
+                            </div>
+                            <div class="style-img position-absolute">
+                                <img src="images/avatar/5.jpg" alt="" class="rounded-circle position-absolute z-2">
+                            </div>
+                            <!-- <img src="images/img-pet/dog1.jpg" class="" alt="..."> -->
+                            <div class="text w-75  ps-5">
+                                <h3 class="">Maria Alinna</h3>
+                                <h6 class="fw-medium color-text">ENGLAND LITTLE COCKAPO</h6>
+                                <p>“Guests will feel at home with the around-the-clock care of our pet-loving staff. We
+                                    offer a safe, clean, temperature-controlled environment, playtime, exercise.”</p>
+                                <div class="paw">
+                                    <i class="fa-solid fa-paw color-text"></i>
+                                    <i class="fa-solid fa-paw color-text"></i>
+                                    <i class="fa-solid fa-paw color-text"></i>
+                                    <i class="fa-solid fa-paw color-text"></i>
+                                    <i class="fa-solid fa-paw color-text"></i>
                                 </div>
                             </div>
                         </div>
@@ -588,83 +619,6 @@
                 </div>
             </div>
         </section>
-
-
-        <!-- <section class="feedback margin-bottom position-relative">
-            
-            <div class="container">
-                <div class="text text-center ">
-                    <h5 class="mb-3"><span class="badge bg-white color-text py-2 shadow">Feedback</span></h5>
-                    <h1 class="fw-bold">
-                        Here from Our Happy Pet Owners.
-                    </h1>
-                    <p>PawsZone is the largest specialty pet retailer of services and solutions for the lifetime
-                        needs of pets. At Pawscare, we love pets, and we believe pets make us better people.</p>
-                </div>
-
-            </div>
-            <div class="container">
-                <div id="carouselExampleIndicators" class="carousel slide">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-
-                    </div>
-                    <div class="carousel-inner slider-item">
-                        <div class="row">
-                            <div class="col-6 color-bg py-4">
-                                <div class="carousel-item  active">
-                                    <div class="img-area ">
-                                        <img src="images/img-pet/dog1.jpg" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-caption caption d-none d-md-block">
-                                        <h3 class="">First</h3>
-                                        <p>Some representative placeholder content for the first slide Some
-                                            representative
-                                            placeholder content for the first slide.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="carousel-item radius-card  rounded">
-                                    <div class="img-area ">
-                                        <img src="images/img-pet/dog1.jpg" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-caption caption d-none d-md-block">
-                                        <h3 class="">First</h3>
-                                        <p>Some representative placeholder content for the first slide Some
-                                            representative
-                                            placeholder content for the first slide.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item ">
-                            <div class="img-area ">
-                                <img src="images/img-pet/dog1.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-caption caption d-none d-md-block">
-                                <h3 class="">First Hello</h3>
-                                <p>Some representative placeholder content for the first slide Some representative
-                                    placeholder content for the first slide.</p>
-                            </div>
-                        </div> 
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-        </section> -->
     </main>
     <footer class="b">
         <div class="container">
@@ -816,13 +770,16 @@
         let authToken = sessionStorage.getItem('authToken')
         let profiles = document.querySelector('#profiles');
         let login = document.querySelector('#login');
+        let signup = document.querySelector('#signupForm')
 
         if (!authToken) {
             profiles.style.display = 'none';
             login.style.display = 'inline'
+            signup.style.display = 'inline'
         } else {
             profiles.style.display = 'inline';
             login.style.display = 'none'
+            signup.style.display = 'none'
         }
         document.querySelector('#logout').addEventListener('click', () => {
             logOut()
@@ -834,8 +791,6 @@
                     'Accept': "application/json",
                     'Authorization': `Bearer ${authToken}`
                 }
-
-
             })
                 .then(res => res.json())
                 .then(json => {
