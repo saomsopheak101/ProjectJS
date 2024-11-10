@@ -1359,8 +1359,10 @@
 
 			<!-- Services Table Section -->
 			<div class="container mt-5">
-				<button id="logout" class="btn btn-danger mb-3">Logout</button>
-				<button class="btn btn-success mb-3" onclick="CreateService()">Add Service</button>
+				<div class="d-flex justify-content-between">
+					<h3 class="mb-3">Service</h3>
+					<button class="btn btn-success mb-3" onclick="CreateService()">Add Service</button>
+				</div>
 				<!-- Table for displaying services -->
 				<table class="table table-bordered">
 					<thead>
@@ -1378,8 +1380,8 @@
 						<!-- Services will be dynamically inserted here -->
 					</tbody>
 				</table>
-
 			</div>
+			
 
 			<!--**********************************
             Content body end
@@ -1716,47 +1718,52 @@
 		}
 
 		function handleSubmit() {
-			let image = document.querySelector('#image').files[0];
-			let title = document.querySelector('#service-title').value;
-			let price = document.querySelector('#service-price').value;
-			let feature = document.querySelector('#service-feature').value;
-			let description = document.querySelector('#service-description').value;
-			let id = document.querySelector('#service-id').value;
+    let image = document.querySelector('#image').files[0];
+    let title = document.querySelector('#service-title').value;
+    let price = document.querySelector('#service-price').value;
+    let feature = document.querySelector('#service-feature').value;
+    let description = document.querySelector('#service-description').value;
+    let id = document.querySelector('#service-id').value;
 
-			if (!title || !price) {
-				alert('Title and price are required.');
-				return;
-			}
+    if (!title || !price) {
+        alert('Title and price are required.');
+        return;
+    }
 
-			const formData = new FormData();
-			formData.append('title', title);
-			formData.append('price', price);
-			formData.append('feature', feature);
-			formData.append('description', description);
-			if (image) formData.append('image', image);
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('price', price);
+    formData.append('feature', feature);
+    formData.append('description', description);
+    if (image) formData.append('image', image);
 
-			const url = id ? `https://mps4.chandalen.dev/api/services/${id}` : 'https://mps4.chandalen.dev/api/services';
-			const method = id ? 'POST' : 'POST';
+    // Add a special parameter to indicate the update if needed by the backend
+    if (id) {
+        formData.append('_method', 'PUT'); // This is optional, depending on your API
+    }
 
-			fetch(url, {
-				method: method,
-				headers: {
-					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
-				},
-				body: formData
-			})
-				.then(response => response.json())
-				.then(result => {
-					if (result.result) {
-						AllService();
-						alert(result.message);
-						bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasExample')).hide();
-					} else {
-						alert("Failed to save service.");
-					}
-				})
-				.catch(error => console.error("Error saving service:", error));
-		}
+    const url = id ? `https://mps4.chandalen.dev/api/services/${id}` : 'https://mps4.chandalen.dev/api/services';
+    const method = 'POST'; // Always using POST
+
+    fetch(url, {
+        method: method,
+        headers: {
+            'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
+        },
+        body: formData
+    })
+        .then(response => response.json())
+        .then(result => {
+            if (result.result) {
+                AllService();
+                alert(result.message);
+                bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasExample')).hide();
+            } else {
+                alert("Failed to save service.");
+            }
+        })
+        .catch(error => console.error("Error saving service:", error));
+}
 
 		function viewService(id) {
 			fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
