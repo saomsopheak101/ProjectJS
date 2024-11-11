@@ -799,14 +799,14 @@ footer .copyright a{
 }
 .main-services .services .service-section .image:nth-child(1){
     position: absolute;
-    top: -15%;
+    top: -18%;
     left: -12%;
 }
 
 .main-services .services .service-section .image:nth-child(2){
     height: 300px;
     position: absolute;
-    top: -12%;
+    top: -14%;
     left: 92%;
 }
 
