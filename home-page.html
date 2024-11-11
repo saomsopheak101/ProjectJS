@@ -7,7 +7,7 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="icons/fontawesome/css/all.min.css">
 </head>
 
 <body class="home-page overflow-x-hidden">
@@ -15,7 +15,7 @@
         <nav class="navbar navbar-expand-lg  z-3">
             <div class="container">
                 <a class="navbar-brand" href="">
-                    <img src="images/img-pet/logo/PetZone (2).png" style="width: 70px;" alt="">
+                    <img src="images/img-pet/logo/PetZone (2).png" style="width: 80px;" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -72,13 +72,13 @@
                             </form>
                             <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="signupForm"
                                 type="button" onclick="window.location.href='signup.html';">Sign up</button>
-                            <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="login" type="button"
-                                onclick="window.location.href='login.html';">Login</button>
+                            <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="login"
+                                type="button" onclick="window.location.href='login.html';">Login</button>
                             <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
 
                             <!-- <button class="py-2 px-4 rounded-2 border-0">Booking</button> -->
                         </div>
-                        
+
                         <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <a class="btn btn-icon d-none d-xl-inline-block position-relative" role="button" href=""
@@ -620,7 +620,7 @@
             </div>
         </section>
     </main>
-    <footer class="b">
+    <footer class="">
         <div class="container">
             <section class="top-footer py-5 ">
                 <div class="container-fluid">
@@ -658,37 +658,36 @@
                                     <div class="col-5 pe-0">
                                         <ul class="list-unstyled d-flex flex-column  gap-2">
                                             <li>
-                                                <a href="">Home</a>
+                                                <a href="home-page.html">Home</a>
                                             </li>
                                             <li>
-                                                <a href="">About us</a>
+                                                <a href="about-us.html">About us</a>
                                             </li>
                                             <li>
-                                                <a href="">Feedback</a>
+                                                <a href="feedback.html">Feedback</a>
                                             </li>
                                             <li>
-                                                <a href="">Booking</a>
+                                                <a href="booking.html">Booking</a>
                                             </li>
                                             <li>
-                                                <a href="">Contact</a>
+                                                <a href="contact.html">Contact</a>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="col-7 ps-0">
                                         <ul class="list-unstyled d-flex flex-column text-white gap-2">
                                             <li>
-                                                <a href="">Pet Training</a>
+                                                <a href="petTraining.html">Pet Training</a>
                                             </li>
                                             <li>
-                                                <a href="">Pet Consulting</a>
+                                                <a href="petConsult.html">Pet Consulting</a>
                                             </li>
                                             <li>
-                                                <a href="">Pet Grooming</a>
+                                                <a href="petGrooming.html">Pet Grooming</a>
                                             </li>
                                             <li>
-                                                <a href="">Pet Daycare</a>
+                                                <a href="petDayCare.html">Pet Daycare</a>
                                             </li>
-
                                         </ul>
                                     </div>
                                 </div>
@@ -755,9 +754,7 @@
 
 
     <script src="js/bootstrap.bundle.min.js"></script>
-
-
-   <script src="js/auth-btn.js"></script>
+    <script src="js/auth-btn.js"></script>
     <script>
         const myToastEl = document.getElementById('myToast')
         myToastEl.addEventListener('hidden.bs.toast', () => {
