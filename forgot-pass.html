@@ -4,38 +4,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot Password</title>
+    <title>sign up</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
-        .form-logAndris .btn-login {
+        header {
+            position: fixed;
+            z-index: 99;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            /* line-height: 80px; */
+            transition: 0.3s;
+            padding-top: 10px;
+
+        }
+
+        header.sticky {
+            /* padding: 5px 110px; */
+            background-color: #ffff;
+            color: black;
+
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        }
+
+        header {
+            color: black;
+        }
+
+
+
+        .img-login {
+            border-radius: 0px 10px 10px 0px;
+            filter: brightness(70%);
+            height: 465px;
+
+        }
+
+        .bg-glass {
+            /* height: 400px; */
+            /* background-color: #f49943; */
+            backdrop-filter: var(--backdrop-filter);
+            /* background-color: #201f1fb9; */
+            /* color: var(--login-c-text); */
+            border-radius: 10px 0px 0 10px;
+            /* border-radius: none !important; */
+            box-shadow: 0px 0px 10px 5px rgba(218, 218, 218, 0.662);
+        }
+        .style-3 {
+            overflow: hidden !important;
+            width: 300px !important;
+            left: -4%;
+            top: -4%;
+            z-index: -1;
+        }
+
+        .style-4 {
+            overflow: hidden !important;
+            width: 300px !important;
+            bottom: -4%;
+            right: -7%;
+            z-index: -1;
+        }
+
+        .bone-1 {
+            padding-top: 20%;
+            margin-left: 10%;
+
+        }
+
+        .bone-2 {
+            padding-top: 10%;
+            margin-right: 10%;
+            right: 0;
+
+        }
+
+        .form-logAndris {
+            background-color: #fff;
+        }
+
+        .form-logAndris .btn-login,
+        .form-logAndris .btn-next {
             display: block;
             text-align: center;
             width: 100%;
             padding: 8px 0;
             border-radius: 19px;
             background-color: #f49943;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s;
+            color: #fff;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .form-logAndris .btn-next:hover {
+            background-color: #d2823c;
         }
 
         .form-logAndris .separator {
             height: 1px;
-            background-color: rgba(0, 0, 0, 0.246);
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: rgba(0, 0, 0, 0.2);
+            /* margin: 20px 0; */
+            position: relative;
+            text-align: center;
         }
 
         .form-logAndris .separator div {
-            position: absolute;
             background-color: #ffffff;
+            padding: 0 10px;
         }
 
-        .form-logAndris .socail-btn {
+        .form-logAndris .social-btn {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -44,28 +124,13 @@
             border-radius: 19px;
             border: 1px solid #a4a4a4;
             text-decoration: none;
-            color: rgb(0, 0, 0);
+            color: #000;
             transition: background-color 0.3s ease;
             gap: 10px;
         }
 
-        .form-logAndris .socail-btn img {
-            width: 20px;
-            height: 20px;
-        }
-
-        .form-logAndris .socail-btn p {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        .form-logAndris .img-form {
-            width: 100%;
-            height: 100%;
-            background-color: #f49943;
-        }
-
-        .form-logAndris .img-form img {
+        .form-logAndris .img-form img,
+        .form-logAndris .img-logoform img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -74,28 +139,40 @@
         .form-logAndris .img-logoform {
             width: 150px;
             height: 150px;
-            margin-bottom: 20px;
+            margin: 0 auto 20px;
             border-radius: 50%;
-            background-color: #ffffff;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .form-logAndris .img-logoform img {
-            width: 100%;
+        .form-logAndris .verify-box {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .form-logAndris .verify-box input {
+            width: 60px;
+            height: 40px;
+            border: 2px solid #f49943;
+            color: #f49943;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-logAndris .verify-box input:focus {
+            border-color: #d2823c;
+            outline: none;
+        }
+
+        .img-form {
+            background-color: #f49943;
             height: 100%;
-            object-fit: cover;
-        }
-
-        .form-logAndris .input-with-icon {
-            padding-left: 35px;
-        }
-
-        .form-logAndris .icon-position {
-            position: absolute;
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%);
-            color: #aaa;
-            pointer-events: none;
+            border-radius: 0 15px 15px 0;
         }
 
         .form-logAndris .btn-bn {
@@ -109,70 +186,149 @@
             border-radius: 19px;
             transition: background-color 0.3s ease;
         }
-    </style>
-</head>
-<body>
-    <header></header>
-    <main>
-        <section class="form-logAndris py-5">
-            <div class="container">
-                <div class="row g-0">
-                    <div class="col-6 shadow-lg px-4 rounded-start-2">
-                        <form  class="py-5" onsubmit="getOTP(); return false;">
-                            <div class="img-logoform mx-auto d-flex justify-content-center align-items-center">
-                                <img src="images/login and signup/PetZone.png" alt="PetZone Logo">
-                            </div>
-                            <h3 class="fw-bold text-black text-center mb-4">Forgot Password</h3>
-                            <div class="form-group position-relative">
-                                <input type="email" class="form-control  mt-3 input-with-icon" id="email" name="email"
-                                    placeholder="Your email" required>
-                                <i class="fa-solid fa-envelope icon-position"></i>
 
-                            </div>
-                            <div class="form-group mt-3 d-flex justify-content-center">
-                                <button type="button" class="btn-bn" onclick="window.location.href='login.html'">Back</button>
-                                <input type="submit" class="btn-bn w-100" value="Next">
-                            </div>
-                        </form>
+        .text-wrap i {
+            width: 35px;
+            height: 35px;
+            background-color: #f49943;
+            line-height: 35px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        header .btn-login {
+            border: 2px solid #f49943;
+            background-color: black;
+            color: white;
+        }
+
+        header .btn-login:hover {
+            color: #e2e2e2;
+            background-color: #141414;
+
+        }
+    </style>
+
+</head>
+<body class="overflow-x-hidden">
+    <header class="bg-black">
+        <nav class="navbar navbar-expand-lg z-3">
+            <div class="container">
+                <a class="navbar-brand" href="">
+                    <img src="images/img-pet/logo/PetZone (2).png" style="width: 70px;" alt="">
+                </a>
+                <div class="d-flex align-items-center ">
+                    <div class="d-flex align-items-center">
+                        <button class="py-2 px-4 rounded-2  btn-login  ms-3 " id="login" type="button"
+                            onclick="window.location.href='login.html';">Login</button>
+                        <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="login" type="button"
+                            onclick="window.location.href='signup.html';">Sign up</button>
+                        <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
+
+                        <!-- <button class="py-2 px-4 rounded-2 border-0">Booking</button> -->
                     </div>
-                    <div class="col-6">
-                        <div class="img-form rounded-end-2">
-                            <img src="images/login and signup/portrait-cute-dog_928869-30668-removebg-preview.png"
-                                alt="Cute Dog" class="rounded-end-2">
+                    <!-- User profile -->
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="form-logAndris position-relative mt-2  mb-0">
+            <img src="images/img-pet/icon/bone.png" alt width="50px" class="bone-1 position-absolute">
+            <img src="images/img-pet/icon/bone.png" alt width="50px" class="bone-2 position-absolute">
+            <img src="images/img-pet/style.png " class="position-absolute style style-3" alt="">
+            <div class="container ">
+                <div class="row d-flex">
+                    <div class=" m-auto  col-lg-10 bg-image-login my-3  pt-5 mt-5">
+
+                        <div class="row ">
+                            <div class="col-7 my-5 py-5 pe-0  flex-column justify-content-center align-items-center">
+                                <div class="bg-glass p-5 my-5 ">
+                                    <div class="d-flex justify-content-center align-items-center mb-3 ">
+                                        <img src="images/img-pet/logo/PetZone (2).png" alt width="220px">
+                                    </div>
+                                    <form  class="py-5" onsubmit="getOTP(); return false;">
+                                        <h3 class="fw-bold text-black text-center mb-4">Forgot Password</h3>
+                                        <div class="form-group position-relative">
+                                            <input type="email" class="form-control  mt-3 input-with-icon" id="email" name="email"
+                                                placeholder="Your email" required>
+                                            <i class="fa-solid fa-envelope icon-position"></i>
+            
+                                        </div>
+                                        <div class="form-group mt-3 d-flex justify-content-center">
+                                            <button type="button" class="btn-bn" onclick="window.location.href='login.html'">Back</button>
+                                            <input type="submit" class="btn-bn w-100" value="Next">
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                            <div
+                                class="col-5 d-none d-lg-flex my-4 ps-0  position-relative flex-column justify-content-center align-items-center">
+                                <img src="images/img-pet/img-dog.jpg" class="w-100 object-fit-cover img-login" alt="">
+                                <div class="text position-absolute text-center">
+                                    <h1 class="display-3 fw-bold text-white">Wellcome </h1>
+                                    <h2 class="fw-bold color-text pt-2">PetZonE</h2>
+
+                                </div>
+                            </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
+            <img src="images/img-pet/style.png " class="position-absolute  style-4" alt="">
         </section>
     </main>
+    <footer class="border-1 ">
+        <section class="copyright py-4 border-top">
+            <div class="container-fluid px-md-5">
+                <div class="d-md-flex text-center text-md-start justify-content-between text-white">
+                    <p class="m-0 pt-2 ">Copyright © 2024 by <span class="color-text">PetZone</span> <span>. All
+                            Rights Reserved.</span></p>
+                    <p class="text-wrap mb-0">
+                        <a href=""><i class="fa-brands fa-facebook-f "></i></a>
+                        <a href=""> <i class="fa-brands fa-instagram ms-2"></i></a>
+                        <a href=""><i class="fa-brands fa-tiktok ms-2"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter ms-2"></i></a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </footer>
     <script>
-            function getOTP(){
-                let email  = document.querySelector('#email').value;
-                console.log(email);
-                fetch('https://mps4.chandalen.dev/api/forgot/pass', {
-                method: 'POST',
-                headers: { "Accept": "application/json" ,
-                        "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email:email
-                })
-                
+        function getOTP(){
+            let email  = document.querySelector('#email').value;
+            console.log(email);
+            fetch('https://mps4.chandalen.dev/api/forgot/pass', {
+            method: 'POST',
+            headers: { "Accept": "application/json" ,
+                    "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email:email
             })
-            .then(res => res.json())
-            .then(json =>{
-                if(json.result === true){
-                    sessionStorage.setItem('StoreEmail', email);
-                    console.log(json.message);
-                    alert(json.message);
-                    location.href = 'http://127.0.0.1:5502/otp.html';
-                }else{
-                    alert('Failed to send OTP, please try again.');
-                }
-            })
-
+            
+        })
+        .then(res => res.json())
+        .then(json =>{
+            if(json.result === true){
+                sessionStorage.setItem('StoreEmail', email);
+                console.log(json.message);
+                alert(json.message);
+                location.href = 'http://127.0.0.1:5502/otp.html';
+            }else{
+                alert('Failed to send OTP, please try again.');
             }
-    </script>
+        })
+
+        }
+</script> 
 </body>
 
 </html>
+
+
+
+
