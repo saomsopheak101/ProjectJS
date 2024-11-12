@@ -3773,8 +3773,8 @@ fieldset:disabled .btn {
   --bs-btn-bg: #f49943;
   --bs-btn-border-color: #f49943;
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #ffbe55;
-  --bs-btn-hover-border-color: #ffbe55;
+  --bs-btn-hover-bg: #f49943;
+  --bs-btn-hover-border-color: #f49943;
   --bs-btn-focus-shadow-rgb: 217, 135, 0;
   --bs-btn-active-color: #000;
   --bs-btn-active-bg: #f49943;
