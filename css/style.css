@@ -603,7 +603,10 @@ header.sticky .fa-search{
 .profile-book{
     padding-top: 9%;
 }
-
+.btn-book{
+    width: 120px;
+    height: 45px;
+}
 
 
 
