@@ -386,7 +386,7 @@ header.sticky .fa-search{
 
 .booking-page .hero-banner img{
     width: 100%;
-    height: 60vh;
+    height: 40vh;
     object-fit: cover;
     filter: brightness(40%);
     position: absolute;
@@ -396,13 +396,13 @@ header.sticky .fa-search{
 
 .hero-banner {
   width: 100%;
-  height: 60vh;
+  height: 40vh;
   position: relative;  
 }
 
 .hero-banner>.banner-bg {
   width: 100%;
-  height: 60vh;
+  height: 40vh;
   position: absolute;
   /* background-attachment: fixed; */
   background-repeat: no-repeat;
@@ -418,8 +418,9 @@ header.sticky .fa-search{
 }
   
 .hero-banner>.content {
+    padding-top: 40px;
     width: 100%;
-    height: 70vh;
+    height: 40vh;
     position: absolute;
     z-index: 99;
   }
