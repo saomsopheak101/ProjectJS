@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="icons/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" />
     <style>
         .glass {
             /* From https://css.glass */
@@ -202,25 +206,30 @@
                         <form class="row align-items-center row-gap-3">
                             <h4 class="mt-3 fw-bold">Booking information</h4>
                             <div class="col-3">
-                                <label for="">Select pet type:</label>
+                                <label for="">Select consultant:</label>
                                 <select class="form-select" aria-label="Default select example" required>
-                                    <option value="1" selected>Dog</option>
-                                    <option value="2">Cat</option>
-                                    <option value="3">Hamster</option>
-                                    <option value="4">Parrot</option>
-                                    <option value="5">Rabbit</option>
+                                    <option value="1" selected>Len</option>
+                                    <option value="2">Hong</option>
                                 </select>
                             </div>
-                            
                             <div class="col-3">
-                                <label for="">From:</label>
-                                <input type="date" class="form-control" id="exampleFormControlInput1"
-                                placeholder="date" required>
+                                <label for="">Status:</label>
+                                <select class="form-select" aria-label="Default select example" required>
+                                    <option value="1" selected>Online</option>
+                                    <option value="2">Face to face</option>
+                                </select>
                             </div>
+
                             <div class="col-3">
-                                <label for="">to</label>
-                                <input type="date" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="date" required>
+                                <label for="">Date</label>
+                                <div class="input-group date" id="datetimepicker" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input"
+                                        data-target="#datetimepicker" placeholder="Select date and time" />
+                                    <div class="input-group-append" data-target="#datetimepicker"
+                                        data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-3">
                                 <label for="">Price:</label>
@@ -454,12 +463,16 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/auth-btn.js"></script>
-    <!-- Modal -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
     <script>
-        const myModalEl = document.getElementById('myModal')
+        <!-- Modal -->
+            const myModalEl = document.getElementById('myModal')
         myModalEl.addEventListener('hidden.bs.modal', event => {
-            // do something...
-        })
+                // do something...
+            })
     </script>
 </body>
 
