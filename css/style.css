@@ -526,9 +526,10 @@ header.sticky .fa-search{
     color: #f49943;
   }
 .setting-sidebar .nav .nav-item .nav-link.active {
-    color: #222222;
-    border: 2px solid #f49943;
-    border-radius: 6px;
+    color: #f49943;
+    border-left: 4px solid #f49943;
+
+    /* border-radius: 6px; */
 }
 .profile-page .edit-profile{
     padding-top: 9% !important;
@@ -606,13 +607,16 @@ header.sticky .fa-search{
 }
 .btn-book{
     width: 120px;
-    height: 45px;
+    height: 40px;
 }
-
-
-
-
-
+.setting-sidebar{
+    width: 360px;
+}
+.imge-not{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
 
 
 
