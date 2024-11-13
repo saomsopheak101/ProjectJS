@@ -1285,6 +1285,11 @@
 								</svg>
 							</div>	
 							<span class="nav-text">Feedback</span>
+							          <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                PRice
+              </button>
+
+     
 						</a>
 						<ul aria-expanded="false">
 							<li><a href="feedback-check.html">Verify Reviews</a></li>
@@ -1296,7 +1301,34 @@
 		
 			</div>
 		</div>
-
+         <!-- Modal -->
+		 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col">
+						  <input type="text" class="form-control" placeholder="service_id" aria-label="service_id" id="serviceId">
+						</div>
+						<div class="col">
+						  <input type="text" class="form-control" placeholder="animal_id" aria-label="animal_id" id="animalId">
+						</div>
+						<div class="col">
+						  <input type="text" class="form-control" placeholder="price" aria-label="price" id="priceId">
+						</div>
+					  </div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				  <button type="button" class="btn btn-primary" id="btn-action">Save changes</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
 
 		<!--**********************************
             Sidebar end
@@ -1631,6 +1663,7 @@
 
 
 	</div>
+	
 	<script>
 
 console.log(sessionStorage.getItem('adminToken'))
@@ -1654,7 +1687,7 @@ console.log(sessionStorage.getItem('adminToken'))
                 .then(res => res.json())
                 .then(json => {
                     if (json.result === true) {
-                        sessionStorage.removeItem('authToken');
+                        sessionStorage.removeItem('adminToken');
                         console.log(json.message);
                         alert(json.message)
                         location.href = 'http://127.0.0.1:5502/home-page.html';
@@ -1798,7 +1831,42 @@ console.log(sessionStorage.getItem('adminToken'))
         }
 
 
+		function getvalue(){
+            let service = Number( document.querySelector('#serviceId').value);
+            let animal = Number( document.querySelector('#animalId').value);
+            let price = Number(document.querySelector('#priceId').value);
 
+            console.log ( typeof service)
+            console.log( typeof animal)
+            console.log(price)
+
+            let formData = new FormData();
+            formData.append('service_id',service);
+            formData.append('animal_id',animal);
+            formData.append('price',price);
+
+            fetch('https://mps4.chandalen.dev/api/services/price',{
+                method : 'POST',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                },
+				body:formData
+            })
+			.then(res => res.json())
+			.then(json =>{
+				if(json.result === true){
+					alert(json.message)
+					console.log(json.message);
+				}else{
+					alert(json.message)
+				}
+			})
+
+        }
+        document.querySelector('#btn-action').addEventListener('click',()=>{
+            getvalue()
+        })
 
 	</script>
 	<!--**********************************

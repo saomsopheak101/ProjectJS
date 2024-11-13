@@ -12,8 +12,8 @@
 </head>
 
 <body>
-    <header class="">
-        <nav class="navbar navbar-expand-lg  z-3">
+    <header class="" style="z-index: 999;">
+        <nav class="navbar navbar-expand-lg  ">
             <div class="container">
                 <a class="navbar-brand" href="">
                     <img src="images/img-pet/logo/PetZone (2).png" style="width: 80px;" alt="">
@@ -189,64 +189,12 @@
             <div class="container">
                 <h1 class="fw-bold text-center">Service</h1>
                 <h6 class="text-center"><span class="badge bg-white text-warning shadow">User Feedbacks</span></h6>
-                <div class="row my-5 py-3">
-                    <div class="col-2">
-                        <div class="d-flex justify-content-center mb-3">
-                            <img src="images/service/bathing.png" alt="" class="w-75">
-                        </div>
-                        <h4 class="text-center fw-bold">Bathing</h4>
-                        <div class="text-center">
-                            <button class="btn btn-outline-warning">Book Now</button>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="d-flex justify-content-center mb-3">
-                            <img src="images/service/brush-teeth.png" alt="" class="w-75">
-                        </div>
-                        <h4 class="text-center fw-bold">Brush Teeth</h4>
-                        <div class="text-center">
-                            <button class="btn btn-outline-warning">Book Now</button>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="d-flex justify-content-center mb-3">
-                            <img src="images/service/nail-clipper.png" alt="" class="w-75">
-                        </div>
-                        <h4 class="text-center fw-bold">Nail Trimming</h4>
-                        <div class="text-center">
-                            <button class="btn btn-outline-warning">Book Now</button>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="d-flex justify-content-center mb-3">
-                            <img src="images/service/paw-care.png" alt="" class="w-75">
-                        </div>
-                        <h4 class="text-center fw-bold">Paw Care</h4>
-                        <div class="text-center">
-                            <button class="btn btn-outline-warning">Book Now</button>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="d-flex justify-content-center mb-3">
-                            <img src="images/service/trim-coat.png" alt="" class="w-75">
-                        </div>
-                        <h4 class="text-center fw-bold">Coat Trimming</h4>
-                        <div class="text-center">
-                            <button class="btn btn-outline-warning">Book Now</button>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="d-flex justify-content-center mb-3">
-                            <img src="images/service/ear-cleaning.png" alt="" class="w-75">
-                        </div>
-                        <h4 class="text-center fw-bold">Ear Clean</h4>
-                        <div class="text-center">
-                            <button class="btn btn-outline-warning">Book Now</button>
-                        </div>
-                    </div>
+                <div class="row my-5 py-3 get-row">
+                    
+           
                 </div>
             </div>
-            </div>
+  
         </section>
         <section class="margin-bottom">
             <div class="container">
@@ -503,6 +451,49 @@
     </footer>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/auth-btn.js"></script>
+    <script>
+
+        serviceList()
+      function serviceList() {
+			
+			let row = '';
+			fetch('https://mps4.chandalen.dev/api/services', {
+				method: 'GET',
+				headers: {
+					'Accept': "application/json",
+					'Authorization': `Bearer ${authToken}`
+				}
+
+			})
+				.then(res => res.json())
+				.then(json => {
+					json.data.forEach(element => {
+					if(element.id == 2 || element.id == 7 || element.id == 6 || element.id == 5 ){
+                        row += `
+					 <div class="col-2">
+                        <div class="d-flex justify-content-center mb-3">
+                            <img src="images/service/bathing.png" alt="" class="w-75">
+                        </div>
+                        <h4 class="text-center fw-bold">${element.title}</h4>
+                        <div class="text-center">
+                            <button class="btn btn-outline-warning" data-id="${element.id}" onclick="serviceID(this)">Book Now</button>
+                        </div>
+                    </div>
+						`
+                    }
+					});
+					document.querySelector('.get-row').innerHTML = row;
+
+				})
+		}
+        function serviceID(row){
+          let id = row.dataset.id;
+          console.log(id)
+        //   alert('123');
+          sessionStorage.setItem('serviceID',id);
+          location.href = 'http://127.0.0.1:5502/booking-grooming.html';
+        }
+    </script>
     <script>
         const triggerTabList = document.querySelectorAll('#myTab button')
         triggerTabList.forEach(triggerEl => {
