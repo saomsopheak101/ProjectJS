@@ -780,29 +780,58 @@ footer .copyright a{
     position: relative;
     /* overflow: hidden; */
 }
-.main-services .services .service-section .image{
+.main-services .services .service-section .image,
+.main-veterinary .ourteam-section .image,
+.main-veterinary .feature-section .images,
+.main-services .benifit .imagee{
     width: 300px;
     height: 300px;
     position: absolute;
     top: -10%;
     left: -10%;
 }
-.main-services .services .service-section .image img{
+.main-services .services .service-section .image img,
+.main-veterinary .ourteam-section .image img,
+.main-veterinary .feature-section .images img,
+.main-services .benifit .imagee img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 .main-services .services .service-section .image:nth-child(1){
     position: absolute;
+    top: -11%;
+    left: -10%;
+}
+.main-veterinary .ourteam-section .image:nth-child(1),
+.main-services .benifit .imagee:nth-child(1){
+    position: absolute;
     top: -18%;
+    left: -10%;
+}
+.main-veterinary .feature-section .images:nth-child(1){
+    position: absolute;
+    top: -37%;
     left: -12%;
 }
-
 .main-services .services .service-section .image:nth-child(2){
     height: 300px;
     position: absolute;
-    top: -14%;
-    left: 92%;
+    top: -10%;
+    left: 90%;
+}
+.main-veterinary .ourteam-section .image:nth-child(2),
+.main-services .benifit .imagee:nth-child(2){
+    height: 300px;
+    position: absolute;
+    top: -15%;
+    left: 90%;
+}
+.main-veterinary .feature-section .images:nth-child(2){
+    height: 300px;
+    position: absolute;
+    top: -28%;
+    left: 94%;
 }
 
 .main-services .services .service-section .image:nth-child(3){
@@ -810,10 +839,22 @@ footer .copyright a{
     top: 87%;
     left: -12%;
 }
+.main-veterinary .ourteam-section .image:nth-child(3),
+.main-services .benifit .imagee:nth-child(3){
+    position: absolute;
+    top: 84%;
+    left: -10%;
+}
 
 .main-services .services .service-section .image:nth-child(4){
     position: absolute;
     top: 90%;
+    left: 92%;
+}
+.main-veterinary .ourteam-section .image:nth-child(4),
+.main-services .benifit .imagee:nth-child(4){
+    position: absolute;
+    top: 85%;
     left: 92%;
 }
 .main-services .benifit .row{
@@ -923,9 +964,19 @@ footer .copyright a{
     left: -12%;
     top: 6%;
 }
-.main-training .feature-sec .col-8 .image{
-    height: 380px;
+.main-training .feature-sec .col-4 .image{
+    height: 530px ;
 }
+.main-training .feature-sec .col-8 .image {
+    height: 273px;
+}
+.main-training .feature-sec .col-8 .image video{
+    height: 273px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 11px;
+}
+
 .btn-style:hover{
     background-color: #f49943;
     color: #fff
@@ -995,7 +1046,7 @@ footer .copyright a{
     align-items: center;
     justify-content: center;
     display: flex;
-    padding-top: 40px;
+    padding-top: 45px;
 }
 .main-trainDetail .detail-section .info .star{
     margin-top: -9px;
@@ -1009,9 +1060,113 @@ footer .copyright a{
 }
 .main-trainDetail .detail-section .info-course .more-info{
     width: 400px;
-    height: 200px;
+    height: 250px;
     border-radius: 12px;
     padding-top: 13px;
+}
+.main-trainDetail .detail-section .info-course .more-info .margin-right{
+   margin-left: 104px;
+}
+.main-trainDetail .detail-section .info-course .more-info .margin{
+    margin-left: 114px;
+}
+.main-trainDetail .detail-section .images{
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    top: 87%;
+    left: 80%;
+}
+.main-veterinary .benefit-veterinary .imagee{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 52%;
+    left: 82%;
+}
+.main-training .train-course .images{
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 69%;
+    left: 84%;
+}
+
+.main-trainDetail .detail-section .images img,
+.main-training .train-course .images img,
+.main-veterinary .ourteam-section .images img,
+.main-veterinary .benefit-veterinary .imagee img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Veterinary */
+.main-veterinary .vete-banner .banner-bg{
+    width: 100%;
+    height: 60vh;
+    /* background-attachment: fixed; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(0.4);
+    background-image: url(../images/service/Training__1_.webp);
+}
+.main-veterinary .vete-banner>.content{
+    width: 100%;
+    height: 60vh;
+    position: absolute;
+    z-index: 9;
+    top: 0;
+}
+.main-veterinary .feature-section p{
+    font-size: 18px;
+}
+.main-veterinary .feature-section .col-6 .image{
+   height: 480px;
+}
+.main-veterinary .benefit-veterinary .col-6 .image{
+    width: 570px;
+    height: 480px;
+}
+.main-veterinary .benefit-veterinary .col-6 .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.main-veterinary .benefit-veterinary p{
+    font-size: 18px;
+    margin-bottom: 13px;
+}
+.main-veterinary .ourteam-section .imag{
+    width: 800px;
+    height: 600px;
+    margin: auto;
+    align-items: center;
+    margin-top: -100px;
+}
+.main-veterinary .ourteam-section .imag img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.stylee{
+    overflow: hidden !important;
+    width: 280px !important;
+    left:-7%;
+    top: -75%;
+    /* z-index: -1; */
+    
+}
+.stylee-1{
+    overflow: hidden !important;
+    width: 280px !important;
+    right:-7%;
+    top: -75%;
+    /* z-index: -1; */
+    
+}
+.style-2{
+    top: -30%;
+    /* z-index: 1; */
 }
 
 
