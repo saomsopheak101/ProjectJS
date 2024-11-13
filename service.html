@@ -1360,7 +1360,7 @@
 			<!-- Services Table Section -->
 			<div class="container mt-5">
 				<div class="d-flex justify-content-between">
-					<h3 class="mb-3">Service</h3>
+					<h3 class="mb-3">Services</h3>
 					<button class="btn btn-success mb-3" onclick="CreateService()">Add Service</button>
 				</div>
 				<!-- Table for displaying services -->
@@ -1381,7 +1381,7 @@
 					</tbody>
 				</table>
 			</div>
-			
+
 
 			<!--**********************************
             Content body end
@@ -1402,8 +1402,7 @@
             Footer end
         ***********************************-->
 
-
-			<!-- Offcanvas for creating/updating services -->
+			<!-- Offcanvas for Creating/Updating Services -->
 			<div class="offcanvas offcanvas-end" id="offcanvasExample">
 				<div class="offcanvas-header">
 					<h5 class="offcanvas-title update-service">Add Service</h5>
@@ -1417,10 +1416,6 @@
 							<input type="text" id="service-title" class="form-control" required>
 						</div>
 						<div class="mb-3">
-							<label for="service-price" class="form-label">Price</label>
-							<input type="number" id="service-price" class="form-control" required>
-						</div>
-						<div class="mb-3">
 							<label for="service-feature" class="form-label">Feature</label>
 							<input type="text" id="service-feature" class="form-control">
 						</div>
@@ -1432,32 +1427,65 @@
 							<label for="image" class="form-label">Image</label>
 							<input type="file" id="image" class="form-control">
 						</div>
-						<button type="button" id="btn-sub" class="btn btn-primary change-subtxt">Submit</button>
+						<button type="button" id="btn-sub" class="btn btn-primary change-subtxt"
+							onclick="btnCreate()">Submit</button>
 					</form>
 				</div>
 			</div>
-
-			<!-- Modal for viewing service details -->
-			<div class="modal fade" id="serviceModal" tabindex="-1">
-				<div class="modal-dialog">
+			<!-- Modal for Viewing Service Details -->
+			<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 id="modal-service-title" class="modal-title"></h5>
+							<h5 class="modal-title" id="modal-service-title">Service Title</h5>
 							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 						</div>
-						<div class="modal-body d-flex justify-content-evenly">
-							<div class="service-img">
-								<img id="modal-service-image" class="img-fluid mb-3" alt="Service Image">
-							</div>
-							<div class="modal-service-content">
-								<p id="modal-service-prices"></p>
-								<p><strong>Feature:</strong> <span id="modal-service-feature"></span></p>
-								<p><strong>Description:</strong> <span id="modal-service-description"></span></p>
-							</div>
+						<div class="modal-body">
+							<img id="modal-service-image" src="https://placehold.co/150x150" alt="Service Image"
+								class="img-fluid mb-3">
+							<p id="modal-service-prices">Price: $0</p>
+							<p id="modal-service-description">Description: N/A</p>
+							<p id="modal-service-feature">Feature: N/A</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<!-- Modal for Editing Service Price -->
+			<div class="modal fade" id="editPriceModal" tabindex="-1" aria-labelledby="editPriceModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Edit Price for <span id="edit-service-title"></span></h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<div class="mb-3">
+								<label for="service_id" class="form-label">Service ID</label>
+								<input type="text" id="service_id" class="form-control" required>
+							</div>
+							<div class="mb-3">
+								<label for="animal_id" class="form-label">Type of Pet</label>
+								<input type="text" id="animal_id" class="form-control" required>
+							</div>
+							<div class="mb-3">
+								<label for="price" class="form-label">New Price</label>
+								<input type="text" id="price" class="form-control" required>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" onclick="updatePrice()">Save changes</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 		<div class="offcanvas offcanvas-end customeoff" tabindex="-1" id="offcanvasExample1">
 			<div class="offcanvas-header">
@@ -1593,29 +1621,8 @@
 				AllService();
 			}
 			document.querySelector('#logout').addEventListener('click', logOut);
-			document.querySelector('#btn-sub').addEventListener('click', handleSubmit);
+			document.querySelector('#btn-sub').addEventListener('click', btnCreate);
 		});
-
-		function logOut() {
-			fetch('https://mps4.chandalen.dev/api/logout', {
-				method: 'DELETE',
-				headers: {
-					'Accept': 'application/json',
-					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
-				}
-			})
-				.then(response => response.json())
-				.then(result => {
-					if (result.result) {
-						sessionStorage.removeItem('adminToken');
-						alert(result.message);
-						location.href = 'http://127.0.0.1:5502/home-page.html';
-					} else {
-						alert(result.message);
-					}
-				})
-				.catch(error => console.error("Logout error:", error));
-		}
 
 		function AllService() {
 			document.querySelector('.tbody').innerHTML = '<tr><td colspan="7" class="text-center">Loading...</td></tr>';
@@ -1632,23 +1639,24 @@
 					let row = '';
 					json.data.forEach(service => {
 						row += `
-                    <tr>
-                        <td>${i++}</td>
-                        <td>${service.title}</td>
-                        <td>${service.prices.map(p => `${p.animal.name}: $${p.price}`).join('<br>')}</td>
-                        <td>
-                            <div class="products">
-                                 <img src="${service.image || 'https://placehold.co/150x150'}" class="avatar avatar-md" alt="Service Image">
-                            </div>
-                        </td>
-                        <td>${service.description || 'N/A'}</td>
-                        <td>${service.feature || 'N/A'}</td>
-                        <td>
-                            <button class="btn btn-info btn-icon-xs" onclick="viewService(${service.id})"><i class="fa fa-eye"></i></button>
-                            <button class="btn btn-primary btn-icon-xs" onclick="UpdateService(${service.id})"><i class="fa fa-pen"></i></button>
-                            <button class="btn btn-danger btn-icon-xs" onclick="deleteService(${service.id})"><i class="fa fa-trash"></i></button>
-                        </td>
-                    </tr>`;
+                <tr>
+                    <td>${i++}</td>
+                    <td>${service.title}</td>
+                    <td>${service.prices.map(p => `${p.animal.name}: $${p.price}`).join('<br>')}</td>
+                    <td>
+                        <div class="products">
+                            <img src="${service.image}" class="avatar avatar-md" alt="Service Image">
+                        </div>
+                    </td>
+                    <td>${service.description || 'N/A'}</td>
+                    <td>${service.feature || 'N/A'}</td>
+                    <td>
+                        <button class="btn btn-info btn-icon-xs" onclick="viewService(${service.id})"><i class="fa fa-eye"></i></button>
+                        <button class="btn btn-primary btn-icon-xs" onclick="UpdateService(${service.id})"><i class="fa fa-pen"></i></button>
+                        <button class="btn btn-danger btn-icon-xs" onclick="deleteService(${service.id})"><i class="fa fa-trash"></i></button>
+                        <button class="btn btn-warning btn-icon-xs" onclick="Editinfo(${service.id})"><i class="fa fa-house-chimney"></i>animal-info</button>
+                    </td>
+                </tr>`;
 					});
 					document.querySelector('.tbody').innerHTML = row;
 				})
@@ -1657,6 +1665,161 @@
 					document.querySelector('.tbody').innerHTML = '<tr><td colspan="7" class="text-center text-danger">Failed to load services.</td></tr>';
 				});
 		}
+
+		function CreateService() {
+
+			// Reset the form for creating a new service
+			document.getElementById('service-form').reset();
+			document.getElementById('service-id').value = '';
+			document.querySelector('.update-service').innerText = 'Add Service';
+			document.querySelector('.change-subtxt').innerText = 'Submit';
+
+			// Show the offcanvas form
+			const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
+			offcanvas.show();
+		}
+
+		function btnCreate() {
+			const title = document.getElementById('service-title').value;
+			const feature = document.getElementById('service-feature').value;
+			const description = document.getElementById('service-description').value;
+			const serviceId = document.getElementById('service-id').value;
+			const image = document.getElementById('image').files[0];  // Get the image file
+
+			// Validate required fields
+			if (!title) {
+				alert('Title is required.');
+				return;
+			}
+
+			const formData = new FormData();
+			formData.append('title', title);
+			formData.append('feature', feature);
+			formData.append('description', description);
+			if (image) formData.append('image', image);
+
+			// Determine method based on serviceId
+			let method = serviceId ? 'POST' : 'POST';
+			let url = serviceId ? `https://mps4.chandalen.dev/api/services/${serviceId}` : 'https://mps4.chandalen.dev/api/services';
+			fetch(url, {
+				method: method,
+				headers: {
+					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
+				},
+				body: formData  // Send FormData instead of JSON
+			})
+				.then(response => response.json())
+				.then(result => {
+					if (result.result) {
+						alert(result.message);
+						AllService();  // Reload the services list
+						const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
+						offcanvas.hide();  // Hide offcanvas after submitting
+					} else {
+						alert(result.message || 'Failed to save service.');
+					}
+				})
+				.catch(error => console.error("Error submitting form:", error));
+		}
+
+		function UpdateService(id) {
+			fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
+				headers: {
+					'Accept': 'application/json',
+					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
+				}
+			})
+				.then(response => response.json())
+				.then(service => {
+					console.log("Fetched service data:", service);
+					if (service.result) {
+						// Populate the form fields with fetched data
+						const titleElement = document.getElementById('title');
+						if (titleElement) titleElement.value = service.data.title || '';
+
+						const featureElement = document.getElementById('feature');
+						if (featureElement) featureElement.value = service.data.feature || '';
+
+						const imageElement = document.getElementById('image');
+						if (imageElement) imageElement.src = service.data.image || '';
+
+						const descriptionElement = document.getElementById('description');
+						if (descriptionElement) descriptionElement.value = service.data.description || '';
+
+						const serviceIdElement = document.getElementById('service-id');
+						if (serviceIdElement) serviceIdElement.value = service.data.id || '';
+
+						document.querySelector('.update-service').innerText = 'Update Service';
+						document.querySelector('.change-subtxt').innerText = 'Update';
+
+						const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
+						offcanvas.show();
+					} else {
+						alert(service.message || 'Failed to load service data.');
+					}
+				})
+				.catch(error => console.error("Error fetching service for update:", error));
+		}
+		function Editinfo(id) {
+			// Fetch specific service data to pre-fill the form
+			fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
+				headers: {
+					'Accept': 'application/json',
+					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
+				}
+			})
+				.then(response => response.json())
+				.then(service => {
+					if (service.result) {
+						// Populate modal fields with the current service information
+						document.getElementById('service_id').value = service.data.id;
+						document.getElementById('animal_id').value = service.data.animal_id; // Adjust based on your data structure
+						document.getElementById('edit-service-title').innerText = service.data.name || 'Service Name';
+						document.getElementById('price').value = service.data.prices[0]?.price || ''; // Handle empty arrays
+
+						// Show the modal
+						const editModal = new bootstrap.Modal(document.getElementById('editPriceModal'));
+						editModal.show();
+					} else {
+						alert("Failed to load service details.");
+					}
+				})
+				.catch(error => console.error("Error fetching service for editing:", error));
+		}
+
+		function updatePrice() {
+			const id = document.getElementById('service_id').value;
+			const newPrice = document.getElementById('price').value;
+
+			if (!newPrice || isNaN(newPrice)) {
+				alert('Please enter a valid price.');
+				return;
+			}
+
+			const formData = new FormData();
+			formData.append('price', newPrice);
+			formData.append('_method', 'PUT');
+
+			fetch(`https://mps4.chandalen.dev/api/services/price/${id}`, {
+				method: 'POST',
+				headers: {
+					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
+				},
+				body: formData
+			})
+				.then(response => response.json())
+				.then(result => {
+					if (result.result) {
+						alert(result.message);
+						AllService(); // Refresh the service list if this function is defined
+						bootstrap.Modal.getInstance(document.getElementById('editPriceModal')).hide();
+					} else {
+						alert(result.message || 'Failed to update price.');
+					}
+				})
+				.catch(error => console.error("Error updating service price:", error));
+		}
+
 
 		function deleteService(id) {
 			if (!confirm("Are you sure you want to delete this service?")) return;
@@ -1679,92 +1842,6 @@
 				})
 				.catch(error => console.error("Error deleting service:", error));
 		}
-
-		function CreateService() {
-			document.getElementById('service-form').reset();
-			document.getElementById('service-id').value = '';
-			document.querySelector('.update-service').innerText = 'Add Service';
-			document.querySelector('.change-subtxt').innerText = 'Submit';
-			const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
-			offcanvas.show();
-		}
-
-		function UpdateService(id) {
-			fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
-				headers: {
-					'Accept': 'application/json',
-					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
-				}
-			})
-				.then(response => response.json())
-				.then(service => {
-					if (service.result) {
-						document.getElementById('service-title').value = service.data.title;
-						document.getElementById('service-price').value = service.data.prices[0].price;
-						document.getElementById('service-feature').value = service.data.feature;
-						document.getElementById('service-description').value = service.data.description;
-						document.getElementById('service-id').value = service.data.id;
-
-						document.querySelector('.update-service').innerText = 'Update Service';
-						document.querySelector('.change-subtxt').innerText = 'Update';
-
-						const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
-						offcanvas.show();
-					} else {
-						alert("Failed to load service data.");
-					}
-				})
-				.catch(error => console.error("Error fetching service data:", error));
-		}
-
-		function handleSubmit() {
-    let image = document.querySelector('#image').files[0];
-    let title = document.querySelector('#service-title').value;
-    let price = document.querySelector('#service-price').value;
-    let feature = document.querySelector('#service-feature').value;
-    let description = document.querySelector('#service-description').value;
-    let id = document.querySelector('#service-id').value;
-
-    if (!title || !price) {
-        alert('Title and price are required.');
-        return;
-    }
-
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('price', price);
-    formData.append('feature', feature);
-    formData.append('description', description);
-    if (image) formData.append('image', image);
-
-    // Add a special parameter to indicate the update if needed by the backend
-    if (id) {
-        formData.append('_method', 'PUT'); // This is optional, depending on your API
-    }
-
-    const url = id ? `https://mps4.chandalen.dev/api/services/${id}` : 'https://mps4.chandalen.dev/api/services';
-    const method = 'POST'; // Always using POST
-
-    fetch(url, {
-        method: method,
-        headers: {
-            'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
-        },
-        body: formData
-    })
-        .then(response => response.json())
-        .then(result => {
-            if (result.result) {
-                AllService();
-                alert(result.message);
-                bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasExample')).hide();
-            } else {
-                alert("Failed to save service.");
-            }
-        })
-        .catch(error => console.error("Error saving service:", error));
-}
-
 		function viewService(id) {
 			fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
 				headers: {
@@ -1776,7 +1853,14 @@
 				.then(service => {
 					if (service.result) {
 						document.querySelector('#modal-service-title').innerText = service.data.title;
-						document.querySelector('#modal-service-prices').innerText = `Price: $${service.data.prices[0].price}`;
+						if (service.data && service.data.prices && service.data.prices.length > 0) {
+							document.querySelector('#modal-service-prices').innerText = `Price: $${service.data.prices[0].price}`;
+						} else {
+							console.error('Price data is not available');
+							// Optionally set a default value or show an error message in the UI
+							document.querySelector('#modal-service-prices').innerText = 'Price data unavailable';
+						}
+
 						document.querySelector('#modal-service-image').src = service.data.image || 'https://placehold.co/150x150';
 						document.querySelector('#modal-service-description').innerText = service.data.description || 'N/A';
 						document.querySelector('#modal-service-feature').innerText = service.data.feature || 'N/A';
@@ -1790,7 +1874,6 @@
 				.catch(error => console.error("Error loading service details:", error));
 		}
 	</script>
-
 
 
 	<!--**********************************
