@@ -1466,7 +1466,8 @@
                     // console.log(json)
                     // 
                     json.data.forEach(element => {
-                        row += `
+                        if (element.status !== 2 && element.status !== 3 ) {
+                            row += `
                     <div class="col-xl-4">
                         <div class="card ">
                             <div class="card-header py-3"  >
@@ -1495,10 +1496,10 @@
                                     </div>
                                     <div class="col-6">
                                         <p class="text-start online-type">${element.is_online ? 'Online ' : 'Face to face'}</p>
-                                        <div class="form-floating">
-                                            <textarea class="form-control"  placeholder="Leave a comment here" id="meet-link" rows="3"></textarea>
-                                            <label for="floatingTextarea" class="text-dark"></label>
-                                        </div>
+                                <div class="form-floating" ${element.is_online ? '' : 'style="display:none;"'}>
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="meet-link" rows="3"></textarea>
+                                <label for="meet-link" class="text-dark"></label>
+                                 </div>
                                     </div>
                                     <div class="col-6 text-dark fw-bold">
                                         Descriptions
@@ -1516,21 +1517,16 @@
                         
                                 <div class="mt-3">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a comment here" id="rejectReason" rows="5"></textarea>
+                                        <textarea class="form-control" placeholder="Leave a comment here" id="rejectReason-${element.id}" rows="5"></textarea>
                                         <label for="floatingTextarea" class="text-light">Reject Reason</label>
                                     </div>
                                 </div> 
                         
                                 <div class="mt-3 text-end">
                                     <button class="btn btn-danger btn-xs rounded-5 fw-semibold me-2" data-id="${element.id}"  onclick="
-         
-         let rejectGet = document.querySelector('#rejectReason').value;
-          if(rejectGet === ''){
-                alert('Please input reject first!');
-            }else{
-            alert(123)
-            // declineReason(this,rejectGet);
-            }
+         handleDeclineClick(this)
+        
+            
  ">Decline <i class="fas fa-reply fs-6"></i></button>
                                     <button data-id="${element.id}" class="btn btn-warning btn-xs rounded-5 fw-semibold"
                                     
@@ -1561,39 +1557,58 @@
                 
                         `;
 
+                        }
+                      
                     });
                     document.querySelector('.all-get').innerHTML = row;
 
                 })
         }
 
-        function declineReason(row, rejectGet) {
-            let id = row.dataset.id;
-            console.log(id)
-
-            let param = new URLSearchParams();
-            param.append('declined_reason', rejectGet)
-            console.log(param.toString());
-            fetch('https://mps4.chandalen.dev/api/consultants/decline/' + id, {
-                method: 'PUT',
-                headers: {
-                    'Accept': "application/json",
-                    'Authorization': `Bearer ${authToken}`
-                },
-                body: param.toString()
-            })
-                .then(res => res.json())
-                .then(json => {
-                    console.log(json)
-                    if (json.result === true) {
-                        getClients()
-                        console.log(json.message);
-                        alert(json.message);
-                    } else {
-                        alert(json.message);
-                    }
-                })
+    function handleDeclineClick(row) {
+        let id = row.dataset.id;
+        let rejectGet = document.querySelector(`#rejectReason-${id}`).value;
+        
+        console.log('this is rejectGet',rejectGet);
+        if (rejectGet === '') {
+            alert('Please input rejection reason first!');
+        } else {
+            declineReason(row, rejectGet);
         }
+    }
+
+    function declineReason(row, rejectGet) {
+        let id = row.dataset.id;
+        
+       console.log(id)
+
+        let param = new URLSearchParams();
+        param.append('declined_reason', rejectGet);
+        
+        console.log('this param reject',param.toString())
+
+        fetch('https://mps4.chandalen.dev/api/consultants/decline/' + id, {
+            method: 'PUT',
+            headers: {
+                'Accept': "application/json",
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': `Bearer ${authToken}`
+            },
+            body: param.toString()
+        })
+        .then(res => res.json())
+        .then(json => {
+            if (json.result === true) {
+                console.log(json)
+                getClients();
+                alert(json.message);
+               
+            } else {
+                alert(json.message);
+            }
+        })
+        
+    }
         function approveType(row,getLink) {
             let id = row.dataset.id;
             console.log(id)
@@ -1607,6 +1622,7 @@
                 method: 'PUT',
                 headers: {
             		'Accept': "application/json",
+                    'Content-Type': 'application/x-www-form-urlencoded',
             		'Authorization': `Bearer ${authToken}`
             	},
                 body:param.toString()

@@ -34,7 +34,6 @@
 	
 	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 	<link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-	<link href="../../cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css" rel="stylesheet">
 	<link href="vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 	
 	<!-- tagify-css -->
@@ -907,10 +906,17 @@
 
 													<span class="ms-2">Settings </span>
 												</a>
-												<a href="page-login.html" class="dropdown-item ai-icon">
-													<svg class="profle-logout" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff7979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-													<span class="ms-2 text-danger">Logout </span>
-												</a>
+												<button class="dropdown-item ai-icon" id="logout">
+                                                    <svg class="profle-logout" xmlns="http://www.w3.org/2000/svg"
+                                                        width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                                        stroke="#ff7979" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round">
+                                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                                        <polyline points="16 17 21 12 16 7"></polyline>
+                                                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                                                    </svg>
+                                                    <span class="ms-2 text-danger">Logout </span>
+                                                </button>
 											</div>
 										</div>
 										
@@ -1086,41 +1092,44 @@
 									<table id="empoloyees-tblwrapper" class="table">
 										<thead>
 											<tr>
-												<th>Client name</th>
-												<th>Profile</th>
-												<th>Type of service</th>
-												<th>Questions</th>
-												<th>Reply</th>
-												<th>Date & Time</th>
+												<th>Client</th>
+												<th>Visit</th>
+												<th>Doctor</th>
+												<th>Description</th>
+												<th>transaction</th>
+												<th>Coming</th>
+												<th>Status</th>
 												<th>Actions</th>
 											</tr>
 										</thead>
-										<tbody>
+										<tbody class="tbody">
 											<tr>
-												<td><span class="text-purple">Nhiek Philen</span></td>
 												<td>
-													<div class="products">
-														<img src="images/contacts/pic2.jpg" class="avatar avatar-md" alt="">
-														
-													</div>
-												</td>
-												<td><span class="">Grooming</span></td>
+														<span class="text-purple">Nhiek Philen</span>
+													</td>
+											
+												<td><span class="text-green">online</span></td>
 												<td>
-													<span class="text-green">updated with new Lyrics  Lost Panda ....</span>
+													<span class="">Nhiek len</span>
 												</td>
 									
 												<td>
-													<span class="">updated with new Lyrics  Lost Panda</span>
+													<span class="">
+														My cat is crying</span>
 												</td>
 												<td>
-													<span class="badge badge-success light border-0">26 Nov 24 9:29 PM</span>
+													<span class="">http://127.0.0.1:5502/consult-table.html</span>
+												</td>
+												<td>
+													<span class="">2024-10-28 15:00:00</span>
+												</td>
+												<td>
+													<span class="badge badge-success light border-0">Approved</span>
 												</td>
 									
 												<td>
 													<span class="">
 														<button type="button" class="btn btn-info btn-icon-xs"><i class="fa-sharp fa-regular fa-eye"></i></button>
-														<button type="button" class="btn btn-primary btn-icon-xs"><i class="fa-solid fa-pen-to-square"></i></button>
-														<!-- <button type="button" class="btn btn-warning btn-icon-xs"><i class="fa-solid fa-house-chimney"></i></button> -->
 														<button type="button" class="btn btn-danger btn-icon-xs"><i class="fa-solid fa-trash"></i></button>
 														
 													</span>
@@ -1348,6 +1357,106 @@
 
 
 	</div>
+	<script>
+		   console.log(sessionStorage.getItem('adminToken'))
+        let authToken = sessionStorage.getItem('adminToken')
+
+
+        if (!authToken) {
+            location.href = 'http://127.0.0.1:5502/home-page.html';
+        }
+
+        function logOut() {
+            fetch('https://mps4.chandalen.dev/api/logout', {
+                method: 'DELETE',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                }
+
+
+            })
+                .then(res => res.json())
+                .then(json => {
+                    if (json.result === true) {
+                        sessionStorage.removeItem('authToken');
+                        console.log(json.message);
+                        alert(json.message)
+                        location.href = 'http://127.0.0.1:5502/home-page.html';
+                    } else {
+                        alert(json.message);
+                    }
+                })
+        }
+        document.querySelector('#logout').addEventListener('click', () => {
+            logOut()
+        })
+
+
+
+
+
+		getClients()
+        function getClients() {
+            let row = '';
+            fetch('https://mps4.chandalen.dev/api/consultants', {
+                method: 'GET',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                }
+
+            })
+                .then(res => res.json())
+                .then(json => {
+                    // console.log(json)
+                    // 
+                    json.data.forEach(element => {
+                        if (element.status === 2 || element.status === 3 ) {
+                            row += `
+                							<tr>
+												<td>
+														<span class="text-purple">${element.buyer.first_name}</span>
+													</td>
+											
+												<td><span class="text-green">${element.is_online ? 'Online ' : 'Face to face'}</span></td>
+												<td>
+													<span class="">${element.employee.name}</span>
+												</td>
+									
+												<td>
+													<span class="">	${element.description}</span>
+												</td>
+												<td>
+													<span class="">${element.transaction_file === null ? 'N/A' : ''}</span>
+												</td>
+												<td>
+													<span class="">${element.datetime}</span>
+												</td>
+												<td>
+													<span class="badge ${element.status === 2 ? 'badge-danger' : element.status === 3 ? 'badge-success' : 'badge-secondary'} light border-0"> ${element.status === 2 ? 'Declined' : element.status === 3 ? 'Approved': ''}</span>
+												</td>
+									
+												<td>
+													<span class="">
+														<button type="button" class="btn btn-info btn-icon-xs"><i class="fa-sharp fa-regular fa-eye"></i></button>
+														<button type="button" class="btn btn-danger btn-icon-xs"><i class="fa-solid fa-trash"></i></button>
+														
+													</span>
+												</td>
+											</tr>
+							
+                        `;
+
+                        }
+                      
+                    });
+                    document.querySelector('.tbody').innerHTML = row;
+
+                })
+        }
+
+	</script>
     <!--**********************************
         Main wrapper end
     ***********************************-->
@@ -1364,8 +1473,7 @@
 	<script src="vendor/datatables/js/dataTables.buttons.min.js"></script>
 	<script src="vendor/datatables/js/buttons.html5.min.js"></script>
 	<script src="vendor/datatables/js/jszip.min.js"></script>
-	<script src="js/plugins-init/datatables.init.js"></script>
-   
+]   
 	
 	<!-- Apex Chart -->
 	<script src="js/custom.js"></script>
