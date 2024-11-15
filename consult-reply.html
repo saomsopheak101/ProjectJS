@@ -1574,6 +1574,7 @@
             alert('Please input rejection reason first!');
         } else {
             declineReason(row, rejectGet);
+            getClients();
         }
     }
 
@@ -1600,7 +1601,7 @@
         .then(json => {
             if (json.result === true) {
                 console.log(json)
-                getClients();
+               
                 alert(json.message);
                
             } else {
