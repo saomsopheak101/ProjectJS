@@ -188,7 +188,7 @@
             <div class="content d-flex align-items-center">
                 <div class="container">
                     <div class="text-center text-white-light mb-5">
-                        <h2 class="display-6 my-4 text-white fw-bold">Booking service</h2>
+                        <h2 class="display-6 my-4 text-white fw-bold" id="book-service"></h2>
                         <div class="fs-6 badge bg-white color-text p-2 shadow">
                             <a href="" class="text-white-light text-decoration-none">Home</a>
                             <span> &nbsp;>&nbsp; </span>
@@ -201,14 +201,14 @@
         <section class="mt-5">
             <div class="container d-flex justify-content-center">
                 <div class="col-8">
-                    <div class="row d-flex justify-content-center glass p-4">
+                    <div class="row d-flex justify-content-center glass p-4" style="z-index: 888;">
                         <form class="row align-items-center row-gap-3">
                             <h4 class="mt-3 fw-bold">Booking information</h4>
                             <div class="col-4">
                                 <label for="">Select pet type:</label>
                                 <select class="form-select" aria-label="Default select example" id="animalType"
                                     required>
-                                    <option selected>Please select</option>
+                                    <option selected disabled>Please select</option>
 
                                 </select>
                             </div>
@@ -220,12 +220,14 @@
                                 <label for="">Datetime:</label>
                                 <!-- <input type="date" class="form-control" id="exampleFormControlInput1"
                                     placeholder="date"> -->
-                                    <div class="input-group date" id="datetimepicker" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker" placeholder="Select date and time" />
-                                        <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
-                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                        </div>
+                                <div class="input-group date" id="datetimepicker" data-target-input="nearest">
+                                    <input type="text" id="dateTime" class="form-control datetimepicker-input"
+                                        data-target="#datetimepicker" placeholder="Select date and time" />
+                                    <div class="input-group-append" data-target="#datetimepicker"
+                                        data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                     </div>
+                                </div>
                             </div>
                             <h4 class="my-2 fw-bold">Payment</h4>
                             <div class="col-12">
@@ -267,17 +269,20 @@
                                             </div>
                                             <h1 class="modal-title fs-6 my-2">Transaction file
                                             </h1>
-                                            <input class="form-control py-2 bg-white my-3" type="file" required />
-                                            <button class="btn btn-warning w-100 text-white mb-0">Book Now</button>
+                                            <input class="form-control py-2 bg-white my-3" id="tran-link" type="file"
+                                                required />
+                                            <button class="btn btn-warning w-100 text-white mb-0" type="button"
+                                                id="btn-book">Book Now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </form>
                     </div>
                 </div>
             </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
+
         </section>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -459,10 +464,11 @@
     <script
         src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
     <script>
+
         $(function () {
             // Initialize the datetime picker with a default date and time
             $('#datetimepicker').datetimepicker({
-                format: 'YYYY-MM-DD HH:mm',
+                format: 'YYYY-MM-DD HH:mm:ss',
                 icons: {
                     time: 'fa fa-clock',
                     date: 'fa fa-calendar',
@@ -474,7 +480,7 @@
                     clear: 'fa fa-trash',
                     close: 'fa fa-times'
                 },
-                defaultDate: moment('2024-01-01 08:00') // Set the default date and time here
+                // defaultDate: moment('2024-01-01 08:00') // Set the default date and time here
             });
 
             $('#submitBtn').on('click', function () {
@@ -498,8 +504,29 @@
             location.href = 'http://127.0.0.1:5502/petGrooming.html'
         }
 
+        serviceList()
+      function serviceList() {
+			
+			let row = '';
+			fetch('https://mps4.chandalen.dev/api/services/'+serviceID, {
+				method: 'GET',
+				headers: {
+					'Accept': "application/json",
+					'Authorization': `Bearer ${authToken}`
+				}
+
+			})
+				.then(res => res.json())
+				.then(json => {
+					document.querySelector('#book-service').innerHTML = json.data.title;
+				})
+		}
+
+
+
         getDetailId();
         function getDetailId() {
+
 
             fetch('https://mps4.chandalen.dev/api/services/' + serviceID, {
                 method: 'GET',
@@ -512,7 +539,7 @@
                 .then(res => res.json())
                 .then(json => {
                     let animalService = document.querySelector('#animalType');
-                    animalService.innerHTML = '<option selected>Please select</option>';
+                    animalService.innerHTML = '<option selected disabled>Please select</option>';
                     let priceLabel = document.querySelector('#priceLabel');
                     json.data.prices.forEach(animalType => {
                         let option = document.createElement('option');
@@ -534,11 +561,88 @@
                         // Display the price from the selected option's data-price attribute
                         priceLabel.value = selectedOption ? `$${selectedOption.dataset.price}` : '';
                     });
+
                 });
 
 
 
         }
+        function transaction(linkTransaction,serviceID) {
+
+
+            let formData = new FormData();
+            formData.append('transaction_file', linkTransaction)
+
+            console.log('transaction file',formData);
+
+
+            fetch('https://mps4.chandalen.dev/api/books/transaction-file/' + serviceID, {
+                method: 'POST',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                },
+                body: formData
+            })
+            .then(res => res.json())
+            .then(json=>{
+                console.log(json)
+                // if(json.result=== true){
+                //     alert(json.message)
+                // }else{
+                //     alert(json.message)
+                // }
+            })
+        }
+
+
+
+        function booking() {
+            let linkTransaction = document.querySelector('#tran-link').files[0];
+            let dateTime = document.querySelector('#dateTime').value;
+
+            console.log(linkTransaction);
+            console.log(dateTime);
+
+            if(!dateTime){
+                return
+            }
+
+      
+           
+            let formData = new FormData();
+            formData.append('service_price_id', serviceID)
+            formData.append('come_date', dateTime)
+
+            fetch('https://mps4.chandalen.dev/api/books', {
+                method: 'POST',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                },
+                body: formData
+            })
+                .then(res => res.json())
+                .then(json => {
+                    
+                    if (json.result === true) {
+                        console.log(json.message)
+                        alert(json.message)
+                        let data_id = json.data.id;
+                        console.log('ID buyer ',data_id);
+                        transaction(linkTransaction,data_id);
+                        // console.log(json)
+                    } else {
+                        console.log(json.message)
+                        alert(json.message)
+                    }
+                })
+
+        }
+        document.querySelector('#btn-book').addEventListener('click', () => {
+
+            booking();
+        })
     </script>
 
     <script>
