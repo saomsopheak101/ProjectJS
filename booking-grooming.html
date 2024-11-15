@@ -218,16 +218,19 @@
                             </div>
                             <div class="col-4">
                                 <label for="">Datetime:</label>
+
+                                <div class="form-group">
+                                    <div class="input-group date" id="datetimepicker" data-target-input="nearest">
+                                        <input type="text" id="dateTime" class="form-control datetimepicker-input" data-target="#datetimepicker" placeholder="Select date and time" />
+                                        <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+
                                 <!-- <input type="date" class="form-control" id="exampleFormControlInput1"
                                     placeholder="date"> -->
-                                <div class="input-group date" id="datetimepicker" data-target-input="nearest">
-                                    <input type="text" id="dateTime" class="form-control datetimepicker-input"
-                                        data-target="#datetimepicker" placeholder="Select date and time" />
-                                    <div class="input-group-append" data-target="#datetimepicker"
-                                        data-toggle="datetimepicker">
-                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                    </div>
+                   
                                 </div>
+                             </div>
                              </div>
                           
                             <h4 class="my-2 fw-bold">Payment</h4>
@@ -501,9 +504,9 @@
 
             sessionStorage.removeItem('serviceID');
         });
-        if (serviceID === null) {
-            location.href = 'http://127.0.0.1:5502/petGrooming.html'
-        }
+        // if (serviceID === null) {
+        //     location.href = 'http://127.0.0.1:5502/petGrooming.html'
+        // }
 
         serviceList()
       function serviceList() {
