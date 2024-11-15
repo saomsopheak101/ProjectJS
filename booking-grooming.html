@@ -230,6 +230,7 @@
                                     placeholder="date"> -->
                    
                                 </div>
+                             </div>
                             </div>
                             <h4 class="my-2 fw-bold">Payment</h4>
                             <div class="col-12">
@@ -502,9 +503,9 @@
 
             sessionStorage.removeItem('serviceID');
         });
-        // if (serviceID === null) {
-        //     location.href = 'http://127.0.0.1:5502/petGrooming.html'
-        // }
+        if (serviceID === null) {
+            location.href = 'http://127.0.0.1:5502/petGrooming.html'
+        }
 
         serviceList()
       function serviceList() {
