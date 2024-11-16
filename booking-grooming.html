@@ -226,9 +226,7 @@
                                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>
 
-                                <!-- <input type="date" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="date"> -->
-                   
+                      
                                 </div>
                              </div>
                              </div>
@@ -528,41 +526,41 @@
 
 
 
-        getDetailId();
-        function getDetailId() {
+            getDetailId();
+            function getDetailId() {
 
 
-            fetch('https://mps4.chandalen.dev/api/services/' + serviceID, {
-                method: 'GET',
-                headers: {
-                    'Accept': "application/json",
-                    'Authorization': `Bearer ${authToken}`
-                }
+                fetch('https://mps4.chandalen.dev/api/services/' + serviceID, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': "application/json",
+                        'Authorization': `Bearer ${authToken}`
+                    }
 
-            })
-                .then(res => res.json())
-                .then(json => {
-                    let animalService = document.querySelector('#animalType');
-                    animalService.innerHTML = '<option selected disabled>Please select</option>';
-                    let priceLabel = document.querySelector('#priceLabel');
-                    json.data.prices.forEach(animalType => {
-                        let option = document.createElement('option');
-                        option.value = animalType.id;
-                        console.log(option);
-                        option.textContent = animalType.animal.name;
-                        console.log(option);
-                        option.dataset.price = animalType.price; // Store price as a data attribute
+                })
+                    .then(res => res.json())
+                    .then(json => {
+                        let animalService = document.querySelector('#animalType');
+                        animalService.innerHTML = '<option selected disabled>Please select</option>';
+                        let priceLabel = document.querySelector('#priceLabel');
+                        json.data.prices.forEach(animalType => {
+                            let option = document.createElement('option');
+                            option.value = animalType.id;
+                            console.log(option);
+                            option.textContent = animalType.animal.name;
+                            console.log(option);
+                            option.dataset.price = animalType.price; // Store price as a data attribute
 
-                        animalService.appendChild(option);
-                    });
+                            animalService.appendChild(option);
+                        });
 
 
-                    // Add event listener to update the price when a new animal type is selected
-                    animalService.addEventListener('change', (event) => {
-                        const selectedOption = event.target.selectedOptions[0];
-                        console.log(selectedOption);
+                        // Add event listener to update the price when a new animal type is selected
+                        animalService.addEventListener('change', (event) => {
+                            const selectedOption = event.target.selectedOptions[0];
+                            console.log(selectedOption);
 
-                        // Display the price from the selected option's data-price attribute
+                            // Display the price from the selected option's data-price attribute
                         priceLabel.value = selectedOption ? `$${selectedOption.dataset.price}` : '';
                     });
 
