@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit profile</title>
+    <link rel="shortcut icon" type="image/png" href="images/img-pet/logo/favicon.png">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -89,7 +90,7 @@
                                     <div class="account-header d-flex flex-column align-items-center px-5 pt-2">
                                         <div class="mb-2">
                                             <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                                src="images/img-pet/icon/user.png" alt="#" width="60px" >
+                                                src="images/img-pet/icon/user.png" alt="#" width="60px">
                                         </div>
                                         <div
                                             class="d-flex flex-column align-items-center justify-content-center text-whitee">
@@ -99,7 +100,8 @@
                                     </div>
                                 </div>
                                 <li>
-                                    <a href="profile.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
                                             <i class="fa-solid fa-address-card me-3"></i>
@@ -108,25 +110,35 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile-booking.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
-                                            <i class="fa-solid fa-bag-shopping me-3"></i>
+                                            <i class="fa-regular fa-calendar-check me-3"></i>
                                         </div>
                                         Booking
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile-consulting.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
                                             <i class="fa-solid fa-ticket me-3"></i>
                                         </div>
-                                        Review
+                                        Consulting
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile.feedback.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-comment-dots me-3"></i>
+                                        </div>
+                                        Feedback
+                                    
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="profile-notification.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
                                             <i class="fa-solid fa-bell me-3"></i>
@@ -135,7 +147,7 @@
                                         <span class="badge ms-auto bg-brand rounded-pill fw-normal">6</span>
                                     </a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
@@ -144,14 +156,11 @@
                                         </div>
                                         Privacy
                                     </a>
-                                </li>
+                                </li> -->
                                 <li>
-                                    <button
-                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
+                                    <button class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
                                         aria-current="page" id="logout">
-                                        
-                                            <i class="fa-solid fa-right-from-bracket me-3"></i>
-                                      
+                                        <i class="fa-solid fa-right-from-bracket me-3"></i>
                                         Log out
                                     </button>
                                 </li>
@@ -166,22 +175,24 @@
         <section class="edit-profile margin-bottom">
             <div class="container">
                 <div class="row ">
-                    <div class="setting-sidebar col-md-4 col-xl-3 me-4">
+                    <div class="setting-sidebar col-md-4 col-xl-4 me-0">
                         <div class="card border-0 shadow py-4 ">
                             <div class="card-header bg-transparent mb-3">
                                 <a href="#" class="img-pro">
-                                    <img src="images/img-pet/cat-1.jpg" alt="" id="profile-pic">
+                                    <img src="images/img-pet/icon/user.png" alt="" id="profile-pic">
                                 </a>
-                                <label type="button" for="profile" class="btn btn-edit color-bg btn-camera position-absolute rounded-5">
+                                <!-- <label type="button" for="profile"
+                                    class="btn btn-edit color-bg btn-camera position-absolute rounded-5">
                                     <i class="fa-solid fa-camera text-white"></i>
                                 </label>
-                                <input type="file" class="form-control bg-transparent d-none" id="profile">
+                                <input type="file" class="form-control bg-transparent d-none" id="profile"
+                                    accept="image/*"> -->
                                 <h5 class="mb-0 mt-4"> Kinki</h5>
                                 <span>Kinki@gmail.com</span>
                             </div>
-                            <ul class="nav ">
-                                <li class="nav-item border-0 ">
-                                    <a href="profile.html" class="nav-link active d-flex fw-medium px-4" aria-current="page">
+                            <ul class="nav">
+                                <li class="nav-item border-0">
+                                    <a href="profile.html" class="nav-link  active d-flex fw-medium px-4" aria-current="page">
                                         <div>
                                             <i class="fa-solid fa-address-card me-3"></i>
                                         </div>
@@ -189,8 +200,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item border-0">
-                                    <a href="profile-booking.html" class="nav-link d-flex fw-medium px-4">
-                                        <div >
+                                    <a href="profile-booking.html" class="nav-link  d-flex fw-medium px-4">
+                                        <div>
                                             <div>
                                                 <i class="fa-solid fa-paw"></i>
                                             </div>
@@ -199,17 +210,27 @@
                                     </a>
                                 </li>
                                 <li class="nav-item border-0">
-                                    <a href="profile.html" class="nav-link d-flex fw-medium px-4">
+                                    <a href="profile-consulting.html" class="nav-link   d-flex fw-medium px-4">
                                         <div>
                                             <div>
                                                 <i class="fa-solid fa-repeat"></i>
                                             </div>
                                         </div>
-                                        Review
+                                        Consulting
                                     </a>
                                 </li>
                                 <li class="nav-item border-0">
-                                    <a href="" class="nav-link d-flex fw-medium px-4">
+                                    <a href="profile.feedback.html" class="nav-link d-flex fw-medium px-4">
+                                        <div>
+                                            <div>
+                                                <i class="fa-solid fa-repeat"></i>
+                                            </div>
+                                        </div>
+                                        Feedback
+                                    </a>
+                                </li>
+                                <li class="nav-item border-0">
+                                    <a href="profile-notification.html" class="nav-link  d-flex fw-medium px-4">
                                         <div>
                                             <div>
                                                 <i class="fa-solid fa-bell"></i>
@@ -218,14 +239,14 @@
                                         Notification
                                     </a>
                                 </li>
-                                <li class="nav-item border-0">
+                                <!-- <li class="nav-item border-0">
                                     <a href="" class="nav-link d-flex fw-medium px-4">
                                         <div>
                                             <i class="fa-solid fa-book me-3"></i>
                                         </div>
                                         Privacy
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item border-0">
                                     <a href="" class="nav-link d-flex fw-medium px-4">
                                         <div>
@@ -246,35 +267,56 @@
                                 <div class="row gutters p-4">
                                     <div class="row mb-4">
                                         <label for="inputEmail"
-                                            class="col-sm-3 col-form-label text-black">First name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control bg-transparent" id="fname"
-                                                value="">
+                                            class="col-sm-3 col-form-label text-black">Avatar</label>
+                                        <div class="col-sm-6 ">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <a href="#" class="img-pro-1">
+                                                        <img src="images/img-pet/cat-1.jpg" alt="" id="">
+                                                    </a>
+                                                </div>
+                                                <div class="col-6 mt-4 d-flex">
+                                                    <div>
+                                                        <label type="button" for="profile"
+                                                            class="btn btn-warning text-white ">Change</label>
+                                                        </label>
+                                                        <input type="file" class="form-control bg-transparent d-none"
+                                                            id="profile">
+                                                    </div>
+                                                    <div class="ms-3">
+                                                        <button type="button" class="btn btn-danger">Delete</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row mb-4">
-                                        <label for="inputEmail"
-                                            class="col-sm-3 col-form-label text-black">Last name</label>
+                                        <label for="inputEmail" class="col-sm-3 col-form-label text-black">First
+                                            name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control bg-transparent" id="lname"
-                                                value="">
+                                            <input type="text" class="form-control bg-transparent" id="fname" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label for="inputEmail" class="col-sm-3 col-form-label text-black">Last
+                                            name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control bg-transparent" id="lname" value="">
                                         </div>
                                     </div>
 
                                     <div class="row mb-4">
-                                        <label for="inputEmail"
-                                            class="col-sm-3 col-form-label text-black">Email Address</label>
+                                        <label for="inputEmail" class="col-sm-3 col-form-label text-black">Email
+                                            Address</label>
                                         <div class="col-sm-9">
                                             <input type="email" class="form-control bg-transparent" id="Memail"
                                                 value="">
                                         </div>
                                     </div>
                                     <div class="row mb-4">
-                                        <label for="inputEmail"
-                                            class="col-sm-3 col-form-label text-black">Phone</label>
+                                        <label for="inputEmail" class="col-sm-3 col-form-label text-black">Phone</label>
                                         <div class="col-sm-9">
-                                            <input type="tel" class="form-control bg-transparent" id="pnumber"
-                                                value="">
+                                            <input type="tel" class="form-control bg-transparent" id="pnumber" value="">
                                         </div>
                                     </div>
 
@@ -282,8 +324,7 @@
                                         <label for="inputEmail"
                                             class="col-sm-3 col-form-label text-black">Address</label>
                                         <div class="col-sm-9">
-                                            <input type="tel" class="form-control bg-transparent" id="address"
-                                                value="">
+                                            <input type="tel" class="form-control bg-transparent" id="address" value="">
                                         </div>
                                     </div>
                                     <div class="row gutters">
@@ -295,43 +336,44 @@
                                                         <div class="text-right">
                                                             <button type="button" id="submit" name="submit"
                                                                 class="btn btn-secondary px-4 py-2">Cancel</button>
-                                                            <button  id="btn-save" name="submit"
+                                                            <button id="btn-save" name="submit"
                                                                 class="btn btn-edit color-bg px-4 py-2 text-white">Save</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>    
-                                </div>    
-                            </div>  
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row m-1">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="row mt-5 flex-column gutters rounded  shadow ">
-                                    <div class="col-xl-12  rounded-2 col-lg-12 px-0 col-md-12 color-bg col-sm-12 col-12">
+                                    <div
+                                        class="col-xl-12  rounded-2 col-lg-12 px-0 col-md-12 color-bg col-sm-12 col-12">
                                         <h4 class="mb-0 p-3 text-white fw-bold">Change password</h4>
                                     </div>
                                     <div class="row p-4 py-5 m-1">
                                         <div class="row mb-4">
-                                            <label for="inputEmail"
-                                                class="col-sm-3 col-form-label text-black">Current password</label>
+                                            <label for="inputEmail" class="col-sm-3 col-form-label text-black">Current
+                                                password</label>
                                             <div class="col-sm-9">
                                                 <input type="password" class="form-control bg-transparent" id="oldPw"
                                                     value="">
                                             </div>
                                         </div>
                                         <div class="row mb-4">
-                                            <label for="inputEmail"
-                                                class="col-sm-3 col-form-label text-black">New password</label>
+                                            <label for="inputEmail" class="col-sm-3 col-form-label text-black">New
+                                                password</label>
                                             <div class="col-sm-9">
                                                 <input type="password" class="form-control bg-transparent" id="nPass"
                                                     value="">
                                             </div>
                                         </div>
                                         <div class="row mb-4">
-                                            <label for="inputEmail"
-                                                class="col-sm-3 col-form-label text-black">New password</label>
+                                            <label for="inputEmail" class="col-sm-3 col-form-label text-black">New
+                                                password</label>
                                             <div class="col-sm-9">
                                                 <input type="password" class="form-control bg-transparent" id="cPass"
                                                     value="">
@@ -340,15 +382,15 @@
                                         <div class="row gutters mt-3">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="text-right">
-                                                    <button type="button"  name="submit"
+                                                    <button type="button" name="submit"
                                                         class="btn btn-secondary px-4 py-2">Cancel</button>
-                                                    <button  id="btn-change" name="submit"
+                                                    <button id="btn-change" name="submit"
                                                         class="btn btn-edit color-bg px-4 py-2 text-white">Save</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -490,216 +532,221 @@
 
 
     <script src="js/bootstrap.bundle.min.js"></script>
-<script>
-    console.log(sessionStorage.getItem('authToken'))
-     let authToken = sessionStorage.getItem('authToken')
-
-    
-    if(!authToken){
-        location.href = 'http://127.0.0.1:5502/home-page.html';
-    }
-    document.querySelector('#logout').addEventListener('click',()=>{
-                logOut()
-     })
-    function logOut(){
-        fetch('https://mps4.chandalen.dev/api/logout',{
-                method:'DELETE',
-                headers:{'Accept':"application/json",
-                    'Authorization':`Bearer ${authToken}`
-                }
-                
-                
-            })
-            .then(res =>res.json())
-            .then(json=>{
-                if(json.result === true){
-                    sessionStorage.removeItem('authToken');
-                    console.log(json.message);
-                    alert(json.message)
-                    location.href = 'http://127.0.0.1:5502/home-page.html';
-                }else{
-                    alert(json.message);
-                }
-            })
-     }
-     function changeAvarta(){
-
-let profile = document.querySelector('#profile').files[0];
-
-// Display the image preview
+    <script>
+        console.log(sessionStorage.getItem('authToken'))
+        let authToken = sessionStorage.getItem('authToken')
 
 
-
-     const reader = new FileReader();
-        reader.onload = (event) => {
-            let avatar = document.querySelector('#profile-pic');
-             let profileDrop = document.querySelectorAll('.changeImg');
-            avatar.setAttribute('src',event.target.result);
-            // cuz i want all image work 
-             profileDrop.forEach(img => img.setAttribute('src',event.target.result));
-
-    // Store base64 image data in sessionStorage
-            sessionStorage.setItem('avatar', event.target.result);
+        if (!authToken) {
+            location.href = 'http://127.0.0.1:5502/home-page.html';
         }
-     reader.readAsDataURL(profile)
-
-
-
-
-let formdata = new FormData();
-formdata.append('avatar',profile);
-
-
-fetch('https://mps4.chandalen.dev/api/profile/avatar',{
-    method:'POST',
-    headers:{"Accept":"application/json",
-        "Authorization": `Bearer ${authToken}`
-    },
-    body:formdata
-    
-})
-.then(res=>res.json())
-.then(json=>{
-    console.log(json)
-    if(json.result === true){
-        console.log(json.message);
-        alert(json.message)
-    }else{
-        alert(json.message)
-    }
-})
-
-}
-let storedAvatar = sessionStorage.getItem('avatar');
-if (storedAvatar) {
-document.querySelector('#profile-pic').src = storedAvatar;
-document.querySelectorAll('.changeImg').forEach(img => img.src = storedAvatar);
-}
-document.querySelector('#profile').addEventListener('change', changeAvarta);
-
-
-// ============= getdata ======== 
-
-getData();
-function getData(){
-    fetch('https://mps4.chandalen.dev/api/me',{
-        method:'GET',
-        headers:{"Accept":"application/json",
-            "Authorization": `Bearer ${authToken}`
-        }   
-    })
-    .then(res=>res.json())
-    .then(json=>{
-        // Assuming the first name is in json.firstName or a similar field
-        let firstName = json.data.first_name;
-        let lname = json.data.last_name;
-        let email = json.data.email;
-        let phone = json.data.phone;
-        let address = json.data.address;
-        let avatar = json.data.avatar;
-        // console.log(firstName)
-        console.log(avatar)
-        document.querySelector('#fname').value = firstName;
-        document.querySelector('#lname').value = lname;
-        document.querySelector('#Memail').value = email;
-        document.querySelector('#pnumber').value = phone;
-        document.querySelector('#address').value = address;
-        document.querySelectorAll('.changeImg').src = avatar;
-        document.querySelectorAll('#profile-pic').src = avatar;
-
-    })
-}
-function update(){
-        let fname = document.querySelector('#fname').value;
-        let lname =  document.querySelector('#lname').value ;
-        let number=  document.querySelector('#pnumber').value ;
-        let address = document.querySelector('#address').value ;
-
-        console.log(fname)
-        console.log(lname)
-
-        console.log(number)
-        console.log(address)
-
-
-         // Create URL-encoded string
-        let param = new URLSearchParams();
-        param.append('first_name',fname);
-        param.append('last_name',lname);
-        param.append('phone', number);
-         param.append('address', address);
-
-         console.log("Encoded Params:", param.toString());
-
-        fetch('https://mps4.chandalen.dev/api/profile/info',{
-            method: 'PUT',
-            headers: { 'Accept' : 'application/json',
-                     'Content-Type': 'application/x-www-form-urlencoded',
-                        "Authorization": `Bearer ${authToken}`
-            },
-            body:param.toString()// Use the URL-encoded string as the body
+        document.querySelector('#logout').addEventListener('click', () => {
+            logOut()
         })
-        .then(res => res.json())
-        .then(json =>{
-          
-            alert(json.message)
-            console.log(json)
-        })
-  
-}   
-document.querySelector('#btn-save').addEventListener('click',()=>{
-    update();
-})
+        function logOut() {
+            fetch('https://mps4.chandalen.dev/api/logout', {
+                method: 'DELETE',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                }
 
-function changePw(){
-    let oldpw = document.querySelector('#oldPw').value;
-    let nPass = document.querySelector('#nPass').value;
-    let cPass = document.querySelector('#cPass').value;
-    console.log(oldpw)
-    console.log(nPass)
-    console.log(cPass)
 
-    let param = new URLSearchParams();
-    param.append('old_pass',oldpw);
-    param.append('new_pass',nPass);
-    param.append('new_pass_confirmation',cPass);
+            })
+                .then(res => res.json())
+                .then(json => {
+                    if (json.result === true) {
+                        sessionStorage.removeItem('authToken');
+                        console.log(json.message);
+                        alert(json.message)
+                        location.href = 'http://127.0.0.1:5502/home-page.html';
+                    } else {
+                        alert(json.message);
+                    }
+                })
+        }
+        function changeAvarta() {
 
-    console.log("Encoded Params:", param.toString());
+            let profile = document.querySelector('#profile').files[0];
 
-    if(oldpw == nPass && oldpw == cPass){
-        alert('It Your old password!')
-    }else{
-        fetch('https://mps4.chandalen.dev/api/profile/change-pass',{
-        method: 'PUT',
-        headers: { 'Accept' : 'application/json',
+            // Display the image preview
+
+
+
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                let avatar = document.querySelector('#profile-pic');
+                let profileDrop = document.querySelectorAll('.changeImg');
+                avatar.setAttribute('src', event.target.result);
+                // cuz i want all image work 
+                profileDrop.forEach(img => img.setAttribute('src', event.target.result));
+
+                // Store base64 image data in sessionStorage
+                sessionStorage.setItem('avatar', event.target.result);
+            }
+            reader.readAsDataURL(profile)
+
+
+
+
+            let formdata = new FormData();
+            formdata.append('avatar', profile);
+
+
+            fetch('https://mps4.chandalen.dev/api/profile/avatar', {
+                method: 'POST',
+                headers: {
+                    "Accept": "application/json",
+                    "Authorization": `Bearer ${authToken}`
+                },
+                body: formdata
+
+            })
+                .then(res => res.json())
+                .then(json => {
+                    console.log(json)
+                    if (json.result === true) {
+                        console.log(json.message);
+                        alert(json.message)
+                    } else {
+                        alert(json.message)
+                    }
+                })
+
+        }
+        let storedAvatar = sessionStorage.getItem('avatar');
+        if (storedAvatar) {
+            document.querySelector('#profile-pic').src = storedAvatar;
+            document.querySelectorAll('.changeImg').forEach(img => img.src = storedAvatar);
+        }
+        document.querySelector('#profile').addEventListener('change', changeAvarta);
+
+
+        // ============= getdata ======== 
+
+        getData();
+        function getData() {
+            fetch('https://mps4.chandalen.dev/api/me', {
+                method: 'GET',
+                headers: {
+                    "Accept": "application/json",
+                    "Authorization": `Bearer ${authToken}`
+                }
+            })
+                .then(res => res.json())
+                .then(json => {
+                    // Assuming the first name is in json.firstName or a similar field
+                    let firstName = json.data.first_name;
+                    let lname = json.data.last_name;
+                    let email = json.data.email;
+                    let phone = json.data.phone;
+                    let address = json.data.address;
+                    let avatar = json.data.avatar;
+                    // console.log(firstName)
+                    console.log(avatar)
+                    document.querySelector('#fname').value = firstName;
+                    document.querySelector('#lname').value = lname;
+                    document.querySelector('#Memail').value = email;
+                    document.querySelector('#pnumber').value = phone;
+                    document.querySelector('#address').value = address;
+                    document.querySelectorAll('.changeImg').src = avatar;
+                    document.querySelectorAll('#profile-pic').src = avatar;
+
+                })
+        }
+        function update() {
+            let fname = document.querySelector('#fname').value;
+            let lname = document.querySelector('#lname').value;
+            let number = document.querySelector('#pnumber').value;
+            let address = document.querySelector('#address').value;
+
+            console.log(fname)
+            console.log(lname)
+
+            console.log(number)
+            console.log(address)
+
+
+            // Create URL-encoded string
+            let param = new URLSearchParams();
+            param.append('first_name', fname);
+            param.append('last_name', lname);
+            param.append('phone', number);
+            param.append('address', address);
+
+            console.log("Encoded Params:", param.toString());
+
+            fetch('https://mps4.chandalen.dev/api/profile/info', {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
                     'Content-Type': 'application/x-www-form-urlencoded',
-                        "Authorization": `Bearer ${authToken}`
-            },
-        body:param.toString()
-    })
-    .then(res =>res.json())
-    .then(json=>{
-        console.log(json)
-        if(json.result === true){
-            console.log(json.message);
-            alert(json.message)
-    
-            nPass.value = '';
-            cPass.value = '';
-            
-        }else{
-            alert(json.message)
-        }
-    })
+                    "Authorization": `Bearer ${authToken}`
+                },
+                body: param.toString()// Use the URL-encoded string as the body
+            })
+                .then(res => res.json())
+                .then(json => {
 
-    }
-   
-   
-}
-document.querySelector('#btn-change').addEventListener('click',()=>{
-    changePw();
-})
-</script>
+                    alert(json.message)
+                    console.log(json)
+                })
+
+        }
+        document.querySelector('#btn-save').addEventListener('click', () => {
+            update();
+        })
+
+        function changePw() {
+            let oldpw = document.querySelector('#oldPw').value;
+            let nPass = document.querySelector('#nPass').value;
+            let cPass = document.querySelector('#cPass').value;
+            console.log(oldpw)
+            console.log(nPass)
+            console.log(cPass)
+
+            let param = new URLSearchParams();
+            param.append('old_pass', oldpw);
+            param.append('new_pass', nPass);
+            param.append('new_pass_confirmation', cPass);
+
+            console.log("Encoded Params:", param.toString());
+
+            if (oldpw == nPass && oldpw == cPass) {
+                alert('It Your old password!')
+            } else {
+                fetch('https://mps4.chandalen.dev/api/profile/change-pass', {
+                    method: 'PUT',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        "Authorization": `Bearer ${authToken}`
+                    },
+                    body: param.toString()
+                })
+                    .then(res => res.json())
+                    .then(json => {
+                        console.log(json)
+                        if (json.result === true) {
+                            console.log(json.message);
+                            alert(json.message)
+
+                            nPass.value = '';
+                            cPass.value = '';
+
+                        } else {
+                            alert(json.message)
+                        }
+                    })
+
+            }
+
+
+        }
+        document.querySelector('#btn-change').addEventListener('click', () => {
+            changePw();
+        })
+    </script>
 </body>
 
 </html>

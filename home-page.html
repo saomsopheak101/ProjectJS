@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+    <link rel="shortcut icon" type="image/png" href="images/img-pet/logo/favicon.png">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="icons/fontawesome/css/all.min.css">
@@ -70,10 +71,11 @@
                                     <i class="fa-solid fa-search"></i>
                                 </button>
                             </form>
+                            <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="login"
+                            type="button" onclick="window.location.href='login.html';">Login</button>
                             <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="signupForm"
                                 type="button" onclick="window.location.href='signup.html';">Sign up</button>
-                            <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="login"
-                                type="button" onclick="window.location.href='login.html';">Login</button>
+                           
                             <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
 
                             <!-- <button class="py-2 px-4 rounded-2 border-0">Booking</button> -->
@@ -117,16 +119,16 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile-booking.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
-                                            <i class="fa-solid fa-bag-shopping me-3"></i>
+                                            <i class="fa-regular fa-calendar-check me-3"></i>
                                         </div>
                                         Booking
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile-consulting.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
                                             <i class="fa-solid fa-ticket me-3"></i>
@@ -135,16 +137,17 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile.feedback.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
-                                            <i class="fa-solid fa-ticket me-3"></i>
+                                            <i class="fa-solid fa-comment-dots me-3"></i>
                                         </div>
-                                        Review
+                                        Feedback
+                                    
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile-notification.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
                                             <i class="fa-solid fa-bell me-3"></i>
@@ -153,7 +156,7 @@
                                         <span class="badge ms-auto bg-brand rounded-pill fw-normal">6</span>
                                     </a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
@@ -162,7 +165,7 @@
                                         </div>
                                         Privacy
                                     </a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <button class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
                                         aria-current="page" id="logout">
@@ -176,7 +179,7 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header> 
     <main>
         <section class="py-0  position-relative z-0">
             <div class="container">
@@ -215,14 +218,14 @@
             <div class="container">
                 <div class="servie d-flex gap-3">
                     <div class="col-3 ">
-                        <div class="card border-0 text-start py-3 p-3  shadow">
+                        <div class="card border-0 text-start py-3 ps-4  shadow">
                             <img src="images/img-pet/icon/beauty-salon.png" class="w-25" alt="">
                             <h4 class="pt-3 color-text">Pet grooming</h4>
                             <p class="mb-0">Grooming is essential to keeping your pet looking and feeling fabulous.</p>
                         </div>
                     </div>
                     <div class="col-3">
-                        <div class="card border-0 text-start py-3 p-3  shadow">
+                        <div class="card border-0 text-start py-3 ps-4  shadow">
                             <img src="images/img-pet/icon/dog-training.png" class="w-25" alt="">
                             <h4 class="pt-3 color-text">Pet training</h4>
                             <p class="mb-0">Our dog training classes to help general public, better understand their
@@ -230,7 +233,7 @@
                         </div>
                     </div>
                     <div class="col-3">
-                        <div class="card border-0 text-start py-3 p-3  shadow">
+                        <div class="card border-0 text-start py-3 ps-4  shadow">
                             <img src="images/img-pet/icon/day-care.png" class="w-25" alt="">
                             <h4 class="pt-3 color-text">Pet day care</h4>
                             <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores iure
@@ -238,7 +241,7 @@
                         </div>
                     </div>
                     <div class="col-3">
-                        <div class="card border-0 text-start py-3 p-3  shadow">
+                        <div class="card border-0 text-start py-3 ps-4  shadow">
                             <img src="images/img-pet/icon/veterinary.png" class="w-25" alt="">
                             <h4 class="pt-3 color-text">Pet Counseling</h4>
                             <p class="mb-0">Pet behavior counseling is a specialist area of pet care that examines the
@@ -284,7 +287,7 @@
         </section>
 
         <section class="little-facts margin-bottom position-relative">
-            <img src="images/img-pet/dog-2.jpg" class="position-absolute" alt="">
+            <img src="images/img-pet/dog-2.jpg" class="position-absolute imge" alt="">
             <div class="container">
                 <div class="row d-flex position-relative">
                     <div class="col-6 flex-column px-4  text-white position-absolute">
@@ -303,21 +306,21 @@
                     </div> -->
                 </div>
                 <div class="box position-absolute bottom-0">
-                    <div class="row ps-4 pt-4 d-flex  justify-content-between align-items-center text-center">
-                        <div class="col-2 ">
-                            <img src="https://wgl-dsites.net/pawscare/wp-content/uploads/2021/06/p1.png" alt="">
+                    <div class="row pt-4 d-flex  justify-content-between align-items-center text-center">
+                        <div class="col-2">
+                            <img src="images/img-pet/logo/p1.png" cl alt="">
                         </div>
                         <div class="col-2">
-                            <img src="https://wgl-dsites.net/pawscare/wp-content/uploads/2021/06/p2.png" alt="">
+                            <img src="images/img-pet/logo/p2.png" alt="">
                         </div>
                         <div class="col-2">
-                            <img src=" https://wgl-dsites.net/pawscare/wp-content/uploads/2021/06/p3.png" alt="">
+                            <img src="images/img-pet/logo/p3.png" alt="">
                         </div>
                         <div class="col-2">
-                            <img src=" https://wgl-dsites.net/pawscare/wp-content/uploads/2021/06/p3.png" alt="">
+                            <img src="images/img-pet/logo/p4.png" alt="">
                         </div>
-                        <div class="col-2">
-                            <img src=" https://wgl-dsites.net/pawscare/wp-content/uploads/2021/06/p3.png" alt="">
+                        <div class="col-2 pe-3">
+                            <img src="images/img-pet/logo/p5.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -333,7 +336,7 @@
                         </h3>
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item" data-aos-once="true">
-                                <h2 class="accordion-header pt-4 pb-1">
+                                <h2 class="accordion-header pt-4 pb-1 ">
                                     <button class=" accordion-button shadow-none collapsed" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
                                         aria-expanded="false" aria-controls="flush-collapseOne">
@@ -408,12 +411,11 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <img src="images/img-pet/cat-edit.jpg" alt="">
+                        <img src="images/img-pet/cat-edit.jpg" class="w-100 h-100" alt="">
                     </div>
                 </div>
             </div>
         </section>
-
         <section class="gallery margin-bottom ">
             <div class="container-fluid">
                 <div class="row g-4" id="lightgallery">
@@ -746,7 +748,7 @@
                 </div>
             </section>
             <section class="copyright py-3 border-top">
-                <div class="container-fluid px-5">
+                <div class="container-fluid">
                     <div class="d-sm-flex text-center text-sm-start justify-content-between text-white">
                         <p class="m-0 p-0">
                             <a href="public-term-of-use-page.html" class="border-end pe-2 ">Terms of use</a>
@@ -759,8 +761,6 @@
             </section>
         </div>
     </footer>
-
-
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/auth-btn.js"></script>
