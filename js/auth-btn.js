@@ -40,6 +40,7 @@
            .then(json => {
                if (json.result === true) {
                    sessionStorage.removeItem('authToken');
+                   sessionStorage.removeItem('adminToken');
                    console.log(json.message);
                    alert(json.message)
                    profiles.style.display = 'none';

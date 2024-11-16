@@ -1786,67 +1786,70 @@
 					json.data.forEach(element => {
 						if (element.status !== 2 && element.status !== 3) {
 							row += `
-                    <div class="col-xl-4">
-                        <div class="card ">
-                            <div class="card-header py-3"  >
+					<div class="col-xl-4">
+						<div class="card">
+							<div class="card-header py-3">
+								<div class="row align-items-center g-0 w-100">
+									<div class="col-auto">
+										<img src="${element?.buyer?.avatar || 'default-avatar.png'}" alt=""
+											class="rounded-circle avatar-md avatar me-2">
+									</div>
+									<div class="col lh-1">
+										<h5 class="mb-1">${element?.buyer?.first_name || 'Unknown'}</h5>
+									</div>
+									<div class="col-auto">
+										<p class="fs-6 mb-0 text-purple">
+											 ${element?.pet_care_service?.id === 8 ? element?.pet_care_service?.title || 'No Service Title' : element?.price?.service?.title || 'No Service Title'}
+										</p>
+										<p class="fs-6 mb-0">
+											<span class="fs-12 badge light badge-success rounded-5">${element?.come_date || 'No Date'}</span>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="row text-center mb-4">
+									<div class="col-6 text-dark fw-bold">
+										Animal
+									</div>
+									<div class="col-6">
+										<p class="text-start online-type">
+											${element?.pet_care_service?.id === 8 ? element?.pet_care_animal ?.name || 'Unknown Animal' : element?.price?.animal?.name || 'Unknown Animal'}
+										</p>
+									</div>
+									<div class="col-6 text-dark fw-bold">
+										Phone
+									</div>
+									<div class="col-6">
+										<p class="text-start">${element?.buyer?.phone || 'No Phone Number'}</p>
+									</div>
+									<div class="col-6 text-dark fw-bold">
+										Transaction
+									</div>
+									<div class="col-6">
+										<img src="${element?.transaction_file || 'placeholder-image.png'}" class="img-fluid"
+											alt="Transaction Image" style="width: 140px; height: 200px;">
+									</div>
+								</div>
+								<div class="mt-3">
+									<div class="form-floating">
+										<textarea class="form-control" placeholder="Leave a comment here"
+											id="rejectReason-${element.id}" rows="5"></textarea>
+										<label for="floatingTextarea" class="text-light">Reject Reason</label>
+									</div>
+								</div>
+								<div class="mt-3 text-end">
+									<button class="btn btn-danger btn-xs rounded-5 fw-semibold me-2"
+										data-id="${element.id}" onclick="handleDeclineClick(this)">
+										Decline <i class="fas fa-reply fs-6"></i>
+									</button>
+									<button data-id="${element.id}" class="btn btn-warning btn-xs rounded-5 fw-semibold"
+										onclick="approveType(this)">Approve</button>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                                <div class="row align-items-center g-0 w-100">
-                                    <div class="col-auto">
-                                        <img src="${element.buyer.avatar}" alt=""
-                                            class="rounded-circle avatar-md  avatar me-2">
-                                    </div>
-                                    <div class="col lh-1 ">
-                                        <h5 class="mb-1">${element.buyer.first_name}</h5>
-                                   
-                                    </div>
-                               
-                                    <div class="col-auto">
-                                         <p class="fs-6 mb-0 text-purple">${element.price.service.title}</p>
-                                        <p class="fs-6 mb-0 "><span class=""> </span><span class=" fs-12 badge light badge-success rounded-5">${element.come_date}</span></p>
-                                    </div>
-                                </div>
-                              
-                            </div>
-                            <div class="card-body">
-                                <div class="row text-center mb-4">
-                                    <div class="col-6 text-dark fw-bold">
-                                        Animal
-                                    </div>
-                                    <div class="col-6">
-                                         <p class="text-start online-type">${element.price.animal.name} </p>
-                                       
-                                    </div>
-                                    <div class="col-6 text-dark fw-bold">
-                                        Phone
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="text-start">${element.buyer.phone}</p>
-                                    </div>
-                                    <div class="col-6 text-dark fw-bold">
-                                        Transaction
-                                    </div>
-                                    <div class="col-6">
-                                        <img src="${element.transaction_file}" class="img-fluid" alt="Transaction Image" style="width: 140px; height: 200px;">
-                                    </div>
-                                </div>
-                        
-                                <div class="mt-3">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a comment here" id="rejectReason-${element.id}" rows="5"></textarea>
-                                        <label for="floatingTextarea" class="text-light">Reject Reason</label>
-                                    </div>
-                                </div> 
-                        
-                                <div class="mt-3 text-end">
-                                    <button class="btn btn-danger btn-xs rounded-5 fw-semibold me-2" data-id="${element.id}"
-									  onclick="handleDeclineClick(this)">Decline <i class="fas fa-reply fs-6"></i></button>
-                                    <button data-id="${element.id}" class="btn btn-warning btn-xs rounded-5 fw-semibold"
-                                     onclick="approveType(this)">Approve</button>
-                                </div>
-                        </div>
-                    </div>
-
-                </div>   
                 
                         `;
 
