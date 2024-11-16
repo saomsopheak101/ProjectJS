@@ -1364,7 +1364,7 @@
 						<div class="card">
 							<div class="card-body p-0">
 								<div class="table-responsive active-projects style-1">
-									<div class="tbl-caption  mt-3">
+									<div class="tbl-caption mt-3">
 										<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 											<li class="nav-item">
 												<a class="nav-link active" id="pills-service-tab" data-bs-toggle="pill"
@@ -1379,17 +1379,16 @@
 										</ul>
 									</div>
 									<div class="tab-content mx-4" id="pills-tabContent">
+										<!-- Service Table -->
 										<div class="tab-pane fade show active" id="pills-service" role="tabpanel"
 											aria-labelledby="pills-service-tab">
-											<!-- Services Table Section -->
 											<div class="container mt-5">
 												<div class="d-flex justify-content-between">
 													<h3 class="mb-3">Services</h3>
 													<button class="btn btn-success mb-3" onclick="CreateService()">Add
 														Service</button>
 												</div>
-												<!-- Table for displaying services -->
-												<table class="table table-bordered">
+												<table class="table table-bordered table-service ">
 													<thead>
 														<tr>
 															<th>#</th>
@@ -1401,23 +1400,21 @@
 															<th>Actions</th>
 														</tr>
 													</thead>
-													<tbody class="tbody">
-														<!-- Services will be dynamically inserted here -->
+													<tbody class="tbody service-tbody">
 													</tbody>
 												</table>
 											</div>
 										</div>
+										<!-- Animal Table -->
 										<div class="tab-pane fade" id="pills-animal" role="tabpanel"
 											aria-labelledby="pills-animal-tab">
-											<!-- Container for main content -->
 											<div class="container mt-5">
 												<div class="d-flex justify-content-between">
 													<h3 class="mb-3">Animals</h3>
 													<button class="btn btn-success mb-3" data-bs-toggle="offcanvas"
 														data-bs-target="#animalOffcanvas">Add Animal</button>
 												</div>
-												<!-- Table for displaying animals -->
-												<table class="table table-bordered" id="table-animal">
+												<table class="table table-bordered table-animal">
 													<thead>
 														<tr>
 															<th>#</th>
@@ -1425,12 +1422,10 @@
 															<th>Actions</th>
 														</tr>
 													</thead>
-													<tbody class="tbody">
-														<!-- Animals will be dynamically inserted here -->
+													<tbody class="animal-tbody">
 													</tbody>
 												</table>
 											</div>
-
 										</div>
 									</div>
 								</div>
@@ -1438,8 +1433,8 @@
 						</div>
 					</div>
 				</div>
-				<var></var>
 			</div>
+
 			<!--**********************************
             Content body end
         ***********************************-->
@@ -1542,12 +1537,11 @@
 					</div>
 				</div>
 			</div>
-			<!-- Offcanvas for adding an animal -->
+			<!-- Offcanvas for adding/updating an animal -->
 			<div class="offcanvas offcanvas-end" tabindex="-1" id="animalOffcanvas"
 				aria-labelledby="animalOffcanvasLabel">
 				<div class="offcanvas-header">
-					<h5 class="offcanvas-title" id="animalOffcanvasLabel">Add New Animal
-					</h5>
+					<h5 class="offcanvas-title" id="animalOffcanvasLabel">Add New Animal</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
 				</div>
 				<div class="offcanvas-body">
@@ -1558,9 +1552,11 @@
 				</div>
 				<div class="offcanvas-footer d-flex justify-content-end">
 					<button type="button" class="btn btn-secondary me-2" data-bs-dismiss="offcanvas">Close</button>
-					<button type="button" class="btn btn-primary">Save</button>
+					<button type="button" id="save-animal-btn" class="btn btn-primary"
+						onclick="handleAnimalAction()">Save</button>
 				</div>
 			</div>
+
 		</div>
 
 
@@ -1700,7 +1696,7 @@
 		});
 
 		function AllService() {
-			document.querySelector('.tbody').innerHTML = '<tr><td colspan="7" class="text-center">Loading...</td></tr>';
+			document.querySelector('.service-tbody').innerHTML = '<tr><td colspan="7" class="text-center">Loading...</td></tr>';
 			fetch('https://mps4.chandalen.dev/api/services', {
 				method: 'GET',
 				headers: {
@@ -1733,11 +1729,11 @@
                     </td>
                 </tr>`;
 					});
-					document.querySelector('.tbody').innerHTML = row;
+					document.querySelector('.service-tbody').innerHTML = row;
 				})
 				.catch(error => {
 					console.error("Error loading services:", error);
-					document.querySelector('.tbody').innerHTML = '<tr><td colspan="7" class="text-center text-danger">Failed to load services.</td></tr>';
+					document.querySelector('.service-tbody').innerHTML = '<tr><td colspan="7" class="text-center text-danger">Failed to load services.</td></tr>';
 				});
 		}
 
@@ -1949,55 +1945,149 @@
 				.catch(error => console.error("Error loading service details:", error));
 		}
 
-		// Function to fetch and display all animals
 
-		function AllAnimals() {
-    const adminToken = sessionStorage.getItem('adminToken');
-    if (!adminToken) {
-        alert('You are not authenticated. Please log in.');
-        return;
-    }
+		// Run when the document is fully loaded
+		document.addEventListener('DOMContentLoaded', () => {
+			// Get all animals on page load
+			getAllAnimals();
+			// Add event listener for the add animal button
+			document.querySelector('#save-animal-btn').addEventListener('click', handleAnimalAction);
+		});
 
-    // Display a loading message or spinner here if needed
+		function getAllAnimals() {
+			const adminToken = sessionStorage.getItem('adminToken');
+			const tbody = document.querySelector('.animal-tbody');
 
-    fetch('https://mps4.chandalen.dev/api/animals', {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-			'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(animals => {
-        let table = document.querySelector('#animalTable');
-        table.innerHTML = ''; // Clear existing content
+			// Show loading state
+			tbody.innerHTML = '<tr><td colspan="3" class="text-center">Loading...</td></tr>';
 
-        if (animals.result && animals.data.length > 0) {
-            animals.data.forEach(animal => {
-                let row = table.insertRow();
-                row.insertCell().innerText = animal.id;
-                row.insertCell().innerText = animal.name;
-                row.insertCell().innerHTML = `
-                    <a href="#" onclick="viewAnimal(${animal.id})"><i class="fas fa-eye"></i></a>
-                    <a href="#" onclick="editAnimal(${animal.id})"><i class="fas fa-edit"></i></a>
-                    <a href="#" onclick="deleteAnimal(${animal.id})"><i class="fas fa-trash"></i></a>
+			fetch('https://mps4.chandalen.dev/api/animals', {
+				method: 'GET',
+				headers: {
+					'Accept': 'application/json',
+					'Authorization': `Bearer ${adminToken}`
+				}
+			})
+				.then(response => response.json())
+				.then(json => {
+					console.log('API Response:', json);
+					let tableContent = '';
+					if (json.data && Array.isArray(json.data) && json.data.length > 0) {
+						json.data.forEach((animal, index) => {
+							tableContent += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${animal.name}</td>
+                        <td>
+                            <button class="btn btn-primary btn-icon-xs" onclick="openUpdateOffcanvas(${animal.id}, '${animal.name}')"><i class="fa fa-pen"></i></button>
+                            <button class="btn btn-danger btn-icon-xs" onclick="deleteAnimal(${animal.id})"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
                 `;
-            });
-        } else {
-            table.innerHTML = '<tr><td colspan="3">No animals found</td></tr>';
-        }
-    })
-    .catch(error => {
-        console.error('Error fetching animals:', error);
-        alert('Failed to fetch animals. Please try again later.');
-    });
-}
+						});
+					} else {
+						tableContent = '<tr><td colspan="3" class="text-center">No animals found</td></tr>';
+					}
+					tbody.innerHTML = tableContent;
+				})
+				// .catch(error => {
+				// 	console.error('Error fetching animals:', error);
+				// 	alert('Failed to fetch animals. Please try again later.');
+				// 	tbody.innerHTML = '<tr><td colspan="3" class="text-center">Failed to load animals</td></tr>';
+				// });
+		}
 
+		function openUpdateOffcanvas(id, name) {
+			document.querySelector('#animal_name').value = name;
+			document.querySelector('#save-animal-btn').textContent = 'Update'; // Change button text to "Update"
+			document.querySelector('#save-animal-btn').setAttribute('onclick', `updateAnimal(${id})`); // Update the function to call updateAnimal
+			const updateOffcanvas = new bootstrap.Offcanvas(document.querySelector('#animalOffcanvas'));
+			updateOffcanvas.show();
+		}
+
+		function handleAnimalAction() {
+			const animalName = document.querySelector('#animal_name').value.trim();
+
+			if (!animalName) {
+				alert('Please enter a valid animal name.');
+				return;
+			}
+
+			const updateBtn = document.querySelector('#save-animal-btn').textContent;
+			if (updateBtn === 'Save') {
+				addAnimal(animalName); // Add new animal
+			} else {
+				const animalId = document.querySelector('#save-animal-btn').getAttribute('onclick').match(/\d+/)[0];
+				updateAnimal(animalId, animalName); // Update existing animal
+			}
+		}
+
+		function addAnimal(animalName) {
+			const adminToken = sessionStorage.getItem('adminToken');
+			if (!adminToken) {
+				alert('You are not authenticated. Please log in.');
+				return;
+			}
+
+			fetch('https://mps4.chandalen.dev/api/animals', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'Authorization': `Bearer ${adminToken}`
+				},
+				body: JSON.stringify({ name: animalName })
+			})
+				.then(response => response.json())
+				.then(data => {
+					if (data.result) {
+						alert('Animal added successfully!');
+						document.querySelector('#animal_name').value = ''; // Clear input field
+						getAllAnimals(); // Refresh the table
+					} else {
+						alert(data.message || 'Failed to add animal. Please try again.');
+					}
+				})
+		}
+
+		function updateAnimal(animalId, animalName) {
+			const adminToken = sessionStorage.getItem('adminToken');
+
+			fetch(`https://mps4.chandalen.dev/api/animals/${animalId}`, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+					'Authorization': `Bearer ${adminToken}`
+				},
+				body: JSON.stringify({ name: animalName })
+			})
+				.then(response => response.json())
+				.then(data => {
+					if (data.result) {
+						alert('Animal updated successfully!');
+						getAllAnimals(); // Refresh the list
+					} else {
+						alert('Failed to update animal.');
+					}
+				})
+		}
+
+		function deleteAnimal(animalId) {
+			const adminToken = sessionStorage.getItem('adminToken');
+
+			if (confirm('Are you sure you want to delete this animal?')) {
+				fetch(`https://mps4.chandalen.dev/api/animals/${animalId}`, {
+					method: 'DELETE',
+					headers: {
+						'Authorization': `Bearer ${adminToken}`
+					}
+				})
+					.then(response => response.json())
+					.then(data => {
+						alert('Animal deleted successfully.');
+						getAllAnimals(); // Refresh the list
+					})
+			}
+		}
 
 	</script>
 
