@@ -1696,7 +1696,7 @@
 				.then(res => res.json())
 				.then(json => {
 					if (json.result === true) {
-						sessionStorage.removeItem('authToken');
+						sessionStorage.removeItem('adminToken');
 						console.log(json.message);
 						alert(json.message)
 						location.href = 'http://127.0.0.1:5502/home-page.html';
@@ -1808,7 +1808,7 @@
 				.then(res => res.json())
 				.then(json => {
 					let workday = document.querySelector('#workday');
-					workday.innerHTML = '<option data-display="Select">Please select</option>';
+					workday.innerHTML = '<option data-display="Select" selected>Please select</option>';
 
 					json.data.forEach(item => {
 						let option = document.createElement('option');

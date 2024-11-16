@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="icons/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap-min.css"> -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" />
     <style>
@@ -201,7 +200,7 @@
                 <div class="container">
                     <div class="text-center text-white-light mb-5">
                         <h2 class="display-6 my-4 text-white fw-bold" id="book-service">Booking service</h2>
-                        <div class="fs-6 badge bg-white color-text p-2 shadow">
+                        <div class="fs-6 badge bg-white color-text p-2 shadow z-1">
                             <a href="" class="text-white-light text-decoration-none">Home</a>
                             <span> &nbsp;>&nbsp; </span>
                             <span class="text-brand">Booking</span>
@@ -212,18 +211,13 @@
         </section>
         <section class="mt-5">
             <div class="container d-flex justify-content-center">
-                <div class="col-8">
+
+                <div class="col-9">
+
                     <div class="row d-flex justify-content-center glass p-4">
                         <form class="row align-items-center row-gap-3">
                             <h4 class="mt-3 fw-bold">Booking information</h4>
-                            <div class="col-3">
-                                <label for="">Select consultant:</label>
-                                <select class="form-select" aria-label="Default select example" required>
-                                    <option value="1" selected>Len</option>
-                                    <option value="2">Hong</option>
-                                </select>
-                            </div>
-                            <div class="col-3">
+                            <div class="col-4">
                                 <label for="">Status:</label>
                                 <select class="form-select" aria-label="Default select example" required>
                                     <option value="1" selected>Online</option>
@@ -231,18 +225,21 @@
                                 </select>
                             </div>
 
-                            <div class="col-3">
-                                <label for="">Date</label>
-                                <div class="input-group date" id="datetimepicker" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input"
-                                        data-target="#datetimepicker" placeholder="Select date and time" />
-                                    <div class="input-group-append" data-target="#datetimepicker"
-                                        data-toggle="datetimepicker">
-                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            <div class="col-4 mt-3">
+                                <label for="">Datetime:</label>
+                                <div class="form-group">
+                                    <div class="input-group date" id="datetimepicker" data-target-input="nearest">
+                                        <input type="text" id="dateTime" class="form-control datetimepicker-input"
+                                            data-target="#datetimepicker" placeholder="Select datetime" />
+                                        <div class="input-group-append" data-target="#datetimepicker"
+                                            data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4">
                                 <label for="">Price:</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput1"
                                     placeholder="Price" disabled>
@@ -294,6 +291,8 @@
                                     </div>
                                 </div>
                             </div>
+
+
                         </form>
                     </div>
                 </div>
@@ -477,6 +476,35 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script>
+        $(function () {
+            // Initialize the datetime picker with a default date and time
+            $('#datetimepicker').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm:ss',
+                icons: {
+                    time: 'fa fa-clock',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-chevron-up',
+                    down: 'fa fa-chevron-down',
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-calendar-check-o',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-times'
+                },
+                // defaultDate: moment('2024-01-01 08:00') // Set the default date and time here
+            });
+
+            $('#submitBtn').on('click', function () {
+                const dateTime = $('#datetimepicker').data('date');
+                if (dateTime) {
+                    $('#output').text(`Selected Date and Time: ${dateTime}`);
+                } else {
+                    alert("Please select a date and time.");
+                }
+            });
+        });
+    </script>
     <script>
         <!-- Modal -->
         const myModalEl = document.getElementById('myModal')
