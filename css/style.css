@@ -120,20 +120,20 @@ header.sticky .fa-search{
 }
 
 
-
 .navbar .dropdown .dropdown-menu .dropdown-item {
     font-size: 20px !important;
     font-weight: 400;
 }
-.navbar .dropdown .dropdown-menu {
+.navbar .dropdown:not(.megamenu) .dropdown-menu {
     top: 60px;
-    background-color: transparent;
+    /* background-color: #; */
     padding: 0.75rem !important;
 }
-.navbar .dropdown-center .dropdown-menu .dropdown-item:hover {
+.navbar .dropdown:not(.megamenu) .dropdown-menu .dropdown-item:hover {
     color: #f49943!important;
     background-color: transparent !important;
 }
+
 .navbar .btn-icon {
     font-size: 1.6rem;
     border: 0;
