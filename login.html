@@ -222,9 +222,14 @@
                                                 class="forgot-password text-decoration-none color-text pe-2">Forgot
                                                 Password?</a>
                                         </div>
-                                        <div class="form-group mt-3  btn-login ">
-                                            <input type="submit" class="btn btn-warning" value="Login">
+                                        <div class="form-group mt-3 btn-login">
+                                            <input type="submit"  class="btn btn-warning mb-3" value="Login" id="loginButton">
+                                            <div class="spinner-border spinner-border-sm " role="status" id="spinner" >
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
                                         </div>
+                                        
+ 
                                         <div class="separator position-relative mt-5 ">
                                             <div class="position-absolute">Or</div>
                                             <!-- <p class="text-black mt-3">OR</p> -->
@@ -285,59 +290,61 @@
     <script>
         function getdata() {
             let gmail = document.querySelector('#email').value;
-            let password = document.querySelector('#password').value
+            let password = document.querySelector('#password').value;
 
+            // If validation passes, proceed with sending the data
             console.log(gmail);
             console.log(password);
             let formData = new FormData();
             formData.append('email', gmail);
             formData.append('password', password);
-
-
+    
             fetch('https://mps4.chandalen.dev/api/login', {
                 method: 'POST',
                 headers: { "Accept": "application/json" },
                 body: formData
             })
-
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json(); // Parse the response as JSON
-                })
-                .then(json => {
-                    console.log(json); // Log the response data
-                    // Check if the response is successful
-                    if (json.result === true) {
-                        // Check if roles is an array and contains at least one role
-                        if (json.data.roles && json.data.roles.length > 0) {
-                            const roleName = json.data.roles[0].name; // Access the first role's name
-
-                            if (roleName === 'Normal User') {
-                                sessionStorage.setItem('authToken', json.data.token);
-                                alert(json.message + " Token stored.");
-                                location.href = 'http://127.0.0.1:5502/home-page.html';
-                            } else if (roleName === 'System Admin') {
-                                sessionStorage.setItem('adminToken', json.data.token);
-                                alert(json.message + " Token stored.");
-                                location.href = 'http://127.0.0.1:5502/employee.html';
-                            } else {
-                                alert("User role not recognized.");
-                            }
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Parse the response as JSON
+            })
+            .then(json => {
+                console.log(json); // Log the response data
+                if (json.result === true) {
+                    if (json.data.roles && json.data.roles.length > 0) {
+                        const roleName = json.data.roles[0].name;
+                        if (roleName === 'Normal User') {
+                            
+                            sessionStorage.setItem('authToken', json.data.token);
+                            alert(json.message + " Token stored.");
+                            location.href = 'http://127.0.0.1:5502/home-page.html';
+                        } else if (roleName === 'System Admin') {
+                            sessionStorage.setItem('adminToken', json.data.token);
+                            alert(json.message + " Token stored.");
+                            location.href = 'http://127.0.0.1:5502/employee.html';
                         } else {
-                            alert("No roles assigned to this user.");
+                            alert("User role not recognized.");
                         }
                     } else {
-                        alert("Invalid response. Please try again.");
-
+                        alert("No roles assigned to this user.");
                     }
-        
-    })
-                
+                } else {
+                    alert("Invalid response. Please try again.");
+                }
+            })
+            
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while processing the login. Please try again.');
+            });
 
         }
+
+        
     </script>
+    
 </body>
 
 </html>
