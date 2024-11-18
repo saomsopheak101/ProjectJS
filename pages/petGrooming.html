@@ -155,7 +155,7 @@
                                             <i class="fa-solid fa-comment-dots me-3"></i>
                                         </div>
                                         Feedback
-                                    
+
                                     </a>
                                 </li>
                                 <li>
@@ -214,6 +214,15 @@
                 <h6 class="text-center"><span class="badge bg-white text-warning shadow">User Feedbacks</span></h6>
                 <div class="row my-5 py-3 get-row">
 
+                    <div class="col-2">
+                        <div class="d-flex justify-content-center mb-3">
+                            <img src="images/service/bathing.png" alt="" class="w-75">
+                        </div>
+                        <h4 class="text-center fw-bold">Coat Trimming</h4>
+                        <div class="text-center">
+                            <button class="btn btn-outline-warning book-now" data-id="2">Book Now</button>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -463,46 +472,26 @@
     <script src="../js/auth-btn.js"></script>
     <script>
 
-        serviceList()
-        function serviceList() {
 
-            let row = '';
-            fetch('https://mps4.chandalen.dev/api/services', {
-                method: 'GET',
-                headers: {
-                    'Accept': "application/json",
-                    'Authorization': `Bearer ${authToken}`
-                }
-
-            })
-                .then(res => res.json())
-                .then(json => {
-                    json.data.forEach(element => {
-                        if (element.id == 2 || element.id == 7 || element.id == 6 || element.id == 5) {
-                            row += `
-					 <div class="col-2">
-                        <div class="d-flex justify-content-center mb-3">
-                            <img src="images/service/bathing.png" alt="" class="w-75">
-                        </div>
-                        <h4 class="text-center fw-bold">${element.title}</h4>
-                        <div class="text-center">
-                            <button class="btn btn-outline-warning" data-id="${element.id}" onclick="serviceID(this)">Book Now</button>
-                        </div>
-                    </div>
-						`
-                        }
-                    });
-                    document.querySelector('.get-row').innerHTML = row;
-
-                })
-        }
         function serviceID(row) {
             let id = row.dataset.id;
-            console.log(id)
+            // console.log(id)
             //   alert('123');
-            sessionStorage.setItem('serviceID', id);
-            location.href = 'http://127.0.0.1:5502/../pages/booking-grooming.html';
+            if (authToken !== null) {
+                
+                sessionStorage.setItem('serviceID', id);
+                location.href = 'http://127.0.0.1:5502/../pages/booking-grooming.html';
+            } else {
+                
+                location.href = 'http://127.0.0.1:5502/../pages/login.html'
+            }
         }
+        // document.querySelector('.book-now').addEventListener('click',serviceID());
+        document.querySelectorAll('.book-now').forEach((buttonAction) => {
+            buttonAction.addEventListener('click', () => {
+                serviceID(buttonAction);
+            });
+        });
     </script>
     <script>
         const triggerTabList = document.querySelectorAll('#myTab button')

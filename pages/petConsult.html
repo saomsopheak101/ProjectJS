@@ -336,8 +336,8 @@
                             <div class="swiper-slide position-relative">
                                 <div>
                                     <img src="../images/service/consultant-3.png" alt="" class="position-relative">
-                                    <button class="btn btn-warning position-absolute"
-                                        style="right:20px;top: 120px;">Book
+                                    <button class="btn btn-warning position-absolute pet-care-btn"
+                                        style="right:20px;top: 120px;" type="button"   data-id="2">Book
                                         Now</button>
                                     <p class="bg-white shadow py-2 px-3 rounded-2 position-absolute"
                                         style="left:12%;bottom: 70px;">Mr. Sok Dara</p>
@@ -347,8 +347,8 @@
                             <div class="swiper-slide">
                                 <div>
                                     <img src="../images/service/consultant-4.png" alt="" class="position-relative">
-                                    <button class="btn btn-warning position-absolute"
-                                        style="right:20px;top: 120px;">Book
+                                    <button class="btn btn-warning position-absolute pet-care-btn" data-id="3"
+                                        style="right:20px;top: 120px;" type="button">Book
                                         Now</button>
                                     <p class="bg-white shadow py-2 px-3 rounded-2 position-absolute"
                                         style="left:12%;bottom: 70px;">Mr. Sok Dara</p>
@@ -357,8 +357,8 @@
                             <div class="swiper-slide">
                                 <div>
                                     <img src="../images/service/consultant-5.png" alt="" class="position-relative">
-                                    <button class="btn btn-warning position-absolute"
-                                        style="right:20px;top: 120px;">Book
+                                    <button class="btn btn-warning position-absolute pet-care-btn" data-id="4"
+                                        style="right:20px;top: 120px;" type="button" >Book
                                         Now</button>
                                     <p class="bg-white shadow py-2 px-3 rounded-2 position-absolute"
                                         style="left:12%;bottom: 70px;">Mr. Sok Dara</p>
@@ -367,8 +367,8 @@
                             <div class="swiper-slide">
                                 <div>
                                     <img src="../images/service/consultant-2.png" alt="" class="position-relative">
-                                    <button class="btn btn-warning position-absolute"
-                                        style="right:20px;top: 120px;">Book
+                                    <button class="btn btn-warning position-absolute pet-care-btn" data-id="5"
+                                        style="right:20px;top: 120px;" type="button">Book
                                         Now</button>
                                     <p class="bg-white shadow py-2 px-3 rounded-2 position-absolute"
                                         style="left:12%;bottom: 70px;">Mr. Sok Dara</p>
@@ -377,8 +377,9 @@
                             <div class="swiper-slide">
                                 <div>
                                     <img src="../images/service/consultant-1.png" alt="" class="position-relative">
-                                    <button class="btn btn-warning position-absolute"
-                                        style="right:20px;top: 120px;">Book
+                                    <button class="btn btn-warning position-absolute pet-care-btn" data-id="6"
+                                    style="right:20px;top: 120px;" type="button">Book
+                                       
                                         Now</button>
                                     <p class="bg-white shadow py-2 px-3 rounded-2 position-absolute"
                                         style="left:12%;bottom: 70px;">Mr. Sok Dara</p>
@@ -506,7 +507,8 @@
                 </div>
             </div>
         </section>
-        <footer class="">
+    </main>
+        <footer>
             <div class="container">
                 <section class="top-footer py-5 ">
                     <div class="container-fluid">
@@ -639,6 +641,21 @@
 
         <script src="../js/bootstrap.bundle.min.js"></script>
         <script src="../js/auth-btn.js"></script>
+        <script>
+            document.querySelectorAll('.pet-care-btn').forEach(buttonId =>{
+                buttonId.addEventListener('click',()=>{
+                    let id = buttonId.dataset.id;
+                    console.log(id)
+                    sessionStorage.setItem('employeeID',id);
+                    location.href = 'http://127.0.0.1:5502/../pages/booking-consult.html';
+
+                })
+            })
+      
+        </script>
+
+
+
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script>
             var swiper = new Swiper(".mySwiper", {

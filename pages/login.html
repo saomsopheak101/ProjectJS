@@ -229,9 +229,14 @@
                                                 class="forgot-password text-decoration-none color-text pe-2">Forgot
                                                 Password?</a>
                                         </div>
-                                        <div class="form-group mt-3  btn-login ">
-                                            <input type="submit" class="btn btn-warning" value="Login">
+                                        <div class="form-group mt-3 btn-login">
+                                            <input type="submit"  class="btn btn-warning mb-3" value="Login" id="loginButton">
+                                            <div class="spinner-border spinner-border-sm " role="status" id="spinner" >
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
                                         </div>
+                                        
+ 
                                         <div class="separator position-relative mt-5 ">
                                             <div class="position-absolute">Or</div>
                                             <!-- <p class="text-black mt-3">OR</p> -->
@@ -295,15 +300,15 @@
     <script>
         function getdata() {
             let gmail = document.querySelector('#email').value;
-            let password = document.querySelector('#password').value
+            let password = document.querySelector('#password').value;
 
+            // If validation passes, proceed with sending the data
             console.log(gmail);
             console.log(password);
             let formData = new FormData();
             formData.append('email', gmail);
             formData.append('password', password);
-
-
+    
             fetch('https://mps4.chandalen.dev/api/login', {
                 method: 'POST',
                 headers: { "Accept": "application/json" },
@@ -336,16 +341,18 @@
                                 alert("User role not recognized.");
                             }
                         } else {
-                            alert("No roles assigned to this user.");
+                            alert("User role not recognized.");
                         }
                     } else {
-                        alert("Invalid response. Please try again.");
-
+                        alert("No roles assigned to this user.");
                     }
 
                 })
         }
+
+        
     </script>
+    
 </body>
 
 </html>

@@ -1167,24 +1167,13 @@ footer .copyright a{
 }
 .stylee{
     overflow: hidden !important;
-    width: 280px !important;
+    width: 220px !important;
     left:-7%;
-    top: -75%;
+    top: -17%;
     /* z-index: -1; */
     
 }
-.stylee-1{
-    overflow: hidden !important;
-    width: 280px !important;
-    right:-7%;
-    top: -75%;
-    /* z-index: -1; */
-    
-}
-.style-2{
-    top: -30%;
-    /* z-index: 1; */
-}
+
 
 
 /* end service */
