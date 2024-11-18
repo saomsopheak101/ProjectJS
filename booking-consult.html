@@ -132,7 +132,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="profile-booking.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile-booking.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
                                             <i class="fa-regular fa-calendar-check me-3"></i>
@@ -141,7 +142,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="profile-consulting.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile-consulting.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
                                             <i class="fa-solid fa-ticket me-3"></i>
@@ -150,17 +152,19 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="profile.feedback.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile.feedback.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
                                             <i class="fa-solid fa-comment-dots me-3"></i>
                                         </div>
                                         Feedback
-                                    
+
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="profile-notification.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                    <a href="profile-notification.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
                                         aria-current="page">
                                         <div>
                                             <i class="fa-solid fa-bell me-3"></i>
@@ -219,8 +223,9 @@
                             <h4 class="mt-3 fw-bold">Booking information</h4>
                             <div class="col-4">
                                 <label for="">Status:</label>
-                                <select class="form-select" aria-label="Default select example" required>
-                                    <option value="1" selected>Online</option>
+                                <select class="form-select" aria-label="Default select example" id="status" required>
+                                    <option  selected disabled>Please Select</option>
+                                    <option value="1" >Online</option>
                                     <option value="2">Face to face</option>
                                 </select>
                             </div>
@@ -241,8 +246,19 @@
                             </div>
                             <div class="col-4">
                                 <label for="">Price:</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Price" disabled>
+                                <input type="text" class="form-control" id="priceLabel" placeholder="Price" disabled>
+                            </div>
+                            <div class="col-4">
+                                <label for="">Consultant:</label>
+                                <input type="text" class="form-control" id="employLabel" placeholder="Name" disabled>
+                            </div>
+                            <div class="col-12">
+                                <label for="">Description:</label>
+                                <div class="">
+                                    <label for="" class="form-label"></label>
+                                    <textarea class="form-control" id="description" rows="3" aria-label=""
+                                        placeholder="About your pet . . . ." required></textarea>
+                                </div>
                             </div>
                             <h4 class="my-2 fw-bold">Payment</h4>
                             <div class="col-12">
@@ -284,8 +300,10 @@
                                             </div>
                                             <h1 class="modal-title fs-6 my-2">Transaction file
                                             </h1>
-                                            <input class="form-control py-2 bg-white my-3" type="file" required />
-                                            <button class="btn btn-warning w-100 text-white mb-0">Book Now</button>
+                                            <input class="form-control py-2 bg-white my-3" id="tran-link" type="file"
+                                                required />
+                                            <button class="btn btn-warning w-100 text-white mb-0" id="btn-book"
+                                                type="button">Book Now</button>
 
                                         </div>
                                     </div>
@@ -296,6 +314,7 @@
                         </form>
                     </div>
                 </div>
+            </div>
         </section>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -472,6 +491,99 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/auth-btn.js"></script>
+    <script>
+        let employId = sessionStorage.getItem('employeeID');
+        console.log(employId);
+
+        window.addEventListener('unload', () => {
+
+            sessionStorage.removeItem('employeeID');
+        });
+        if (employId === null) {
+            location.href = 'http://127.0.0.1:5502/petConsult.html';
+        }
+        let nameEmployee = '';
+        let price = 25;
+        if (employId == 2) {
+            nameEmployee = 'Ga Hong';
+
+        } else if (employId == 3) {
+            nameEmployee = 'Len Nhiek';
+
+        }
+        document.querySelector('#employLabel').value = nameEmployee;
+        document.querySelector('#priceLabel').value = `$${price}`;
+
+
+        function transaction(linkTransaction, consultID) {
+
+
+            let formData = new FormData();
+            formData.append('transaction_file', linkTransaction)
+
+            console.log('transaction file', formData);
+
+
+            fetch('https://mps4.chandalen.dev/api/consultants/transaction-file/' + consultID, {
+                method: 'POST',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                },
+                body: formData
+            })
+
+        }
+
+        function booking() {
+            let status = document.querySelector('#status').value;
+
+            let dateTime = document.querySelector('#dateTime').value;
+            let description = document.querySelector('#description').value;
+            let linkTransaction = document.querySelector('#tran-link').files[0];
+
+
+            console.log(status);
+            console.log(dateTime);
+            console.log(description);
+            console.log(linkTransaction);
+
+            let formData = new FormData();
+            formData.append('employee_id', employId);
+            formData.append('datetime', dateTime);
+            formData.append('is_online', status);
+            formData.append('description', description);
+            formData.append('transaction_file', linkTransaction);
+
+            fetch('https://mps4.chandalen.dev/api/consultants', {
+                method: 'POST',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                },
+                body: formData
+            })
+                .then(res => res.json())
+                .then(json => {
+                    if (json.result === true) {
+                        console.log(json.message)
+                        alert(json.message)
+                        let data_id = json.data.id;
+                        console.log('ID buyer ', data_id);
+                        transaction(linkTransaction, data_id);
+                        console.log(json)
+                    } else {
+                        console.log(json.message)
+                        alert(json.message)
+                    }
+                })
+
+        }
+        document.querySelector('#btn-book').addEventListener('click', booking);
+
+
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
     <script
@@ -479,20 +591,21 @@
     <script>
         $(function () {
             // Initialize the datetime picker with a default date and time
+            // Initialize datetime pickers
             $('#datetimepicker').datetimepicker({
                 format: 'YYYY-MM-DD HH:mm:ss',
+                minDate: new Date(),
                 icons: {
                     time: 'fa fa-clock',
                     date: 'fa fa-calendar',
-                    up: 'fa fa-chevron-up',
-                    down: 'fa fa-chevron-down',
+                    up: 'fa fa-arrow-up',
+                    down: 'fa fa-arrow-down',
                     previous: 'fa fa-chevron-left',
                     next: 'fa fa-chevron-right',
-                    today: 'fa fa-calendar-check-o',
+                    today: 'fa fa-calendar-check',
                     clear: 'fa fa-trash',
                     close: 'fa fa-times'
-                },
-                // defaultDate: moment('2024-01-01 08:00') // Set the default date and time here
+                }
             });
 
             $('#submitBtn').on('click', function () {
