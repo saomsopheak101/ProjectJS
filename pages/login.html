@@ -21,6 +21,9 @@
             color: #dc3545;
             font-size: 0.875em;
         }
+                /* Ensure the icons are positioned correctly */
+        
+
     </style>
 </head>
 
@@ -55,23 +58,23 @@
                                     </div>
                                     <form onsubmit="getdata(); return false;" action="" class="needs-validation row g-3" novalidate>
                                         <div class="form-group position-relative">
-                                            <input type="email" class="form-control mt-3 input-with-icon" id="email"
-                                                name="email" placeholder="Your email" required>
+                                            <input type="email" class="form-control mt-3 input-with-icon" id="email" name="email" placeholder="Your email" required>
                                             <i class="fa-solid fa-envelope icon-position fs-6 pt-3 ps-2"></i>
                                             <div class="invalid-feedback" id="email-error"></div>
+                                            <div class="valid-feedback text-success" id="email-success">Email looks good!</div>
                                         </div>
                                         <div class="form-group position-relative">
                                             <i class="fa-solid fa-lock icon-position fs-6 pt-3 ps-2"></i>
-                                            <input type="password" class="form-control mt-3 input-with-icon"
-                                                id="password" name="password" placeholder="Your password" required>
+                                            <input type="password" class="form-control mt-3 input-with-icon" id="password" name="password" placeholder="Your password" required>
                                             <div class="invalid-feedback" id="password-error"></div>
+                                            <div class="valid-feedback text-success" id="password-success">Password looks good!</div>
                                         </div>
 
                                         <div class="form-group form-check d-flex justify-content-between mt-3 ms-2">
                                             <div class="check-box">
-                                                <input type="checkbox" class="form-check-input " id="remember" required>
-                                                <label class="form-check-label text-black" for="remember">Remember
-                                                    me</label>
+                                                <input type="checkbox" class="form-check-input "
+                                                    id="remember" required>
+                                                <label class="form-check-label text-black" for="remember">Remember me</label>
                                             </div>
                                             <a href="../pages/forgot-pass.html"
                                                 class="forgot-password text-decoration-none color-text pe-2">Forgot
@@ -79,9 +82,10 @@
                                         </div>
                                         <div class="form-group mt-3 btn-login">
                                             <input type="submit" class="btn btn-warning mb-3" value="Login" id="loginButton">
-                                            <div class="spinner-border spinner-border-sm d-none" role="status" id="spinner">
-                                                <span class="visually-hidden">Loading...</span>
-                                            </div>
+                                            <button class="btn btn-primary d-none" id="spinner" type="button" disabled>
+                                                <span class="spinner-border spinner-border-sm"  aria-hidden="true"></span>
+                                                <span role="status">Loading...</span>
+                                              </button>
                                         </div>
 
                                         <div class="separator position-relative mt-5 ">
@@ -140,28 +144,28 @@
     </footer>
 
     <script>
+   
         function getdata() {
             // Clear previous error messages
             document.getElementById('email-error').textContent = '';
             document.getElementById('password-error').textContent = '';
 
-            let email = document.querySelector('#email').value;
-            let password = document.querySelector('#password').value;
+            let email = document.querySelector('#email').value.trim();
+            let password = document.querySelector('#password').value.trim();
 
             let emailIsValid = validateEmail(email);
             let passwordIsValid = validatePassword(password);
 
             // If either field is invalid, stop form submission
             if (!emailIsValid || !passwordIsValid) {
-                return;
+                return; // Prevent login attempt
             }
 
-            // Show loading spinner
+            // Show loading spinner and update button text
             let loginButton = document.querySelector('#loginButton');
             let spinner = document.querySelector('#spinner');
-            loginButton.value = "Loading..."; // Change button text to "Loading..."
-            spinner.style.display = "inline-block"; // Show the spinner
-            loginButton.disabled = true; // Disable the button while loading
+            loginButton.classList.add('d-none'); // Hide the Login button
+            spinner.classList.remove('d-none'); // Show the spinner button
 
             let formData = new FormData();
             formData.append('email', email);
@@ -172,73 +176,76 @@
                 headers: { "Accept": "application/json" },
                 body: formData
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(json => {
-                console.log(json);
-                loginButton.value = "Login"; // Reset button text
-                spinner.style.display = "none"; // Hide spinner
-                loginButton.disabled = false; // Enable the button
-
-                if (json.result === true) {
-                    if (json.data.roles && json.data.roles.length > 0) {
-                        const roleName = json.data.roles[0].name;
-                        if (roleName === 'Normal User') {
-                            sessionStorage.setItem('authToken', json.data.token);
-                            alert(json.message + " Token stored.");
-                            location.href = '../index.html';
-                        } else if (roleName === 'System Admin') {
-                            sessionStorage.setItem('adminToken', json.data.token);
-                            alert(json.message + " Token stored.");
-                            location.href = '../pages/employee.html';
-                        } else {
-                            alert("User role not recognized.");
-                        }
-                    } else {
-                        alert("User role not recognized.");
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
                     }
-                } else {
-                    alert("No roles assigned to this user.");
-                }
-            })
-            .catch(error => {
-                console.error('There was an error!', error);
-                loginButton.value = "Login";
-                spinner.style.display = "none";
-                loginButton.disabled = false;
-            });
+                    return response.json();
+                })
+                .then(json => {
+                    // Reset spinner and show login button
+                    spinner.classList.add('d-none');
+                    loginButton.classList.remove('d-none');
+
+                    if (json.result === true) {
+                        handleLoginSuccess(json);
+                    } else {
+                        alert("Invalid credentials.");
+                    }
+                })
+                .catch(error => {
+                    console.error('There was an error!', error);
+                    spinner.classList.add('d-none');
+                    loginButton.classList.remove('d-none');
+                });
         }
 
         function validateEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]/;
-            const emailRe = /\.[^\s@]+$/
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                document.getElementById('email-error').textContent = 'Please enter @ to correct email.';
+                document.getElementById('email-error').textContent = 'Please enter a valid email.';
                 document.querySelector('#email').classList.add('is-invalid');
-                return false;
-            }
-            else if(!emailRe.test(email)){
-                document.getElementById('email-error').textContent = 'Please enter . to complete right email.';
-                document.querySelector('#email').classList.add('is-invalid');
+                document.getElementById('email-success').style.display = 'none';
                 return false;
             }
             document.querySelector('#email').classList.remove('is-invalid');
+            document.getElementById('email-error').textContent = '';
+            document.getElementById('email-success').style.display = 'block';
             return true;
         }
 
         function validatePassword(password) {
-            if (password.length < 6) {
-                document.getElementById('password-error').textContent = 'Password must be at least 6 characters long.';
+            if (password.length < 4) {
+                document.getElementById('password-error').textContent = 'Password must be at least 4 characters long.';
                 document.querySelector('#password').classList.add('is-invalid');
+                document.getElementById('password-success').style.display = 'none';
                 return false;
             }
             document.querySelector('#password').classList.remove('is-invalid');
+            document.getElementById('password-error').textContent = '';
+            document.getElementById('password-success').style.display = 'block';
             return true;
         }
+
+        function handleLoginSuccess(json) {
+            if (json.data.roles && json.data.roles.length > 0) {
+                const roleName = json.data.roles[0].name;
+                if (roleName === 'Normal User') {
+                    sessionStorage.setItem('authToken', json.data.token);
+                    alert(json.message + " Token stored.");
+                    location.href = '../index.html';
+                } else if (roleName === 'System Admin') {
+                    sessionStorage.setItem('adminToken', json.data.token);
+                    alert(json.message + " Token stored.");
+                    location.href = '../pages/employee.html';
+                } else {
+                    alert("User role not recognized.");
+                }
+            } else {
+                alert("No roles assigned to this user.");
+            }
+        }
+
     </script>
 </body>
 
