@@ -2755,6 +2755,7 @@ textarea.form-control-lg {
 
 .form-check-input[type=checkbox] {
   border-radius: 0.25em;
+  border: 2px solid #f49943;
 }
 
 .form-check-input[type=radio] {
@@ -2772,8 +2773,8 @@ textarea.form-control-lg {
 }
 
 .form-check-input:checked {
-  background-color: #ffc107;
-  /* border-color: #0d6efd; */
+  background-color: #f49943;
+  border-color: #f49943;
 }
 
 .form-check-input:checked[type=checkbox] {
@@ -9373,6 +9374,9 @@ fieldset:disabled .btn {
 
 .fs-6 {
   font-size: 1rem !important;
+}
+.fs-7 {
+  font-size: 0.8rem !important;
 }
 
 .fst-italic {
