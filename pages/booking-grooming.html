@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="shortcut icon" type="image/png" href="../images/img-pet/logo/favicon.png">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../icons/fontawesome/css/all.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap-min.css"> -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" />
+    <style>
+        .glass {
+            /* From https://css.glass */
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            transform: translateY(-100px);
+        }
+    </style>
+</head>
+
+<body class="booking-page">
+    <header class="">
+        <nav class="navbar navbar-expand-lg  z-3">
+            <div class="container">
+                <a class="navbar-brand" href="">
+                    <img src="../images/img-pet/logo/PetZone (2).png" style="width: 80px;" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 me-5 ms-xl-4 ms-xxl-5 "
+                        style="z-index: 99;">
+                        <li class="nav-item mx-lg-2">
+                            <a class="nav-link  fw-medium black-nav" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item mx-lg-2 dropdown">
+                            <a class="nav-link dropdown-toggle  black-nav fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Service
+                            </a>
+                            <ul class="dropdown-menu bg-white">
+                                <li><a class="dropdown-item text-black" href="../pages/petTraining.html">Pet
+                                        training</a>
+                                </li>
+                                <li><a class="dropdown-item text-black" href="../pages/petConsult.html">Pet
+                                        Counseling</a>
+                                </li>
+                                <li><a class="dropdown-item text-black" href="../pages/petGrooming.html">Pet
+                                        Grooming</a>
+                                </li>
+                                <li><a class="dropdown-item text-black" href="../pages/petDayCare.html">Pet Day care</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mx-lg-2 dropdown ">
+                            <a class="nav-link dropdown-toggle fw-medium black-nav" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                About
+                            </a>
+                            <ul class="dropdown-menu bg-white text-black fw-medium">
+                                <li><a class="dropdown-item text-black" href="../pages/about-us.html">About us</a></li>
+                                <li><a class="dropdown-item text-black" href="">About
+                                        PetZone</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mx-lg-2">
+                            <a class="nav-link  fw-medium black-nav" href="../pages/feedback.html">Feedback</a>
+                        </li>
+                        <li class="nav-item mx-lg-2">
+                            <a class="nav-link fw-medium black-nav" href="../pages/contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center ">
+                        <div class="d-flex align-items-center">
+                            <form class="d-none d-xl-flex" role="search" title="search">
+                                <button class="btn btn-icon" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#searchModal">
+                                    <i class="fa-solid fa-search"></i>
+                                </button>
+                            </form>
+                            <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="signupForm"
+                                type="button" onclick="window.location.href='signup.html';">Sign up</button>
+                            <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="login"
+                                type="button" onclick="window.location.href='login.html';">Login</button>
+                            <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
+
+                            <!-- <button class="py-2 px-4 rounded-2 border-0">Booking</button> -->
+                        </div>
+
+                        <!-- User profile -->
+                        <div class="dropdown-center dropdown-account" id="profiles">
+                            <a class="btn btn-icon d-none d-xl-inline-block position-relative" role="button" href=""
+                                title="profile" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="mb-2">
+                                    <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                        src="../images/img-pet/icon/user.png" alt="#" width="35px">
+                                </div>
+                                <span
+                                    class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
+                                    <small></small>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu  mt-4 rounded-3 py-2">
+                                <div class="card border-0 ">
+                                    <div class="account-header d-flex flex-column align-items-center px-5 pt-2">
+                                        <div class="mb-2">
+                                            <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                                src="../images/img-pet/icon/user.png" alt="#" width="60px">
+                                        </div>
+                                        <div
+                                            class="d-flex flex-column align-items-center justify-content-center text-whitee">
+                                            <h5 class="mb-0">NIKI</h5>
+                                            <p>niki@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <li>
+                                    <a href="../pages/profile.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-address-card me-3"></i>
+                                        </div>
+                                        My Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../pages/profile-booking.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-regular fa-calendar-check me-3"></i>
+                                        </div>
+                                        Booking
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../pages/profile-consulting.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-ticket me-3"></i>
+                                        </div>
+                                        Consulting
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../pages/profile.feedback.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-comment-dots me-3"></i>
+                                        </div>
+                                        Feedback
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../pages/profile-notification.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-bell me-3"></i>
+                                        </div>
+                                        Notification
+                                        <span class="badge ms-auto bg-brand rounded-pill fw-normal">6</span>
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-book me-3"></i>
+
+                                        </div>
+                                        Privacy
+                                    </a>
+                                </li> -->
+                                <li>
+                                    <button class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
+                                        aria-current="page" id="logout">
+                                        <i class="fa-solid fa-right-from-bracket me-3"></i>
+                                        Log out
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-banner position-relative">
+            <div class="banner-bg booking-service"></div>
+            <div class="content d-flex align-items-center">
+                <div class="container">
+                    <div class="text-center text-white-light mb-5">
+                        <h2 class="display-6 my-4 text-white fw-bold" id="book-service"></h2>
+                        <div class="fs-6 badge bg-white color-text p-2 shadow">
+                            <a href="../index.html" class="text-white-light text-decoration-none">Home</a>
+                            <span> &nbsp;>&nbsp; </span>
+                            <span class="text-brand">Booking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mt-5">
+            <div class="container d-flex justify-content-center">
+                <div class="col-9">
+                    <div class="row d-flex justify-content-center glass p-4" style="z-index: 888;">
+                        <form class="row align-items-center row-gap-3">
+                            <h4 class="mt-3 fw-bold">Booking information</h4>
+                            <div class="col-4">
+                                <label for="">Select pet type:</label>
+                                <select class="form-select" aria-label="Default select example" id="animalType"
+                                    required>
+                                    <option selected disabled>Please select</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="col-4 mt-3">
+                                <label for="">Datetime:</label>
+
+                                <div class="form-group">
+                                    <div class="input-group date" id="datetimepicker" data-target-input="nearest">
+                                        <input type="text" id="dateTime" class="form-control datetimepicker-input"
+                                            data-target="#datetimepicker" placeholder="Select date and time" />
+                                        <div class="input-group-append" data-target="#datetimepicker"
+                                            data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <label for="">Price:</label>
+                                <input type="text" class="form-control" id="priceLabel" placeholder="Price" disabled>
+                            </div>
+
+                            <h4 class="my-2 fw-bold">Payment</h4>
+                            <div class="col-12">
+                                <div class="mb-2 mb-lg-4">
+                                    <div class="row g-4 g-lg-5">
+                                        <div class="col-12">
+                                            <div class="d-flex align-items-center my-2 mb-lg-0 flex-wrap">
+                                                <div
+                                                    class="form-check form-check-inline d-flex align-items-center me-sm-3">
+                                                    <input class="form-check-input" type="radio"
+                                                        name="inlineRadioOptions" id="inlineRadio2" checked>
+                                                    <label class="form-check-label" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseExample" aria-expanded="false"
+                                                        aria-controls="collapseExample" for="inlineRadio1">
+                                                        pay 50%
+                                                    </label>
+                                                </div>
+                                                <div
+                                                    class="form-check form-check-inline d-flex align-items-center me-5">
+                                                    <input class="form-check-input" type="radio"
+                                                        name="inlineRadioOptions" id="inlineRadio3" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2">pay
+                                                        100%</label>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-column mt-3">
+                                                <span class="short-des pb-2 text-black-50">Click the
+                                                    bank below to get QR Code</span>
+
+                                                <div class="d-flex column-gap-2">
+                                                    <a href="#" type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal"><img
+                                                            src="../images/service/ABA.png" alt="" style="width: 40px;"
+                                                            class="rounded-1"></a>
+                                                    <a href="#" type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal1"><img
+                                                            src="../images/service/ACLeda.png" alt=""
+                                                            style="width: 40px;" class="rounded-1"></a>
+                                                </div>
+                                            </div>
+                                            <h1 class="modal-title fs-6 my-2">Transaction file
+                                            </h1>
+                                            <input class="form-control py-2 bg-white my-3" id="tran-link" type="file"
+                                                required />
+                                            <button class="btn btn-warning w-100 text-white mb-0" type="button"
+                                                id="btn-book">Book Now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content p-2">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Pay with ABA KHQr</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="../images/service/QR-Khmer.png" alt="" class="w-100">
+                            </div>
+                            <div class="col-6">
+                                <img src="../images/service/QR-Dollar.png" alt="" class="w-100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content p-2">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Pay with ACleda</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="../images/service/Acleda-Kh.jpg" alt="" class="w-100">
+                            </div>
+                            <div class="col-6">
+                                <img src="../images/service/Acleda-Dollar.jpg" alt="" class="w-100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="">
+        <div class="container">
+            <section class="top-footer py-5 ">
+                <div class="container-fluid">
+                    <div class="row text-white justify-content-center">
+                        <div class="col-12 col-md-12 col-xl-3 ">
+                            <div class="content-left">
+                                <div class="logo-lg-img">
+                                    <img class=" object-fit-cover pb-4" src="images/img-pet/logo/PetZone (2).png"
+                                        alt="">
+                                </div>
+                                <div>
+                                    <div class="d-flex">
+                                        <i class="fa-solid fa-phone fs-2 color-text mt-2"></i>
+                                        <div class="text ps-4">
+                                            <p> +855 0123 456 789 <br> Got Questions? Call us 24/7</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5> Our Address</h5>
+                                        <p> 92 Bowery St., New York, NY 10013</p>
+                                    </div>
+                                    <div class="app position-relative d-flex gap-3 py-2">
+                                        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                                        <a href=""> <i class="fa-brands fa-instagram"></i></a>
+                                        <a href=""><i class="fa-brands fa-tiktok"></i></a>
+                                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xl-2 ms-4 pt-3 pt-xl-5 flex-lg-grow-1">
+                            <div class="content-center">
+                                <h2 class="pb-2">Help</h2>
+                                <div class="row">
+                                    <div class="col-5 pe-0">
+                                        <ul class="list-unstyled d-flex flex-column  gap-2">
+                                            <li>
+                                                <a href="../index.html">Home</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/about-us.html">About us</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/feedback.html">Feedback</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/booking.html">Booking</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/contact.html">Contact</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-7 ps-0">
+                                        <ul class="list-unstyled d-flex flex-column text-white gap-2">
+                                            <li>
+                                                <a href="../pages/petTraining.html">Pet Training</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/petConsult.html">Pet Consulting</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/petGrooming.html">Pet Grooming</a>
+                                            </li>
+                                            <li>
+                                                <a href="../pages/petDayCare.html">Pet Daycare</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xl-2 pt-3 pt-xl-5 flex-lg-grow-1">
+                            <div class="content-center">
+                                <h2 class="pb-2">Gallery</h2>
+                                <div class="row ps-0 ms-1">
+                                    <div class="col-4 p-0">
+                                        <img src="../images/img-pet/dog1.jpg" class="w-100 d-block p-1 rounded-3 ps-0"
+                                            alt="">
+                                    </div>
+                                    <div class="col-4 p-0">
+                                        <img src="../images/img-pet/dog1.jpg" class="w-100 d-block p-1 rounded-3"
+                                            alt="">
+                                    </div>
+                                    <div class="col-4 p-0">
+                                        <img src="../images/img-pet/dog1.jpg" class="w-100 d-block p-1 rounded-3"
+                                            alt="">
+                                    </div>
+                                    <div class="col-4 p-0">
+                                        <img src="../images/img-pet/dog1.jpg" class="w-100 d-block p-1 rounded-3 ps-0"
+                                            alt="">
+                                    </div>
+                                    <div class="col-4 p-0">
+                                        <img src="../images/img-pet/dog1.jpg" class="w-100 d-block p-1 rounded-2"
+                                            alt="">
+                                    </div>
+                                    <div class="col-4 p-0">
+                                        <img src="../images/img-pet/dog1.jpg" class="w-100 d-block p-1 rounded-2"
+                                            alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-xl-3 pt-3 pt-xl-5 flex-lg-grow-0 ms-4">
+                            <div class="content-right">
+                                <h2 class="pb-2">Working Hours</h2>
+                                <div class="working-time">
+                                    <p>Mon - Fri: 7am - 6pm
+                                        Saturday: 9am - 4pm <br>
+                                        Sunday: Closed</p>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="copyright py-3 border-top">
+                <div class="container-fluid ">
+                    <div class="d-sm-flex text-center text-sm-start justify-content-between text-white">
+                        <p class="m-0 p-0">
+                            <a href="" class="border-end pe-2 ">Terms of use</a>
+                            <a href="" class="ps-1 ">Privacy Environmental Policy</a>
+                        </p>
+                        <p class="m-0 p-0 ">Copyright © 2024 by <span class="color-text">PetZone</span> <span>. All
+                                Rights Reserved.</span></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth-btn.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="../js/sweetalert.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script>
+
+        $(function () {
+            // Initialize the datetime picker with a default date and time
+            $('#datetimepicker').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm:ss',
+                minDate: new Date(),
+                icons: {
+                    time: 'fa fa-clock',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-arrow-up',
+                    down: 'fa fa-arrow-down',
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-calendar-check',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-times'
+                }
+            });
+
+            $('#submitBtn').on('click', function () {
+                const dateTime = $('#datetimepicker').data('date');
+                if (dateTime) {
+                    $('#output').text(`Selected Date and Time: ${dateTime}`);
+                } else {
+                    alert("Please select a date and time.");
+                }
+            });
+        });
+    </script>
+    <script>
+        let serviceID = sessionStorage.getItem('serviceID');
+        console.log(serviceID);
+        window.addEventListener('unload', () => {
+
+            sessionStorage.removeItem('serviceID');
+        });
+        if (serviceID === null) {
+            location.href = 'http://127.0.0.1:5502/../pages/petGrooming.html'
+        }
+
+        serviceList()
+        function serviceList() {
+
+
+            fetch('https://mps4.chandalen.dev/api/services/' + serviceID, {
+                method: 'GET',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                }
+
+            })
+                .then(res => res.json())
+                .then(json => {
+                    document.querySelector('#book-service').innerHTML = json.data.title;
+                })
+        }
+
+
+
+        getDetailId();
+        function getDetailId() {
+
+
+            fetch('https://mps4.chandalen.dev/api/services/' + serviceID, {
+                method: 'GET',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                }
+
+            })
+                .then(res => res.json())
+                .then(json => {
+                    let animalService = document.querySelector('#animalType');
+                    animalService.innerHTML = '<option selected disabled>Please select</option>';
+                    let priceLabel = document.querySelector('#priceLabel');
+                    json.data.prices.forEach(animalType => {
+                        let option = document.createElement('option');
+                        option.value = animalType.id;
+                        console.log(option);
+                        option.textContent = animalType.animal.name;
+                        console.log(option);
+                        option.dataset.price = animalType.price; // Store price as a data attribute
+
+                        animalService.appendChild(option);
+                    });
+
+
+                    // Add event listener to update the price when a new animal type is selected
+                    animalService.addEventListener('change', (event) => {
+                        const selectedOption = event.target.selectedOptions[0];
+                        console.log(selectedOption);
+
+                        // Display the price from the selected option's data-price attribute
+                        priceLabel.value = selectedOption ? `$${selectedOption.dataset.price}` : '';
+                    });
+
+                });
+
+
+
+        }
+        function transaction(linkTransaction, serviceID) {
+
+
+            let formData = new FormData();
+            formData.append('transaction_file', linkTransaction)
+
+            console.log('transaction file', formData);
+
+
+            fetch('https://mps4.chandalen.dev/api/books/transaction-file/' + serviceID, {
+                method: 'POST',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                },
+                body: formData
+            })
+                .then(res => res.json())
+                .then(json => {
+                    console.log(json)
+                    // if(json.result=== true){
+                    //     alert(json.message)
+                    // }else{
+                    //     alert(json.message)
+                    // }
+                })
+        }
+
+
+
+        function booking() {
+            let linkTransaction = document.querySelector('#tran-link').files[0];
+            let dateTime = document.querySelector('#dateTime').value;
+
+            console.log(linkTransaction);
+            console.log(dateTime);
+
+            if (!dateTime) {
+                return
+            }
+
+
+
+            let formData = new FormData();
+            formData.append('service_price_id', serviceID)
+            formData.append('come_date', dateTime)
+
+            fetch('https://mps4.chandalen.dev/api/books', {
+                method: 'POST',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                },
+                body: formData
+            })
+                .then(res => res.json())
+                .then(json => {
+
+                    if (json.result === true) {
+                        console.log(json.message)
+                        // alert(json.message)
+
+                        let data_id = json.data.id;
+                        console.log('ID buyer ', data_id);
+                        transaction(linkTransaction, data_id);
+                        // console.log(json)
+                        swal({
+                            title: "Booking successfully!",
+                            text: "You clicked the button!",
+                            icon: "success",
+                            button: "Back!",
+                        }).then((value) => {
+                            location.href = 'http://127.0.0.1:5502/../pages/petGrooming.html'
+                        });
+
+                    } else {
+                        console.log(json.message)
+                        alert(json.message)
+                    }
+                })
+
+        }
+        document.querySelector('#btn-book').addEventListener('click', () => {
+
+            booking();
+        })
+    </script>
+
+    <script>
+        $('#input').datetimepicker({
+            uiLibrary: 'bootstrap4',
+            modal: true,
+            footer: true
+        });
+    </script>
+    <!-- Modal -->
+
+</body>
+
+</html>
