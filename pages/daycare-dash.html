@@ -1213,24 +1213,7 @@
 										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
 								</svg>
 							</div>
-							<span class="nav-text">Grooming</span>
-						</a>
-					</li>
-					<li>
-						<a href="../pages/daycare-dash.html" aria-expanded="false">
-							<div class="menu-icon">
-								<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path d="M6.64111 13.5497L9.38482 9.9837L12.5145 12.4421L15.1995 8.97684"
-										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
-									<ellipse cx="18.3291" cy="3.85021" rx="1.76201" ry="1.76201" stroke="#888888"
-										stroke-linecap="round" stroke-linejoin="round" />
-									<path
-										d="M13.6808 2.86012H7.01867C4.25818 2.86012 2.54651 4.81512 2.54651 7.57561V14.9845C2.54651 17.7449 4.22462 19.6915 7.01867 19.6915H14.9058C17.6663 19.6915 19.3779 17.7449 19.3779 14.9845V8.53213"
-										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
-							</div>
-							<span class="nav-text">Daycare</span>
+							<span class="nav-text">Appointment</span>
 						</a>
 					</li>
 					<li>
@@ -1428,9 +1411,9 @@
 														<th>ID</th>
 														<th>Client</th>
 														<th>Phone Number</th>
-														<th>Pet</th>
 														<th>Service types</th>
 														<th>Transaction</th>
+														<th>Days</th>
 														<th>Price</th>
 														<th>Status</th>
 														<th class="text-center">Actions</th>
@@ -1471,41 +1454,7 @@
 															</span>
 														</td>
 													</tr>
-													<!-- <tr>
-														<td><span>Mr Hong</span></td>
-														<td>
-															<span class="text-primary">+91 123 456 7890</span>
-														</td>
-														<td><span class="text-purple">Poodle US</span></td>
-														<td>
-															<span class="">Len Len</span>
-														</td>
-														<td>
-															<span class="text-success">15 Kilo</span>
-														</td>
-														<td>
-															<span class="text-blue">5 Years</span>
-														</td>
-														<td>
-															<span class="">Daycare</span>
-														</td>
-														<td>
-															<span class="badge badge-success light border-0">100%</span>
-														</td>
-														<td>
-															<span class="">
-
-																<button type="button"
-																	class="btn btn-danger btn-icon-md px-4 rounded-5 btn-icon-xs"><i
-																		class="fa-sharp fa-solid fa-bell"></i> Set
-																	Reminder</button>
-
-															</span>
-														</td>
-													</tr> -->
-
-
-
+												
 												</tbody>
 
 											</table>
@@ -1832,7 +1781,7 @@
 					// console.log(json)
 					// 
 					json.data.forEach(element => {
-						if (element.status !== 2 && element.status !== 3 || element.pet_care_service?.id !== 8) {
+						if (element.status !== 2 && element.status !== 3 && element.pet_care_service?.id == 8) {
 							row += `
 					<div class="col-xl-4">
 						<div class="card">
@@ -1847,7 +1796,7 @@
 									</div>
 									<div class="col-auto">
 										<p class="fs-6 mb-0 text-purple">
-											 ${ element?.price?.service?.title || 'No Service Title'}
+											 ${element?.pet_care_service?.title || 'No Service Title'}
 										</p>
 										<p class="fs-6 mb-0">
 											<span class="fs-12 badge light badge-success rounded-5">${element?.come_date || 'No Date'}</span>
@@ -1862,7 +1811,7 @@
 									</div>
 									<div class="col-6">
 										<p class="text-start online-type">
-											${element?.price?.animal?.name || 'Unknown Animal'}
+											${  element?.pet_care_animal?.name  }
 										</p>
 									</div>
 									<div class="col-6 text-dark fw-bold">
@@ -1998,30 +1947,40 @@
 					// console.log(json)
 					// 
 					json.data.forEach(element => {
-						if ( (element.status == 2 || element.status == 3)  && element.pet_care_service?.id !== 8 ) {
+						if ( (element.status == 2 || element.status == 3)  && element.pet_care_service?.id == 8 ) {
 							row += `
+                            
             <tr>
                 <td><span>${element.id}</span></td>
                 <td><span class="text-purple">${element.buyer?.first_name || 'N/A'} ${element.buyer?.last_name || ''}</span></td>
                 <td>
                     <span class="text-primary">${element.buyer?.phone || 'N/A'}</span>
                 </td>
+      
                 <td>
-                    <span class="">${element.price?.animal?.name || 'N/A'}</span>
-                </td>
-                <td>
-                    <span class="text-blue">${element.price?.service?.title || 'N/A'}</span>
+                    <span class="text-blue">${element.pet_care_service.title || 'N/A'}</span>
                 </td>
                 <td>
                     <span class="text-success">${element.transaction_file ? 'QR Code' : 'N/A'}</span>
                 </td>
+                          <td>
+                   <span class="">
+                     ${ 
+    Math.max(
+      Math.ceil(
+        (new Date(element.pet_care_end_date).getTime() - new Date(element.pet_care_start_date).getTime()) / (1000 * 60 * 60 * 24)
+      ), 
+      1
+    )
+  }                  </span>
+                </td>
                 <td>
-                    <span class="">${element.price?.price ? `${element.price.price}$` : 'N/A'}</span>
+                    <span class="">${element.pet_care_price || 'N/A'}$</span>
                 </td>
                 <td>
                     <span class="badge ${element.status === 3 ? 'badge-danger' : 'badge-success'} light border-0">
                         ${element.status === 3 ? 'Declined' : 'Approved'}
-                    </span>
+                    </span> 
                 </td>
                 <td>
                     <button type="button" class="btn btn-danger btn-icon-md px-4 rounded-5 btn-icon-xs">
@@ -2039,6 +1998,8 @@
 				})
 		}
 
+
+	
 	</script>
 	<!--**********************************
         Main wrapper end
