@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +21,7 @@
             padding-top: 10px;
 
         }
+
         header.sticky {
             /* padding: 5px 110px; */
             background-color: #ffff;
@@ -27,6 +29,7 @@
 
             box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
         }
+
         header {
             color: black;
         }
@@ -41,10 +44,12 @@
             color: white;
             transition: all 0.3s;
         }
+
         .form-logAndris .separator div {
             position: absolute;
             /* background-color: #ffffff; */
         }
+
         .form-logAndris .socail-btn {
             display: flex;
             align-items: center;
@@ -58,6 +63,7 @@
             transition: background-color 0.3s ease;
             gap: 10px;
         }
+
         .form-logAndris .socail-btn img {
             width: 20px;
             height: 20px;
@@ -76,10 +82,12 @@
             color: #aaa;
             pointer-events: none;
         }
+
         .form-control {
             font-size: 15px;
             height: 40px;
         }
+
         .style-login {
             display: flex;
             justify-content: center;
@@ -88,6 +96,7 @@
             background-color: blue;
 
         }
+
         /* .img-login {
             border-radius: 0px 10px 10px 0px;
             filter: brightness(70%);
@@ -136,17 +145,20 @@
             text-align: center;
             border-radius: 10px;
         }
-        header .btn-login{
+
+        header .btn-login {
             border: 2px solid #f49943;
             background-color: black;
             color: white;
         }
-        header .btn-login:hover{
+
+        header .btn-login:hover {
             color: #e2e2e2;
             background-color: #141414;
         }
     </style>
 </head>
+
 <body class="overflow-x-hidden">
     <header class="bg-black">
         <nav class="navbar navbar-expand-lg z-3">
@@ -156,9 +168,9 @@
                 </a>
                 <div class="d-flex align-items-center ">
                     <div class="d-flex align-items-center">
-                        <button class="py-2 px-4 rounded-2  btn-login  ms-3 " id="login" type="button"
+                        <button class="py-2 px-4 rounded-2  color-bg text-white border-0 ms-3 " id="login" type="button"
                             onclick="window.location.href='../pages/login.html';">Login</button>
-                        <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="login" type="button"
+                        <button class="btn rounded-2 btn-login ms-3 " id="login" type="button"
                             onclick="window.location.href='../pages/signup.html';">Sign up</button>
                         <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
 
@@ -193,28 +205,28 @@
                                                 <div class="form-group position-relative">
                                                     <input type="text" class="form-control mt-3 input-with-icon"
                                                         id="first_name" name="first_name" required
-                                                        placeholder="Your first name">
+                                                        placeholder="Fisrtname">
                                                     <i class="fa-solid fa-user icon-position"></i>
-                                                   
+
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group position-relative">
                                                     <input type="text" class="form-control mt-3 input-with-icon"
                                                         id="last_name" name="last_name" required
-                                                        placeholder="Your last name">
+                                                        placeholder="Lastname">
                                                     <i class="fa-solid fa-user icon-position"></i>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group position-relative">
                                             <input type="email" class="form-control mt-3 input-with-icon" id="email"
-                                                name="email" required placeholder="Your email">
+                                                name="email" required placeholder="Email address">
                                             <i class="fa-solid fa-envelope icon-position"></i>
                                         </div>
                                         <div class="form-group position-relative">
                                             <input type="password" class="form-control mt-3 input-with-icon"
-                                                id="password" name="password" required placeholder="Your password">
+                                                id="password" name="password" required placeholder="Password">
                                             <i class="fa-solid fa-lock icon-position"></i>
                                         </div>
                                         <div class="form-group position-relative">
@@ -224,14 +236,12 @@
                                             <i class="fa-solid fa-lock icon-position"></i>
                                         </div>
                                         <div class="form-group mt-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input bg-secondary" type="checkbox"
-                                                    id="rememberMe" required>
-                                                <label class="form-check-label text-black" for="rememberMe">
-                                                    I agree to all <a href="#" class="color-text">term of conditions</a> and <a href="#"
-                                                        class="color-text"> pricavy & policy</a>.
-                                                </label>
+                                            <div class="check-box">
+                                                <input type="checkbox" class="form-check-input " id="rememberMe" required>
+                                                <label class="form-check-label text-black" for="remember">Remember
+                                                    me</label>
                                             </div>
+
                                         </div>
                                         <div class="form-group mt-3 btn-login">
                                             <input type="submit" class="btn btn-warning" value="Signup">
@@ -240,19 +250,22 @@
                                             <!-- <p class="text-black">Or register with</p> -->
                                             <div class="position-absolute bg-white p-2">Or register with</div>
                                         </div>
-                                        <div class="d-flex">
-                                            <div class="col-6 p-2 rounded-3" style="border:2px solid #4267b2;">
-                                                <img src="../images/login and signup/facebookk.png" alt="" width="20">
-                                                <span class="fs-6">Login with Facebook</span>
-                                            </div>
-                                            <div class="col-6 p-2 rounded-3" style="border:2px solid #bbbbbb;">
-                                                <img src="../images/login and signup/googlee.png" alt="" width="20">
-                                                <span class="fs-6">Login with Google</span>
-                                            </div>
+                                        <div class="login-with-socail">
+                                            <a href="#" class="socail-btn">
+                                                <img src="../images/login and signup/facebookk.png" alt="Facebook">
+                                                <p class="text-black">Facebook</p>
+                                            </a>
+                                        </div>
+                                        <div class="login-with-socail mt-3">
+                                            <a href="#" class="socail-btn">
+                                                <img src="../images/login and signup/googlee.png" alt="Google">
+                                                <p class="text-black">Google</p>
+                                            </a>
                                         </div>
                                         <div class="form-group mt-3">
                                             <p class="text-center mb-0 text-black">Already have an account? <a
-                                                    href="../pages/login.html" class="text-decoration-none color-text">Login</a>
+                                                    href="../pages/login.html"
+                                                    class="text-decoration-none color-text">Log In</a>
                                             </p>
                                         </div>
                                         <div id="errorMessages" class="text-danger text-center"></div>
@@ -260,8 +273,8 @@
 
                                 </div>
                             </div>
-                            <div
-                                class="col-5 d-none d-lg-flex m-0 position-relative flex-column justify-content-center align-items-center" style="background-image: url(../images/img-pet/sign-up.png); background-position: center; background-size: cover;">
+                            <div class="col-5 d-none d-lg-flex m-0 position-relative flex-column justify-content-center align-items-center"
+                                style="background-image: url(../images/img-pet/sign-up.png); background-position: center; background-size: cover;">
 
                             </div>
                         </div>
@@ -288,7 +301,7 @@
             </div>
         </section>
     </footer>
-    
+
     <script>
         function getdata() {
             let gmail = document.querySelector('#email').value;

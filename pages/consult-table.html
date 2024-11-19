@@ -5,7 +5,7 @@
 
 <head>
 	<!-- Title -->
-	<title>W3CRM - Bootstrap Admin Dashboard Template</title>
+	<title>PetZone-Dashboard</title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -72,7 +72,7 @@
             Nav header start
         ***********************************-->
 		<div class="nav-header">
-			<a href="../dashboard-main.html" class="brand-logo">
+			<a href="../pages/dashboard-main.html" class="brand-logo">
 				<img src="../images/img-pet/logo/PetZone (2).png" style="width: 80px;" alt="">
 			</a>
 			<div class="nav-control">
@@ -977,23 +977,23 @@
 										data-bs-toggle="dropdown" aria-expanded="false">
 										<div class="header-info2 d-flex align-items-center">
 											<div class="header-media">
-												<img src="images/tab/1.jpg" alt="">
+												<img class="profile-admin" src="" alt="">
 											</div>
 											<div class="header-info">
-												<h6>Thomas Fleming</h6>
-												<p>info@gmail.com</p>
+												<h6 class="fullname">Kimhong</h6>
+												<p class="fgmail">info@gmail.com</p>
 											</div>
 
 										</div>
 									</a>
-									<div class="dropdown-menu dropdown-menu-end" style="">
+									<div class="dropdown-menu dropdown-menu-end">
 										<div class="card border-0 mb-0">
 											<div class="card-header py-2">
 												<div class="products">
-													<img src="images/tab/1.jpg" class="avatar avatar-md" alt="">
+													<img src="" class="profile-admin avatar avatar-md" alt="">
 													<div>
-														<h6>Thomas Fleming</h6>
-														<span>Web Designer</span>
+														<h6 class="fullname"></h6>
+														<span id="admin">Web Designer</span>
 													</div>
 												</div>
 											</div>
@@ -1120,7 +1120,7 @@
 						</a>
 						<ul aria-expanded="false">
 							<li><a href="../pages/dashboard-main.html">Dashboard Light</a></li>
-							<li><a href="../pages/index-2.html">Dashboard Dark</a></li>
+							<li><a href="../pages//index-2.html">Dashboard Dark</a></li>
 						</ul>
 					</li>
 					<li>
@@ -1169,7 +1169,24 @@
 										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
 								</svg>
 							</div>
-							<span class="nav-text">Appointment</span>
+							<span class="nav-text">Grooming</span>
+						</a>
+					</li>
+					<li>
+						<a href="../pages/daycare-dash.html" aria-expanded="false">
+							<div class="menu-icon">
+								<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path d="M6.64111 13.5497L9.38482 9.9837L12.5145 12.4421L15.1995 8.97684"
+										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+									<ellipse cx="18.3291" cy="3.85021" rx="1.76201" ry="1.76201" stroke="#888888"
+										stroke-linecap="round" stroke-linejoin="round" />
+									<path
+										d="M13.6808 2.86012H7.01867C4.25818 2.86012 2.54651 4.81512 2.54651 7.57561V14.9845C2.54651 17.7449 4.22462 19.6915 7.01867 19.6915H14.9058C17.6663 19.6915 19.3779 17.7449 19.3779 14.9845V8.53213"
+										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+							</div>
+							<span class="nav-text">Daycare</span>
 						</a>
 					</li>
 					<li>
@@ -1247,11 +1264,6 @@
 								</svg>
 							</div>
 							<span class="nav-text">Feedback</span>
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-								data-bs-target="#exampleModal">
-								PRice
-							</button>
-
 
 						</a>
 						<ul aria-expanded="false">
@@ -1264,8 +1276,6 @@
 
 			</div>
 		</div>
-
-
 		<!--**********************************
             Sidebar end
         ***********************************-->
@@ -1597,45 +1607,8 @@
 
 
 	</div>
+	<script src="../js/dashboard/admin.js"></script>
 	<script>
-		console.log(sessionStorage.getItem('adminToken'))
-		let authToken = sessionStorage.getItem('adminToken')
-
-
-		if (!authToken) {
-			location.href = 'http://127.0.0.1:5502/../index.html';
-		}
-
-		function logOut() {
-			fetch('https://mps4.chandalen.dev/api/logout', {
-				method: 'DELETE',
-				headers: {
-					'Accept': "application/json",
-					'Authorization': `Bearer ${authToken}`
-				}
-
-
-			})
-				.then(res => res.json())
-				.then(json => {
-					if (json.result === true) {
-						sessionStorage.removeItem('authToken');
-						console.log(json.message);
-						alert(json.message)
-						location.href = 'http://127.0.0.1:5502/../index.html';
-					} else {
-						alert(json.message);
-					}
-				})
-		}
-		document.querySelector('#logout').addEventListener('click', () => {
-			logOut()
-		})
-
-
-
-
-
 		getClients()
 		function getClients() {
 			let row = '';
@@ -1694,7 +1667,7 @@
 					document.querySelector('.tbody').innerHTML = row;
 				})
 		}
- 
+
 	</script>
 	<!--**********************************
         Main wrapper end
