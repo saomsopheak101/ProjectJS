@@ -1531,38 +1531,54 @@
 						onclick="handleAnimalAction()">Save</button>
 				</div>
 			</div>
-			<!-- Modal for Editing Service Price -->
+			<!-- Modal for Editing/Adding Service Price -->
 			<div class="modal fade" id="editPriceModal" tabindex="-1" aria-labelledby="editPriceModalLabel"
 				aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
+						<!-- Modal Header -->
 						<div class="modal-header">
-							<h5 class="modal-title"> Price Service<span id="edit-service-title"></span></h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+							<h5 class="modal-title" id="editPriceModalLabel">Price Service <span
+									id="edit-service-title"></span></h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
+
+						<!-- Modal Body -->
 						<div class="modal-body">
-							<div class="mb-3">
-								<label for="service_id" class="form-label">Service ID</label>
-								<input type="text" id="service_id" class="form-control" required>
-							</div>
-							<div class="mb-3">
-								<label for="animal_id" class="form-label">Type of Pet</label>
-								<input type="text" id="animal_id" class="form-control" required>
-							</div>
-							<div class="mb-3">
-								<label for="price" class="form-label">New Price</label>
-								<input type="text" id="price" class="form-control" required>
-							</div>
+							<form id="priceForm">
+								<!-- Service ID -->
+								<div class="mb-3">
+									<label for="service_id" class="form-label">Service ID</label>
+									<input type="text" id="service_id" class="form-control"
+										placeholder="Enter Service ID" readonly>
+								</div>
+
+								<!-- Animal ID -->
+								<div class="mb-3">
+									<label for="animal_id" class="form-label">Type of Pet</label>
+									<input type="text" id="animal_id" class="form-control"
+										placeholder="Enter Animal Type">
+								</div>
+
+								<!-- New Price -->
+								<div class="mb-3">
+									<label for="price" class="form-label">New Price</label>
+									<input type="number" id="price" class="form-control" placeholder="Enter Price">
+								</div>
+							</form>
 						</div>
+
+						<!-- Modal Footer -->
 						<div class="modal-footer">
-							<button type="button" class="btn btn-primary" onclick="updatePrice()">AddPrice</button>
+							<button type="button" class="btn btn-primary" id="savePriceBtn">Add Price</button>
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			
+
+
 		</div>
 
 		<div class="offcanvas offcanvas-end customeoff" tabindex="-1" id="offcanvasExample1">
@@ -1683,7 +1699,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 	<!--**********************************
         Main wrapper end
@@ -1729,8 +1744,12 @@
                         <button class="btn btn-info btn-icon-xs" onclick="viewService(${service.id})"><i class="fa fa-eye"></i></button>
                         <button class="btn btn-primary btn-icon-xs" onclick="UpdateService(${service.id})"><i class="fa fa-pen"></i></button>
                         <button class="btn btn-danger btn-icon-xs" onclick="deleteService(${service.id})"><i class="fa fa-trash"></i></button>
-                        <button class="btn btn-warning btn-icon-xs" onclick="AddPrice(${service.id})"><i class="fa-solid fa-user-plus"></i> $</button>
-						<button class="btn btn-success btn-icon-xs" onclick="UpdatePrice(${service.id})"><i class="fa-solid fa-pen-to-square"></i>$</button>
+                        <button class="btn btn-warning btn-icon-xs" onclick="showAddPriceModal(${service.id})"><i class="fa-solid fa-user-plus"></i> $</button>
+<button 
+  class="btn btn-success btn-icon-xs" 
+  onclick="showUpdatePriceModal(service.prices[0]?.id)">
+  <i class="fa-solid fa-pen-to-square"></i> $
+</button>
                     </td>
                 </tr>`;
 					});
@@ -1838,10 +1857,27 @@
 		}
 
 
-		
-		function AddPrice(id) {
-			fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
-				method: 'POST',
+
+		function showAddPriceModal(serviceId) {
+			// Reset fields and update modal title
+			document.getElementById("editPriceModalLabel").innerText = "Add Price";
+			document.getElementById("service_id").value = serviceId;
+			document.getElementById("animal_id").value = ""; // Clear for new entry
+			document.getElementById("price").value = ""; // Clear for new price
+
+			// Update Save button functionality
+			const saveBtn = document.getElementById("savePriceBtn");
+			saveBtn.innerText = "Add Price"; // Button label
+			saveBtn.onclick = () => AddPrice();
+
+			// Show the modal
+			const modal = new bootstrap.Modal(document.getElementById("editPriceModal"));
+			modal.show();
+		}
+		function showUpdatePriceModal(serviceId) {
+			// Fetch the current service details
+			fetch(`https://mps4.chandalen.dev/api/services/${serviceId}`, {
+				method: 'GET',
 				headers: {
 					'Accept': 'application/json',
 					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
@@ -1850,25 +1886,103 @@
 				.then(response => response.json())
 				.then(service => {
 					if (service.result) {
-						document.getElementById('service_id').value = service.data.id;
-						document.getElementById('animal_id').value = service.data.animal_id;
-						document.getElementById('edit-service-title').innerText = service.data.name || '';
-						document.getElementById('price').value = service.data.prices[0]?.price || ''; 
+						document.getElementById("editPriceModalLabel").innerText = "Update Price";
+						document.getElementById("service_id").value = service.data.id;
+						document.getElementById("animal_id").value = service.data.animal_id || "";
+						document.getElementById("price").value = service.data.prices[0]?.price || ""; // Populate price
+
+						// Update Save button functionality
+						const saveBtn = document.getElementById("savePriceBtn");
+						saveBtn.innerText = "Update Price";
+						saveBtn.onclick = () => UpdatePrice(serviceId);
 
 						// Show the modal
-						const editModal = new bootstrap.Modal(document.getElementById('editPriceModal'));
-						editModal.show();
+						const modal = new bootstrap.Modal(document.getElementById("editPriceModal"));
+						modal.show();
 					} else {
 						alert("Failed to load service details.");
 					}
 				})
-				.catch(error => console.error("Error fetching service for editing:", error));
+				.catch(error => console.error("Error fetching service:", error));
 		}
+		function AddPrice() {
+			const serviceId = document.getElementById("service_id").value;
+			const animalId = document.getElementById("animal_id").value;
+			const price = document.getElementById("price").value;
 
-		function UpdatePrice() {
-			//method: 'PU',
+			if (!price) {
+				alert("Please enter a valid price.");
+				return;
+			}
 
+			fetch("https://mps4.chandalen.dev/api/services/price", {
+				method: "POST",
+				headers: {
+					"Accept": "application/json",
+					"Content-Type": "application/json",
+					"Authorization": `Bearer ${sessionStorage.getItem('adminToken')}`
+				},
+				body: JSON.stringify({
+					service_id: serviceId,
+					animal_id: animalId,
+					price: price
+				})
+			})
+				.then(response => response.json())
+				.then(result => {
+					if (result.result) {
+						alert("Price added successfully!");
+						const modal = bootstrap.Modal.getInstance(document.getElementById("editPriceModal"));
+						modal.hide();
+						location.reload(); // Reload or refresh UI
+					} else {
+						alert("Failed to add price.");
+					}
+				})
+				.catch(error => console.error("Error adding price:", error));
 		}
+		function UpdatePrice(priceId) {
+    const serviceId = document.getElementById("service_id").value;
+    const animalId = document.getElementById("animal_id").value;
+    const price = document.getElementById("price").value;
+
+    if (!price) {
+        alert("Please enter a valid price.");
+        return;
+    }
+
+    // Log the payload for debugging
+    console.log("Updating price with payload:", { service_id: serviceId, animal_id: animalId, price });
+
+    fetch(`https://mps4.chandalen.dev/api/services/price/${priceId}`, {
+        method: "PUT",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${sessionStorage.getItem('adminToken')}`
+        },
+        body: JSON.stringify({
+            service_id: serviceId,
+            animal_id: animalId,
+            price: price
+        })
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log("API Response:", result); // Debug response
+
+        if (result.result) {
+            alert("Price updated successfully!");
+            const modal = bootstrap.Modal.getInstance(document.getElementById("editPriceModal"));
+            modal.hide();
+            location.reload(); // Reload or refresh UI
+        } else {
+            alert(`Failed to update price: ${result.message || 'Unknown error'}`);
+        }
+    })
+    .catch(error => console.error("Error updating price:", error));
+}
+
 
 
 
