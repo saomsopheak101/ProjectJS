@@ -29,7 +29,6 @@
  .c-img {
      height: 100%;
      object-fit: cover;
-     /* filter: brightness(35%); */
      z-index: 0;
  }
 
@@ -86,10 +85,10 @@
      color: black;
  }
 
+
  .navbar .dropdown .dropdown-menu {
      border: 0 !important;
      box-shadow: 1px rgba(0, 0, 0, 0.058);
-
  }
 
 
@@ -121,20 +120,18 @@
      padding-inline: 1.5rem !important;
  }
 
-
-
  .navbar .dropdown .dropdown-menu .dropdown-item {
      font-size: 20px !important;
      font-weight: 400;
  }
 
- .navbar .dropdown .dropdown-menu {
+ .navbar .dropdown:not(.megamenu) .dropdown-menu {
      top: 60px;
-     background-color: transparent;
+     /* background-color: #; */
      padding: 0.75rem !important;
  }
 
- .navbar .dropdown-center .dropdown-menu .dropdown-item:hover {
+ .navbar .dropdown:not(.megamenu) .dropdown-menu .dropdown-item:hover {
      color: #f49943 !important;
      background-color: transparent !important;
  }
@@ -237,6 +234,7 @@
  .home-page .gallery .box img {
      transition: .8s;
  }
+
 
  .home-page .servise .card {
      background: rgba(255, 255, 255, 0.8);
@@ -551,13 +549,6 @@
      color: rgb(50, 49, 49) !important;
  }
 
- .card .card-header img {
-     width: 120px;
-     height: 120px;
-     border-radius: 50%;
-     border: 2px solid #f49943;
- }
-
  .setting-sidebar .card {
      font-size: 18px;
      box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
@@ -587,6 +578,166 @@
      margin-left: 20%;
  }
 
+
+ .setting-sidebar .nav .nav-item .nav-link:hover {
+     color: #f49943;
+ }
+
+ .setting-sidebar .nav .nav-item .nav-link.active {
+     color: #f49943;
+     border-left: 4px solid #f49943;
+
+     /* border-radius: 6px; */
+ }
+
+ .profile-page .edit-profile {
+     padding-top: 9% !important;
+ }
+
+ .profile-page .btn-edit-1:hover {
+     background-color: #f49943ce;
+     color: #fff;
+ }
+.profile-page .btn-edit-1{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ .profile-page .col-form-label {
+     text-wrap: nowrap;
+     font-size: 18px !important;
+ }
+
+ .profile-page .img-pro-1 img {
+     width: 100px !important;
+     height: 100px;
+     border-radius: 50%;
+ }
+
+ .home-page .text-banner {
+     width: 700px;
+     height: 300px;
+     /* background-color: #000; */
+     position: absolute;
+     z-index: 3;
+     top: 0;
+     bottom: 0;
+     margin: auto;
+ }
+
+ .home-page .text-banner .btn-book {
+     /* padding: 10px 35px; */
+     width: 120px;
+     height: 40px;
+     margin-top: 10px;
+ }
+
+ .about-us-page .circle-img img {
+     width: 90px;
+     height: 90px;
+     border-radius: 50%;
+ }
+
+ .imge-profe img {
+     width: 100%;
+     height: 250px;
+     object-fit: cover;
+     border-radius: 0px 0px 150px 150px;
+ }
+
+ .about-us-page .app i {
+     width: 40px;
+     height: 40px;
+     background-color: #f49943;
+     border-radius: 50%;
+     text-align: center;
+     line-height: 40px;
+     color: #fff;
+ }
+
+ .about-us-page .professionals {
+     width: 100%;
+     height: 100%;
+     background-color: #f4994354;
+     padding: 60px 0;
+ }
+
+ .about-us-page .feedback-about .imge-style {
+     width: 200px;
+     height: 200px;
+     position: relative;
+ }
+
+ .about-us-page .feedback-about .imge-style img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     border-radius: 50%;
+ }
+
+ .sub-imge {
+     width: 100px !important;
+     height: 100px !important;
+     margin-top: -35%;
+     margin-left: 50%;
+ }
+
+ .profile-book {
+     padding-top: 9%;
+ }
+
+ .btn-book {
+     width: 120px;
+     height: 40px;
+ }
+
+ .setting-sidebar {
+     width: 360px;
+ }
+
+ .imge-not {
+     width: 120px;
+     height: 120px;
+     border-radius: 50%;
+ }
+
+.img-pro img {
+     width: 120px;
+     height: 120px;
+     border-radius: 50%;
+     position: relative;
+     margin: auto;
+     /* display: block; */
+     /* border: 2px solid #f49943; */
+
+ }
+
+ .icon-delete {
+     width: 120px;
+     height: 120px;
+     top: 0;
+     left: 0;
+     position: absolute;
+     background: rgba(0, 0, 0, 0.6);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 50%;
+     margin-left: 109px;
+     margin-top: 32px;
+    opacity: 0;
+    
+
+ }
+
+ .img-pro:hover .icon-delete {
+     opacity: 1;
+     /* background-color: #f49943; */
+     /* z-index: 22; */
+ }
  .setting-sidebar .nav .nav-item .nav-link:hover {
      color: #f49943;
  }
@@ -748,6 +899,7 @@
     z-index: -1;
     opacity: 0.15;
 } */
+
  footer .top-footer .content-left .logo-lg-img {
      width: 75%;
  }
