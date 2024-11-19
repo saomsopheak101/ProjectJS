@@ -1835,8 +1835,8 @@
 
 		
 		function AddPrice(id) {
-			// Fetch specific service data to pre-fill the form
 			fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
+				method: 'POST',
 				headers: {
 					'Accept': 'application/json',
 					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
@@ -1845,11 +1845,10 @@
 				.then(response => response.json())
 				.then(service => {
 					if (service.result) {
-						// Populate modal fields with the current service information
 						document.getElementById('service_id').value = service.data.id;
-						document.getElementById('animal_id').value = service.data.animal_id; // Adjust based on your data structure
+						document.getElementById('animal_id').value = service.data.animal_id;
 						document.getElementById('edit-service-title').innerText = service.data.name || '';
-						document.getElementById('price').value = service.data.prices[0]?.price || ''; // Handle empty arrays
+						document.getElementById('price').value = service.data.prices[0]?.price || ''; 
 
 						// Show the modal
 						const editModal = new bootstrap.Modal(document.getElementById('editPriceModal'));
@@ -1862,36 +1861,8 @@
 		}
 
 		function UpdatePrice() {
-			const id = document.getElementById('service_id').value;
-			const newPrice = document.getElementById('price').value;
+			//method: 'PUT',
 
-			if (!newPrice || isNaN(newPrice)) {
-				alert('Please enter a valid price.');
-				return;
-			}
-
-			const formData = new FormData();
-			formData.append('price', newPrice);
-			formData.append('_method', 'PUT');
-
-			fetch(`https://mps4.chandalen.dev/api/services/price/${id}`, {
-				method: 'POST',
-				headers: {
-					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
-				},
-				body: formData
-			})
-				.then(response => response.json())
-				.then(result => {
-					if (result.result) {
-						alert(result.message);
-						AllService(); // Refresh the service list if this function is defined
-						bootstrap.Modal.getInstance(document.getElementById('editPriceModal')).hide();
-					} else {
-						alert(result.message || 'Failed to update price.');
-					}
-				})
-				.catch(error => console.error("Error updating service price:", error));
 		}
 
 
