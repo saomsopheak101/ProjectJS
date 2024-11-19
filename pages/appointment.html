@@ -1020,7 +1020,7 @@
 										data-bs-toggle="dropdown" aria-expanded="false">
 										<div class="header-info2 d-flex align-items-center">
 											<div class="header-media">
-												<img class="profile-admin" src="images/tab/1.jpg" alt="">
+												<img class="profile-admin" src="" alt="">
 											</div>
 											<div class="header-info">
 												<h6 class="fullname">Kimhong</h6>
@@ -1033,7 +1033,7 @@
 										<div class="card border-0 mb-0">
 											<div class="card-header py-2">
 												<div class="products">
-													<img src="images/tab/1.jpg" class="profile-admin avatar avatar-md"
+													<img src="" class="profile-admin avatar avatar-md"
 														alt="">
 													<div>
 														<h6 class="fullname"></h6>
@@ -1213,7 +1213,24 @@
 										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
 								</svg>
 							</div>
-							<span class="nav-text">Appointment</span>
+							<span class="nav-text">Grooming</span>
+						</a>
+					</li>
+					<li>
+						<a href="../pages/daycare-dash.html" aria-expanded="false">
+							<div class="menu-icon">
+								<svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path d="M6.64111 13.5497L9.38482 9.9837L12.5145 12.4421L15.1995 8.97684"
+										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+									<ellipse cx="18.3291" cy="3.85021" rx="1.76201" ry="1.76201" stroke="#888888"
+										stroke-linecap="round" stroke-linejoin="round" />
+									<path
+										d="M13.6808 2.86012H7.01867C4.25818 2.86012 2.54651 4.81512 2.54651 7.57561V14.9845C2.54651 17.7449 4.22462 19.6915 7.01867 19.6915H14.9058C17.6663 19.6915 19.3779 17.7449 19.3779 14.9845V8.53213"
+										stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+							</div>
+							<span class="nav-text">Daycare</span>
 						</a>
 					</li>
 					<li>
@@ -1815,7 +1832,7 @@
 					// console.log(json)
 					// 
 					json.data.forEach(element => {
-						if (element.status !== 2 && element.status !== 3) {
+						if (element.status !== 2 && element.status !== 3 || element.pet_care_service?.id !== 8) {
 							row += `
 					<div class="col-xl-4">
 						<div class="card">
@@ -1830,7 +1847,7 @@
 									</div>
 									<div class="col-auto">
 										<p class="fs-6 mb-0 text-purple">
-											 ${element?.pet_care_service?.id === 8 ? element?.pet_care_service?.title || 'No Service Title' : element?.price?.service?.title || 'No Service Title'}
+											 ${ element?.price?.service?.title || 'No Service Title'}
 										</p>
 										<p class="fs-6 mb-0">
 											<span class="fs-12 badge light badge-success rounded-5">${element?.come_date || 'No Date'}</span>
@@ -1845,7 +1862,7 @@
 									</div>
 									<div class="col-6">
 										<p class="text-start online-type">
-											${element?.pet_care_service?.id === 8 ? element?.pet_care_animal?.name || 'Unknown Animal' : element?.price?.animal?.name || 'Unknown Animal'}
+											${element?.price?.animal?.name || 'Unknown Animal'}
 										</p>
 									</div>
 									<div class="col-6 text-dark fw-bold">
@@ -1981,7 +1998,7 @@
 					// console.log(json)
 					// 
 					json.data.forEach(element => {
-						if (element.status === 2 || element.status === 3) {
+						if ( (element.status == 2 || element.status == 3)  && element.pet_care_service?.id !== 8 ) {
 							row += `
             <tr>
                 <td><span>${element.id}</span></td>
@@ -2021,44 +2038,6 @@
 
 				})
 		}
-
-
-		// function getvalue(){
-		//     let service = Number( document.querySelector('#serviceId').value);
-		//     let animal = Number( document.querySelector('#animalId').value);
-		//     let price = Number(document.querySelector('#priceId').value);
-
-		//     console.log ( typeof service)
-		//     console.log( typeof animal)
-		//     console.log(price)
-
-		//     let formData = new FormData();
-		//     formData.append('service_id',service);
-		//     formData.append('animal_id',animal);
-		//     formData.append('price',price);
-
-		//     fetch('https://mps4.chandalen.dev/api/services/price',{
-		//         method : 'POST',
-		//         headers: {
-		//             'Accept': "application/json",
-		//             'Authorization': `Bearer ${authToken}`
-		//         },
-		// 		body:formData
-		//     })
-		// 	.then(res => res.json())
-		// 	.then(json =>{
-		// 		if(json.result === true){
-		// 			alert(json.message)
-		// 			console.log(json.message);
-		// 		}else{
-		// 			alert(json.message)
-		// 		}
-		// 	})
-
-		// }
-		// document.querySelector('#btn-action').addEventListener('click',()=>{
-		//     getvalue()
-		// })
 
 	</script>
 	<!--**********************************
