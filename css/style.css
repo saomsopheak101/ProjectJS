@@ -1597,5 +1597,27 @@
      transition: all 0.3s;
  }
 
+ .form-group.position-relative {
+    position: relative;
+}
+
+.input-with-icon {
+    padding-left: 2.5rem; /* Space for the icon */
+}
+
+.icon-position {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d; /* Icon color */
+}
+
+/* .invalid-feedback,
+.valid-feedback {
+    margin-left: 2.5rem; /* Align validation messages properly */
+} */
+ 
+
 
  /* end register */
