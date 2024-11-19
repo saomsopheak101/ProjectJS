@@ -94,8 +94,8 @@
                                         </div>
                                         <div
                                             class="d-flex flex-column align-items-center justify-content-center text-whitee">
-                                            <h5 class="mb-0">NIKI</h5>
-                                            <p>niki@gmail.com</p>
+                                            <h5 class="mb-0 firstname">NIKI</h5>
+                                            <p class="Gemail">niki@gmail.com</p>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@
                         <div class="card border-0 shadow py-4 ">
                             <div class="card-header bg-transparent mb-3">
                                 <a href="#" class="img-pro">
-                                    <img src="../images/img-pet/icon/user.png" alt="" id="profile-pic">
+                                    <img src="../images/img-pet/icon/user.png" alt="" class="changeImg">
                                 </a>
                                 <label type="button" for="profile"
                                     class="btn btn-edit color-bg btn-camera position-absolute rounded-5">
@@ -191,8 +191,8 @@
                                 </label>
                                 <input type="file" class="form-control bg-transparent d-none" id="profile"
                                     accept="image/*">
-                                <h5 class="mb-0 mt-4"> Kinki</h5>
-                                <span>Kinki@gmail.com</span>
+                                <h5 class="mb-0 mt-4 firstname"> Kinki</h5>
+                                <span class="Gemail">Kinki@gmail.com</span>
                             </div>
                             <ul class="nav">
                                 <li class="nav-item border-0">
@@ -674,11 +674,19 @@
                     document.querySelector('#Memail').value = email;
                     document.querySelector('#pnumber').value = phone;
                     document.querySelector('#address').value = address;
-                    document.querySelectorAll('.changeImg').src = avatar;
-                    document.querySelectorAll('#profile-pic').src = avatar;
-
+                    document.querySelectorAll('.changeImg').forEach(element => {
+                        element.src = avatar;
+                    });
+                    document.querySelectorAll('.firstname').forEach(element => {
+                        element.innerHTML = firstName;
+                    });
+                    document.querySelectorAll('.Gemail').forEach(element=>{
+                        element.innerHTML = email;
+                    });
+                    
                 })
         }
+        
         function deleteAcc() {
             fetch('https://mps4.chandalen.dev/api/profile/acc', {
                 method: 'DELETE',
