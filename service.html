@@ -1507,36 +1507,6 @@
 				</div>
 			</div>
 
-			<!-- Modal for Editing Service Price -->
-			<div class="modal fade" id="editPriceModal" tabindex="-1" aria-labelledby="editPriceModalLabel"
-				aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title">Edit Price for <span id="edit-service-title"></span></h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-						</div>
-						<div class="modal-body">
-							<div class="mb-3">
-								<label for="service_id" class="form-label">Service ID</label>
-								<input type="text" id="service_id" class="form-control" required>
-							</div>
-							<div class="mb-3">
-								<label for="animal_id" class="form-label">Type of Pet</label>
-								<input type="text" id="animal_id" class="form-control" required>
-							</div>
-							<div class="mb-3">
-								<label for="price" class="form-label">New Price</label>
-								<input type="text" id="price" class="form-control" required>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-primary" onclick="updatePrice()">Save changes</button>
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-						</div>
-					</div>
-				</div>
-			</div>
 			<!-- Offcanvas for adding/updating an animal -->
 			<div class="offcanvas offcanvas-end" tabindex="-1" id="animalOffcanvas"
 				aria-labelledby="animalOffcanvasLabel">
@@ -1556,10 +1526,39 @@
 						onclick="handleAnimalAction()">Save</button>
 				</div>
 			</div>
+			<!-- Modal for Editing Service Price -->
+			<div class="modal fade" id="editPriceModal" tabindex="-1" aria-labelledby="editPriceModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title"> Price Service<span id="edit-service-title"></span></h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<div class="mb-3">
+								<label for="service_id" class="form-label">Service ID</label>
+								<input type="text" id="service_id" class="form-control" required>
+							</div>
+							<div class="mb-3">
+								<label for="animal_id" class="form-label">Type of Pet</label>
+								<input type="text" id="animal_id" class="form-control" required>
+							</div>
+							<div class="mb-3">
+								<label for="price" class="form-label">New Price</label>
+								<input type="text" id="price" class="form-control" required>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" onclick="updatePrice()">AddPrice</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
 
+			
 		</div>
-
-
 
 		<div class="offcanvas offcanvas-end customeoff" tabindex="-1" id="offcanvasExample1">
 			<div class="offcanvas-header">
@@ -1725,7 +1724,8 @@
                         <button class="btn btn-info btn-icon-xs" onclick="viewService(${service.id})"><i class="fa fa-eye"></i></button>
                         <button class="btn btn-primary btn-icon-xs" onclick="UpdateService(${service.id})"><i class="fa fa-pen"></i></button>
                         <button class="btn btn-danger btn-icon-xs" onclick="deleteService(${service.id})"><i class="fa fa-trash"></i></button>
-                        <button class="btn btn-warning btn-icon-xs" onclick="Editinfo(${service.id})"><i class="fa fa-house-chimney"></i>animal-info</button>
+                        <button class="btn btn-warning btn-icon-xs" onclick="AddPrice(${service.id})"><i class="fa-solid fa-user-plus"></i> $</button>
+						<button class="btn btn-success btn-icon-xs" onclick="UpdatePrice(${service.id})"><i class="fa-solid fa-pen-to-square"></i>$</button>
                     </td>
                 </tr>`;
 					});
@@ -1831,7 +1831,10 @@
 				})
 				.catch(error => console.error("Error fetching service for update:", error));
 		}
-		function Editinfo(id) {
+
+
+		
+		function AddPrice(id) {
 			// Fetch specific service data to pre-fill the form
 			fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
 				headers: {
@@ -1845,7 +1848,7 @@
 						// Populate modal fields with the current service information
 						document.getElementById('service_id').value = service.data.id;
 						document.getElementById('animal_id').value = service.data.animal_id; // Adjust based on your data structure
-						document.getElementById('edit-service-title').innerText = service.data.name || 'Service Name';
+						document.getElementById('edit-service-title').innerText = service.data.name || '';
 						document.getElementById('price').value = service.data.prices[0]?.price || ''; // Handle empty arrays
 
 						// Show the modal
@@ -1858,7 +1861,7 @@
 				.catch(error => console.error("Error fetching service for editing:", error));
 		}
 
-		function updatePrice() {
+		function UpdatePrice() {
 			const id = document.getElementById('service_id').value;
 			const newPrice = document.getElementById('price').value;
 
@@ -1890,6 +1893,7 @@
 				})
 				.catch(error => console.error("Error updating service price:", error));
 		}
+
 
 
 		function deleteService(id) {
@@ -1945,7 +1949,6 @@
 				.catch(error => console.error("Error loading service details:", error));
 		}
 
-
 		// Run when the document is fully loaded
 		document.addEventListener('DOMContentLoaded', () => {
 			// Get all animals on page load
@@ -1990,11 +1993,6 @@
 					}
 					tbody.innerHTML = tableContent;
 				})
-				// .catch(error => {
-				// 	console.error('Error fetching animals:', error);
-				// 	alert('Failed to fetch animals. Please try again later.');
-				// 	tbody.innerHTML = '<tr><td colspan="3" class="text-center">Failed to load animals</td></tr>';
-				// });
 		}
 
 		function openUpdateOffcanvas(id, name) {
