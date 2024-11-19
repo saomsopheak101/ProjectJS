@@ -43,6 +43,7 @@
  header {
      position: fixed;
      z-index: 999;
+     /* background-color: #f49943; */
      top: 0;
      left: 0;
      width: 100%;
@@ -84,6 +85,12 @@
  header.sticky .fa-search {
      color: black;
  }
+.navbar-nav{
+    /* width: 100%; */
+
+    right: 0;
+    margin: auto;
+}
 
 
  .navbar .dropdown .dropdown-menu {
@@ -139,8 +146,10 @@
  .navbar .btn-icon {
      font-size: 1.6rem;
      border: 0;
- }
+}
 
+
+ /* Homepage */
  .home-page .about img {
      width: 100%;
  }
@@ -195,7 +204,7 @@
      animation: move 10s linear infinite;
  }
 
- @keyframes move {
+@keyframes move {
      0% {
          transform: translateX(0);
          /* Start at original position */
@@ -878,8 +887,11 @@
 
  /* ----->> Footer <<----  */
  footer {
-     background-color: rgba(0, 0, 0, 0.903);
+     background-image: url(../images/img-pet/bg-footer.jpg);
      width: 100%;
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
      /* height: 600px; */
      position: relative;
      z-index: 1;
@@ -1611,6 +1623,28 @@
      color: white;
      transition: all 0.3s;
  }
+
+ .form-group.position-relative {
+    position: relative;
+}
+
+.input-with-icon {
+    padding-left: 2.5rem; /* Space for the icon */
+}
+
+.icon-position {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d; /* Icon color */
+}
+
+/* .invalid-feedback,
+.valid-feedback {
+    margin-left: 2.5rem; /* Align validation messages properly */
+} */
+ 
 
 
  /* end register */

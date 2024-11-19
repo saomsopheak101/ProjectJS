@@ -46,7 +46,7 @@
                    profiles.style.display = 'none';
                    signup.style.display = 'inline'
                    login.style.display = 'inline';
-                    location.href = 'http://127.0.0.1:5502/home-page.html'
+                    location.href = 'http://127.0.0.1:5502/index.html'
                } else {
                    alert(json.message);
                }
