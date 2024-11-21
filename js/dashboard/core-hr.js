@@ -7,11 +7,6 @@
 	
 	var screenWidth = $(window).width();
 	let draw = Chart.controllers.line.__super__.draw; //draw shadow
-	
-	
-	
-	
-	
 	var projectChart = function(){
 		var options = {
 			series: [30, 40, 20, 10],
