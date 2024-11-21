@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../icons/fontawesome/css/all.min.css">
-    <!-- <link rel="stylesheet" href="css/bootstrap-min.css"> -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" /> -->
@@ -213,9 +213,13 @@
             <div class="container d-flex justify-content-center">
                 <div class="col-9">
                     <div class="row d-flex justify-content-center glass p-4">
-                        <form class="row align-items-center row-gap-3">
+                        <form class="row align-items-center row-gap-2">
                             <h4 class="mt-3 fw-bold">Booking information</h4>
-                            <div class="col-4">
+                            <div class="col-3">
+                                <label for="">Consultant:</label>
+                                <input type="text" class="form-control" id="employLabel" placeholder="Name" disabled>
+                            </div>
+                            <div class="col-3">
                                 <label for="">Status:</label>
                                 <select class="form-select" aria-label="Default select example" id="status" required>
                                     <option  selected disabled>Please Select</option>
@@ -237,21 +241,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-2">
                                 <label for="">Price:</label>
                                 <input type="text" class="form-control" id="priceLabel" placeholder="Price" disabled>
                             </div>
-                            <div class="col-4">
-                                <label for="">Consultant:</label>
-                                <input type="text" class="form-control" id="employLabel" placeholder="Name" disabled>
-                            </div>
+                            
                             <div class="col-12">
                                 <label for="">Description:</label>
-                                <div class="">
                                     <label for="" class="form-label"></label>
                                     <textarea class="form-control" id="description" rows="3" aria-label=""
                                         placeholder="About your pet . . . ." required></textarea>
-                                </div>
                             </div>
                             <h4 class="my-2 fw-bold">Payment</h4>
                             <div class="col-12">
