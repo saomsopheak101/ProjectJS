@@ -12,6 +12,10 @@
      background-color: rgb(255, 255, 255);
  }
 
+ button {
+     box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+ }
+
  .c-item {
      height: 85vh;
 
@@ -857,11 +861,6 @@
      padding-top: 9%;
  }
 
- .btn-book {
-     width: 120px;
-     height: 40px;
- }
-
  .setting-sidebar {
      width: 360px;
  }
@@ -1204,6 +1203,7 @@
 
  .main-training .train-banner .banner-bg,
  .grooming-banner .banner-bg,
+ .consult-banner .banner-bg,
  .daycare-banner .banner-bg {
      width: 100%;
      height: 60vh;
@@ -1217,14 +1217,21 @@
  .grooming-banner .banner-bg {
      background-image: url(../images/img-pet/pet\ grooming.png);
  }
+
  .daycare-banner .banner-bg {
      background-image: url(../images/service/pet-day-care.png);
+     background-position: center;
+ }
+
+ .consult-banner .banner-bg {
+     background-image: url(../images/service/consult-1.png);
      background-position: center;
  }
 
 
  .main-training .train-banner>.content,
  .grooming-banner>.content,
+ .consult-banner>.content,
  .daycare-banner>.content {
      width: 100%;
      height: 60vh;

@@ -48,7 +48,7 @@
         }
         .social-contact .info-box {
             background: #fff;
-            padding: 10px;
+            padding: 10px 20px;
             border-radius: 10px;
             box-shadow: rgba(0, 0, 0, 0.1) 0 2px 8px;
             margin-bottom: 15px;
@@ -87,8 +87,8 @@
             max-width: 800px;
             left: 50%;
             transform: translateX(-50%);
-            top: 15%;
-            transform: translate(-50%, -50%);
+            /* top: 20%; */
+            /* transform: translate(-50%, -50%); */
         }
         .form-contact .form-group {
             margin-bottom: 1rem;
@@ -106,7 +106,6 @@
             background-color: #e58932;
         }
         .bg-contact {
-            margin-top: 130px;
             position: relative;
             background-color: #ffe8d3;
             /* height:160vh; */
@@ -293,7 +292,7 @@
     </header>
     
     <main>
-        <section class="contact-hero_banner margin-bottom">
+        <section class="contact-hero_banner mb-5">
             <div>
                 <h1>Contact Us</h1>
                 <nav class="breadcrumb">
@@ -337,22 +336,22 @@
                 </div>
             </div>
         </section>
-        <section class="bg-contact py-5">
+        <section class="bg-contact py-5 mt-5">
             <img src="../images/contact/bg-section-contact.png" alt="Contact background">
-            <div class="form-contact">
-                <h2 class="text-center mb-4">Get in Touch</h2>
+            <div class="form-contact p-5">
+                <h2 class="text-center mb-3 fw-bold">Get in Touch</h2>
                 <form>
                     <div class="row">
                         <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                                <input type="text" class="form-control" id="name" placeholder="Fullname" required>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                <input type="email" class="form-control" id="email" placeholder="Email address" required>
                             </div>
                         </div>
                         <div class="col-12">
@@ -368,7 +367,7 @@
                             </div>
                         </div>
                         <div class="col-12 text-center">
-                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
                         </div>
                     </div>
                 </form>
