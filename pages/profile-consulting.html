@@ -261,7 +261,7 @@
                                 <h4 class="mb-0 p-3 text-white fw-bold">Consulting</h4>
                             </div>
                             <div class="col-12 px-3">
-                                <div class="row gutters p-4">
+                                <div class="row gutters p-4 get-row">
                                 
                                     <div class="card  my-2">
                                         <div class="row d-flex justify-content-between">
@@ -291,62 +291,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card  my-2">
-                                        <div class="row d-flex justify-content-between">
-                                            <div class="col-md-9">
-                                                <div class="card-body ">
-                                                    <div>
-                                                        <div class="d-flex">
-                                                            <p>Health &Care</p>
-                                                            <p class="ms-5 text-danger fw-bold">Pending</p>
-                                                        </div>
-                                                        <h4 class="color-text mb-0">Ms. Ananliya</h4>
-                                                        <p><span class="fw-bold">Date Time </span> 12-12-2024 9:30am
-                                                            (online)</p>
-
-                                                        <p class="pt-1 mb-0">At Prime Pet Consulting we help dogs become better versions of themselves while educating and coaching owners on how to strengthen the relationship with their dogs. </p>
-                                                        <!-- <h4 class="mb-0 fw-medium pt-2">$15</h4> -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 ">
-                                                <div class="btn ">
-                                                    <!-- <button
-                                                        class="border-0 bg-transparent fs-5 fw-bold btn-book">Pending</button> -->
-                                                    <button
-                                                        class="btn btn-warning btn-book text-white mt-2 ms-4">Cancel</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card  my-2">
-                                        <div class="row d-flex justify-content-between">
-                                            <div class="col-md-9">
-                                                <div class="card-body ">
-                                                    <div>
-                                                        <div class="d-flex">
-                                                            <p>Health &Care</p>
-                                                            <p class="ms-5 text-success fw-bold">Approved</p>
-                                                        </div>
-                                                        <h4 class="color-text mb-0">Ms. Ananliya</h4>
-                                                        <p><span class="fw-bold">Date Time </span> 12-12-2024 9:30am
-                                                            (online)</p>
-
-                                                        <p class="pt-1 mb-0">At Prime Pet Consulting we help dogs become better versions of themselves while educating and coaching owners on how to strengthen the relationship with their dogs. </p>
-                                                        <!-- <h4 class="mb-0 fw-medium pt-2">$15</h4> -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 ">
-                                                <div class="btn ">
-                                                    <!-- <button
-                                                        class="border-0 bg-transparent fs-5 fw-bold btn-book">Pending</button> -->
-                                                    <button
-                                                        class="btn btn-warning btn-book text-white mt-2 ms-4">Cancel</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                         
                                 </div>
                             </div>
                         </div>
@@ -488,7 +433,65 @@
 
 
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth-btn.js"></script>
+    <script>
+     getClients();
+		function getClients() {
+			let row = '';
+			fetch('https://mps4.chandalen.dev/api/profile/consultants?page=1&per_page=20', {
+				method: 'GET',
+				headers: {
+					'Accept': "application/json",
+					'Authorization': `Bearer ${authToken}`
+				}
 
+			})
+				.then(res => res.json())
+				.then(json => {
+					console.log(json)
+                
+					json.data.forEach(element => {
+					
+							row += `
+		                        <div class="card  my-2">
+                                        <div class="row d-flex justify-content-between">
+                                            <div class="col-md-9">
+                                                <div class="card-body ">
+                                                    <div>
+                                                        <div class="d-flex">
+                                                            <p>Health &Care</p>
+                                                            <p class="ms-5 text-danger fw-bold">${element.status == 1 ? 'Pending' : element.status == 2 ? 'Approved' : element.status == 3 ? 'Decline': ''}</p>
+                                                        </div>
+                                                        <h4 class="color-text mb-0">Ms. Ananliya</h4>
+                                                        <p><span class="fw-bold">Date Time </span> 12-12-2024 9:30am
+                                                            (online)</p>
+
+                                                        <p class="pt-1 mb-0">At Prime Pet Consulting we help dogs become better versions of themselves while educating and coaching owners on how to strengthen the relationship with their dogs. </p>
+                                                        <!-- <h4 class="mb-0 fw-medium pt-2">$15</h4> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 ">
+                                                <div class="btn ">
+                                                    <!-- <button
+                                                        class="border-0 bg-transparent fs-5 fw-bold btn-book">Pending</button> -->
+                                                    <button
+                                                        class="btn btn-warning btn-book text-white mt-2 ms-4">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                         
+                        `;
+
+						
+					});
+					document.querySelector('.get-row').innerHTML = row;
+
+				})
+		}
+
+    </script>
 </body>
 
 </html>
