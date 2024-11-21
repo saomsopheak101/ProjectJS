@@ -21,7 +21,6 @@
             padding-top: 10px;
 
         }
-
         header.sticky {
             /* padding: 5px 110px; */
             background-color: #ffff;
@@ -204,29 +203,28 @@
                                                 name="email" placeholder="Email Address" required>
                                             <i class="fa-solid fa-envelope icon-position fs-6 pt-3 ps-2 position-absolute"></i>
 
-                                            <div class="invalid-feedback" id="email-error"></div>
-                                            <div class="valid-feedback text-success" id="email-success">Email looks good!</div>
                                         </div>
+                                        <div class="invalid-feedback" id="email-error"></div>
+                                        <div class="valid-feedback text-success" id="email-success">Email looks good!</div>
+                                        
                                         <div class="form-group position-relative">
-
                                             <i class="fa-solid fa-lock icon-position fs-6 pb-1 ps-2"></i>
                                             <input type="password" class="form-control input-with-icon" id="password"
                                                 name="password" placeholder="Password" required>
-
-                                            <div class="invalid-feedback" id="password-error"></div>
-                                            <div class="valid-feedback text-success" id="password-success">Password looks good!</div>
                                         </div>
+                                        <div class="invalid-feedback" id="password-error"></div>
+                                        <div class="valid-feedback text-success" id="password-success">Password looks good!</div>
 
                                         <div class="form-group form-check d-flex justify-content-between mt-3 ms-2">
                                             <div class="check-box">
-                                                <input type="checkbox" class="form-check-input "
-                                                    id="remember" required>
+                                                <input type="checkbox" class="form-check-input" id="remember" required>
                                                 <label class="form-check-label text-black" for="remember">Remember me</label>
                                             </div>
                                             <a href="../pages/forgot-pass.html"
                                                 class="forgot-password text-decoration-none color-text pe-2">Forgot
                                                 Password?</a>
                                         </div>
+                                        <div class="invalid-feedback" id="checkbox-error">You must agree before logging in.</div>
                                         <div class="form-group mt-3 btn-login">
 
                                             <input type="submit" class="btn btn-warning mb-3" value="Login" id="loginButton">
@@ -288,21 +286,25 @@
         </section>
     </footer>
 
-    <script>
+    <script src="../js/petzone/login.js">
    
-        function getdata() {
-            // Clear previous error messages
+
+   function getdata() {
+    // Clear previous error messages
             document.getElementById('email-error').textContent = '';
             document.getElementById('password-error').textContent = '';
+            document.getElementById('checkbox-error').textContent = '';
 
             let email = document.querySelector('#email').value.trim();
             let password = document.querySelector('#password').value.trim();
+            let checkbox = document.querySelector('#remember');
 
             let emailIsValid = validateEmail(email);
             let passwordIsValid = validatePassword(password);
+            let checkboxIsValid = validateCheckbox(checkbox);
 
-            // If either field is invalid, stop form submission
-            if (!emailIsValid || !passwordIsValid) {
+            // If any field is invalid, stop form submission
+            if (!emailIsValid || !passwordIsValid || !checkboxIsValid) {
                 return; // Prevent login attempt
             }
 
@@ -328,7 +330,6 @@
                     return response.json();
                 })
                 .then(json => {
-
                     // Reset spinner and show login button
                     spinner.classList.add('d-none');
                     loginButton.classList.remove('d-none');
@@ -337,24 +338,19 @@
                         handleLoginSuccess(json);
                     } else {
                         alert("Invalid credentials.");
-
                     }
                 })
                 .catch(error => {
                     console.error('There was an error!', error);
-
                     spinner.classList.add('d-none');
                     loginButton.classList.remove('d-none');
-
                 });
         }
 
         function validateEmail(email) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-
                 document.getElementById('email-error').textContent = 'Please enter a valid email.';
-
                 document.querySelector('#email').classList.add('is-invalid');
                 document.getElementById('email-success').style.display = 'none';
                 return false;
@@ -378,6 +374,18 @@
             return true;
         }
 
+        function validateCheckbox(checkbox) {
+            if (!checkbox.checked) {
+                document.getElementById('checkbox-error').textContent = 'You must agree before logging in.';
+                document.querySelector('#remember').classList.add('is-invalid');
+                // document.getElementById('checkbox-error').style.display = 'none';
+                return false;
+            }
+            // document.querySelector('#remember').classList.remove('is-invalid');
+            document.getElementById('checkbox-error').style.display = 'block';
+            return true;
+        }
+
         function handleLoginSuccess(json) {
             if (json.data.roles && json.data.roles.length > 0) {
                 const roleName = json.data.roles[0].name;
@@ -396,6 +404,7 @@
                 alert("No roles assigned to this user.");
             }
         }
+
 
     </script>
 </body>

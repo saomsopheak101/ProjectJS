@@ -1251,9 +1251,10 @@
 							<span class="nav-text">Consult</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="../pages/consult-reply.html">Reply Clients</a></li>
-							<li><a href="../pages/consult-table.html">History Clients</a></li>
-						</ul>
+                            <li><a href="../pages/consult-pending-face to face.html">Pending Face to face</a></li>
+                            <li><a href="../pages/consult-pending-online.html">Pending Online</a></li>
+                            <li><a href="../pages/consult-table.html">History Clients</a></li>
+                        </ul>
 					</li>
 					<li>
 						<a href="../pages/trainee.html" aria-expanded="false">
@@ -1470,7 +1471,6 @@
 													</tr> -->
 
 
-
 												</tbody>
 
 											</table>
@@ -1547,6 +1547,7 @@
 																</div>
 															</div>
 														</div>
+														
 														<!-- BEGIN MODAL -->
 														<div class="modal fade none-border" id="event-modal">
 															<div class="modal-dialog">
@@ -1794,8 +1795,6 @@
 							</div>
 						</div>
 					</div>
-
-                
                         `;
 
 						}
@@ -1888,7 +1887,7 @@
 					'Accept': "application/json",
 					'Authorization': `Bearer ${authToken}`
 				}
-
+				
 			})
 				.then(res => res.json())
 				.then(json => {
