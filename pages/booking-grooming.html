@@ -554,7 +554,7 @@
 
         getDetailId();
         function getDetailId() {
-
+    
 
             fetch('https://mps4.chandalen.dev/api/services/' + serviceID, {
                 method: 'GET',
@@ -628,7 +628,7 @@
         function booking() {
             let linkTransaction = document.querySelector('#tran-link').files[0];
             let dateTime = document.querySelector('#dateTime').value;
-
+            let selectedId = document.querySelector('#animalType').value;
             console.log(linkTransaction);
             console.log(dateTime);
 
@@ -639,7 +639,7 @@
 
 
             let formData = new FormData();
-            formData.append('service_price_id', serviceID)
+            formData.append('service_price_id', selectedId)
             formData.append('come_date', dateTime)
 
             fetch('https://mps4.chandalen.dev/api/books', {
