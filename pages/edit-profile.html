@@ -186,13 +186,13 @@
                             <div class="card-header bg-transparent mb-3">
                                 <a href="#" class="img-pro">
                                     <img src="../images/img-pet/icon/user.png" alt="" id="profile-pic">
-                                    <div class="icon-delete ">
+                                    <div class="icon-delete "  onclick="deleteAvatar()" style="cursor: pointer;">
                                         <i class="fa-solid fa-trash-can fs-4 text-white"></i>
                                     </div>
                                 </a>
                                 <label type="button" for="profile"
                                     class="btn btn-edit-1 color-bg btn-camera position-absolute">
-                                    <i class="fa-solid fa-camera text-white"></i>
+                                    <i class="fa-solid fa-camera text-white" ></i>
                                 </label>
                                 <input type="file" class="form-control bg-transparent d-none" id="profile"
                                     accept="image/*">
@@ -709,7 +709,24 @@
         document.querySelector('#btn-save').addEventListener('click', () => {
             update();
         })
-
+        function deleteAvatar(){
+            fetch('https://mps4.chandalen.dev/api/profile/avatar', {
+                    method: 'DELETE',
+                    headers: {
+                        'Accept': 'application/json',
+                        "Authorization": `Bearer ${authToken}`
+                    },
+               
+                })
+                .then(res => res.json())
+                .then(json=>{
+                    if(json.result === true){
+                        alert(json.message)
+                    }else{
+                        alert(json.message)    
+                    }
+                })
+        }
         function changePw() {
             let oldpw = document.querySelector('#oldPw').value;
             let nPass = document.querySelector('#nPass').value;
