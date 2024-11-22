@@ -1621,7 +1621,15 @@
      color: #aaa;
      pointer-events: none;
  }
-
+ .form-logAndris .form-group .icon-positions {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+    pointer-events: none;
+}
+ 
 
  .form-logAndris .btn-login {
      text-align: center;
@@ -1678,6 +1686,17 @@
     height: 80px;
 }
 
+<<<<<<< HEAD
+.input-with-icon {
+    padding-left: 2.5rem; /* Space for the icon */
+}
+.signUp .form-logAndris 
+/* .invalid-feedback,
+.valid-feedback {
+    margin-left: 2.5rem; /* Align validation messages properly 
+}/*
+ 
+=======
 
 
 /* Loading */
@@ -1717,4 +1736,5 @@
 }
 
 
+>>>>>>> 4e2f7bd8140f7400476fef79cef9376c9b11dbd7
 
