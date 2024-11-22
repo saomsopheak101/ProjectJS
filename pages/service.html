@@ -1371,14 +1371,14 @@
 											<div class="container mt-5">
 												<div class="d-flex justify-content-between">
 													<h3 class="mb-3">Services</h3>
-													<button class="btn btn-success mb-3" onclick="CreateService()">Add
+													<button class="btn btn-warning mb-3" onclick="CreateService()">Add
 														Service</button>
 												</div>
 												<table class="table shadow-sm ">
 													<thead>
 														<tr>
 
-															<th>#</th>
+															<th>Id</th>
 															<th>Image</th>
 															<th>Title</th>
 															<th>Prices</th>
@@ -1398,7 +1398,7 @@
 											<div class="container mt-5">
 												<div class="d-flex justify-content-between">
 													<h3 class="mb-3">Animals</h3>
-													<button class="btn btn-success mb-3" data-bs-toggle="offcanvas"
+													<button class="btn btn-warning mb-3" data-bs-toggle="offcanvas"
 														data-bs-target="#animalOffcanvas">Add Animal</button>
 												</div>
 												<table class="table table-bordered table-animal">
@@ -1481,8 +1481,10 @@
 							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 						</div>
 						<div class="modal-body">
-							<img id="modal-service-image" src="https://placehold.co/150x150" alt="Service Image"
-								class="img-fluid mb-3">
+							<div class="d-flex justify-content-center align-items-center">
+								<img id="modal-service-image" src="https://placehold.co/150x150" alt="Service Image"
+								class="img-fluid mb-3 h-25 w-50 object-fit-cover rounded-2 ">
+							</div>
 							<p id="modal-service-prices">Price: $0</p>
 							<p id="modal-service-description">Description: N/A</p>
 							<p id="modal-service-feature">Feature: N/A</p>
