@@ -158,19 +158,6 @@
             color: #dc3545;
             font-size: 0.875em;
         }
-<<<<<<< HEAD
-        .d-block {
-            display: block !important;
-        }
-
-        .d-none {
-            display: none !important;
-        }
-
-                /* Ensure the icons are positioned correctly */
-        
-=======
->>>>>>> 4e2f7bd8140f7400476fef79cef9376c9b11dbd7
 
         /* Ensure the icons are positioned correctly */
 
@@ -254,20 +241,12 @@
                                                 class="forgot-password text-decoration-none color-text pe-2">Forgot
                                                 Password?</a>
                                         </div>
-<<<<<<< HEAD
-                                        <!-- <div class="invalid-feedback" id="check-error"></div> -->
-                                        <div class="invalid-feedback d-none" id="checkbox-error">You must agree before logging in.</div>
-
-                                        <div class="form-group mt-3 btn-login">
-                                            <input type="submit" class="btn btn-warning mb-3" value="Login" id="loginButton">
-=======
                                         <div class="invalid-feedback" id="checkbox-error">You must agree before logging
                                             in.</div>
                                         <div class="form-group mt-3 btn-login">
 
                                             <input type="submit" class="btn btn-warning mb-3" value="Login"
                                                 id="loginButton">
->>>>>>> 4e2f7bd8140f7400476fef79cef9376c9b11dbd7
                                             <button class="btn btn-primary d-none" id="spinner" type="button" disabled>
                                                 <span class="spinner-border spinner-border-sm"
                                                     aria-hidden="true"></span>
@@ -300,7 +279,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-5  d-lg-flex m-0 position-relative flex-column justify-content-center align-items-center"
+                            <div class="col-5 d-none d-lg-flex m-0 position-relative flex-column justify-content-center align-items-center"
                                 style="background-image: url(../images/img-pet/sign-up.png); background-position: center; background-size: cover;">
 
                             </div>
@@ -327,39 +306,32 @@
         </section>
     </footer>
     <script src="../js/petzone/login.js">
-<<<<<<< HEAD
-        
-        function getdata() {
-            // Clear all error messages
-=======
 
 
         function getdata() {
             // Clear previous error messages
->>>>>>> 4e2f7bd8140f7400476fef79cef9376c9b11dbd7
             document.getElementById('email-error').textContent = '';
             document.getElementById('password-error').textContent = '';
-            document.getElementById('checkbox-error').classList.add('d-none'); // Ensure the error is hidden initially
+            document.getElementById('checkbox-error').textContent = '';
 
             let email = document.querySelector('#email').value.trim();
             let password = document.querySelector('#password').value.trim();
             let checkbox = document.querySelector('#remember');
 
-            // Perform individual validations
             let emailIsValid = validateEmail(email);
             let passwordIsValid = validatePassword(password);
             let checkboxIsValid = validateCheckbox(checkbox);
 
-            // If any validation fails, stop further execution
+            // If any field is invalid, stop form submission
             if (!emailIsValid || !passwordIsValid || !checkboxIsValid) {
                 return; // Prevent login attempt
             }
 
-            // Show spinner and hide login button during the request
+            // Show loading spinner and update button text
             let loginButton = document.querySelector('#loginButton');
             let spinner = document.querySelector('#spinner');
             loginButton.classList.add('d-none'); // Hide the Login button
-            spinner.classList.remove('d-none'); // Show the spinner
+            spinner.classList.remove('d-none'); // Show the spinner button
 
             let formData = new FormData();
             formData.append('email', email);
@@ -423,22 +395,35 @@
 
         function validateCheckbox(checkbox) {
             if (!checkbox.checked) {
-                const checkboxError = document.getElementById('checkbox-error');
-                checkboxError.textContent = 'You must agree before logging in.';
-                checkboxError.classList.remove('d-none');
-                checkboxError.classList.add('d-block');
+                document.getElementById('checkbox-error').textContent = 'You must agree before logging in.';
+                document.querySelector('#remember').classList.add('is-invalid');
+                // document.getElementById('checkbox-error').style.display = 'none';
                 return false;
             }
-            const checkboxError = document.getElementById('checkbox-error');
-            checkboxError.classList.add('d-none');
-            checkboxError.classList.remove('d-block');
+            // document.querySelector('#remember').classList.remove('is-invalid');
+            document.getElementById('checkbox-error').style.display = 'block';
             return true;
         }
 
-</script>
+        function handleLoginSuccess(json) {
+            if (json.data.roles && json.data.roles.length > 0) {
+                const roleName = json.data.roles[0].name;
+                if (roleName === 'Normal User') {
+                    sessionStorage.setItem('authToken', json.data.token);
+                    alert(json.message + " Token stored.");
+                    location.href = '../index.html';
+                } else if (roleName === 'System Admin') {
+                    sessionStorage.setItem('adminToken', json.data.token);
+                    alert(json.message + " Token stored.");
+                    location.href = '../pages/employee.html';
+                } else {
+                    alert("User role not recognized.");
+                }
+            } else {
+                alert("No roles assigned to this user.");
+            }
+        }
 
-<<<<<<< HEAD
-=======
 
     </script>
 
@@ -446,7 +431,6 @@
     <script src="../vendor/global/global.min.js"></script>
 	<script src="../js/custom.js"></script>
 	
->>>>>>> 4e2f7bd8140f7400476fef79cef9376c9b11dbd7
 </body>
 
 </html>
