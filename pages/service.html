@@ -64,7 +64,8 @@
 
 	.Service-view-modal .modal-title {
 		font-size: 1.25rem;
-		color: #333;
+		color: #1e1e1e;
+		/* test */
 	}
 
 	.Service-view-modal .text-muted {
@@ -1376,7 +1377,7 @@
 												<table class="table shadow-sm ">
 													<thead>
 														<tr>
-															
+
 															<th>#</th>
 															<th>Image</th>
 															<th>Title</th>
@@ -1695,6 +1696,13 @@
 			document.querySelector('#btn-sub').addEventListener('click', btnCreate);
 		});
 
+		function truncateText(text, maxLength) {
+			if (text.length > maxLength) {
+				return text.substring(0, maxLength) + '...';
+			}
+			return text;
+		}
+
 		function AllService() {
 			document.querySelector('.service-tbody').innerHTML = '<tr><td colspan="7" class="text-center">Loading...</td></tr>';
 			fetch('https://mps4.chandalen.dev/api/services', {
@@ -1709,24 +1717,29 @@
 					let i = 1;
 					let row = '';
 					json.data.forEach(service => {
+						// Truncate description and feature fields if they exceed a set length
+						const maxLength = 35; // Adjust the length as needed
+						const truncatedDescription = truncateText(service.description || 'N/A', maxLength);
+						const truncatedFeature = truncateText(service.feature || 'N/A', maxLength);
+
 						row += `
                 <tr>
                     <td>${i++}</td>
-					<td>
+                    <td>
                         <div class="products">
                             <img src="${service.image}" class="avatar avatar-md" alt="Service Image">
                         </div>
                     </td>
-					<td>${service.title}</td>
+                    <td>${service.title}</td>
                     <td>${service.prices.map(p => `${p.animal.name}: $${p.price}`).join('<br>')}</td>
-                    <td>${service.description || 'N/A'}</td>
-                    <td>${service.feature || 'N/A'}</td>
+                    <td>${truncatedDescription}</td>
+                    <td>${truncatedFeature}</td>
                     <td>
                         <button class="btn btn-info btn-icon-xs" onclick="viewService(${service.id})"><i class="fa fa-eye"></i></button>
                         <button class="btn btn-primary btn-icon-xs" onclick="UpdateService(${service.id})"><i class="fa fa-pen"></i></button>
                         <button class="btn btn-danger btn-icon-xs" onclick="deleteService(${service.id})"><i class="fa fa-trash"></i></button>
                         <button class="btn btn-warning btn-icon-xs" onclick="showAddPriceModal(${service.id})"><i class="fa-solid fa-user-plus"></i> $</button>
-						<button class="btn btn-success btn-icon-xs" onclick="showUpdatePriceModal(service.prices[0]?.id)"><i class="fa-solid fa-pen-to-square"></i> $</button>
+                        <button class="btn btn-success btn-icon-xs" onclick="showUpdatePriceModal(service.prices[0]?.id)"><i class="fa-solid fa-pen-to-square"></i> $</button>
                     </td>
                 </tr>`;
 					});
@@ -1737,6 +1750,7 @@
 					document.querySelector('.service-tbody').innerHTML = '<tr><td colspan="7" class="text-center text-danger">Failed to load services.</td></tr>';
 				});
 		}
+
 
 		function CreateService() {
 
