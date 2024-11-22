@@ -1410,7 +1410,7 @@
                     'Accept': "application/json",
                     'Authorization': `Bearer ${authToken}`
                 }
-                
+
 
             })
                 .then(res => res.json())
@@ -1418,7 +1418,7 @@
                     // console.log(json)
                     // 
                     json.data.forEach(element => {
-                        if ((element.status !== 2 && element.status !== 3 ) && element.is_online === true) {
+                        if ((element.status !== 2 && element.status !== 3) && element.is_online === true) {
                             row += `<div class="col-xl-4">
                     <div class="card " >
                         <div class="card-header bg-warning ">
@@ -1436,7 +1436,8 @@
                                     <div class="badge p-0">
                                         <p class="mb-0 rounded-2"> ${element.datetime}</p>
                                     </div>
-                                </div>
+                              
+                                    </div>
                             </div>
                         </div>
                         <div class="card-body">
@@ -1484,7 +1485,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-2">
-                                    <div class="form-floating ps-4 pe-3">
+                                    <div class="form-floating ps-2 pe-3">
                                         <textarea class="form-control" placeholder="Leave a comment here"
                                             id="rejectReason-${element.id}" rows="5"></textarea>
                                         <label for="floatingTextarea" class="text-light ms-5">Reject Reason</label>
@@ -1595,7 +1596,6 @@
                     }
                 })
         }
-
     </script>
     <!--**********************************
         Scripts

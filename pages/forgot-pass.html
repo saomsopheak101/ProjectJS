@@ -19,7 +19,6 @@
             /* line-height: 80px; */
             transition: 0.3s;
             padding-top: 10px;
-
         }
 
         header.sticky {
@@ -53,6 +52,7 @@
             /* border-radius: none !important; */
             box-shadow: 0px 0px 10px 5px rgba(218, 218, 218, 0.662);
         }
+
         .style-3 {
             overflow: hidden !important;
             width: 300px !important;
@@ -206,12 +206,26 @@
         header .btn-login:hover {
             color: #e2e2e2;
             background-color: #141414;
-
         }
     </style>
-
 </head>
+
 <body class="overflow-x-hidden">
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+
     <header class="bg-black">
         <nav class="navbar navbar-expand-lg z-3">
             <div class="container">
@@ -249,16 +263,17 @@
                                     <div class="d-flex justify-content-center align-items-center mb-3 ">
                                         <img src="../images/img-pet/logo/PetZone (2).png" alt width="220px">
                                     </div>
-                                    <form  class="py-5" onsubmit="getOTP(); return false;">
+                                    <form class="py-5" onsubmit="getOTP(); return false;">
                                         <h3 class="fw-bold text-black text-center mb-4">Forgot Password</h3>
                                         <div class="form-group position-relative">
-                                            <input type="email" class="form-control  mt-3 input-with-icon" id="email" name="email"
-                                                placeholder="Your email" required>
+                                            <input type="email" class="form-control  mt-3 input-with-icon" id="email"
+                                                name="email" placeholder="Your email" required>
                                             <i class="fa-solid fa-envelope icon-position"></i>
-            
+
                                         </div>
                                         <div class="form-group mt-3 d-flex justify-content-center">
-                                            <button type="button" class="btn-bn" onclick="window.location.href='login.html'">Back</button>
+                                            <button type="button" class="btn-bn"
+                                                onclick="window.location.href='login.html'">Back</button>
                                             <input type="submit" class="btn-bn w-100" value="Next">
                                         </div>
                                     </form>
@@ -267,7 +282,8 @@
                             </div>
                             <div
                                 class="col-5 d-none d-lg-flex my-4 ps-0  position-relative flex-column justify-content-center align-items-center">
-                                <img src="../images/img-pet/img-dog.jpg" class="w-100 object-fit-cover img-login" alt="">
+                                <img src="../images/img-pet/img-dog.jpg" class="w-100 object-fit-cover img-login"
+                                    alt="">
                                 <div class="text position-absolute text-center">
                                     <h1 class="display-3 fw-bold text-white">Wellcome </h1>
                                     <h2 class="fw-bold color-text pt-2">PetZonE</h2>
@@ -275,7 +291,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -299,37 +315,39 @@
         </section>
     </footer>
     <script>
-        function getOTP(){
-            let email  = document.querySelector('#email').value;
+        function getOTP() {
+            let email = document.querySelector('#email').value;
             console.log(email);
             fetch('https://mps4.chandalen.dev/api/forgot/pass', {
-            method: 'POST',
-            headers: { "Accept": "application/json" ,
+                method: 'POST',
+                headers: {
+                    "Accept": "application/json",
                     "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email:email
+                },
+                body: JSON.stringify({
+                    email: email
+                })
+
             })
-            
-        })
-        .then(res => res.json())
-        .then(json =>{
-            if(json.result === true){
-                sessionStorage.setItem('StoreEmail', email);
-                console.log(json.message);
-                alert(json.message);
-                location.href = 'http://127.0.0.1:5502/../pages/otp.html';
-            }else{
-                alert('Failed to send OTP, please try again.');
-            }
-        })
+                .then(res => res.json())
+                .then(json => {
+                    if (json.result === true) {
+                        sessionStorage.setItem('StoreEmail', email);
+                        console.log(json.message);
+                        alert(json.message);
+                        location.href = 'http://127.0.0.1:5502/../pages/otp.html';
+                    } else {
+                        alert('Failed to send OTP, please try again.');
+                    }
+                })
 
         }
-</script> 
+    </script>
+    
+    <!-- Preloader -->
+    <script src="../vendor/global/global.min.js"></script>
+	<script src="../js/custom.js"></script>
+
 </body>
 
 </html>
-
-
-
-

@@ -39,8 +39,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href="../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-	<link href="../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-	<!-- <link href="../../cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css" rel="stylesheet"> -->
+	<!-- <link href="../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet"> -->
+	<link href="../../cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css" rel="stylesheet">
 	<link href="../vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 	<!-- <link rel="stylesheet" href="vendor/fullcalendar/calendar-gc.min.css"> -->
 
@@ -1704,69 +1704,78 @@
 							row += `
 					<div class="col-xl-4">
 						<div class="card">
-							<div class="card-header py-3">
+							<div class="card-header bg-warning py-2">
 								<div class="row align-items-center g-0 w-100">
 									<div class="col-auto">
 										<img src="${element?.buyer?.avatar || 'default-avatar.png'}" alt=""
-											class="rounded-circle avatar-md avatar me-2">
+											 class="rounded-circle avatar-md avatar me-2" style="width: 60px; height: 60px;">
 									</div>
 									<div class="col lh-1">
-										<h5 class="mb-1">${element?.buyer?.first_name || 'Unknown'}</h5>
+										<h5 class="mb-1 fw-medium text-white">${element?.buyer?.first_name || 'Unknown'}</h5>
 									</div>
-									<div class="col-auto">
-										<p class="fs-6 mb-0 text-purple">
+									<div class="col-5 ps-2">
+										<p class="mb-0 fw-medium text-white">
 											 ${element?.pet_care_service?.title || 'No Service Title'}
 										</p>
-										<p class="fs-6 mb-0">
-											<span class="fs-12 badge light badge-success rounded-5">${element?.come_date || 'No Date'}</span>
-										</p>
+										<div class="badge p-0">
+											<p class="mb-0 rounded-2">${element?.come_date || 'No Date'}</p>
+										</div>
 									</div>
 								</div>
 							</div>
 							<div class="card-body">
-								<div class="row text-center mb-4">
-									<div class="col-6 text-dark fw-bold">
-										Animal
+								<div class="row">
+									<div class="mb-2 ">
+										<div class="row ps-2 pt-2">
+											<div class="col-5">
+												<p class="mb-0 fw-bold ">Animal</p>
+											</div>
+											<div class="col-7">
+												<p class="mb-0">${element?.pet_care_animal?.name}</p>
+											</div>
+										</div>
+                                    </div>
+									<div class="mb-2 ">
+										<div class="row ps-2 pt-2">
+											<div class="col-5">
+												<p class="mb-0 fw-bold ">Phone</p>
+											</div>
+											<div class="col-7">
+												<p class="mb-0">${element?.buyer?.phone || 'No Phone Number'}</p>
+											</div>
+										</div>
+                                    </div>
+									<div class="mb-2 ">
+										<div class="row ps-2 pt-2">
+											<div class="col-5">
+												<p class="mb-0 fw-bold ">Transaction</p>
+											</div>
+											<div class="col-7">
+												<img src="${element?.transaction_file || 'placeholder-image.png'}" class="img-fluid" alt="Transaction Image"
+                                                style="width: 200px; height: 150px; object-fit-cover">
+											
+               								 </div>
+										</div>
+                                    </div>
+									<div class="mt-2">
+										<div class="form-floating ">
+											<textarea class="form-control" placeholder="Leave a comment here"
+												id="rejectReason-${element.id}" rows="5"></textarea>
+											<label for="floatingTextarea" class="text-light">Reject Reason</label>
+										</div>
 									</div>
-									<div class="col-6">
-										<p class="text-start online-type">
-											${element?.pet_care_animal?.name}
-										</p>
+									<div class="mt-3 text-end me-3">
+										<button class="btn btn-danger btn-xs rounded-5 fw-semibold me-2"
+											data-id="${element.id}" onclick="handleDeclineClick(this)">
+											Decline <i class="fas fa-reply fs-6"></i>
+										</button>
+										<button data-id="${element.id}" class="btn btn-warning btn-xs rounded-5 fw-semibold"
+											onclick="approveType(this)">Approve</button>
 									</div>
-									<div class="col-6 text-dark fw-bold">
-										Phone
-									</div>
-									<div class="col-6">
-										<p class="text-start">${element?.buyer?.phone || 'No Phone Number'}</p>
-									</div>
-									<div class="col-6 text-dark fw-bold">
-										Transaction
-									</div>
-									<div class="col-6">
-										<img src="${element?.transaction_file || 'placeholder-image.png'}" class="img-fluid"
-											alt="Transaction Image" style="width: 140px; height: 200px;">
-									</div>
-								</div>
-								<div class="mt-3">
-									<div class="form-floating">
-										<textarea class="form-control" placeholder="Leave a comment here"
-											id="rejectReason-${element.id}" rows="5"></textarea>
-										<label for="floatingTextarea" class="text-light">Reject Reason</label>
-									</div>
-								</div>
-								<div class="mt-3 text-end">
-									<button class="btn btn-danger btn-xs rounded-5 fw-semibold me-2"
-										data-id="${element.id}" onclick="handleDeclineClick(this)">
-										Decline <i class="fas fa-reply fs-6"></i>
-									</button>
-									<button data-id="${element.id}" class="btn btn-warning btn-xs rounded-5 fw-semibold"
-										onclick="approveType(this)">Approve</button>
-								</div>
+                                </div>	
 							</div>
 						</div>
 					</div>
-
-                
                         `;
 
 						}
@@ -1928,7 +1937,7 @@
     ***********************************-->
 	<!-- Required vendors -->
 	<script src="../vendor/global/global.min.js"></script>
-	<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<!-- <script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script> -->
 
 	<!-- Dashboard 1 -->
 	<script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
