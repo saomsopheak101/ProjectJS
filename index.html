@@ -13,13 +13,18 @@
 
 <body class="home-page overflow-x-hidden">
     <header class="">
-        <nav class="navbar navbar-expand-lg text-warning z-3">
-            <div class="container">
+        <nav class="navbar navbar-expand-lg  z-3">
+            <div class="container px-5 py-3 px-md-0">
                 <a class="navbar-brand" href="">
                     <img src="images/img-pet/logo/PetZone (2).png" style="width: 80px;" alt="">
                 </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 mx-0 "
+                    <ul class="navbar-nav justify-content-center flex-grow-1 me-5 ms-xl-4 ms-xxl-5 "
                         style="z-index: 99;">
                         <li class="nav-item mx-lg-2">
                             <a class="nav-link  fw-medium black-nav" href="index.html">Home</a>
@@ -29,25 +34,30 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Service
                             </a>
-                            <ul class="dropdown-menu bg-white">
-                                <li><a class="dropdown-item text-black" href="../pages/petTraining.html">Pet
-                                        training</a>
-                                </li>
-                                <li><a class="dropdown-item text-black" href="../pages/petConsult.html">Pet
-                                        Counseling</a>
+                            <ul class="dropdown-menu bg-white dropdown-services">
+                                <li><a class="dropdown-item text-black" href="../pages/petDayCare.html">Pet Day care</a>
                                 </li>
                                 <li><a class="dropdown-item text-black" href="../pages/petGrooming.html">Pet
                                         Grooming</a>
                                 </li>
-                                <li><a class="dropdown-item text-black" href="../pages/petDayCare.html">Pet Day care</a>
+                                <li><a class="dropdown-item text-black" href="../pages/petTraining.html">Pet
+                                        Training</a>
+                                </li>
+                                <li><a class="dropdown-item text-black" href="../pages/petConsult.html">Pet
+                                        Consulting</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown ">
-                            <a class="nav-link  fw-medium black-nav" href="#" role="button"
+                            <a class="nav-link dropdown-toggle fw-medium black-nav" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 About
                             </a>
+                            <ul class="dropdown-menu bg-white text-black fw-medium dropdown-services">
+                                <li><a class="dropdown-item text-black" href="../pages/about-us.html">About us</a></li>
+                                <li><a class="dropdown-item text-black" href="">About
+                                        PetZone</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item mx-lg-2">
                             <a class="nav-link  fw-medium black-nav" href="../pages/feedback.html">Feedback</a>
@@ -58,104 +68,113 @@
                     </ul>
                     <div class="d-flex align-items-center ">
                         <div class="d-flex align-items-center">
-                            <button class="py-2 px-4 rounded-2 btn-light border-0 ms-3 " id="login" type="button"
+                            <button class="py-2 px-4 rounded-2 btn-light border-0 ms-3 btn-shadow" id="login" type="button"
                                 onclick="window.location.href='../pages/login.html';">Login</button>
-                            <button class="py-2 px-4 rounded-2 btn-light border-0 ms-3" id="signupForm" type="button"
+                            <button class="py-2 px-4 rounded-2 btn-light border-0 ms-3 btn-shadow" id="signupForm" type="button"
                                 onclick="window.location.href='../pages/signup.html';">Sign up</button>
-                            </div>
-                            <!-- User profile -->
-                            <div class="dropdown-center dropdown-account" id="profiles">
-                                <a class="btn btn-icon d-none d-xl-inline-block position-relative" role="button" href=""
-                                    title="profile" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <div class="mb-2">
-                                        <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                            src="images/img-pet/icon/user.png" alt="#" width="35px">
-                                    </div>
-                                    <span
-                                        class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
-                                        <small></small>
-                                    </span>
-                                </a>
-                                <ul class="dropdown-menu  mt-4 rounded-3 py-2">
-                                    <div class="card border-0 ">
-                                        <div class="account-header d-flex flex-column align-items-center px-5 pt-2">
-                                            <div class="mb-2">
-                                                <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                                    src="images/img-pet/icon/user.png" alt="#" width="60px">
-                                            </div>
-                                            <div
-                                                class="d-flex flex-column align-items-center justify-content-center text-whitee">
-                                                <h5 class="mb-0">NIKI</h5>
-                                                <p>niki@gmail.com</p>
-                                            </div>
+                        </div>
+                        <!-- User profile -->
+                        <div class="dropdown-center dropdown-account" id="profiles">
+                            <a class="btn btn-icon d-none d-xl-inline-block position-relative" role="button" href=""
+                                title="profile" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="mb-2">
+                                    <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                        src="images/img-pet/icon/user.png" alt="#" width="35px">
+                                </div>
+                                <span
+                                    class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
+                                    <small></small>
+                                </span>
+                            </a>
+                            <ul class=" dropdown-menu  mt-4 rounded-3 py-2 profile-management" style="transform: translateX(-80px);">
+                                <div class="card border-0 ">
+                                    <div class="account-header d-flex flex-column align-items-center px-5 pt-2">
+                                        <div class="mb-2">
+                                            <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                                src="images/img-pet/icon/user.png" alt="#" width="60px">
+                                        </div>
+                                        <div
+                                            class="d-flex flex-column align-items-center justify-content-center text-whitee">
+                                            <h5 class="mb-0">NIKI</h5>
+                                            <p>niki@gmail.com</p>
                                         </div>
                                     </div>
-                                    <li>
-                                        <a href="../pages/profile.html"
-                                            class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                            aria-current="page">
-                                            <div>
-                                                <i class="fa-solid fa-address-card me-3"></i>
-                                            </div>
-                                            My Profile
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="../pages/profile-booking.html"
-                                            class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                            aria-current="page">
-                                            <div>
-                                                <i class="fa-regular fa-calendar-check me-3"></i>
-                                            </div>
-                                            Booking
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="../pages/profile-consulting.html"
-                                            class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                            aria-current="page">
-                                            <div>
-                                                <i class="fa-solid fa-ticket me-3"></i>
-                                            </div>
-                                            Consulting
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="../pages/profile.feedback.html"
-                                            class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                            aria-current="page">
+                                </div>
+                                <li>
+                                    <a href="../pages/profile.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-address-card me-3"></i>
+                                        </div>
+                                        My Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../pages/profile-booking.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-regular fa-calendar-check me-3"></i>
+                                        </div>
+                                        Booking
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../pages/profile-consulting.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-ticket me-3"></i>
+                                        </div>
+                                        Consulting
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../pages/profile.feedback.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-comment-dots me-3"></i>
+                                        </div>
+                                        Feedback
 
-                                            <div>
-                                                <i class="fa-solid fa-comment-dots me-3"></i>
-                                            </div>
-                                            Feedback
-    
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="../pages/profile-notification.html"
-                                            class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                            aria-current="page">
-                                            <div>
-                                                <i class="fa-solid fa-bell me-3"></i>
-                                            </div>
-                                            Notification
-                                            <span class="badge ms-auto bg-brand rounded-pill fw-normal">6</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <button class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
-                                            aria-current="page" id="logout">
-                                            <i class="fa-solid fa-right-from-bracket me-3"></i>
-                                            Log out
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../pages/profile-notification.html"
+                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-bell me-3"></i>
+                                        </div>
+                                        Notification
+                                        <span class="badge ms-auto bg-brand rounded-pill fw-normal">6</span>
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
+                                        aria-current="page">
+                                        <div>
+                                            <i class="fa-solid fa-book me-3"></i>
+
+                                        </div>
+                                        Privacy
+                                    </a>
+                                </li> -->
+                                <li>
+                                    <button class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
+                                        aria-current="page" id="logout">
+                                        <i class="fa-solid fa-right-from-bracket me-3"></i>
+                                        Log out
+                                    </button>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </nav>
+            </div>
+        </nav>
     </header>
     <main>
         <section class="py-0  position-relative z-0">
@@ -163,22 +182,22 @@
                 <div class="text-banner">
                     <h4 class="mb-5"><span class="badge bg-white color-text py-2 shadow position-absolute z-3 ">Welcom
                             to PetZone!</span></h4>
-                    <h1 class="display-3 fw-bold text-white ">The best care for your best friend</h1>
-
+                    <h1 class="display-2 fw-bold text-white ">The best care for your best friend</h1>
                     <a href="booking.html">
-                        <button type="button" class="btn btn-light py-2 mt-3 btn-book">Book now</button>
-
+                        <button class="rounded-2 btn btn-light btn-book btn-shadow">Book now</button>
                     </a>
                 </div>
             </div>
+
             <div id="carouselExampleFade" class="carousel slide carousel-fade ">
                 <div class="carousel-inner">
                     <div class="carousel-item active c-item ">
                         <img src="images/img-pet/dog-cat-banner.png" class="d-block w-100 c-img  " alt="...">
                     </div>
-                    <div class="carousel-item c-item ">
-                        <img src="images/img-pet/cat-1.jpg" class="d-block w-100 c-img m" alt="...">
+                    <div class="carousel-item active c-item ">
+                        <img src="images/img-pet/dog-cat-banner.png" class="d-block w-100 c-img  " alt="...">
                     </div>
+
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
                     data-bs-slide="prev">
@@ -194,52 +213,52 @@
         </section>
         <section class="section-top z-3">
             <div class="container">
-                <div class="servise d-flex gap-3">
-                    <div class="col-3">
+                <div class="servise d-flex gap-3 flex-nowrap">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <div class="card border-0 text-start p-4 rounded-3 shadow">
                             <div class="d-flex mb-2">
                                 <div class="col-4"><img src="images/img-pet/icon/day-care.png" class="w-75" alt="">
                                 </div>
                                 <div class="col-8">
-                                    <h4 class="pt-3 text-warning fw-bold">Pet day care</h4>
+                                    <h5 class="pt-3 text-warning fw-bold">Pet day care</h5>
                                 </div>
                             </div>
                             <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores iure
                                 explicabo </p>
                         </div>
                     </div>
-                    <div class="col-3 ">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <div class="card border-0 text-start p-4 rounded-3 shadow">
                             <div class="d-flex mb-2">
                                 <div class="col-4"><img src="images/img-pet/icon/beauty-salon.png" class="w-75" alt="">
                                 </div>
                                 <div class="col-8">
-                                    <h4 class="pt-3 text-warning fw-bold">Pet grooming</h4>
+                                    <h5 class="pt-3 text-warning fw-bold">Pet grooming</h5>
                                 </div>
                             </div>
                             <p class="mb-0">Grooming is essential to keeping your pet looking and feeling fabulous.</p>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <div class="card border-0 text-start p-4 rounded-3 shadow">
                             <div class="d-flex mb-2">
                                 <div class="col-4"><img src="images/img-pet/icon/dog-training.png" class="w-75" alt="">
                                 </div>
                                 <div class="col-8">
-                                    <h4 class="pt-3 text-warning fw-bold">Pet Training</h4>
+                                    <h5 class="pt-3 text-warning fw-bold">Pet Training</h5>
                                 </div>
                             </div>
                             <p class="mb-0">Our dog training classes to help general public, better understand their
-                                canine companions. </p>
+                                canin. </p>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <div class="card border-0 text-start p-4 rounded-3 shadow">
                             <div class="d-flex mb-2">
                                 <div class="col-4"><img src="images/img-pet/icon/veterinary.png" class="w-75" alt="">
                                 </div>
                                 <div class="col-8">
-                                    <h4 class="pt-3 text-warning fw-bold">Pet Consulting</h4>
+                                    <h5 class="pt-3 text-warning fw-bold">Pet Consulting</h5>
                                 </div>
                             </div>
                             <p class="mb-0">Pet consulting is a specialist area of pet care that examines the
@@ -292,7 +311,7 @@
             <div class="container">
                 <div class="row d-flex position-relative">
                     <div class="col-6 flex-column px-4  text-white position-absolute">
-                        <h1>Some Little Facts About Our Company</h1>
+                        <h1 class="fw-bold">Some Little Facts About Our Company</h1>
                         <button type="button" class="btn btn-light py-2 px-4 mt-3">See more</button>
                     </div>
                 </div>
@@ -321,9 +340,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <h4><span class="badge bg-white color-text py-2 shadow">Benefits</span></h4>
+                        <h4><span class="badge bg-white color-text py-2 shadow">FAQs</span></h4>
                         <h3 class="fw-bold mt-5">
-                            Why Choose Our Pet Care Company?
+                            Some Frequency Asked Questions
                         </h3>
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item" data-aos-once="true">
@@ -332,15 +351,34 @@
                                         data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
                                         aria-expanded="false" aria-controls="flush-collapseOne">
                                         <i class="fa-solid fa-star me-2 color-text"></i>
-                                        <span class="fs-6">Quality toys & food for your pets</span>
+                                        <span class="fs-6">What is PetZone website?</span>
                                     </button>
                                 </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body ">
-                                        Please be aware that you will be charged for the rest of your pet’s meals up to
-                                        $5/meal. If you do not bring your pet’s own food, we offer our Fromm’s house
-                                        cuisine.
+                                        PetZone is a comprehensive pet care service website dedicated to providing a
+                                        wide range of services for pets and their owners. Our mission is to ensure that
+                                        every pet receives the highest level of care and attention, tailored to their
+                                        individual needs.
+                                        At PetZone, we offer several key services, including: <a href="./pages/petDayCare.html">Pet Day Care</a>, <a href="./pages/petGrooming.html">Pet Grooming</a>, <a href="./pages/petTraining.html">Pet Training</a>, <a href="./pages/petConsult.html">Pet Consulting</a>.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item" data-aos-once="true">
+                                <h2 class="accordion-header pt-4 pb-1 ">
+                                    <button class=" accordion-button shadow-none collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                        aria-expanded="false" aria-controls="flush-collapseOne">
+                                        <i class="fa-solid fa-star me-2 color-text"></i>
+                                        <span class="fs-6">What are the hours of operation for pet day care?</span>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body ">
+                                        We are open Monday through Friday from 7 AM to 7 PM. We also offer limited hours
+                                        on weekends for special events.
                                     </div>
                                 </div>
                             </div>
@@ -350,15 +388,15 @@
                                         data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
                                         aria-expanded="false" aria-controls="flush-collapseTwo">
                                         <i class="fa-solid fa-star me-2 color-text"></i>
-                                        <span class="fs-6">Quality toys & food for your pets</span>
+                                        <span class="fs-6">How do I schedule a pet consulting session?</span>
                                     </button>
                                 </h2>
                                 <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body ">
-                                        Please be aware that you will be charged for the rest of your pet’s meals up to
-                                        $5/meal. If you do not bring your pet’s own food, we offer our Fromm’s house
-                                        cuisine.
+                                        ou can schedule a session by visiting our website and filling out the
+                                        consultation request form. Our team will contact you to confirm your
+                                        appointment.
                                     </div>
                                 </div>
                             </div>
@@ -368,15 +406,15 @@
                                         data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
                                         aria-expanded="false" aria-controls="flush-collapseThree">
                                         <i class="fa-solid fa-star me-2 color-text"></i>
-                                        <span class="fs-6">Quality toys & food for your pets</span>
+                                        <span class="fs-6">What grooming services do you offer?</span>
                                     </button>
                                 </h2>
                                 <div id="flush-collapseThree" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body ">
-                                        Please be aware that you will be charged for the rest of your pet’s meals up to
-                                        $5/meal. If you do not bring your pet’s own food, we offer our Fromm’s house
-                                        cuisine.
+                                        We offer a range of grooming services, including bathing, brushing, nail
+                                        trimming, ear cleaning, and haircuts. Our groomers are experienced in handling
+                                        all breeds and sizes.
                                     </div>
                                 </div>
                             </div>
@@ -386,15 +424,15 @@
                                         data-bs-toggle="collapse" data-bs-target="#flush-collapseFour"
                                         aria-expanded="false" aria-controls="flush-collapseFour">
                                         <i class="fa-solid fa-star me-2 color-text"></i>
-                                        <span class="fs-6">Quality toys & food for your pets</span>
+                                        <span class="fs-6">How do I enroll my pet in a training program?</span>
                                     </button>
                                 </h2>
                                 <div id="flush-collapseFour" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body ">
-                                        Please be aware that you will be charged for the rest of your pet’s meals up to
-                                        $5/meal. If you do not bring your pet’s own food, we offer our Fromm’s house
-                                        cuisine.
+                                        You can enroll your pet by visiting our website and selecting the training
+                                        program that best fits your needs. After filling out the registration form, our
+                                        team will reach out to you with further details.
                                     </div>
                                 </div>
                             </div>
@@ -516,7 +554,7 @@
                 </div>
             </div>
         </section> -->
-        <section class="appointment position-relative">
+        <section class="appointment position-relative my-5">
             <div class="container">
                 <div class="row">
                     <h4 class="mb-3 text-center z-1"><span
@@ -718,7 +756,7 @@
             </section>
         </div>
     </footer> -->
-    
+
     <footer class="">
         <div class="container">
             <section class="top-footer py-5 ">
@@ -730,7 +768,7 @@
                                     <img class=" object-fit-cover pb-4" src="images/img-pet/logo/PetZone (2).png"
                                         alt="">
                                 </div>
-                                <div>
+                                <div class="foot-icon">
                                     <div class="d-flex">
                                         <i class="fa-solid fa-phone fs-2 color-text mt-2"></i>
                                         <div class="text ps-4">
@@ -763,7 +801,7 @@
                                     <li>
                                         <a href="feedback.html">Feedback</a>
                                     </li>
-                                    
+
                                     <li>
                                         <a href="contact.html">Contact</a>
                                     </li>
@@ -844,7 +882,7 @@
             </section>
         </div>
     </footer>
-  
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/auth-btn.js"></script>
     <script>
