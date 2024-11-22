@@ -74,10 +74,10 @@
             font-size: 14px;
         }
 
-        .form-logAndris .icon-position {
+        .signUp .form-group .icon-position {
             position: absolute;
-            top: 50%;
-            left: 10px;
+            top: 65%;
+            left: 18px;
             transform: translateY(-50%);
             color: #aaa;
             pointer-events: none;
@@ -181,7 +181,7 @@
             </div>
         </nav>
     </header>
-    <main>
+    <main class="signUp">
         <section class="form-logAndris position-relative mt-5 pt-4 mb-0">
             <img src="../images/img-pet/icon/bone.png" alt width="50px" class="bone-1 position-absolute">
             <img src="../images/img-pet/icon/bone.png" alt width="50px" class="bone-2 position-absolute">
@@ -189,7 +189,7 @@
                 <div class="row d-flex">
                     <div class="m-auto col-lg-10 bg-image-login my-3  py-2">
                         <div class="row shadow my-4">
-                            <div class="col-7 d-lg-flex pe-0  flex-column justify-content-center align-items-center">
+                            <div class="col-7 d-lg-flex   flex-column justify-content-center align-items-center">
                                 <div class="bg-glass p-4 w-100">
                                     <div class="d-flex justify-content-center align-items-center mb-3 ">
                                         <img src="../images/img-pet/logo/PetZone (2).png" alt width="150px">
@@ -199,52 +199,53 @@
                                         <!-- <div class="img-logoform mx-auto d-flex justify-content-center align-items-center">
                                             <img src="images/login and signup/PetZone.png" alt="Logo">
                                         </div> -->
-                                        <div class="row ">
-                                            <div class="col-6">
+                                        <div class="row m-0 p-0">
+                                            <div class="col-6 ps-2">
                                                 <div class="form-group position-relative">
-                                                    <input type="text" class="form-control mt-3 input-with-icon"
+                                                    <input type="text" class="form-control  mt-3 input-with-icon"
                                                         id="first_name" name="first_name" required
                                                         placeholder="Fisrtname">
-                                                    <i class="fa-solid fa-user icon-position"></i>
-                                                    <div class="invalid-feedback" id="first_name-error"></div>
-                                                    <div class="valid-feedback text-success" id="first_name-success">First Name looks good!</div>
+                                                    <i class="fa-solid fa-user icon-positions"></i>
                                                 </div>
+                                                <div class="invalid-feedback" id="first_name-error"></div>
+                                                <div class="valid-feedback text-success" id="first_name-success">First Name looks good!</div>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-6 pe-2">
                                                 <div class="form-group position-relative">
                                                     <input type="text" class="form-control mt-3 input-with-icon"
                                                         id="last_name" name="last_name" required
                                                         placeholder="Lastname">
-                                                    <i class="fa-solid fa-user icon-position"></i>
-                                                    <div class="invalid-feedback" id="last_name-error"></div>
-                                                    <div class="valid-feedback text-success" id="last_name-success">Last Name looks good!</div>
+                                                    <i class="fa-solid fa-user icon-positions"></i>
                                                 </div>
+                                                <div class="invalid-feedback" id="last_name-error"></div>
+                                                    <div class="valid-feedback text-success" id="last_name-success">Last Name looks good!</div>
                                             </div>
                                         </div>
                                         <div class="form-group position-relative">
                                             <input type="email" class="form-control mt-3 input-with-icon" id="email"
                                                 name="email" required placeholder="Email address">
                                             <i class="fa-solid fa-envelope icon-position"></i>
-                                            
-                                            <div class="invalid-feedback" id="email-error"></div>
-                                            <div class="valid-feedback text-success" id="email-success">Email looks good!</div>
                                         </div>
+                                        <div class="invalid-feedback" id="email-error"></div>
+                                        <div class="valid-feedback text-success" id="email-success">Email looks good!</div>
+
                                         <div class="form-group position-relative">
                                             <input type="password" class="form-control mt-3 input-with-icon"
                                                 id="password" name="password" required placeholder="Password">
                                             <i class="fa-solid fa-lock icon-position"></i>
-                                            
-                                            <div class="invalid-feedback" id="password-error"></div>
-                                            <div class="valid-feedback text-success" id="password-success">Password looks good!</div>
                                         </div>
+                                        <div class="invalid-feedback" id="password-error"></div>
+                                            <div class="valid-feedback text-success" id="password-success">Password looks good!</div>
+
                                         <div class="form-group position-relative">
                                             <input type="password" class="form-control mt-3 input-with-icon"
                                                 id="password_confirmation" name="password_confirmation" required
                                                 placeholder="Confirm password">
                                             <i class="fa-solid fa-lock icon-position"></i>
-                                            <div class="invalid-feedback" id="password_confirmation-error"></div>
-                                            <div class="valid-feedback text-success" id="password_confirmation-success">Password looks good!</div>
                                         </div>
+                                        <div class="invalid-feedback" id="password_confirmation-error"></div>
+                                            <div class="valid-feedback text-success" id="password_confirmation-success">Password looks good!</div>
+
                                         <div class="form-group mt-3">
                                             <div class="check-box">
                                                 <input type="checkbox" class="form-check-input " id="rememberMe" required>

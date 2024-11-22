@@ -1598,6 +1598,14 @@ header {
      color: #aaa;
      pointer-events: none;
  }
+ .form-logAndris .form-group .icon-positions {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+    pointer-events: none;
+}
  
 
  .form-logAndris .btn-login {
@@ -1621,15 +1629,7 @@ header {
 .input-with-icon {
     padding-left: 2.5rem; /* Space for the icon */
 }
-
-.icon-position {
-    position: absolute;
-    left: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #6c757d; /* Icon color */
-}
-
+.signUp .form-logAndris 
 /* .invalid-feedback,
 .valid-feedback {
     margin-left: 2.5rem; /* Align validation messages properly 
