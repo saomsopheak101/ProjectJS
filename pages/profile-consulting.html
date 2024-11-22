@@ -479,14 +479,13 @@
                                                     <div>
                                                         <div class="d-flex">
                                                             <p>Health &Care</p>
-                                                            <p class="ms-5 text-danger fw-bold">${element.status == 1 ? 'Pending' : element.status == 2 ? 'Approved' : element.status == 3 ? 'Decline': ''}</p>
+                                                            <p class="ms-5 text-danger fw-bold">${element.status == 1 ? 'Pending' : element.status == 2 ? 'Approved' : element.status == 3 ? 'Declined': ''}</p>
                                                         </div>
-                                                        <h4 class="color-text mb-0">Ms. Ananliya</h4>
-                                                        <p><span class="fw-bold">Date Time </span> 12-12-2024 9:30am
-                                                            (online)</p>
+                                                        <h4 class="color-text mb-0">${element.employee?.name}</h4>
+                                                        <p><span class="fw-bold">Date Time </span>${element.datetime}
+                                                            (${element.is_online == true ? 'online' : 'face to face'})</p>
 
-                                                        <p class="pt-1 mb-0">At Prime Pet Consulting we help dogs become better versions of themselves while educating and coaching owners on how to strengthen the relationship with their dogs. </p>
-                                                        <!-- <h4 class="mb-0 fw-medium pt-2">$15</h4> -->
+                                                        <p class="pt-1 mb-0"> ${element.is_online == false || element.is_online == true &&  element.status == 3 ?'Reason :'+ element.declined_reason : element.online_link} </p>
                                                     </div>
                                                 </div>
                                             </div>
