@@ -124,9 +124,7 @@
  .navbar .dropdown:not(.megamenu) .dropdown-menu {
      top: 60px;
 }
-     padding: 0.75rem !important;
-     /* margin-left: -150px !important; */
- }
+   
 
  .navbar .dropdown:not(.megamenu) .dropdown-menu .dropdown-item{
     transition: 0.3s;
@@ -1684,22 +1682,8 @@
     position: relative;
     width: 80px;
     height: 80px;
+    
 }
-
-<<<<<<< HEAD
-.input-with-icon {
-    padding-left: 2.5rem; /* Space for the icon */
-}
-.signUp .form-logAndris 
-/* .invalid-feedback,
-.valid-feedback {
-    margin-left: 2.5rem; /* Align validation messages properly 
-}/*
- 
-=======
-
-
-/* Loading */
 
 #preloader .lds-ripple div {
     position: absolute;
@@ -1736,5 +1720,4 @@
 }
 
 
->>>>>>> 4e2f7bd8140f7400476fef79cef9376c9b11dbd7
 
