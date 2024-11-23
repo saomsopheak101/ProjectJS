@@ -2,15 +2,18 @@ function getdata() {
     // Clear previous error messages
     document.getElementById('email-error').textContent = '';
     document.getElementById('password-error').textContent = '';
+    document.getElementById('checkbox-error').textContent = '';
 
     let email = document.querySelector('#email').value.trim();
     let password = document.querySelector('#password').value.trim();
+    let checkbox = document.querySelector('#remember');
 
     let emailIsValid = validateEmail(email);
     let passwordIsValid = validatePassword(password);
+    let checkboxIsValid = validateCheckbox(checkbox);
 
     // If either field is invalid, stop form submission
-    if (!emailIsValid || !passwordIsValid) {
+    if (!emailIsValid || !passwordIsValid || checkboxIsValid) {
         return; // Prevent login attempt
     }
 
@@ -62,7 +65,6 @@ function validateEmail(email) {
     if (!emailRegex.test(email)) {
 
         document.getElementById('email-error').textContent = 'Please enter a valid email.';
-
         document.querySelector('#email').classList.add('is-invalid');
         document.getElementById('email-success').style.display = 'none';
         return false;
@@ -83,6 +85,18 @@ function validatePassword(password) {
     document.querySelector('#password').classList.remove('is-invalid');
     document.getElementById('password-error').textContent = '';
     document.getElementById('password-success').style.display = 'block';
+    return true;
+}
+
+function validateCheckbox(checkbox) {
+    if (!checkbox.checked) {
+        document.getElementById('checkbox-error').textContent = 'You must agree before logging in.';
+        document.querySelector('#remember').classList.add('is-invalid');
+        // document.getElementById('checkbox-error').style.display = 'none';
+        return false;
+    }
+    // document.querySelector('#remember').classList.remove('is-invalid');
+    document.getElementById('checkbox-error').style.display = 'block';
     return true;
 }
 
