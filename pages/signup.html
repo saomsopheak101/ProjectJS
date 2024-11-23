@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../icons/fontawesome/css/all.min.css">
-   
+
 </head>
 
 <body class="overflow-x-hidden">
@@ -17,13 +17,13 @@
     <!--*******************
         Preloader start
     ********************-->
-	<div id="preloader">
-		<div class="lds-ripple">
-			<div></div>
-			<div></div>
-		</div>
-	</div>
-	<!--*******************
+    <div id="preloader">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--*******************
         Preloader end
     ********************-->
 
@@ -35,9 +35,9 @@
                 </a>
                 <div class="d-flex align-items-center ">
                     <div class="d-flex align-items-center">
-                        <button class=" rounded-2 btn-login-header  color-bg text-white border-0 ms-3 " id="login" type="button"
-                            onclick="window.location.href='../pages/login.html';">Login</button>
-                        <button class="btn rounded-2 btn-login btn-login-header ms-3 " id="login" type="button"
+                        <button class=" rounded-2 btn-login-header  color-bg text-white border-0 ms-3 " id="login"
+                            type="button" onclick="window.location.href='../pages/login.html';">Login</button>
+                        <button class="btn rounded-2 btn-login btn-login-header ms-3 " id="Resgister" type="button"
                             onclick="window.location.href='../pages/signup.html';">Sign up</button>
                         <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
 
@@ -61,8 +61,8 @@
                                     <div class="d-flex justify-content-center align-items-center mb-3 ">
                                         <img src="../images/img-pet/logo/PetZone (2).png" alt width="150px">
                                     </div>
-                                    <form onsubmit="getdata(); return false;" action="" class="needs-validation row g-3 position-relative"
-                                        novalidate>
+                                    <form onsubmit="getdata(); return false;" action=""
+                                        class="needs-validation row g-3 position-relative" novalidate>
                                         <!-- <div class="img-logoform mx-auto d-flex justify-content-center align-items-center">
                                             <img src="images/login and signup/PetZone.png" alt="Logo">
                                         </div> -->
@@ -75,17 +75,18 @@
                                                     <i class="fa-solid fa-user icon-positions"></i>
                                                 </div>
                                                 <div class="invalid-feedback" id="first_name-error"></div>
-                                                <div class="valid-feedback text-success" id="first_name-success">First Name looks good!</div>
+                                                <div class="valid-feedback text-success" id="first_name-success">First
+                                                    Name looks good!</div>
                                             </div>
                                             <div class="col-6 ">
                                                 <div class="form-group mt-0 pt-0 position-relative">
                                                     <input type="text" class="form-control mt-3 input-with-icon"
-                                                        id="last_name" name="last_name" required
-                                                        placeholder="Lastname">
+                                                        id="last_name" name="last_name" required placeholder="Lastname">
                                                     <i class="fa-solid fa-user icon-positions"></i>
                                                 </div>
                                                 <div class="invalid-feedback" id="last_name-error"></div>
-                                                    <div class="valid-feedback text-success" id="last_name-success">Last Name looks good!</div>
+                                                <div class="valid-feedback text-success" id="last_name-success">Last
+                                                    Name looks good!</div>
                                             </div>
                                             <div class="col-12 mt-3">
                                                 <div class="form-group position-relative">
@@ -94,7 +95,8 @@
                                                     <i class="fa-solid fa-envelope icon-position"></i>
                                                 </div>
                                                 <div class="invalid-feedback" id="email-error"></div>
-                                                <div class="valid-feedback text-success" id="email-success">Email looks good!</div>
+                                                <div class="valid-feedback text-success" id="email-success">Email looks
+                                                    good!</div>
                                             </div>
                                             <div class="col-12 mt-3">
                                                 <div class="form-group position-relative">
@@ -103,7 +105,8 @@
                                                     <i class="fa-solid fa-lock icon-position"></i>
                                                 </div>
                                                 <div class="invalid-feedback" id="password-error"></div>
-                                                    <div class="valid-feedback text-success" id="password-success">Password looks good!</div>
+                                                <div class="valid-feedback text-success" id="password-success">Password
+                                                    looks good!</div>
 
                                             </div>
                                             <div class="col-12 mt-3">
@@ -114,25 +117,28 @@
                                                     <i class="fa-solid fa-lock icon-position"></i>
                                                 </div>
                                                 <div class="invalid-feedback" id="password_confirmation-error"></div>
-                                                    <div class="valid-feedback text-success" id="password_confirmation-success">Password looks good!</div>
-        
-                                            </div>
-                                            
-                                        </div>
+                                                <div class="valid-feedback text-success"
+                                                    id="password_confirmation-success">Password looks good!</div>
 
-                                            <div class="check-box">
-                                                <input type="checkbox" class="form-check-input " id="rememberMe" required>
-                                                <label class="form-check-label text-black" for="remember">Remember
-                                                    me</label>
                                             </div>
 
                                         </div>
+
+                                        <div class="check-box">
+                                            <input type="checkbox" class="form-check-input " id="rememberMe" required>
+                                            <label class="form-check-label text-black" for="remember">Remember
+                                                me</label>
+                                        </div>
+
+
                                         <div class="form-group mt-3 btn-login">
-                                            <input type="submit" class="btn btn-warning" value="Signup" id="signupButton">
+                                            <input type="submit" class="btn btn-warning" value="Signup"
+                                                id="signupButton">
                                             <button class="btn btn-primary d-none" id="spinner" type="button" disabled>
-                                                <span class="spinner-border spinner-border-sm"  aria-hidden="true"></span>
+                                                <span class="spinner-border spinner-border-sm"
+                                                    aria-hidden="true"></span>
                                                 <span role="status">Loading...</span>
-                                              </button>
+                                            </button>
                                         </div>
                                         <div class="separator position-relative my-4">
                                             <!-- <p class="text-black">Or register with</p> -->
@@ -142,7 +148,8 @@
                                             <div class="col-6">
                                                 <div class="login-with-socail">
                                                     <a href="#" class="socail-btn">
-                                                        <img src="../images/login and signup/facebookk.png" alt="Facebook">
+                                                        <img src="../images/login and signup/facebookk.png"
+                                                            alt="Facebook">
                                                         <p class="text-black">Facebook</p>
                                                     </a>
                                                 </div>
@@ -156,7 +163,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group mt-3">
                                             <p class="text-center mb-0 text-black">Already have an account? <a
                                                     href="../pages/login.html"
@@ -176,6 +183,7 @@
                     </div>
                 </div>
             </div>
+
         </section>
     </main>
     <footer class="border-1 ">
@@ -197,13 +205,13 @@
 
 
 
-    
+
     <!-- <script src="../js/resgister.js"></script> -->
     <script src="../js/petzone/signup.js"></script>
     <!-- Preloader -->
     <script src="../vendor/global/global.min.js"></script>
-	<script src="../js/custom.js"></script>
-	
-</body>
-</html>
+    <script src="../js/custom.js"></script>
 
+</body>
+
+</html>
