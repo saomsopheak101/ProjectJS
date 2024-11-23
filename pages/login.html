@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../icons/fontawesome/css/all.min.css">
-   
+
     <style>
         header {
             position: fixed;
@@ -162,12 +162,11 @@
         /* Ensure the icons are positioned correctly */
 
         /* Editable */
-        
     </style>
 </head>
 
 <body class="overflow-x-hidden">
-    
+
     <div id="preloader">
         <div class="lds-ripple">
             <div></div>
@@ -288,7 +287,7 @@
                 </div>
             </div>
         </section>
-    </main> 
+    </main>
     <footer class="border-1 mt-4">
         <section class="copyright py-4 border-top">
             <div class="container-fluid px-md-5">
@@ -305,6 +304,7 @@
             </div>
         </section>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/petzone/login.js">
 
 
@@ -410,11 +410,11 @@
                 const roleName = json.data.roles[0].name;
                 if (roleName === 'Normal User') {
                     sessionStorage.setItem('authToken', json.data.token);
-                    alert(json.message + " Token stored.");
-                    location.href = '../index.html';
+                    // alert(json.message + " Token stored.");
+                    showModernToast({ title: 'កក់បានជោគជ័យ​ !', description: 'Your profile has been updated.', iconType: 'success' })
                 } else if (roleName === 'System Admin') {
                     sessionStorage.setItem('adminToken', json.data.token);
-                    alert(json.message + " Token stored.");
+                    // alert(json.message + " Token stored.");
                     location.href = '../pages/employee.html';
                 } else {
                     alert("User role not recognized.");
@@ -424,13 +424,47 @@
             }
         }
 
-
+            title = '',
+            description = '',
+            iconType = 'success',
+            position = 'top-right',
+            timer = 4000,
+            hasCloseButton = true,
+        }) {
+            Swal.fire({
+                toast: true,
+                position: position,
+                icon: iconType,
+                title: `<strong style="color:#222222">${title}</strong>`,
+                html: description
+                    ? `<p style="margin: 0; font-size: 12px; color: #ccc;">${description}</p>`
+                    : '',
+                customClass: {
+                    popup: 'modern-toast',
+                    closeButton: hasCloseButton ? 'swal-close-btn' : '',
+                },
+                showConfirmButton: false,
+                timer: timer,
+                timerProgressBar: true,
+                showCloseButton: hasCloseButton,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer);
+                    toast.addEventListener('mouseleave', Swal.resumeTimer);
+                  
+                },
+            });
+            
+            // Delay redirection by 10 seconds
+            setTimeout(() => {
+                location.href = '../index.html';
+            }, 10000); // 10 seconds delay
+        }
     </script>
 
     <!-- Preloader -->
     <script src="../vendor/global/global.min.js"></script>
-	<script src="../js/custom.js"></script>
-	
+    <script src="../js/custom.js"></script>
+
 </body>
 
 </html>
