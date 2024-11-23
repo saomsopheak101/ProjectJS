@@ -33,7 +33,7 @@ function getdata() {
      formData.append('password_confirmation',passwordConfirmation)
 
 
-    fetch('https://mps4.chandalen.dev/api/login', {
+    fetch('https://mps4.chandalen.dev/api/register', {
         method: 'POST',
         headers: { "Accept": "application/json" },
         body: formData

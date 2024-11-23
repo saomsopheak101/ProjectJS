@@ -80,13 +80,7 @@
                         </li>
                     </ul>
                     <div class="d-flex align-items-center ">
-                        <div class="d-flex align-items-center">
-                            <button class="rounded-2 btn-login-header btn-light border-0 ms-3 btn-shadow" id="login"
-                                type="button" onclick="window.location.href='../pages/login.html';">Login</button>
-                            <button class=" rounded-2 btn-login-header btn-light border-0 ms-3 btn-shadow"
-                                id="signupForm" type="button"
-                                onclick="window.location.href='../pages/signup.html';">Signup</button>
-                        </div>
+                  
                         <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
@@ -209,7 +203,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+
         </nav>
     </header>
     <main>
@@ -601,7 +595,7 @@
     </footer>
 
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/auth-btn.js"></script>
+    <!-- <script src="../js/auth-btn.js"></script> -->
     <script>
         console.log(sessionStorage.getItem('authToken'))
         let authToken = sessionStorage.getItem('authToken')

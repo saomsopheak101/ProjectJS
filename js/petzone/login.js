@@ -100,6 +100,7 @@ function validateCheckbox(checkbox) {
     return true;
 }
 
+
 function handleLoginSuccess(json) {
     if (json.data.roles && json.data.roles.length > 0) {
         const roleName = json.data.roles[0].name;
