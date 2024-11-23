@@ -4,55 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Day Care</title>
+    <title>Grooming profile</title>
     <link rel="shortcut icon" type="image/png" href="../images/img-pet/logo/favicon.png">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../icons/fontawesome/css/all.min.css">
-    <style>
-        .pricing {
-            background-image: url(images/service/daycare-2.png);
-            background-position: left bottom;
-            background-size: cover;
-            background-attachment: fixed;
-        }
-
-        .book-btn {
-            left: 20px;
-            top: 80px;
-            animation: move 1s alternate ease-in-out infinite;
-        }
-
-        @keyframes move {
-            from {
-                transform: scale(1);
-            }
-
-            to {
-                transform: scale(1.08);
-            }
-
-        }
-
-        .service-overview p {
-            font-size: 13px;
-        }
-
-        .carousel-control-prev {
-            left: -30px;
-        }
-
-        .carousel-control-next {
-            right: -80px;
-        }
-
-        textarea {
-            height: 200px !important;
-        }
-    </style>
 </head>
 
-<body>
+<body class="profile-page"> 
 
     <!--*******************
         Preloader start
@@ -107,8 +66,9 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item mx-lg-2  ">
-                            <a class="nav-link  fw-medium black-nav" href="../pages/about-us.html" >
+                        <li class="nav-item mx-lg-2 dropdown ">
+                            <a class="nav-link  fw-medium black-nav" href="../pages/about-us.html" role="button"
+                                aria-expanded="false">
                                 About us
                             </a>
                         </li>
@@ -253,330 +213,159 @@
         </nav>
     </header>
     <main>
-        <section class="daycare-banner">
-            <div class="banner-bg position-relative"></div>
+        <section class=" bg-profile  position-relative ">
+            <div class="banner-profile booking-service"></div>
             <div class="content d-flex align-items-center">
-                <div class="container">
-                    <div class="text-center text-white-light mb-5">
-                        <h2 class="display-6 my-4 pt-5 text-white fw-bold">Pet Day Care</h2>
-                        <div class=" badge bg-white color-text py-2 shadow">
-                            <a href="../index.html" class="text-white-light text-decoration-none">Home</a>
-                            <span> &nbsp;>&nbsp; </span>
-                            <span class="text-brand">pet day care</span>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </section>
-        <section class="my-5">
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content border-0">
-                        <div class="modal-header text-black bg-secondary d-flex justify-content-center">
-                            <h3 class="modal-title fw-bold text-white" id="exampleModalLabel">Ask a question</h3>
-                            <button type="button" class="btn-close " data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="">
-                                <div class="form-floating mb-3">
-                                    <textarea class="form-control" placeholder="Leave a comment here"
-                                        id="floatingTextarea2" style="height: 200px !important"></textarea>
-                                    <label for="floatingTextarea2">Question</label>
-                                </div>
-                                <div class="d-flex justify-content-end"><button class="btn btn-warning">Send</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- <section>
+        <section class="profile-book margin-bottom">
             <div class="container">
-                <h2 class="text-center fw-bold">Make Your Pet Feel Safe</h2>
-                <h6 class="text-center"><span class="badge bg-white shadow text-warning">User Feedbacks</span></h6>
-                <div class="row service-overview position-relative">
-                    <div class="col-4 d-flex align-items-center">
-                        <p class="lh-lg">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores corrupti
-                            cupiditate fuga
-                            similique earum totam vero alias culpa aliquid hic, perspiciatis molestiae quisquam
-                            excepturi
-                            numquam facilis, tenetur quas cumque recusandae!
-                            Quo nulla repudiandae a nemo aliquam vel tempora praesentium, et autem laboriosam fugiat qui
-                            quas aut ea totam non ipsam similique?</p>
-                    </div>
-                    <div class="col-4 position-relative">
-
-                        <img src="../images/service/pet-day-1.png" alt="" class="w-100">
-                        <button class="btn btn-warning position-absolute book-btn" id="book-care">Book Now</button>
-
-                    </div>
-                    <div class="col-4 d-flex align-items-center">
-                        <div class="">
-                            <p class="lh-lg">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing
-                                elit. Nam, vel. Repudiandae
-                                ut molestiae obcaecati quam maxime? Sequi dolor veniam natus eaque earum consequatur
-                                iusto
-                                suscipit magnam fuga, repellat saepe molestiae.
-                                Repellat error Quo nulla repudiandae a nemo aliquam vel tempora praesentium, libero quae
-                                itaque similique accusantium, in harum, illo fugit tempora ad
-                            </p>
-                        </div>
-                    </div>
-                </div>
-        </section> -->
-        <section>
-            <div class="container my-5">
-                <div class="row flex-nowrap">
-                    <div class="col-8">
-                        <h3 class="fw-bold text-warning">About service</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam debitis facilis quibusdam
-                            architecto repellendus rem iure laborum eligendi neque? At veritatis iure necessitatibus
-                            esse repudiandae consequuntur vel nemo iusto debitis!</p>
-                        <div class="row pt-3 w-100">
-                            <div class="col-4 d-flex">
-                                <i class="fa-regular fa-circle-check fs-4 color-text"></i>
-                                <p class="ps-3 ">Pets Care 24/7</p>
-                            </div>
-                            <div class="col-4 d-flex">
-                                <i class="fa-regular fa-circle-check fs-4 color-text"></i>
-                                <p class="ps-3">Skilled Personal</p>
-                            </div>
-                            <div class="col-4 d-flex">
-                                <i class="fa-regular fa-circle-check fs-4 color-text"></i>
-                                <p class="ps-3">Fully Experiences</p>
-                            </div>
-                            <div class="col-4 d-flex">
-                                <i class="fa-regular fa-circle-check fs-4 color-text"></i>
-                                <p class="ps-3">Best Service</p>
-                            </div>
-                            <div class="col-4 d-flex">
-                                <i class="fa-regular fa-circle-check fs-4 color-text"></i>
-                                <p class="ps-3">Comfortable</p>
-                            </div>
-                            <div class="col-4 d-flex">
-                                <i class="fa-regular fa-circle-check fs-4 color-text"></i>
-                                <p class="ps-3">Affortfully care</p>
-                            </div>
-                        </div>
-                        <video src="../images/service/daycare-video.mp4" autoplay muted controls class="w-100 my-4 rounded-3">
-                            <track default kind="captions" srclang="en" src="caption.vtt">
-                        </video>
-                    </div>
-                    <div class="col-4 shadow mx-4 h-100">
-                        <div class="row p-4">
-                            <h6 class="px-0 mb-3">Accepted Pet Types</h6>
-                            <div class="d-flex column-gap-3 px-0">
-                                <div>
-                                    <img src="../images/img-pet/dog.png" alt="" style="width: 30px;">
-                                    <p class="fs-7 mb-0">Dog</p>
+                <div class="row ">
+                    <div class="col-10 m-auto d-flex">
+                        <div class="setting-sidebar col-md-4 col-xl-4 me-4">
+                            <div class="card border-0 shadow py-4 ">
+                                <div class="card-header bg-transparent mb-3">
+                                    <a href="#" class="img-pro">
+                                        <img src="../images/img-pet/icon/user.png" alt="" id="profile-pic">
+                                        <div class="icon-delete "  onclick="deleteAvatar()" style="cursor: pointer;">
+                                            <i class="fa-solid fa-trash-can fs-4 text-white"></i>
+                                        </div>
+                                    </a>
+                                    <label type="button" for="profile"
+                                        class="btn btn-edit-1 color-bg btn-camera position-absolute">
+                                        <i class="fa-solid fa-camera text-white" ></i>
+                                    </label>
+                                    <input type="file" class="form-control bg-transparent d-none" id="profile"
+                                        accept="image/*">
+                                   
+                                    <!-- <button type="button" class="btn btn-primary">Delete</button> -->
+                                    <h5 class="mb-0 mt-4">Kinki</h5>
+                                    <span>Kinki@gmail.com</span>
                                 </div>
-                                <div>
-                                    <img src="../images/img-pet/cat.png" alt="" style="width: 30px;">
-                                    <p class="fs-7 mb-0">Cat</p>
-                                </div>
-                                <div>
-                                    <img src="../images/img-pet/bird.png" alt="" style="width: 30px;">
-                                    <p class="fs-7 mb-0">Bird</p>
-                                </div>
-                                <div>
-                                    <img src="../images/img-pet/bunny.png" alt="" style="width: 30px;">
-                                    <p class="fs-7 mb-0">Rabbit</p>
-                                </div>
-                                <div>
-                                    <img src="../images/img-pet/hamster.png" alt="" style="width: 30px;">
-                                    <p class="fs-7 mb-0">Hamster</p>
-                                </div>
-
-                            </div>
-                            <button class="btn btn-warning rounded-0 my-3" id="book-care">Book Now</button>
-                            <h6 class="px-0">Other Services</h6>
-                            <div class="d-flex px-0 col-12 my-2 column-gap-3 rounded-2 overflow-hidde">
-                                <div class="col-4 bg-black overflow-hidden border-0"
-                                    style="border-bottom-right-radius:60px;">
-                                    <img src="../images/service/pet bathing.png" alt="" class="w-100">
-                                </div>
-                                <div class="col-8 p-4">
-                                    <p class="fw-medium mb-0">Pet Grooming</p>
-                                    <a href="petGrooming.html" class="fs-6 text-warning">See More</a>
-                                </div>
-                            </div>
-                            <div class="d-flex px-0 col-12 my-2 column-gap-3 rounded-2 overflow-hidde">
-                                <div class="col-4 bg-black overflow-hidden" style="border-bottom-right-radius:60px;">
-                                    <img src="../images/service/pet training.jpg" alt="" class="w-100">
-                                </div>
-                                <div class="col-8 p-4">
-                                    <p class="fw-medium mb-0">Pet Training</p>
-                                    <a href="petTraining.html" class="fs-6 text-warning">See More</a>
-                                </div>
-                            </div>
-                            <div class="d-flex px-0 col-12 my-2 column-gap-3 rounded-2 overflow-hidde">
-                                <div class="col-4 bg-black overflow-hidden" style="border-bottom-right-radius:60px;">
-                                    <img src="../images/service/pet consulting.jpg" alt="" class="w-100">
-                                </div>
-                                <div class="col-8 p-4">
-                                    <p class="fw-medium mb-0">Pet Consulting</p>
-                                    <a href="petConsult.html" class="fs-6 text-warning">See More</a>
-                                </div>
-                            </div>
-                            <div class="d-flex px-0 col-12 my-2 column-gap-3 rounded-2 overflow-hidde">
-                                <div class="col-4 bg-black overflow-hidden" style="border-bottom-right-radius:60px;">
-                                    <img src="../images/service/pet veterinary.png" alt="" class="w-100">
-                                </div>
-                                <div class="col-8 p-4">
-                                    <p class="fw-medium mb-0">Pet Veterinary</p>
-                                    <a href="petVeterinary.html" class="fs-6 text-warning">See More</a>
-                                </div>
+                                <ul class="nav">
+                                    <li class="nav-item border-0">
+                                        <a href="../pages/profile.html" class="nav-link d-flex fw-medium px-4"
+                                            aria-current="page">
+                                            <div>
+                                                <img src="../images/service/setting-profile.png" alt="" width="20">
+                                            </div>
+                                            My Profile
+                                        </a>
+                                    </li>
+                                    <li class="nav-item border-0">
+                                        <a href="../pages/profile-grooming.html"
+                                            class="nav-link active d-flex fw-medium px-4">
+                                            <div>
+                                                <div>
+                                                    <img src="../images/service/grooming-setting (2).png" alt="" width="25">
+                                                </div>
+                                            </div>
+                                            Grooming
+                                        </a>
+                                    </li>
+                                    <li class="nav-item border-0">
+                                        <a href="../pages/profile-daycare.html"
+                                            class="nav-link d-flex fw-medium px-4">
+                                            <div>
+                                                <div>
+                                                    <img src="../images/service/daycare-setting.png" alt="" width="25">
+                                                </div>
+                                            </div>
+                                            Day care
+                                        </a>
+                                    </li>
+                                    <li class="nav-item border-0">
+                                        <a href="../pages/profile-consulting.html" class="nav-link  d-flex fw-medium px-4">
+                                            <div>
+                                                <div>
+                                                    <img src="../images/service/consult-setting.png" alt="" width="24">
+                                                </div>
+                                            </div>
+                                            Consulting
+                                        </a>
+                                    </li>
+                                    <li class="nav-item border-0">
+                                        <a href="../pages/profile.feedback.html" class="nav-link d-flex fw-medium px-4">
+                                            <div>
+                                                <div>
+                                                    <img src="../images/service/feedback-setting.png" alt="" width="24">
+                                                </div>
+                                            </div>
+                                            Feedback
+                                        </a>
+                                    </li>
+                                    <li class="nav-item border-0">
+                                        <a href="../pages/profile-notification.html" class="nav-link d-flex fw-medium px-4">
+                                            <div>
+                                                <div>
+                                                    <img src="../images/service/notification-svgrepo-com.svg" alt="" width="20">
+                                                </div>
+                                            </div>
+                                            Notification
+                                        </a>
+                                    </li>
+                                    <li class="nav-item border-0">
+                                        <a href="" class="nav-link d-flex fw-medium px-4">
+                                            <div>
+                                                <img src="../images/service/log-out.png" alt="" width="20">
+                                            </div>
+                                            Log Out
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- <section>
-            <div class="container">
-                <h2 class="text-center fw-bold">Gallerys</h2>
-                <h6 class="text-center"><span class="badge bg-white shadow text-warning">Adopting Pet activities</span>
-                </h6>
-                <div class="row my-5 row-gap-4">
-                    <div class="col-6 overflow-hidden" style="height: 280px;">
-                        <img src="../images/service/a-vet.jpg" alt="" class="w-100">
-                    </div>
-                    <div class="col-6 overflow-hidden" style="height: 280px;">
-                        <img src="../images/service/a-vet.jpg" alt="" class="w-100">
-                    </div>
-                    <div class="col-4 overflow-hidden" style="height: 280px;">
-                        <img src="../images/service/a-vet.jpg" alt="" class="w-100">
-                    </div>
-                    <div class="col-4 overflow-hidden" style="height: 280px;">
-                        <img src="../images/service/a-vet.jpg" alt="" class="w-100">
-                    </div>
-                    <div class="col-4 overflow-hidden" style="height: 280px;">
-                        <img src="../images/service/a-vet.jpg" alt="" class="w-100">
-                    </div>
-                </div>
-            </div>
-        </section> -->
-        <section class="my-5">
-            <div class="container">
-                <h2 class="text-center fw-bold">What Clients' say</h2>
-                <h6 class="text-center"><span class="badge bg-white shadow text-warning">User Feedbacks</span></h6>
-                <div class="row">
-                    <div class="col-5">
-                        <form action="" class="bg-body-secondary p-3 my-4">
-                            <div class="row position-relative">
-                                <h4 class="fw-bold mb-3 mt-2">Add your review here!</h4>
-                                <div class="col-8 position-relative">
-                                    <img src="../images/service/daycare-3.png" class="position-absolute z-3" alt=""
-                                        style="width: 70px; left: -50px; bottom:-220px;">
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingInput"
-                                            placeholder="name@example.com">
-                                        <label for="floatingInput">Full Name</label>
-                                    </div>
+                        <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12 col-12">
+                            <div class="card shadow border-0">
+                                <div class="col-xl-12  rounded-2 col-lg-12 px-0 col-md-12 color-bg col-sm-12 col-12">
+                                    <h4 class="mb-0 p-3 text-white fw-bold">Grooming </h4>
                                 </div>
-                                <div class="col-4">
-                                    <div class="input-group mb-3">
-
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="floatingInputGroup1"
-                                                placeholder="Username">
-                                            <label for="floatingInputGroup1">Rating</label>
+                                <div class="col-12 px-3">
+                                    <div class="row gutters p-4 get-all" >
+     
+                                        <div class="card ps-2 my-2">
+                                            <div class="row w-100">
+                                                <div class="col-md-3 px-0">
+                                                    <img src="../images/img-pet/grooming/dog-nail.jpg"
+                                                        class="h-100 object-fit-cover img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="card-body d-flex justify-content-between">
+                                                        <div>
+                                                            <div class="d-flex">
+                                                                <h4 class="card-title">Pet Grooming</h4>
+                                                                <p class="pt-1 ps-2 text-warning">Pending</p>
+                                                            </div>
+                                                            <p class="color-text mb-0">Ms. Ananliya</p>
+                                                            <p class="pt-1 mb-0">Grooming is essential to keeping <br> your
+                                                                pet looking </p>
+                                                            <h4 class="mb-0 fw-medium pt-2">15%</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 d-flex mt-1">
+                                                    <div class="btn">
+                                                        <p class="text-secondary ">9:20 - 10:30 am</p>
+                                                        <!-- <button class=" btn-danger btn-book border-0 bg-transparent">Pending</button> -->
+                                                        <div class="mt-5">
+                                                            <button
+                                                                class="btn btn-warning btn-book text-white mt-5">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <span class="input-group-text">/10</span>
+                                    
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
-                                    style="resize: none;"></textarea>
-                                <label for="floatingTextarea">Feedback</label>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-7 justify-content-center d-flex align-items-center">
-                        <div id="carouselExample" class="carousel slide">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="p-3 position-absolute bg-white shadow rounded-3 z-3 text-center"
-                                        style="left: 50px;">
-                                        <h6 class="text-warning">Nheik Philen</h6>
-                                        <p class="mb-0" style="font-size: 12px;">Black Dog</p>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-2"></div>
-                                        <div class="col-3 position-relative">
-                                            <img src="../images/service/pf1.jpg" alt="" class="w-100 rounded-circle">
-                                        </div>
-                                        <div class="col-7 d-flex align-items-center">
-                                            <p class="mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                                Rerum, vero
-                                                accusamus! Esse aliquam deserunt pariatur.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item ">
-                                    <div class="p-3 position-absolute bg-white shadow rounded-3 z-3 text-center"
-                                        style="left: 50px;">
-                                        <h6 class="text-warning">Nheik Philen</h6>
-                                        <p class="mb-0" style="font-size: 12px;">Black Dog</p>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-2"></div>
-                                        <div class="col-3 position-relative">
-                                            <img src="../images/service/pf2.jpg" alt="" class=" rounded-circle w-100">
-                                        </div>
-                                        <div class="col-7 d-flex align-items-center">
-                                            <p class="mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                                Rerum, vero
-                                                accusamus! Esse aliquam deserunt pariatur.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="p-3 position-absolute bg-white shadow rounded-3 z-3 text-center"
-                                        style="left: 50px;">
-                                        <h6 class="text-warning">Nheik Philen</h6>
-                                        <p class="mb-0" style="font-size: 12px;">Black Dog</p>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-2"></div>
-                                        <div class="col-3 position-relative">
-                                            <img src="../images/service/a-traing-1.webp" alt=""
-                                                class="w-100 rounded-circle">
-                                        </div>
-                                        <div class="col-7 d-flex align-items-center">
-                                            <p class="mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                                Rerum, vero
-                                                accusamus! Esse aliquam deserunt pariatur.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
     <footer class="">
         <div class="container">
             <section class="top-footer py-5 ">
@@ -690,7 +479,6 @@
                                         Sunday: Closed</p>
 
                                 </div>
-
                             </div>
                         </div>
 
@@ -711,20 +499,76 @@
             </section>
         </div>
     </footer>
+
+
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/auth-btn.js"></script>
     <script>
-        document.querySelector('#book-care').addEventListener('click', () => {
-            let id = 8;
-            sessionStorage.setItem('petCareId', id);
-            location.href = 'http://127.0.0.1:5502/../pages/booking-daycare.html';
-        });
-    </script>
+     getClients();
+		function getClients() {
+			let row = '';
+			fetch('https://mps4.chandalen.dev/api/profile/books?page=1&per_page=20', {
+				method: 'GET',
+				headers: {
+					'Accept': "application/json",
+					'Authorization': `Bearer ${authToken}`
+				}
+
+			})
+				.then(res => res.json())
+				.then(json => {
+					console.log(json)
+                
+					json.data.forEach(element => {
+						if (element.pet_care_service?.id !== 8) {
+							row += `
+		                       <div class="card ps-2 my-2">
+                                        <div class="row w-100">
+                                            <div class="col-md-3 px-0">
+                                                <img src="${element.price.service.image}"
+                                                    class="h-100 object-fit-cover img-fluid rounded-start" alt="...">
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="card-body d-flex justify-content-between">
+                                                    <div>
+                                                        <div class="d-flex">
+                                                            <h4 class="card-title">${element.price.service.title}</h4>
+                                                            <p class="pt-1 ps-2 text-warning">${element.status == 1 ? 'Pending' : element.status == 2 ? 'Approved' : element.status == 3 ? 'Declined': ''}</p>
+                                                        </div>
+                                                        <p class="color-text mb-0">${element.buyer.first_name}</p>
+                                                        <p class="pt-1 mb-0">${element.price.animal.name}</p>
+                                                        <p class="pt-1 mb-0">${element.price.service.feature}</p>
+                                                        <h4 class="mb-0 fw-medium pt-2">${element.price.price}$</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 d-flex mt-1">
+                                                <div class="btn">
+                                                    <p class="text-secondary ">${element.come_date} am</p>
+                                                    <div class="mt-5">
+                                                        <button
+                                                            class="btn btn-warning btn-book text-white mt-5">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                        `;
+
+						}
+					});
+					document.querySelector('.get-all').innerHTML = row;
+
+				})
+		}
+
     </script>
 
     <!-- Preloader -->
     <script src="../vendor/global/global.min.js"></script>
 	<script src="../js/custom.js"></script>
+
 </body>
 
 </html>
