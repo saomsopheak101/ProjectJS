@@ -1902,50 +1902,8 @@
         alert("An error occurred while adding the price.");
     });
 }
-
-function UpdatePrice(priceId, serviceId) {
-    const animalId = document.getElementById("animal_id").value;
-    const price = document.getElementById("price").value;
-
-    console.log("Updating Price with:", { priceId, serviceId, animalId, price });
-
-    if (!serviceId || !price) {
-        alert("Service ID and price are required.");
-        return;
-    }
-
-    // Prepare form-urlencoded data
-    const params = new URLSearchParams();
-    params.append("service_id", serviceId);
-    params.append("animal_id", animalId);
-    params.append("price", price);
-
-    fetch(`https://mps4.chandalen.dev/api/services/price/${priceId}`, {
-        method: "PUT",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Authorization": `Bearer ${sessionStorage.getItem('adminToken')}`
-        },
-        body: params.toString() // Use URLSearchParams as body
-    })
-    .then(response => response.json())
-    .then(result => {
-        if (result.result) {
-            alert("Price updated successfully!");
-            const modal = bootstrap.Modal.getInstance(document.getElementById("editPriceModal"));
-            modal.hide(); // Close modal
-            location.reload(); // Refresh the page
-        } else {
-            alert("Failed to update price.");
-        }
-    })
-    .catch(error => {
-        console.error("Error updating price:", error);
-        alert("An error occurred while updating the price.");
-    });
-}
 function showUpdatePriceModal(priceId) {
+    // Fetch the price data for the given priceId
     fetch(`https://mps4.chandalen.dev/api/services/price/${priceId}`, {
         method: 'GET',
         headers: {
@@ -1970,9 +1928,10 @@ function showUpdatePriceModal(priceId) {
                 price: document.getElementById("price").value
             });
 
+            // Update the save button to trigger UpdatePrice with the correct priceId and serviceId
             const saveBtn = document.getElementById("savePriceBtn");
             saveBtn.textContent = 'Update Price';
-            saveBtn.onclick = () => UpdatePrice(priceId, priceData.service_id); // Call UpdatePrice with priceId and serviceId
+            saveBtn.onclick = () => UpdatePrice(priceId); // Pass priceId as the argument
 
             // Show the modal
             const modal = new bootstrap.Modal(document.getElementById('editPriceModal'));
@@ -1986,6 +1945,94 @@ function showUpdatePriceModal(priceId) {
         alert("An error occurred while fetching price data.");
     });
 }
+
+function UpdatePrice(priceId, serviceId) {
+    const animalId = document.getElementById("animal_id").value;
+    const price = document.getElementById("price").value;
+
+    // Validate inputs
+    if (!serviceId || !price) {
+        alert("Service ID and price are required.");
+        return;
+    }
+
+    // Prepare form-urlencoded data
+    const params = new URLSearchParams();
+    params.append("service_id", serviceId);
+    params.append("animal_id", animalId);
+    params.append("price", price);
+
+    // Make the API request to update price
+    fetch(`https://mps4.chandalen.dev/api/services/price/${priceId}`, {
+        method: "PUT",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": `Bearer ${sessionStorage.getItem('adminToken')}`
+        },
+        body: params.toString()
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.result) {
+            alert("Price updated successfully!");
+            const modal = bootstrap.Modal.getInstance(document.getElementById("editPriceModal"));
+            modal.hide(); // Close modal
+            location.reload(); // Refresh the page
+        } else {
+            alert("Failed to update price.");
+        }
+    })
+    .catch(error => {
+        console.error("Error updating price:", error);
+        alert("An error occurred while updating the price.");
+    });
+}
+
+function UpdatePrice(priceId) {
+    const animalId = document.getElementById("animal_id").value;
+    const price = document.getElementById("price").value;
+    const serviceId = document.getElementById("service_id").value;
+
+    // Validate inputs
+    if (!serviceId || !price) {
+        alert("Service ID and price are required.");
+        return;
+    }
+
+    // Prepare form-urlencoded data
+    const params = new URLSearchParams();
+    params.append("service_id", serviceId);
+    params.append("animal_id", animalId);
+    params.append("price", price);
+
+    // Make the API request to update price
+    fetch(`https://mps4.chandalen.dev/api/services/price/${priceId}`, {
+        method: "PUT",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": `Bearer ${sessionStorage.getItem('adminToken')}`
+        },
+        body: params.toString()
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.result) {
+            alert("Price updated successfully!");
+            const modal = bootstrap.Modal.getInstance(document.getElementById("editPriceModal"));
+            modal.hide(); // Close modal
+            location.reload(); // Refresh the page
+        } else {
+            alert("Failed to update price.");
+        }
+    })
+    .catch(error => {
+        console.error("Error updating price:", error);
+        alert("An error occurred while updating the price.");
+    });
+}
+
 
 
 		function deleteService(id) {
