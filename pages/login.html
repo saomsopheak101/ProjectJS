@@ -9,12 +9,165 @@
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../icons/fontawesome/css/all.min.css">
-   
-    
+
+    <style>
+        header {
+            position: fixed;
+            z-index: 99;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            /* line-height: 80px; */
+            transition: 0.3s;
+            padding-top: 10px;
+
+        }
+
+        header.sticky {
+            /* padding: 5px 110px; */
+            background-color: #ffff;
+            color: black;
+
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        }
+
+        header {
+            color: black;
+        }
+
+        .form-logAndris .btn-login a {
+            display: block;
+            text-align: center;
+            width: 100%;
+            border-radius: 19px;
+            background-color: #f49943;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .form-logAndris .separator div {
+            position: absolute;
+            /* background-color: #ffffff; */
+        }
+
+        .form-logAndris .socail-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 40px;
+            border-radius: 10px;
+            border: 2px solid #a4a4a4;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            transition: background-color 0.3s ease;
+            gap: 10px;
+        }
+
+        .form-logAndris .socail-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .form-logAndris .socail-btn p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .form-control {
+            font-size: 15px;
+            height: 40px;
+        }
+
+        .style-login {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            /* height: 100vh; */
+            background-color: blue;
+
+        }
+
+        /* .img-login {
+            border-radius: 0px 10px 10px 0px;
+            filter: brightness(70%);
+
+        } */
+        .bg-glass {
+            backdrop-filter: var(--backdrop-filter);
+            border-radius: 10px 0px 0 10px;
+            /* box-shadow: 0px 0px 10px 5px rgba(218, 218, 218, 0.662); */
+        }
+
+        .style-3 {
+            overflow: hidden !important;
+            width: 300px !important;
+            left: -4%;
+            top: -4%;
+            z-index: -1;
+        }
+
+        .style-4 {
+            overflow: hidden !important;
+            width: 300px !important;
+            bottom: -4%;
+            right: -7%;
+            z-index: -1;
+        }
+
+        .bone-1 {
+            padding-top: 20%;
+            margin-left: 10%;
+
+        }
+
+        .bone-2 {
+            padding-top: 10%;
+            margin-right: 10%;
+            right: 0;
+
+        }
+
+        .text-wrap i {
+            width: 35px;
+            height: 35px;
+            background-color: #f49943;
+            line-height: 35px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        header .btn-login {
+            border: 2px solid #f49943;
+            background-color: black;
+            color: white;
+        }
+
+        header .btn-login:hover {
+            color: #e2e2e2;
+            background-color: #141414;
+        }
+
+        .form-control.is-invalid {
+            border-color: #dc3545;
+        }
+
+        .invalid-feedback {
+            display: block;
+            color: #dc3545;
+            font-size: 0.875em;
+        }
+
+        /* Ensure the icons are positioned correctly */
+
+        /* Editable */
+    </style>
+
 </head>
 
 <body class="overflow-x-hidden">
-    
+
     <div id="preloader">
         <div class="lds-ripple">
             <div></div>
@@ -142,7 +295,7 @@
                 </div>
             </div>
         </section>
-    </main> 
+    </main>
     <footer class="border-1 mt-4">
         <section class="copyright py-4 border-top">
             <div class="container-fluid px-md-5">
@@ -159,6 +312,7 @@
             </div>
         </section>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/petzone/login.js">
 
 
@@ -264,11 +418,11 @@
                 const roleName = json.data.roles[0].name;
                 if (roleName === 'Normal User') {
                     sessionStorage.setItem('authToken', json.data.token);
-                    alert(json.message + " Token stored.");
-                    location.href = '../index.html';
+                    // alert(json.message + " Token stored.");
+                    showModernToast({ title: 'កក់បានជោគជ័យ​ !', description: 'Your profile has been updated.', iconType: 'success' })
                 } else if (roleName === 'System Admin') {
                     sessionStorage.setItem('adminToken', json.data.token);
-                    alert(json.message + " Token stored.");
+                    // alert(json.message + " Token stored.");
                     location.href = '../pages/employee.html';
                 } else {
                     alert("User role not recognized.");
@@ -278,13 +432,47 @@
             }
         }
 
-
+            title = '',
+            description = '',
+            iconType = 'success',
+            position = 'top-right',
+            timer = 4000,
+            hasCloseButton = true,
+        }) {
+            Swal.fire({
+                toast: true,
+                position: position,
+                icon: iconType,
+                title: `<strong style="color:#222222">${title}</strong>`,
+                html: description
+                    ? `<p style="margin: 0; font-size: 12px; color: #ccc;">${description}</p>`
+                    : '',
+                customClass: {
+                    popup: 'modern-toast',
+                    closeButton: hasCloseButton ? 'swal-close-btn' : '',
+                },
+                showConfirmButton: false,
+                timer: timer,
+                timerProgressBar: true,
+                showCloseButton: hasCloseButton,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer);
+                    toast.addEventListener('mouseleave', Swal.resumeTimer);
+                  
+                },
+            });
+            
+            // Delay redirection by 10 seconds
+            setTimeout(() => {
+                location.href = '../index.html';
+            }, 10000); // 10 seconds delay
+        }
     </script>
 
     <!-- Preloader -->
     <script src="../vendor/global/global.min.js"></script>
-	<script src="../js/custom.js"></script>
-	
+    <script src="../js/custom.js"></script>
+
 </body>
 
 </html>

@@ -397,7 +397,45 @@ header.sticky .btn-login-header{
      /* margin-right: -1%; */
 
  }
+/* ============== toast =========  */
+.modern-toast {
+    background-color: #20232a;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    padding: 16px;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    width: 350px;
+    animation: slideIn 0.5s ease-out;
+}
 
+.swal2-timer-progress-bar {
+    background-color: #4caf50;
+    height: 4px;
+    border-radius: 2px;
+}
+
+.swal-close-btn {
+    color: #ffffff;
+    font-size: 12px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
  .style-1 {
      overflow: hidden !important;
      width: 300px !important;
