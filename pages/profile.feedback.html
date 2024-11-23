@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../icons/fontawesome/css/all.min.css">
 </head>
 
-<body>
+<body class="profile-page">
 
     <!--*******************
         Preloader start
@@ -26,9 +26,9 @@
         Preloader end
     ********************-->
 
-    <header class="margin-bottom ">
-        <nav class="navbar navbar-expand-lg fixed-top z-3 bg-dark ">
-            <div class="container">
+    <header class="">
+        <nav class="navbar navbar-expand-lg  z-3">
+            <div class="container px-5 py-3  px-md-0">
                 <a class="navbar-brand" href="">
                     <img src="../images/img-pet/logo/PetZone (2).png" style="width: 80px;" alt="">
                 </a>
@@ -38,302 +38,343 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav justify-content-center flex-grow-1 mt-2 me-5 ms-xl-4 ms-xxl-5 "
-                        style="z-index: 99;">
-                        <li class="nav-item mx-lg-2">
-                            <a class="nav-link  fw-medium" href="">Home</a>
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-0" style="z-index: 99;">
+                        <li class="nav-item ">
+                            <a class="nav-link fw-medium" href="index.html">Home</a>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown">
-                            <a class="nav-link dropdown-toggle  fw-medium" href="#" role="button"
+                            <a class="nav-link dropdown-toggle  black-nav fw-medium pe-0" href="pages/service-main.html" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Service
                             </a>
-                            <ul class="dropdown-menu bg-white">
-                                <li><a class="dropdown-item text-black" href="../pages/petTraining.html">Pet training</a>
+                            <ul class="dropdown-menu  dropdown-services">
+                                <li><a class="dropdown-item text-black fw-medium " href="../pages/service-main.html">Service main</a>
                                 </li>
-                                <li><a class="dropdown-item text-black" href="../pages/petConsult.html">Pet Counseling</a>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet Day care</a>
                                 </li>
-                                <li><a class="dropdown-item text-black" href="../pages/petGrooming.html">Pet Grooming</a>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petGrooming.html">Pet
+                                        Grooming</a>
                                 </li>
-                                <li><a class="dropdown-item text-black" href="../pages/petDayCare.html">Pet Day care</a>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petTraining.html">Pet
+                                        Training</a>
+                                </li>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petConsult.html">Pet
+                                        Consulting</a>
+                                </li>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petVeterinary.html">Pet
+                                        Veterinary</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown ">
-                            <a class="nav-link dropdown-toggle fw-medium" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                About
+                            <a class="nav-link  fw-medium black-nav" href="../pages/about-us.html" role="button"
+                                aria-expanded="false">
+                                About us
                             </a>
-                            <ul class="dropdown-menu bg-white text-black fw-medium">
-                                <li><a class="dropdown-item text-black" href="../pages/about-us.html">About us</a></li>
-                                <li><a class="dropdown-item text-black" href="">About
-                                        PetZone</a></li>
-                            </ul>
                         </li>
                         <li class="nav-item mx-lg-2">
-                            <a class="nav-link  fw-medium" href="">Feedback</a>
+                            <a class="nav-link fw-medium black-nav" href="../pages/feedback.html">Feedback</a>
                         </li>
                         <li class="nav-item mx-lg-2">
-                            <a class="nav-link fw-medium" href="">Contact</a>
+                            <a class="nav-link fw-medium black-nav" href="../pages/contact.html">Contact</a>
                         </li>
                     </ul>
-                    <div class="d-flex align-items-center mt-2 pb-2">
+                    <div class="d-flex align-items-center ">
                         <div class="d-flex align-items-center">
-                            <button class="py-2 px-4 rounded-2 border-0">Booking</button>
-                            <form class="d-none d-xl-flex" role="search" title="search">
-                                <button class="btn btn-icon" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#searchModal">
-                                    <i class="fa-solid fa-search text-white"></i>
-                                </button>
-                            </form>
+                            <button class="rounded-2 btn-login-header btn-light border-0 ms-3 btn-shadow" id="login"
+                                type="button" onclick="window.location.href='../pages/login.html';">Login</button>
+                            <button class=" rounded-2 btn-login-header btn-light border-0 ms-3 btn-shadow"
+                                id="signupForm" type="button"
+                                onclick="window.location.href='../pages/signup.html';">Signup</button>
                         </div>
-                        <div class="dropdown-center dropdown-account">
-                            <a class="btn btn-icon d-none d-xl-inline-block position-relative" role="button" href=""
-                                title="profile" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-user text-white"></i>
-                                <span
-                                    class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
-                                    <small></small>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu  mt-4 rounded-3 py-2">
-                                <div class="card border-0 ">
-                                    <div class="account-header d-flex flex-column align-items-center px-5 pt-2">
-                                        <div class="mb-2">
-                                            <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                                src="../images/img-pet/icon/user.png" alt="#" width="60px">
-                                        </div>
-                                        <div
-                                            class="d-flex flex-column align-items-center justify-content-center text-whitee">
-                                            <h5 class="mb-0">NIKI</h5>
-                                            <p>niki@gmail.com</p>
-                                        </div>
+                        <!-- User profile -->
+                        <div class="dropdown-center dropdown-account" id="profiles">
+                            <div class="d-flex">
+                                <form class="d-flex" role="search">
+                                    <input class="form-control  bg-white text-black" type="search" placeholder="Search"
+                                        aria-label="Search">
+                                    <div class="position-absolute icon-search-homepage ">
+                                        <i class="fa-solid fa-search "></i>
                                     </div>
-                                </div>
-                                <li>
-                                    <a href="../pages/profile.html"
-                                        class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                        aria-current="page">
-                                        <div>
-                                            <i class="fa-solid fa-address-card me-3"></i>
-                                        </div>
-                                        My Profile
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../pages/profile-booking.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                        aria-current="page">
-                                        <div>
-                                            <i class="fa-regular fa-calendar-check me-3"></i>
-                                        </div>
-                                        Booking
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../pages/profile-consulting.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                        aria-current="page">
-                                        <div>
-                                            <i class="fa-solid fa-ticket me-3"></i>
-                                        </div>
-                                        Consulting
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../pages/profile.feedback.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                        aria-current="page">
-                                        <div>
-                                            <i class="fa-solid fa-comment-dots me-3"></i>
-                                        </div>
-                                        Feedback
-                                    
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../pages/profile-notification.html" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                        aria-current="page">
-                                        <div>
-                                            <i class="fa-solid fa-bell me-3"></i>
-                                        </div>
-                                        Notification
-                                        <span class="badge ms-auto bg-brand rounded-pill fw-normal">6</span>
-                                    </a>
-                                </li>
-                                <!-- <li>
-                                    <a href="" class="dropdown-item text-white-light fs-5 d-flex align-items-center"
-                                        aria-current="page">
-                                        <div>
-                                            <i class="fa-solid fa-book me-3"></i>
+                                </form>
+                                <a class="btn btn-icon d-flex py-0 position-relative" role="button" href=""
+                                    title="profile" data-bs-toggle="dropdown" aria-expanded="false">
 
+                                    <div class="">
+                                        <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                            src="../images/img-pet/icon/user.png" alt="#" width="35px">
+                                    </div>
+                                    <span
+                                        class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
+                                        <small></small>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu mt-4 rounded-3 profile-management">
+                                    <div class="border-0 py-3 ">
+                                        <div class="account-header d-flex flex-column align-items-center  pt-2">
+                                            <div class="mb-2">
+                                                <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                                    src="../images/img-pet/icon/user.png" alt="#" width="60px">
+                                            </div>
+                                            <div
+                                                class="d-flex flex-column align-items-center justify-content-center text-whitee">
+                                                <h5 class="mb-0">NIKI</h5>
+                                                <p>niki@gmail.com</p>
+                                            </div>
                                         </div>
-                                        Privacy
-                                    </a>
-                                </li> -->
-                                <li>
-                                    <button class="dropdown-item text-white-light fs-5 d-flex align-items-center mb-0"
-                                        aria-current="page" id="logout">
-                                        <i class="fa-solid fa-right-from-bracket me-3"></i>
-                                        Log out
-                                    </button>
-                                </li>
-                            </ul>
+                                        <ul class="nav">
+                                            <li class="nav-item border-0  w-100">
+                                                <a href="../pages/profile.html" class="nav-link d-flex fw-medium px-4"
+                                                    aria-current="page">
+                                                    <div class="px-2">
+                                                        <img src="../images/service/setting-profile.png" alt=""
+                                                            width="20">
+                                                    </div>
+                                                    My Profile
+                                                </a>
+                                            </li>
+                                            <li class="nav-item border-0  w-100">
+                                                <a href="../pages/profile-grooming.html"
+                                                    class="nav-link d-flex fw-medium px-4">
+
+                                                    <div class="px-2">
+                                                        <img src="../images/service/grooming-setting (2).png" alt=""
+                                                            width="25">
+                                                    </div>
+
+                                                    Grooming
+                                                </a>
+                                            </li>
+                                            <li class="nav-item border-0  w-100">
+                                                <a href="../pages/profile-daycare.html"
+                                                    class="nav-link active d-flex fw-medium px-4">
+
+                                                    <div class="px-2">
+                                                        <img src="../images/service/daycare-setting.png" alt=""
+                                                            width="25">
+                                                    </div>
+
+                                                    Day care
+                                                </a>
+                                            </li>
+                                            <li class="nav-item border-0  w-100">
+                                                <a href="../pages/profile-consulting.html"
+                                                    class="nav-link  d-flex fw-medium px-4">
+
+                                                    <div class="px-2">
+                                                        <img src="../images/service/consult-setting.png" alt=""
+                                                            width="24">
+                                                    </div>
+
+                                                    Consulting
+                                                </a>
+                                            </li>
+                                            <li class="nav-item border-0 w-100">
+                                                <a href="../pages/profile.feedback.html"
+                                                    class="nav-link d-flex fw-medium px-4">
+
+                                                    <div class="px-2">
+                                                        <img src="../images/service/feedback-setting.png" alt=""
+                                                            width="24">
+                                                    </div>
+
+                                                    Feedback
+                                                </a>
+                                            </li>
+                                            <li class="nav-item border-0  w-100">
+                                                <a href="../pages/profile-notification.html"
+                                                    class="nav-link d-flex fw-medium px-4">
+                                                    <div class="px-2">
+                                                        <img src="../images/service/notification-svgrepo-com.svg" alt=""
+                                                            width="20">
+                                                    </div>
+                                                    Notification
+                                                </a>
+                                            </li>
+                                            <li class="nav-item border-0  w-100">
+                                                <button
+                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0"
+                                                    aria-current="page" id="logout">
+                                                    <div class="px-3">
+                                                        <img src="../images/service/log-out.png" alt="" width="20">
+                                                    </div>
+                                                    Log out
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            </div>
         </nav>
     </header>
     <main>
+        <section class=" bg-profile  position-relative ">
+            <div class="banner-profile booking-service"></div>
+            <div class="content d-flex align-items-center">
+                <div class="container">
+                    
+                </div>
+            </div>
+        </section>
         <section class="profile-book margin-bottom">
             <div class="container">
                 <div class="row ">
-                    <div class="setting-sidebar col-md-4 col-xl-4 me-0">
-                        <div class="card border-0 shadow py-4 ">
-                            <div class="card-header bg-transparent mb-3">
-                                <a href="#" class="img-pro">
-                                    <img src="../images/img-pet/icon/user.png" alt="" id="profile-pic">
-                                </a>
-                                <label type="button" for="profile"
-                                    class="btn btn-edit color-bg btn-camera position-absolute rounded-5">
-                                    <i class="fa-solid fa-camera text-white"></i>
-                                </label>
-                                <input type="file" class="form-control bg-transparent d-none" id="profile"
-                                    accept="image/*">
-                                <h5 class="mb-0 mt-4"> Kinki</h5>
-                                <span>Kinki@gmail.com</span>
+                    <div class="col-10 d-flex m-auto">
+                        <div class="setting-sidebar col-md-4 col-xl-4 me-4">
+                            <div class="card border-0 shadow py-4 ">
+                                <div class="card-header bg-transparent mb-3">
+                                    <a href="#" class="img-pro">
+                                        <img src="../images/img-pet/icon/user.png" alt="" id="profile-pic">
+                                        <div class="icon-delete "  onclick="deleteAvatar()" style="cursor: pointer;">
+                                            <i class="fa-solid fa-trash-can fs-4 text-white"></i>
+                                        </div>
+                                    </a>
+                                    <label type="button" for="profile"
+                                        class="btn btn-edit-1 color-bg btn-camera position-absolute">
+                                        <i class="fa-solid fa-camera text-white" ></i>
+                                    </label>
+                                    <input type="file" class="form-control bg-transparent d-none" id="profile"
+                                        accept="image/*">
+                                   
+                                    <!-- <button type="button" class="btn btn-primary">Delete</button> -->
+                                    <h5 class="mb-0 mt-4">Kinki</h5>
+                                    <span>Kinki@gmail.com</span>
+                                </div>
+                                <ul class="nav">
+                                    <li class="nav-item border-0">
+                                        <a href="../pages/profile.html" class="nav-link d-flex fw-medium px-4"
+                                            aria-current="page">
+                                            <div>
+                                                <img src="../images/service/setting-profile.png" alt="" width="20">
+                                            </div>
+                                            My Profile
+                                        </a>
+                                    </li>
+                                    <li class="nav-item border-0">
+                                        <a href="../pages/profile-grooming.html"
+                                            class="nav-link d-flex fw-medium px-4">
+                                            <div>
+                                                <div>
+                                                    <img src="../images/service/grooming-setting (2).png" alt="" width="25">
+                                                </div>
+                                            </div>
+                                            Grooming
+                                        </a>
+                                    </li>
+                                    <li class="nav-item border-0">
+                                        <a href="../pages/profile-daycare.html"
+                                            class="nav-link d-flex fw-medium px-4">
+                                            <div>
+                                                <div>
+                                                    <img src="../images/service/daycare-setting.png" alt="" width="25">
+                                                </div>
+                                            </div>
+                                            Day care
+                                        </a>
+                                    </li>
+                                    <li class="nav-item border-0">
+                                        <a href="../pages/profile-consulting.html" class="nav-link  d-flex fw-medium px-4">
+                                            <div>
+                                                <div>
+                                                    <img src="../images/service/consult-setting.png" alt="" width="24">
+                                                </div>
+                                            </div>
+                                            Consulting
+                                        </a>
+                                    </li>
+                                    <li class="nav-item border-0">
+                                        <a href="../pages/profile.feedback.html" class="nav-link active d-flex fw-medium px-4">
+                                            <div>
+                                                <div>
+                                                    <img src="../images/service/feedback-setting.png" alt="" width="24">
+                                                </div>
+                                            </div>
+                                            Feedback
+                                        </a>
+                                    </li>
+                                    <li class="nav-item border-0">
+                                        <a href="../pages/profile-notification.html" class="nav-link d-flex fw-medium px-4">
+                                            <div>
+                                                <div>
+                                                    <img src="../images/service/notification-svgrepo-com.svg" alt="" width="20">
+                                                </div>
+                                            </div>
+                                            Notification
+                                        </a>
+                                    </li>
+                                    <li class="nav-item border-0">
+                                        <a href="" class="nav-link d-flex fw-medium px-4">
+                                            <div>
+                                                <img src="../images/service/log-out.png" alt="" width="20">
+                                            </div>
+                                            Log Out
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                            <ul class="nav">
-                                <li class="nav-item border-0">
-                                    <a href="../pages/profile.html" class="nav-link d-flex fw-medium px-4"
-                                        aria-current="page">
-                                        <div>
-                                            <img src="../images/service/setting-profile.png" alt="" width="20">
-                                        </div>
-                                        My Profile
-                                    </a>
-                                </li>
-                                <li class="nav-item border-0">
-                                    <a href="../pages/profile-booking.html"
-                                        class="nav-link d-flex fw-medium px-4">
-                                        <div>
-                                            <div>
-                                                <img src="../images/service/grooming-setting (2).png" alt="" width="25">
-                                            </div>
-                                        </div>
-                                        Grooming
-                                    </a>
-                                </li>
-                                <li class="nav-item border-0">
-                                    <a href="../pages/profile-daycare.html"
-                                        class="nav-link d-flex fw-medium px-4">
-                                        <div>
-                                            <div>
-                                                <img src="../images/service/daycare-setting.png" alt="" width="25">
-                                            </div>
-                                        </div>
-                                        Day care
-                                    </a>
-                                </li>
-                                <li class="nav-item border-0">
-                                    <a href="../pages/profile-consulting.html" class="nav-link  d-flex fw-medium px-4">
-                                        <div>
-                                            <div>
-                                                <img src="../images/service/consult-setting.png" alt="" width="24">
-                                            </div>
-                                        </div>
-                                        Consulting
-                                    </a>
-                                </li>
-                                <li class="nav-item border-0">
-                                    <a href="../pages/profile.feedback.html" class="nav-link active d-flex fw-medium px-4">
-                                        <div>
-                                            <div>
-                                                <img src="../images/service/feedback-setting.png" alt="" width="24">
-                                            </div>
-                                        </div>
-                                        Feedback
-                                    </a>
-                                </li>
-                                <li class="nav-item border-0">
-                                    <a href="../pages/profile-notification.html" class="nav-link d-flex fw-medium px-4">
-                                        <div>
-                                            <div>
-                                                <img src="../images/service/notification-svgrepo-com.svg" alt="" width="20">
-                                            </div>
-                                        </div>
-                                        Notification
-                                    </a>
-                                </li>
-                                <li class="nav-item border-0">
-                                    <a href="" class="nav-link d-flex fw-medium px-4">
-                                        <div>
-                                            <img src="../images/service/log-out.png" alt="" width="20">
-                                        </div>
-                                        Log Out
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
-                    </div>
-                    <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12 col-12">
-                        <div class="card shadow border-0">
-                            <div class="col-xl-12  rounded-2 col-lg-12 px-0 col-md-12 color-bg col-sm-12 col-12">
-                                <h4 class="mb-0 p-3 text-white fw-bold">Feedback</h4>
-                            </div>
-                            <div class="col-12 px-3">
-                                <div class="row gutters p-4"> 
-                                    <div class="card ps-2 my-2">
-                                        <div class="row w-100" >
-                                            <div class="col-md-3 px-0">
-                                                <img src="../images/img-pet/grooming/dog-nail.jpg"
-                                                    class="h-100 object-fit-cover img-fluid rounded-start" alt="...">
-                                            </div>
-                                            <div class="col-md-7">
-                                                <div class="card-body d-flex justify-content-between">
-                                                    <div>
-                                                        <h4 class="card-title mb-0">Pet Grooming</h4>
-                                                        <h5 class="pt-1 mb-1">Your platform is very useful.</h5>
-                                                        <p>“My dog, Chunk, is extremely anxious. Teg’s is able to groom
-                                                            him while dealing with his anxiety. I don’t trust many
-                                                            people with my dogs but Teg’s is reliable and trustworthy.”
-                                                        </p>
+                        <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12 col-12">
+                            <div class="card shadow border-0">
+                                <div class="col-xl-12  rounded-2 col-lg-12 px-0 col-md-12 color-bg col-sm-12 col-12">
+                                    <h4 class="mb-0 p-3 text-white fw-bold">Feedback</h4>
+                                </div>
+                                <div class="col-12 px-3">
+                                    <div class="row gutters p-4"> 
+                                        <div class="card ps-2 my-2">
+                                            <div class="row w-100 d-flex" >
+                                                <!-- <div class=" px-0">
+                                                    <img src="../images/img-pet/grooming/dog-nail.jpg"
+                                                        class="h-100 object-fit-cover img-fluid rounded-start" alt="..." style="height: 200px; width: 150px;">
+                                                </div> -->
+                                                <div class="col-md-12">
+                                                    <div class="card-body d-flex justify-content-between">
+                                                        <div>
+                                                            <h4 class="card-title mb-0">Pet Grooming</h4>
+                                                            <h5 class="pt-1 ">Your platform is very useful.</h5>
+                                                            <p class="mb-0">“My dog, Chunk, is extremely anxious. Teg’s is able to groom
+                                                                him while dealing with his anxiety. I don’t trust many
+                                                                people with my dogs but Teg’s is reliable and trustworthy.”
+                                                            </p>
+                                                        </div>
                                                     </div>
+                                                    <div class=" ms-3 ">
+                                                        <button
+                                                            class="btn btn-danger mb-3 btn-book text-white">Delete</button>
+                                                    </div>    
                                                 </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="btn  mt-5 pt-5 ">
-                                                    <!-- <button
-                                                        class="border-0 bg-transparent fs-5 fw-bold btn-book">Pending</button> -->
-                                                    <button
-                                                        class="btn btn-danger btn-book text-white mt-5 ">Delete</button>
-                                                </div>
+                                                
+                                                
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="card ps-2 my-2">
-                                        <div class="row w-100" >
-                                            <div class="col-md-3 px-0">
-                                                <img src="../images/img-pet/grooming/dog-nail.jpg"
-                                                    class="h-100 object-fit-cover img-fluid rounded-start" alt="...">
-                                            </div>
-                                            <div class="col-md-7">
-                                                <div class="card-body d-flex justify-content-between">
-                                                    <div>
-                                                        <h4 class="card-title mb-0">Pet Grooming</h4>
-                                                        <h5 class="pt-1 mb-1">Your platform is very useful.</h5>
-                                                        <p>“My dog, Chunk, is extremely anxious. Teg’s is able to groom
-                                                            him while dealing with his anxiety. I don’t trust many
-                                                            people with my dogs but Teg’s is reliable and trustworthy.”
-                                                        </p>
+                                        <div class="card ps-2 my-2">
+                                            <div class="row w-100 d-flex" >
+                                                <!-- <div class=" px-0">
+                                                    <img src="../images/img-pet/grooming/dog-nail.jpg"
+                                                        class="h-100 object-fit-cover img-fluid rounded-start" alt="..." style="height: 200px; width: 150px;">
+                                                </div> -->
+                                                <div class="col-md-12">
+                                                    <div class="card-body d-flex justify-content-between">
+                                                        <div>
+                                                            <h4 class="card-title mb-0">Pet Grooming</h4>
+                                                            <h5 class="pt-1 ">Your platform is very useful.</h5>
+                                                            <p class="mb-0">“My dog, Chunk, is extremely anxious. Teg’s is able to groom
+                                                                him while dealing with his anxiety. I don’t trust many
+                                                                people with my dogs but Teg’s is reliable and trustworthy.”
+                                                            </p>
+                                                        </div>
                                                     </div>
+                                                    <div class=" ms-3 ">
+                                                        <button
+                                                            class="btn btn-danger mb-3 btn-book text-white">Delete</button>
+                                                    </div>    
                                                 </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="btn mt-5 pt-5">
-                                                    <!-- <button
-                                                        class="border-0 bg-transparent fs-5 fw-bold btn-book">Pending</button> -->
-                                                    <button
-                                                        class="btn btn-danger btn-book text-white mt-5 ">Delete</button>
-                                                </div>
+                                                
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -478,6 +519,7 @@
 
 
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth-btn.js"></script>
 
     <!-- Preloader -->
     <script src="../vendor/global/global.min.js"></script>
