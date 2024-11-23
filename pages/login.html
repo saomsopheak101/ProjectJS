@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../icons/fontawesome/css/all.min.css">
-   
+
     <style>
         header {
             position: fixed;
@@ -162,12 +162,12 @@
         /* Ensure the icons are positioned correctly */
 
         /* Editable */
-        
     </style>
+
 </head>
 
 <body class="overflow-x-hidden">
-    
+
     <div id="preloader">
         <div class="lds-ripple">
             <div></div>
@@ -176,16 +176,16 @@
     </div>
 
     <header class="bg-black">
-        <nav class="navbar navbar-expand-lg z-3">
+        <nav class="navbar navbar-expand-lg py-3 z-3">
             <div class="container">
                 <a class="navbar-brand" href="">
                     <img src="../images/img-pet/logo/PetZone (2).png" style="width: 70px;" alt="">
                 </a>
                 <div class="d-flex align-items-center ">
                     <div class="d-flex align-items-center">
-                        <button class="py-2 px-4 rounded-2  btn-login  ms-3 " id="login" type="button"
+                        <button class="btn-login-header rounded-2  btn-login  ms-3 " id="login" type="button"
                             onclick="window.location.href='../pages/login.html';">Login</button>
-                        <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="login" type="button"
+                        <button class="btn-login-header rounded-2 color-bg text-white border-0 ms-3 " id="login" type="button"
                             onclick="window.location.href='../pages/signup.html';">Sign up</button>
                         <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
 
@@ -199,13 +199,15 @@
     </header>
     <main>
 
-        <section class="form-logAndris mt-5 pt-4 mb-2 ">
+        <section class="form-logAndris mt-5 pt-5 ">
             <div class="container ">
                 <div class="row d-flex  justify-content-center ">
-                    <div class="col-md-10 col-lg-10 bg-image-login my-5">
+                    <div class="col-md-9 col-lg-9 bg-image-login my-5 ">
                         <div class="row shadow">
-                            <div class="col-7 d-lg-flex  flex-column justify-content-center align-items-center">
-                                <div class="bg-glass p-4">
+
+                            <div class="col-7 d-lg-flex pe-0 flex-column justify-content-center align-items-center">
+                                <div class="bg-glass p-4 w-100 ">
+
                                     <div class=" m-auto d-flex justify-content-center align-items-center mb-3 ">
                                         <img src="../images/img-pet/logo/PetZone (2).png" alt width="150px">
                                     </div>
@@ -258,18 +260,25 @@
                                             <!-- <p class="text-black">Or register with</p> -->
                                             <div class="position-absolute bg-white p-2">Or register with</div>
                                         </div>
-                                        <div class="login-with-socail">
-                                            <a href="#" class="socail-btn">
-                                                <img src="../images/login and signup/facebookk.png" alt="Facebook">
-                                                <p class="text-black">Facebook</p>
-                                            </a>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="login-with-socail">
+                                                    <a href="#" class="socail-btn">
+                                                        <img src="../images/login and signup/facebookk.png" alt="Facebook">
+                                                        <p class="text-black">Facebook</p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="login-with-socail">
+                                                    <a href="#" class="socail-btn">
+                                                        <img src="../images/login and signup/googlee.png" alt="Google">
+                                                        <p class="text-black">Google</p>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="login-with-socail mt-3">
-                                            <a href="#" class="socail-btn">
-                                                <img src="../images/login and signup/googlee.png" alt="Google">
-                                                <p class="text-black">Google</p>
-                                            </a>
-                                        </div>
+                                        
 
                                         <div class="form-group mt-4">
                                             <p class="text-center text-black">Don't have an account? <a
@@ -288,7 +297,7 @@
                 </div>
             </div>
         </section>
-    </main> 
+    </main>
     <footer class="border-1 mt-4">
         <section class="copyright py-4 border-top">
             <div class="container-fluid px-md-5">
@@ -305,13 +314,14 @@
             </div>
         </section>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/petzone/login.js">
-    </script>
+
 
     <!-- Preloader -->
     <script src="../vendor/global/global.min.js"></script>
-	<script src="../js/custom.js"></script>
-	
+    <script src="../js/custom.js"></script>
+
 </body>
 
 </html>
