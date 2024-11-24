@@ -79,8 +79,7 @@
                             <a class="nav-link fw-medium black-nav" href="../pages/contact.html">Contact</a>
                         </li>
                     </ul>
-                    <div class="d-flex align-items-center ">
-                  
+                    <div class="d-flex align-items-center ">      
                         <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
@@ -310,8 +309,8 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12 col-12">
-                            <div class="card shadow border-0">
+                        <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12 col-12 " >
+                            <div class="card shadow border-0 ">
                                 <div class="col-xl-12  rounded-2 col-lg-12 px-0 col-md-12 color-bg col-sm-12 col-12">
                                     <h4 class="mb-0 p-3 text-white fw-bold">Day care</h4>
                                 </div>
@@ -484,6 +483,8 @@
             </section>
         </div>
     </footer>
+    
+
 
 
     <script src="../js/bootstrap.bundle.min.js"></script>
@@ -499,7 +500,6 @@
                     'Accept': "application/json",
                     'Authorization': `Bearer ${authToken}`
                 }
-
             })
                 .then(res => res.json())
                 .then(json => {
@@ -510,9 +510,9 @@
                             row += `
 		                       <div class="card ps-2 my-2">
                                         <div class="row w-100">
-                                            <div class="col-md-3 px-0">
+                                            <div class="col-md-3 ps-1 px-0">
                                                 <img src="${element.pet_care_service.image}"
-                                                    class="h-100 object-fit-cover img-fluid rounded-start" alt="...">
+                                                    class="h-75 object-fit-cover img-fluid rounded-start" alt="..." style="width: 150px ; " >
                                             </div>
                                             <div class="col-md-7">
                                                 <div class="card-body d-flex justify-content-between">
@@ -528,35 +528,35 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2 d-flex mt-1">
+                                            <div class="col-md-2  mt-1">
                                                 <div class="btn">
-                                                <p class="text-secondary">
-                                                Start Date: ${new Intl.DateTimeFormat('en-US', {
-                                timeZone: 'Asia/Bangkok',
-                                year: 'numeric',
-                                month: '2-digit',
-                                day: '2-digit',
-                                hour: '2-digit',
-                                minute: '2-digit'
-                            }).format(new Date(element.pet_care_start_date))}
-                            </p>
-                            <p class="text-secondary">
-                            End Date: ${new Intl.DateTimeFormat('en-US', {
-                                timeZone: 'Asia/Bangkok',
-                                year: 'numeric',
-                                month: '2-digit',
-                                day: '2-digit',
-                                hour: '2-digit',
-                                minute: '2-digit'
-                            }).format(new Date(element.pet_care_end_date))}
-                            </p>
-                            <div class="mt-5">
-                                <button class="btn btn-warning btn-book text-white mt-5">Cancel</button>
-                                                    </div>
+                                                    <p class="text-secondary">
+                                                        Start Date: ${new Intl.DateTimeFormat('en-US', {
+                                                            timeZone: 'Asia/Bangkok',
+                                                            year: 'numeric',
+                                                            month: '2-digit',
+                                                            day: '2-digit',
+                                                            hour: '2-digit',
+                                                            minute: '2-digit'
+                                                        }).format(new Date(element.pet_care_start_date))}
+                                                    </p>
+                                                    <p class="text-secondary">
+                                                    End Date: ${new Intl.DateTimeFormat('en-US', {
+                                                        timeZone: 'Asia/Bangkok',
+                                                        year: 'numeric',
+                                                        month: '2-digit',
+                                                        day: '2-digit',
+                                                        hour: '2-digit',
+                                                        minute: '2-digit'
+                                                    }).format(new Date(element.pet_care_end_date))}
+                                                    </p>
+                                                    <div class="">
+                                                        <button class="btn btn-warning btn-book text-white ">Cancel</button>
+                                                </div>
+                                            </div>
+                                         </div>
+                                    </div>
                                 </div>
-                             </div>
-                            </div>
-                    </div>
                                 
                         `;
 

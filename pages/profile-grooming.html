@@ -209,9 +209,7 @@
     <main>
         <section class=" bg-profile  position-relative ">
             <div class="banner-profile booking-service"></div>
-            <div class="content d-flex align-items-center">
-                
-            </div>
+            <div class="content d-flex align-items-center"></div>
         </section>
         <section class="profile-book margin-bottom">
             <div class="container">
@@ -232,7 +230,6 @@
                                     </label>
                                     <input type="file" class="form-control bg-transparent d-none" id="profile"
                                         accept="image/*">
-                                   
                                     <!-- <button type="button" class="btn btn-primary">Delete</button> -->
                                     <h5 class="mb-0 mt-4 firstname">Kinki</h5>
                                     <span class="Gemail">Kinki@gmail.com</span>
@@ -319,10 +316,10 @@
                                     <div class="row gutters p-4 get-all" >
      
                                         <div class="card ps-2 my-2">
-                                            <div class="row w-100">
+                                            <div class="row ">
                                                 <div class="col-md-3 px-0">
                                                     <img src="../images/img-pet/grooming/dog-nail.jpg"
-                                                        class="h-100 object-fit-cover img-fluid rounded-start" alt="...">
+                                                        class="object-fit-cover img-fluid rounded-start" alt="..." style="width: 100px ; height: 150px;">
                                                 </div>
                                                 <div class="col-md-7">
                                                     <div class="card-body d-flex justify-content-between">
@@ -490,6 +487,9 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/petzone/profile-delete.js"></script>
     <script src="../js/petzone/getdata-profile.js"></script>
+    <style>
+        
+    </style>
     <script>
      getClients();
 		function getClients() {
@@ -511,9 +511,9 @@
 							row += `
 		                       <div class="card ps-2 my-2">
                                         <div class="row w-100">
-                                            <div class="col-md-3 px-0">
+                                            <div class="col-md-3 ps-1">
                                                 <img src="${element.price.service.image}"
-                                                    class="h-100 object-fit-cover img-fluid rounded-start" alt="...">
+                                                    class=" object-fit-cover img-fluid rounded-" alt="..." style="width: 150px ; height: 150px;">
                                             </div>
                                             <div class="col-md-7">
                                                 <div class="card-body d-flex justify-content-between">
@@ -540,7 +540,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                
                         `;
 
 						}
