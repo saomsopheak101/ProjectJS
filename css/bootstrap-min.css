@@ -19309,7 +19309,7 @@ svg.pulse-svg .third-circle {
 
   [data-sidebar-style="modern"] .deznav .metismenu>li:hover>a .nav-text,
   [data-sidebar-style="modern"] .deznav .metismenu>li.mm-active>a .nav-text {
-    color: #f49943 ;
+    color: #f49943;
   }
 
   [data-sidebar-style="modern"] .deznav .metismenu>li:hover ul li a,
@@ -32278,7 +32278,7 @@ button.cancelBtn.btn.btn-sm.btn-inverse,
 }
 
 .form-wizard .nav-wizard li .nav-link.active span {
-  background: #f49943 ;
+  background: #f49943;
   color: #fff;
 }
 
@@ -34781,16 +34781,16 @@ body>* {
 }
 
 .page-titles .breadcrumb li.active {
-  color: var(--primary);
+  color: #f49943;
   font-weight: 500;
 }
 
 .page-titles .breadcrumb li.active a {
-  color: var(--primary) !important;
+  color: #f49943 !important;
 }
 
 .page-titles .breadcrumb .breadcrumb-item+.breadcrumb-item:before {
-  color: var(--primary);
+  color: #f49943;
 }
 
 .page-titles .breadcrumb-datepicker {
