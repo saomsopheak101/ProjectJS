@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
     <link rel="shortcut icon" type="image/png" href="../images/img-pet/logo/favicon.png">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../icons/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" />
     <style>
@@ -54,7 +54,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-0" style="z-index: 99;">
                         <li class="nav-item ">
-                            <a class="nav-link fw-medium" href="../index.html">Home</a>
+                            <a class="nav-link fw-medium" href="index.html">Home</a>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown">
                             <a class="nav-link dropdown-toggle  black-nav fw-medium pe-0" href="pages/service-main.html" role="button"
@@ -62,45 +62,39 @@
                                 Service
                             </a>
                             <ul class="dropdown-menu  dropdown-services">
-                                <li><a class="dropdown-item text-black fw-medium " href="pages/service-main.html">Service main</a>
+                                <li><a class="dropdown-item text-black fw-medium " href="../pages/service-main.html">Service main</a>
                                 </li>
-                                <li><a class="dropdown-item text-black fw-medium" href="pages/petDayCare.html">Pet Day care</a>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet Day care</a>
                                 </li>
-                                <li><a class="dropdown-item text-black fw-medium" href="pages/petGrooming.html">Pet
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petGrooming.html">Pet
                                         Grooming</a>
                                 </li>
-                                <li><a class="dropdown-item text-black fw-medium" href="pages/petTraining.html">Pet
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petTraining.html">Pet
                                         Training</a>
                                 </li>
-                                <li><a class="dropdown-item text-black fw-medium" href="pages/petConsult.html">Pet
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petConsult.html">Pet
                                         Consulting</a>
                                 </li>
-                                <li><a class="dropdown-item text-black fw-medium" href="pages/petVeterinary.html">Pet
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petVeterinary.html">Pet
                                         Veterinary</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown ">
-                            <a class="nav-link  fw-medium black-nav" href="pages/about-us.html" role="button"
+                            <a class="nav-link  fw-medium black-nav" href="../pages/about-us.html" role="button"
                                 aria-expanded="false">
                                 About us
                             </a>
                         </li>
                         <li class="nav-item mx-lg-2">
-                            <a class="nav-link fw-medium black-nav" href="pages/feedback.html">Feedback</a>
+                            <a class="nav-link fw-medium black-nav" href="../pages/feedback.html">Feedback</a>
                         </li>
                         <li class="nav-item mx-lg-2">
-                            <a class="nav-link fw-medium black-nav" href="pages/contact.html">Contact</a>
+                            <a class="nav-link fw-medium black-nav" href="../pages/contact.html">Contact</a>
                         </li>
                     </ul>
                     <div class="d-flex align-items-center ">
-                        <div class="d-flex align-items-center">
-                            <button class="rounded-2 btn-login-header btn-light border-0 ms-3 btn-shadow" id="login"
-                                type="button" onclick="window.location.href='../pages/login.html';">Login</button>
-                            <button class=" rounded-2 btn-login-header btn-light border-0 ms-3 btn-shadow"
-                                id="signupForm" type="button"
-                                onclick="window.location.href='../pages/signup.html';">Signup</button>
-                        </div>
+                  
                         <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
@@ -116,7 +110,7 @@
 
                                     <div class="">
                                         <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                            src="images/img-pet/icon/user.png" alt="#" width="35px">
+                                            src="../images/img-pet/icon/user.png" alt="#" width="35px">
                                     </div>
                                     <span
                                         class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
@@ -128,12 +122,12 @@
                                         <div class="account-header d-flex flex-column align-items-center  pt-2">
                                             <div class="mb-2">
                                                 <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                                    src="images/img-pet/icon/user.png" alt="#" width="60px">
+                                                    src="../images/img-pet/icon/user.png" alt="#" width="60px">
                                             </div>
                                             <div
                                                 class="d-flex flex-column align-items-center justify-content-center text-whitee">
-                                                <h5 class="mb-0">NIKI</h5>
-                                                <p>niki@gmail.com</p>
+                                                <h5 class="mb-0 firstname">NIKI</h5>
+                                                <p class="Gemail">niki@gmail.com</p>
                                             </div>
                                         </div>
                                         <ul class="nav">
@@ -207,8 +201,8 @@
                                             </li>
                                             <li class="nav-item border-0  w-100">
                                                 <button
-                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0"
-                                                    aria-current="page" id="logout">
+                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0 logout"
+                                                    aria-current="page" >
                                                     <div class="px-3">
                                                         <img src="../images/service/log-out.png" alt="" width="20">
                                                     </div>
@@ -223,7 +217,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+
         </nav>
     </header>
     <main>
@@ -344,6 +338,7 @@
                     </form>
 
 
+                </div>
                 </div>
 
         </section>
@@ -517,17 +512,12 @@
 
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/auth-btn.js"></script>
+    <script src="../js/petzone/getdata-profile.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="../js/sweetalert.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script>
-        $('#input').datetimepicker({
-            uiLibrary: 'bootstrap4',
-            modal: true,    
-            footer: true
-        });
-    </script>
 
     <script>
 
@@ -777,9 +767,10 @@
     </script>
 
 
-    <!-- Preloader -->
-    <script src="../vendor/global/global.min.js"></script>
+    <!-- <script src="../vendor/global/global.min.js"></script> -->
 	<script src="../js/custom.js"></script>
+    
+    
 </body>
 
 </html>

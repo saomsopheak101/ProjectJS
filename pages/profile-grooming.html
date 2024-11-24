@@ -40,7 +40,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-0" style="z-index: 99;">
                         <li class="nav-item ">
-                            <a class="nav-link fw-medium" href="../index.html">Home</a>
+                            <a class="nav-link fw-medium" href="index.html">Home</a>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown">
                             <a class="nav-link dropdown-toggle  black-nav fw-medium pe-0" href="pages/service-main.html" role="button"
@@ -80,13 +80,7 @@
                         </li>
                     </ul>
                     <div class="d-flex align-items-center ">
-                        <div class="d-flex align-items-center">
-                            <button class="rounded-2 btn-login-header btn-light border-0 ms-3 btn-shadow" id="login"
-                                type="button" onclick="window.location.href='../pages/login.html';">Login</button>
-                            <button class=" rounded-2 btn-login-header btn-light border-0 ms-3 btn-shadow"
-                                id="signupForm" type="button"
-                                onclick="window.location.href='../pages/signup.html';">Signup</button>
-                        </div>
+                  
                         <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
@@ -118,8 +112,8 @@
                                             </div>
                                             <div
                                                 class="d-flex flex-column align-items-center justify-content-center text-whitee">
-                                                <h5 class="mb-0">NIKI</h5>
-                                                <p>niki@gmail.com</p>
+                                                <h5 class="mb-0 firstname">NIKI</h5>
+                                                <p class="Gemail">niki@gmail.com</p>
                                             </div>
                                         </div>
                                         <ul class="nav">
@@ -193,8 +187,8 @@
                                             </li>
                                             <li class="nav-item border-0  w-100">
                                                 <button
-                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0"
-                                                    aria-current="page" id="logout">
+                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0 logout"
+                                                    aria-current="page">
                                                     <div class="px-3">
                                                         <img src="../images/service/log-out.png" alt="" width="20">
                                                     </div>
@@ -209,7 +203,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+
         </nav>
     </header>
     <main>
@@ -227,7 +221,7 @@
                             <div class="card border-0 shadow py-4 ">
                                 <div class="card-header bg-transparent mb-3">
                                     <a href="#" class="img-pro">
-                                        <img src="../images/img-pet/icon/user.png" alt="" id="profile-pic">
+                                        <img src="../images/img-pet/icon/user.png" alt="" class="changeImg">
                                         <div class="icon-delete "  onclick="deleteAvatar()" style="cursor: pointer;">
                                             <i class="fa-solid fa-trash-can fs-4 text-white"></i>
                                         </div>
@@ -240,8 +234,8 @@
                                         accept="image/*">
                                    
                                     <!-- <button type="button" class="btn btn-primary">Delete</button> -->
-                                    <h5 class="mb-0 mt-4">Kinki</h5>
-                                    <span>Kinki@gmail.com</span>
+                                    <h5 class="mb-0 mt-4 firstname">Kinki</h5>
+                                    <span class="Gemail">Kinki@gmail.com</span>
                                 </div>
                                 <ul class="nav">
                                     <li class="nav-item border-0">
@@ -306,7 +300,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="" class="nav-link d-flex fw-medium px-4">
+                                        <a role="button" class="nav-link d-flex fw-medium px-4 logout">
                                             <div>
                                                 <img src="../images/service/log-out.png" alt="" width="20">
                                             </div>
@@ -494,7 +488,8 @@
 
 
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/auth-btn.js"></script>
+    <script src="../js/petzone/profile-delete.js"></script>
+    <script src="../js/petzone/getdata-profile.js"></script>
     <script>
      getClients();
 		function getClients() {
@@ -557,6 +552,8 @@
 
     </script>
 
+<script src="../vendor/global/global.min.js"></script>
+<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <!-- Preloader -->
     <script src="../vendor/global/global.min.js"></script>
 	<script src="../js/custom.js"></script>
