@@ -6,14 +6,12 @@ function getdata() {
 
     let email = document.querySelector('#email').value.trim();
     let password = document.querySelector('#password').value.trim();
-    let checkbox = document.querySelector('#remember');
-
+    
     let emailIsValid = validateEmail(email);
     let passwordIsValid = validatePassword(password);
-    let checkboxIsValid = validateCheckbox(checkbox);
-
+    
     // If either field is invalid, stop form submission
-    if (!emailIsValid || !passwordIsValid || checkboxIsValid) {
+    if (!emailIsValid || !passwordIsValid) {
         return; // Prevent login attempt
     }
 
@@ -67,6 +65,7 @@ function validateEmail(email) {
         document.getElementById('email-error').textContent = 'Please enter a valid email.';
         document.querySelector('#email').classList.add('is-invalid');
         document.getElementById('email-success').style.display = 'none';
+        document.getElementById('email-error').style.display = 'block';
         return false;
     }
     document.querySelector('#email').classList.remove('is-invalid');
@@ -80,23 +79,12 @@ function validatePassword(password) {
         document.getElementById('password-error').textContent = 'Password must be at least 4 characters long.';
         document.querySelector('#password').classList.add('is-invalid');
         document.getElementById('password-success').style.display = 'none';
+        document.getElementById('password-error').style.display = 'block';
         return false;
     }
     document.querySelector('#password').classList.remove('is-invalid');
     document.getElementById('password-error').textContent = '';
     document.getElementById('password-success').style.display = 'block';
-    return true;
-}
-
-function validateCheckbox(checkbox) {
-    if (!checkbox.checked) {
-        document.getElementById('checkbox-error').textContent = 'You must agree before logging in.';
-        document.querySelector('#remember').classList.add('is-invalid');
-        // document.getElementById('checkbox-error').style.display = 'none';
-        return false;
-    }
-    // document.querySelector('#remember').classList.remove('is-invalid');
-    document.getElementById('checkbox-error').style.display = 'block';
     return true;
 }
 

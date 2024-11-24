@@ -239,8 +239,10 @@
         <section class="mt-5">
             <div class="container d-flex justify-content-center">
                 <div class="col-8">
+
                     <form class="row align-items-center row-gap-3 glass p-4">
                         <h4 class="mt-3 fw-bold">Booking information</h4>
+
                         <div class="col-3">
                             <label for="">From:</label>
                             <div class="input-group date" id="datetimepicker" data-target-input="nearest">
@@ -251,7 +253,10 @@
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
                             </div>
+                            <div class="invalid-feedback" id="formselect-error"></div>
+                            <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
                         </div>
+
                         <div class="col-3">
                             <label for="">to</label>
                             <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
@@ -261,29 +266,38 @@
                                     data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
-
-
                             </div>
+                            <div class="invalid-feedback" id="formselect-error"></div>
+                                <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
                         </div>
+
                         <div class="col-3">
                             <label for="">Select pet type:</label>
                             <select class="form-select" aria-label="Default select example" id="animalType" required>
                                 <option selected disabled>Please select</option>
-
                             </select>
+                            <div class="invalid-feedback" id="formselect-error"></div>
+                            <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
                         </div>
+
                         <div class="col-3">
                             <label for="">Days:</label>
                             <input type="text" class="form-control" id="dayLabel" placeholder="Days" disabled>
+                            <div class="invalid-feedback" id="formselect-error"></div>
+                            <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
                         </div>
 
                         <div class="col-3">
                             <label for="">Animal:</label>
                             <input type="text" class="form-control" id="aniLabel" placeholder="Animal price" disabled>
+                            <div class="invalid-feedback" id="formselect-error"></div>
+                            <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
                         </div>
                         <div class="col-3">
                             <label for="">Total price:</label>
                             <input type="text" class="form-control" id="priceLabel" placeholder="Price" disabled>
+                            <div class="invalid-feedback" id="formselect-error"></div>
+                            <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
                         </div>
 
                         <h4 class="my-2 fw-bold">Payment</h4>
@@ -315,7 +329,7 @@
                                             <div class="d-flex column-gap-2">
                                                 <a href="#" type="button" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal"><img src="../images/service/ABA.png"
-                                                        alt="" style="width: 40px;" class="rounded-1"></a>
+                                                        alt="" style="width: 40px;" class="rounded-1"></a> 
                                                 <a href="#" type="button" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal1"><img
                                                         src="../images/service/ACLeda.png" alt="" style="width: 40px;"
@@ -326,6 +340,8 @@
                                         </h1>
                                         <input class="form-control py-2 bg-white my-3" id="tran-link" type="file"
                                             required />
+                                        <div class="invalid-feedback" id="formselect-error"></div>
+                                            <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
 
                                         <button class="btn btn-warning w-100 text-white mb-0" id="btn-book"
                                             type="button">Book Now</button>
@@ -333,11 +349,7 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </form>
-
-
                 </div>
                 </div>
 
