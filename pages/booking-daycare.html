@@ -540,12 +540,14 @@
 
     // Function to validate individual fields
     function validateField(field) {
-        if (field.checkValidity()) {
-            field.classList.remove("is-invalid");
+        if (!field.checkValidity()) {
+            
             field.classList.add("is-valid");
+            field.classList.remove("is-invalid");
         } else {
-            field.classList.add("is-invalid");
+            
             field.classList.remove("is-valid");
+            field.classList.add("is-invalid");
         }
     }
 
@@ -581,14 +583,14 @@
         // Custom validation for start and end dates
         const startDate = new Date(document.querySelector("#dateTime").value);
         const endDate = new Date(document.querySelector("#dateTime1").value);
-        if (startDate >= endDate) {
-            document.querySelector("#dateTime1").classList.add("is-invalid");
-            document.querySelector("#dateTime1").classList.remove("is-valid");
-            isValid = false;
-        } else {
-            document.querySelector("#dateTime1").classList.remove("is-invalid");
-            document.querySelector("#dateTime1").classList.add("is-valid");
-        }
+        // if (startDate >= endDate) {
+        //     document.querySelector("#dateTime1").classList.add("is-invalid");
+        //     document.querySelector("#dateTime1").classList.remove("is-valid");
+        //     isValid = false;
+        // } else {
+        //     document.querySelector("#dateTime1").classList.remove("is-invalid");
+        //     document.querySelector("#dateTime1").classList.add("is-valid");
+        // }
 
         return isValid;
     }
