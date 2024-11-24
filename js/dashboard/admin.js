@@ -22,8 +22,16 @@ function logOut() {
             if (json.result === true) {
                 sessionStorage.removeItem('adminToken');
                 console.log(json.message);
-                alert(json.message)
-                location.href = 'http://127.0.0.1:5502/../index.html';
+                showModernToast(
+                    {
+                        title: 'Logout Successful!',
+                        description: 'You have been logged out. Redirecting to Home page...',
+                        iconType: 'success'
+                    },
+                    setTimeout(() => {
+                        location.href = '../index.html';
+                    }, 3000)
+                );
             } else {
                 alert(json.message);
             }
