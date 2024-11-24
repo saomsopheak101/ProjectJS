@@ -45,7 +45,12 @@ function getdata() {
             if (json.result === true) {
                 handleLoginSuccess(json);
             } else {
-                alert("Invalid credentials.");
+                Inconrrect({
+                    title: 'Incorrect!',
+                    description: 'Incorrect password. Please try again.',
+                    iconType: 'error',
+                });
+                
 
             }
         })
@@ -96,11 +101,27 @@ function handleLoginSuccess(json) {
             sessionStorage.setItem('authToken', json.data.token);
             // alert(json.message + " Token stored.");
             // location.href = '../index.html';
-            showModernToast({ title: 'login Succesfully !', description: 'Your profile has been updated.', iconType: 'success' })
+            showModernToast(
+                {    title: 'Login Successful!',
+                    description: 'Welcome back! Redirecting...',
+                    iconType: 'success'
+                 },
+                 setTimeout(() => {
+                    location.href = '../index.html';
+                }, 3000))
+                      
         } else if (roleName === 'System Admin') {
             sessionStorage.setItem('adminToken', json.data.token);
-            alert(json.message + " Token stored.");
-            location.href = '../pages/employee.html';
+            // alert(json.message + " Token stored.");
+            // location.href = '../pages/employee.html';
+            showModernToast(
+                {    title: 'Login Successful!',
+                    description: 'Welcome back Admin! Redirecting...',
+                    iconType: 'success'
+                 },
+                 setTimeout(() => {
+                    location.href = '../pages/employee.html';
+                }, 3000))
         } else {
             alert("User role not recognized.");
         }
@@ -113,7 +134,7 @@ function showModernToast({
     title = '',
     description = '',
     iconType = 'success',
-    position = 'top-right',
+    position = 'bottom-right',
     timer = 4000,
     hasCloseButton = true,
 }) {
@@ -121,9 +142,9 @@ function showModernToast({
         toast: true,
         position: position,
         icon: iconType,
-        title: `<strong style="color:#222222">${title}</strong>`,
+        title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
         html: description
-            ? `<p style="margin: 0; font-size: 12px; color: #ccc;">${description}</p>`
+            ? `<p style="margin: 0; font-size: 11px; color: #a8a8a8;">${description}</p>`
             : '',
         customClass: {
             popup: 'modern-toast',
@@ -138,8 +159,37 @@ function showModernToast({
             toast.addEventListener('mouseleave', Swal.resumeTimer);
         },
     });
-    setTimeout(() => {
-        location.href = '../index.html';
-    }, 4000); // 10 seconds delay
+
+}
+function Inconrrect({
+    title = '',
+    description = '',
+    iconType = 'error',
+    position = 'bottom-right',
+    timer = 4000,
+    hasCloseButton = true,
+}) {
+    Swal.fire({
+        toast: true,
+        position: position,
+        icon: iconType,
+        title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
+        html: description
+            ? `<p style="margin: 0; font-size: 11px; color: #a8a8a8;">${description}</p>`
+            : '',
+        customClass: {
+            popup: 'modern-toast',
+            closeButton: hasCloseButton ? 'swal-close-btn' : '',
+        },
+        showConfirmButton: false,
+        timer: timer,
+        timerProgressBar: true,
+        showCloseButton: hasCloseButton,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+        },
+    });
+
 }
 

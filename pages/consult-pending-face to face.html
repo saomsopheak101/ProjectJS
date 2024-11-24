@@ -1400,6 +1400,8 @@
         Main wrapper end
     ***********************************-->
     <script src="../js/dashboard/admin.js"></script>
+    <script src="../js/sweetalert2@11.js"></script>
+
     <script>
         getClients()
         function getClients() {
@@ -1489,7 +1491,7 @@
                                                                 
                                                 onclick="          
                                                     let isOnline = ${element.is_online};    
-                                                    let getLink = document.querySelector('#meet-link').value;
+                                                    let getLink =  '';
                                                     console.log(isOnline);
 
                                                     if (isOnline) { 
@@ -1499,7 +1501,7 @@
                                                         approveType(this, getLink);
                                                     }
                                                     } else if (isOnline === false) {
-                                                        alert('This is face to face');
+                                                  
                                                             approveType(this, getLink);
                                                     } ">Approve</button></div>
                                             </div>
@@ -1517,7 +1519,11 @@
 
             console.log('this is rejectGet', rejectGet);
             if (rejectGet === '') {
-                alert('Please input rejection reason first!');
+                   showModernToast({
+                            title: 'Reason required!',
+                            description: 'Please reply to customer politely.',
+                            iconType: 'warning' // Use 'error' to signify a rejection action
+                        });
             } else {
                 declineReason(row, rejectGet);
                 getClients();
@@ -1548,7 +1554,13 @@
                     if (json.result === true) {
                         console.log(json)
 
-                        alert(json.message);
+                        // alert(json.message);
+                        showModernToast({
+                            title: 'Declined Successfully!',
+                            description: 'The request has been declined.',
+                            iconType: 'success' // Use 'error' to signify a rejection action
+                        });
+
 
                     } else {
                         alert(json.message);
@@ -1580,12 +1592,20 @@
                     if (json.result === true) {
                         getClients()
                         console.log(json.message);
-                        alert(json.message);
+                        // alert(json.message);
+                        showModernToast({
+                            title: 'Approval Successful!',
+                            description: 'The request has been approved.',
+                            iconType: 'success'
+                        });
+
                     } else {
                         alert(json.message);
                     }
                 })
         }
+
+  
 
     </script>
     <!--**********************************
