@@ -277,7 +277,7 @@
                                 <option selected disabled>Please select</option>
                             </select>
                             <div class="invalid-feedback" id="formselect-error"></div>
-                            <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
+                            <div class="valid-feedback text-success" id="formselect-success"></div>
                         </div>
 
                         <div class="col-3">
@@ -338,12 +338,12 @@
                                         </div>
                                         <h1 class="modal-title fs-6 my-2">Transaction file
                                         </h1>
-                                        <input class="form-control py-2 bg-white my-3" id="tran-link" type="file"
+                                        <input class="form-control py-1 bg-white mt-3" id="tran-link" type="file"
                                             required />
                                         <div class="invalid-feedback" id="formselect-error"></div>
                                             <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
 
-                                        <button class="btn btn-warning w-100 text-white mb-0" id="btn-book"
+                                        <button class="btn btn-warning w-100 text-white mb-0 mt-4" id="btn-book"
                                             type="button">Book Now</button>
                                     </div>
                                 </div>
@@ -533,8 +533,89 @@
         src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <script>
+        
+        document.addEventListener("DOMContentLoaded", function () {
+    const bookingForm = document.querySelector("#bookingForm");
+    const submitButton = document.querySelector("#btn-book");
+
+    // Function to validate individual fields
+    function validateField(field) {
+        if (field.checkValidity()) {
+            field.classList.remove("is-invalid");
+            field.classList.add("is-valid");
+        } else {
+            field.classList.add("is-invalid");
+            field.classList.remove("is-valid");
+        }
+    }
+
+    // Main validation function for the form
+    function validateForm() {
+        let isValid = true; // Reset validity for every form validation attempt
+
+        const requiredFields = [
+            document.querySelector("#dateTime"), // Start date
+            document.querySelector("#dateTime1"), // End date
+            document.querySelector("#animalType"), // Animal type
+            document.querySelector("#tran-link"), // Transaction file
+        ];
+
+        requiredFields.forEach((field) => {
+            if (field.type === "file") {
+                if (!field.files[0]) {
+                    field.classList.add("is-invalid");
+                    field.classList.remove("is-valid");
+                    isValid = false;
+                } else {
+                    field.classList.remove("is-invalid");
+                    field.classList.add("is-valid");
+                }
+            } else {
+                validateField(field);
+                if (!field.checkValidity()) {
+                    isValid = false;
+                }
+            }
+        });
+
+        // Custom validation for start and end dates
+        const startDate = new Date(document.querySelector("#dateTime").value);
+        const endDate = new Date(document.querySelector("#dateTime1").value);
+        if (startDate >= endDate) {
+            document.querySelector("#dateTime1").classList.add("is-invalid");
+            document.querySelector("#dateTime1").classList.remove("is-valid");
+            isValid = false;
+        } else {
+            document.querySelector("#dateTime1").classList.remove("is-invalid");
+            document.querySelector("#dateTime1").classList.add("is-valid");
+        }
+
+        return isValid;
+    }
+
+    // Attach event listener to the button
+    submitButton.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Validate the form
+        const isFormValid = validateForm();
+
+        // If the form is valid, proceed with the booking logic
+        if (isFormValid) {
+            booking(); // Call your existing booking logic
+        } else {
+            alert("Please fill in all required fields correctly.");
+        }
+    });
+
+    // Real-time validation for inputs
+    document.querySelectorAll("input, select").forEach((input) => {
+        input.addEventListener("input", () => validateField(input));
+    });
+});
 
 
+        
         let serviceID = sessionStorage.getItem('petCareId');
         console.log(serviceID);
 
@@ -730,10 +811,10 @@
 
             calculatePriceAndDays()
 
-            console.log('animal :', selectedAnimal);
-            console.log('Total Price :', totalPriceLabel);
-            console.log(startDate);
-            console.log(endDate);
+            // console.log('animal :', selectedAnimal);
+            // console.log('Total Price :', totalPriceLabel);
+            // console.log(startDate);
+            // console.log(endDate);
             // console.log(priceLabel);
             // console.log(dayLabel);
 
@@ -744,6 +825,7 @@
             formData.append('pet_care_start_date', startDate)
             formData.append('pet_care_end_date', endDate)
             formData.append('pet_care_price', totalPriceLabel)
+            
 
             // Log the FormData contents
             for (let [key, value] of formData.entries()) {
@@ -761,11 +843,13 @@
                 .then(json => {
 
                     if (json.result === true) {
+
                         console.log(json.message)
-                        // alert(json.message)
+
                         let data_id = json.data.id;
-                        console.log('ID buyer ', data_id);
+                        // console.log('ID buyer ', data_id);
                         transaction(linkTransaction, data_id);
+
                         console.log(json);
                         Swal.fire({
                             icon: 'success',
@@ -777,9 +861,10 @@
                                 location.href = 'http://127.0.0.1:5502/pages/profile-daycare.html'; // Update with the correct URL
                             }
                         });
+
                     } else {
-                        console.log(json.message)
-                        alert(json.message)
+                        // console.log(json.message)
+                        // alert(json.message)
                     }
                 })
         }
