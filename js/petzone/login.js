@@ -94,8 +94,9 @@ function handleLoginSuccess(json) {
         const roleName = json.data.roles[0].name;
         if (roleName === 'Normal User') {
             sessionStorage.setItem('authToken', json.data.token);
-            alert(json.message + " Token stored.");
-            location.href = '../index.html';
+            // alert(json.message + " Token stored.");
+            // location.href = '../index.html';
+            showModernToast({ title: 'login Succesfully !', description: 'Your profile has been updated.', iconType: 'success' })
         } else if (roleName === 'System Admin') {
             sessionStorage.setItem('adminToken', json.data.token);
             alert(json.message + " Token stored.");
@@ -107,3 +108,38 @@ function handleLoginSuccess(json) {
         alert("No roles assigned to this user.");
     }
 }
+
+function showModernToast({
+    title = '',
+    description = '',
+    iconType = 'success',
+    position = 'top-right',
+    timer = 4000,
+    hasCloseButton = true,
+}) {
+    Swal.fire({
+        toast: true,
+        position: position,
+        icon: iconType,
+        title: `<strong style="color:#222222">${title}</strong>`,
+        html: description
+            ? `<p style="margin: 0; font-size: 12px; color: #ccc;">${description}</p>`
+            : '',
+        customClass: {
+            popup: 'modern-toast',
+            closeButton: hasCloseButton ? 'swal-close-btn' : '',
+        },
+        showConfirmButton: false,
+        timer: timer,
+        timerProgressBar: true,
+        showCloseButton: hasCloseButton,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+        },
+    });
+    setTimeout(() => {
+        location.href = '../index.html';
+    }, 4000); // 10 seconds delay
+}
+

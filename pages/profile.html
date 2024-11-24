@@ -112,8 +112,8 @@
                                             </div>
                                             <div
                                                 class="d-flex flex-column align-items-center justify-content-center text-whitee">
-                                                <h5 class="mb-0">NIKI</h5>
-                                                <p>niki@gmail.com</p>
+                                                <h5 class="mb-0 firstname">NIKI</h5>
+                                                <p class="Gemail">niki@gmail.com</p>
                                             </div>
                                         </div>
                                         <ul class="nav">
@@ -187,8 +187,8 @@
                                             </li>
                                             <li class="nav-item border-0  w-100">
                                                 <button
-                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0"
-                                                    aria-current="page" id="logout">
+                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0 logout"
+                                                    aria-current="page" >
                                                     <div class="px-3">
                                                         <img src="../images/service/log-out.png" alt="" width="20">
                                                     </div>
@@ -221,7 +221,7 @@
                             <div class="card border-0 shadow py-4 ">
                                 <div class="card-header bg-transparent mb-3">
                                     <a href="#" class="img-pro">
-                                        <img src="../images/img-pet/icon/user.png" alt="" id="profile-pic">
+                                        <img src="../images/img-pet/icon/user.png" alt="" class="changeImg">
                                         <div class="icon-delete "  onclick="deleteAvatar()" style="cursor: pointer;">
                                             <i class="fa-solid fa-trash-can fs-4 text-white"></i>
                                         </div>
@@ -234,8 +234,8 @@
                                         accept="image/*">
                                    
                                     <!-- <button type="button" class="btn btn-primary">Delete</button> -->
-                                    <h5 class="mb-0 mt-4">Kinki</h5>
-                                    <span>Kinki@gmail.com</span>
+                                    <h5 class="mb-0 mt-4 firstname">Kinki</h5>
+                                    <span class="Gemail">Kinki@gmail.com</span>
                                 </div>
                                 <ul class="nav">
                                     <li class="nav-item border-0">
@@ -300,7 +300,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="" class="nav-link d-flex fw-medium px-4">
+                                        <a role="button" class="nav-link d-flex fw-medium px-4 logout">
                                             <div>
                                                 <img src="../images/service/log-out.png" alt="" width="20">
                                             </div>
@@ -369,99 +369,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="row gutters">
-                                        <div class="col-xl-12 mt-3 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <h4 class="mb-4 color-text fw-bold">Personal Details</h4>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="mb-3">
-                                                <div class="form-group">
-                                                    <label for="fname">Frist name</label>
-                                                    <input type="text" class="form-control" id="fname" placeholder=""  value="Sopheak">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="mb-3">
-                                                <div class="form-group">
-                                                    <label for="lname">Last name</label>
-                                                    <input type="text" class="form-control" id="lname" placeholder="Kika">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="mb">
-                                                <div class="form-group">
-                                                    <label for="phone">Phone</label>
-                                                    <input type="text" class="form-control" id="phone"
-                                                        placeholder="01234688">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="mb-3">
-                                                <div class="form-group">
-                                                    <label for="eMail">Email</label>
-                                                    <input type="email" class="form-control" id="eMail"
-                                                        placeholder="nika@gmail.com">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                            <div class="mb-3">
-                                                <div class="form-group">
-                                                    <label for="Street">Address</label>
-                                                    <input type="name" class="form-control" id="Street"
-                                                        placeholder="st.120 phnom penh">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
+                                   
                                 </div>
                             </div>
-                            <!-- <div class="row mt-5 flex-column gutters rounded  shadow p-4 m-1">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h4 class="mb-3 color-text fw-bold">Change passowrd</h4>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="mb-3">
-                                        <div class="form-group">
-                                            <label for="old_pass">Current password</label>
-                                            <input type="password" class="form-control" id="old_pass"
-                                                placeholder="current password ">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="mb-3">
-                                        <div class="form-group">
-                                            <label for="">New password</label>
-                                            <input type="password" class="form-control" id="ciTy"
-                                                placeholder="Enter new passowrd">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="mb-3">
-                                        <div class="form-group">
-                                            <label for="c_pass">Confirm new password</label>
-                                            <input type="password" class="form-control" id="c_pass"
-                                                placeholder="Enter State">
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                <div class="row gutters mt-4">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <div class="text-right">
-                                            <button type="button" id="submit" name="submit"
-                                                class="btn btn-secondary px-4 py-2">Cancel</button>
-                                            <button type="button" id="submit" name="submit"
-                                                class="btn btn-edit color-bg px-4 py-2 text-white">Update</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
+                            
                         </div>
                     </div>
                 </div>
@@ -504,7 +415,7 @@
                                 <h3 class="pb-2 ps-4">Quick link</h3>
                                 <ul class="list-unstyled d-flex flex-column ps-4 gap-2">
                                     <li>
-                                        <a href="../pages/home-page.html">Home</a>
+                                        <a href="../index.html">Home</a>
                                     </li>
                                     <li>
                                         <a href="../pages/about-us.html">About us</a>
@@ -556,26 +467,20 @@
                                     <li>
                                         <a href="../pages/booking.html">Book Traning</a>
                                     </li>
-                                    <!-- <li>
-                                        <a href="contact.html">Contact</a>
-                                    </li> -->
+                                    
                                 </ul>
-
                             </div>
                         </div>
-                        <div class="col-md-4 col-lg-4 col-xl-3 pt-3 pt-xl-5 flex-lg-grow-0 ps-5">
+                        <div class="col-md-4 col-lg-4 col-xl-3 pt-3 pt-xl-5 flex-lg-grow-0 ps-5 " >
                             <div class="content-right">
                                 <h3 class="pb-2">Working Hours</h3>
                                 <div class="working-time">
                                     <p>Mon - Fri: 7am - 6pm
                                         Saturday: 9am - 4pm <br>
                                         Sunday: Closed</p>
-
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
@@ -595,99 +500,9 @@
     </footer>
 
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="../js/auth-btn.js"></script> -->
+    <script src="../js/petzone/profile-delete.js"></script>
     <script>
-        console.log(sessionStorage.getItem('authToken'))
-        let authToken = sessionStorage.getItem('authToken')
-
-
-        if (!authToken) {
-            location.href = 'http://127.0.0.1:5502/../index.html';
-        }
-        document.querySelector('#logout').addEventListener('click', () => {
-            logOut()
-        })
-        function logOut() {
-            fetch('https://mps4.chandalen.dev/api/logout', {
-                method: 'DELETE',
-                headers: {
-                    'Accept': "application/json",
-                    'Authorization': `Bearer ${authToken}`
-                }
-
-
-            })
-                .then(res => res.json())
-                .then(json => {
-                    if (json.result === true) {
-                        sessionStorage.removeItem('authToken');
-                        console.log(json.message);
-                        alert(json.message)
-                        location.href = 'http://127.0.0.1:5502/../index.html';
-                    } else {
-                        alert(json.message);
-                    }
-                })
-        }
-
-        // =========== change avarta ========= 
-        function changeAvarta() {
-
-            let profile = document.querySelector('#profile').files[0];
-
-            // Display the image preview
-
-
-
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                let avatar = document.querySelector('#profile-pic');
-                let profileDrop = document.querySelectorAll('.changeImg');
-                avatar.setAttribute('src', event.target.result);
-                // cuz i want all image work 
-                profileDrop.forEach(img => img.setAttribute('src', event.target.result));
-
-                // Store base64 image data in sessionStorage
-                sessionStorage.setItem('avatar', event.target.result);
-            }
-            reader.readAsDataURL(profile)
-
-
-
-
-            let formdata = new FormData();
-            formdata.append('avatar', profile);
-
-
-            fetch('https://mps4.chandalen.dev/api/profile/avatar', {
-                method: 'POST',
-                headers: {
-                    "Accept": "application/json",
-                    "Authorization": `Bearer ${authToken}`
-                },
-                body: formdata
-
-            })
-                .then(res => res.json())
-                .then(json => {
-                    console.log(json)
-                    if (json.result === true) {
-                        console.log(json.message);
-                        alert(json.message)
-                    } else {
-                        alert(json.message)
-                    }
-                })
-
-        }
-        let storedAvatar = sessionStorage.getItem('avatar');
-        if (storedAvatar) {
-            document.querySelector('#profile-pic').src = storedAvatar;
-            document.querySelectorAll('.changeImg').forEach(img => img.src = storedAvatar);
-        }
-        document.querySelector('#profile').addEventListener('change', changeAvarta);
-
-
+      
         getData();
         function getData() {
             fetch('https://mps4.chandalen.dev/api/me', {
@@ -751,31 +566,16 @@
             deleteAcc();
         })
     
-        // not yet test it 
-        function deleteAvatar() {
-            fetch('https://mps4.chandalen.dev/api/profile/avatar', {
-                method: 'DELETE',
-                headers: {
-                    "Accept": "application/json",
-                    "Authorization": `Bearer ${authToken}`
-                }
-            })
-                .then(res => res.json())
-                .then(json => {
-                    if (json.result === true) {
-                        console.log(json.message)
-                        alert(json.message)
-                    } else {
-                        alert(json.message)
-                    }
-                })
-
-        }
+     
+        
     </script>
-
+   <script src="../vendor/global/global.min.js"></script>
+<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <!-- Preloader -->
     <script src="../vendor/global/global.min.js"></script>
 	<script src="../js/custom.js"></script>
+    
+    
 </body>
 
 </html>

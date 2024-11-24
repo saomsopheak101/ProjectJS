@@ -5,7 +5,7 @@
 
 <head>
 	<!-- Title -->
-	<title>PetZone-Dashboard</title>
+	<title>Daycare-Dashboard</title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -1339,9 +1339,9 @@
 			<div class="page-titles">
 				<ol class="breadcrumb">
 					<li>
-						<h5 class="bc-title">Appointment</h5>
+						<h5 class="bc-title">Daycare</h5>
 					</li>
-					<li class="breadcrumb-item"><a href="../dashboard-main.html">
+					<li class="breadcrumb-item pe-2"><a href="../pages/dashboard-main.html">
 							<svg width="17" height="17" viewBox="0 0 17 17" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<path
@@ -1352,9 +1352,9 @@
 							</svg>
 							Home</a>
 					</li>
-					<li class="breadcrumb-item active"><a href="javascript:void(0)">Appointment</a></li>
+					<li class=" active"><a href="javascript:void(0)">/  Daycare</a></li>
 				</ol>
-				<a class="text-primary fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button"
+				<a class="text-warning fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button"
 					aria-controls="offcanvasExample1">+ Add Task</a>
 			</div>
 			<div class="container-fluid">
@@ -1363,7 +1363,7 @@
 						<div class="card">
 							<div class="card-body p-0">
 								<div class="table-responsive active-projects style-1">
-									<div class="tbl-caption  mt-3">
+									<div class="tbl-caption mt-3">
 										<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 											<li class="nav-item">
 												<a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
@@ -1702,80 +1702,77 @@
 					json.data.forEach(element => {
 						if (element.status !== 2 && element.status !== 3 && element.pet_care_service?.id == 8) {
 							row += `
-					<div class="col-xl-4">
-						<div class="card">
-							<div class="card-header bg-warning py-2">
-								<div class="row align-items-center g-0 w-100">
-									<div class="col-auto">
-										<img src="${element?.buyer?.avatar || 'default-avatar.png'}" alt=""
-											 class="rounded-circle avatar-md avatar me-2" style="width: 60px; height: 60px;">
-									</div>
-									<div class="col lh-1">
-										<h5 class="mb-1 fw-medium text-white">${element?.buyer?.first_name || 'Unknown'}</h5>
-									</div>
-									<div class="col-5 ps-2">
-										<p class="mb-0 fw-medium text-white">
-											 ${element?.pet_care_service?.title || 'No Service Title'}
-										</p>
-										<div class="badge p-0">
-											<p class="mb-0 rounded-2">${element?.come_date || 'No Date'}</p>
+							<div class="col-xl-4">
+									<div class="card" style="border: 2px solid #f499431f;">
+										<div class="card-header  py-2" style="background-color: #f499431f; ">
+											<div class="row align-items-center  g-0 w-100">				
+												<div class="col-auto">
+													<img src="${element?.buyer?.avatar || 'default-avatar.png'}"" alt=""
+														class="rounded-circle avatar-md avatar me-2" style="width: 60px; height: 60px;">
+												</div>
+												<div class="col lh-1">
+													<h5 class="mb-1 text-warning">${element?.buyer?.first_name || 'Unknown'}</h5>
+												</div>
+												<div class="col-auto">
+													<p class="fs-6 mb-0 ms-2 text-warning">
+														 ${element?.pet_care_service?.title || 'No Service Title'}
+													</p>
+													<p class="fs-6 mb-0">
+														<span class="fs-12 badge light text-dark  badge-warning rounded-5">${element?.come_date || 'No Date'}</span>
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="card-body">
+											<div class="row  mb-4">
+												<div class="col-5">
+													<div class="col-12 mt-2">
+														<img src="${element?.transaction_file || 'placeholder-image.png'}" class="img-fluid w-100 rounded object-fit-cover"
+															alt="Transaction Image" style="width: 200px; height: 250px;">
+													</div>
+												</div>
+												<div class="col-7 mt-2">
+													<div class="row">
+														<div class="col-4 text-dark fw-bold">
+															Animal
+														</div>
+														<div class="col-8">
+															<p class="text-start online-type">
+																${element?.pet_care_animal?.name}
+															</p>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-4 text-dark fw-bold">
+															phone
+														</div>
+														<div class="col-8">
+															<p class="text-start online-type">
+																${element?.buyer?.phone || 'No Phone Number'}
+															</p>
+														</div>
+													</div>
+													<div class="mt-3">
+														<div class="form-floating">
+															<textarea class="form-control" placeholder="Leave a comment here"
+																id="rejectReason-${element.id}" rows="6" style="height: 100px;"></textarea>
+															<label for="floatingTextarea" class="text-dark">Reject Reason</label>
+														</div>
+													</div>
+												</div>
+
+											</div>    
+											<div class="mt-3 text-end">
+												<button class="btn btn-danger btn-xs rounded-5 fw-semibold me-2"
+													data-id="${element.id}" onclick="handleDeclineClick(this)">
+													Decline <i class="fas fa-reply fs-6"></i>
+												</button>
+												<button data-id="${element.id}" class="btn btn-warning btn-xs rounded-5 fw-semibold"
+													onclick="approveType(this)">Approve</button>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="card-body">
-								<div class="row">
-									<div class="mb-2 ">
-										<div class="row ps-2 pt-2">
-											<div class="col-5">
-												<p class="mb-0 fw-bold ">Animal</p>
-											</div>
-											<div class="col-7">
-												<p class="mb-0">${element?.pet_care_animal?.name}</p>
-											</div>
-										</div>
-                                    </div>
-									<div class="mb-2 ">
-										<div class="row ps-2 pt-2">
-											<div class="col-5">
-												<p class="mb-0 fw-bold ">Phone</p>
-											</div>
-											<div class="col-7">
-												<p class="mb-0">${element?.buyer?.phone || 'No Phone Number'}</p>
-											</div>
-										</div>
-                                    </div>
-									<div class="mb-2 ">
-										<div class="row ps-2 pt-2">
-											<div class="col-5">
-												<p class="mb-0 fw-bold ">Transaction</p>
-											</div>
-											<div class="col-7">
-												<img src="${element?.transaction_file || 'placeholder-image.png'}" class="img-fluid" alt="Transaction Image"
-                                                style="width: 200px; height: 150px; object-fit-cover">
-											
-               								 </div>
-										</div>
-                                    </div>
-									<div class="mt-2">
-										<div class="form-floating ">
-											<textarea class="form-control" placeholder="Leave a comment here"
-												id="rejectReason-${element.id}" rows="5"></textarea>
-											<label for="floatingTextarea" class="text-light">Reject Reason</label>
-										</div>
-									</div>
-									<div class="mt-3 text-end me-3">
-										<button class="btn btn-danger btn-xs rounded-5 fw-semibold me-2"
-											data-id="${element.id}" onclick="handleDeclineClick(this)">
-											Decline <i class="fas fa-reply fs-6"></i>
-										</button>
-										<button data-id="${element.id}" class="btn btn-warning btn-xs rounded-5 fw-semibold"
-											onclick="approveType(this)">Approve</button>
-									</div>
-                                </div>	
-							</div>
-						</div>
-					</div>
                         `;
 
 						}

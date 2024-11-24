@@ -234,9 +234,9 @@
                 </a>
                 <div class="d-flex align-items-center ">
                     <div class="d-flex align-items-center">
-                        <button class="py-2 px-4 rounded-2  btn-login  ms-3 " id="login" type="button"
+                        <button class="btn-login-header rounded-2  btn-login  ms-3 " id="login" type="button"
                             onclick="window.location.href='../pages/login.html';">Login</button>
-                        <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3 " id="login" type="button"
+                        <button class="btn-login-header rounded-2 color-bg text-white border-0 ms-3 " id="register" type="button"
                             onclick="window.location.href='../pages/signup.html';">Sign up</button>
                         <!-- <button class="py-2 px-4 rounded-2 color-bg text-white border-0 ms-3">Register</button> -->
 
@@ -248,18 +248,18 @@
         </nav>
     </header>
     <main>
-        <section class="form-logAndris position-relative mt-2  mb-0">
+        <section class="form-logAndris mt-5 pt-5 ">
             <img src="../images/img-pet/icon/bone.png" alt width="50px" class="bone-1 position-absolute">
             <img src="../images/img-pet/icon/bone.png" alt width="50px" class="bone-2 position-absolute">
-            <img src="../images/img-pet/style.png " class="position-absolute style style-3" alt="">
+           
             <div class="container ">
-                <div class="row d-flex">
-                    <div class=" m-auto  col-lg-10 bg-image-login my-3  pt-5 mt-5">
-                        <div class="row ">
-                            <div class="col-7 my-5 py-5 pe-0  flex-column justify-content-center align-items-center">
-                                <div class="bg-glass p-5 my-5 ">
+                <div class="row d-flex  justify-content-center ">
+                    <div class="col-md-9 col-lg-9 bg-image-login my-5 py-5">
+                        <div class="row shadow">
+                            <div class="col-7 px-0 flex-column justify-content-center align-items-center">
+                                <div class="bg-glass p-4 w-100 ">
                                     <div class="d-flex justify-content-center align-items-center mb-3 ">
-                                        <img src="../images/img-pet/logo/PetZone (2).png" alt width="220px">
+                                        <img src="../images/img-pet/logo/PetZone (2).png" alt width="150px">
                                     </div>
                                     <form onsubmit="subOtp(); return false;" class="py-4">
                                         <h3 class="fw-bold text-center mb-4">Verify Email</h3>
@@ -279,20 +279,13 @@
 
                                 </div>
                             </div>
-                            <div
-                                class="col-5 d-none d-lg-flex my-4 ps-0  position-relative flex-column justify-content-center align-items-center">
-                                <img src="../images/img-pet/img-dog.jpg" class="w-100 object-fit-cover img-login" alt="">
-                                <div class="text position-absolute text-center">
-                                    <h1 class="display-3 fw-bold text-white">Wellcome </h1>
-                                    <h2 class="fw-bold color-text pt-2">PetZonE</h2>
-
-                                </div>
+                            <div class="col-5 d-none d-lg-flex m-0 position-relative flex-column justify-content-center align-items-center"
+                                style="background-image: url(../images/img-pet/sign-up.png); background-position: center; background-size: cover;">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <img src="../images/img-pet/style.png " class="position-absolute  style-4" alt="">
         </section>
     </main>
     <footer class="border-1 ">
@@ -311,7 +304,6 @@
             </div>
         </section>
     </footer>
-
 
     <script src="../js/petzone/otp.js"></script>
 
