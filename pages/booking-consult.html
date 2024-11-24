@@ -25,7 +25,7 @@
 </head>
 
 <body class="booking-page">
-    
+
     <!--*******************
         Preloader start
     ********************-->
@@ -38,7 +38,7 @@
     <!--*******************
         Preloader end
     ********************-->
-    
+
     <header class="">
         <nav class="navbar navbar-expand-lg  z-3">
             <div class="container px-5 py-3  px-md-0">
@@ -505,6 +505,8 @@
 
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/auth-btn.js"></script>
+    <script src="../js/sweetalert2@11.js"></script>
+
     <script src="../js/petzone/getdata-profile.js"></script>
     <script>
         let employId = sessionStorage.getItem('employeeID');
@@ -582,11 +584,23 @@
                 .then(json => {
                     if (json.result === true) {
                         console.log(json.message)
-                        alert(json.message)
+                        // alert(json.message)
                         let data_id = json.data.id;
                         console.log('ID buyer ', data_id);
                         transaction(linkTransaction, data_id);
                         console.log(json)
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Booking Successful!',
+                            text: 'Your booking has been confirmed.',
+                            confirmButtonText: 'Okay', // The button text
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.href = 'http://127.0.0.1:5502/pages/profile-consulting.html'; // Update with the correct URL
+                            }
+                        });
+
+
                     } else {
                         console.log(json.message)
                         alert(json.message)
@@ -594,16 +608,20 @@
                 })
         }
         document.querySelector('#btn-book').addEventListener('click', booking);
+
+
+
     </script>
-<script src="../vendor/global/global.min.js"></script>
-<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-<!-- Preloader -->
-<script src="../vendor/global/global.min.js"></script>
+    <script src="../vendor/global/global.min.js"></script>
+    <script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <!-- Preloader -->
+    <script src="../vendor/global/global.min.js"></script>
     <script src="../js/custom.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
-        
+    <script
+        src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
+
     <script>
         $(function () {
             // Initialize the datetime picker with a default date and time
@@ -643,7 +661,7 @@
     </script>
 
 
-    
+
 </body>
 
 </html>

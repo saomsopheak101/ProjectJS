@@ -1,3 +1,8 @@
+window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
+    header.classList.toggle("sticky", window.scrollY > 0)
+
+})
 console.log(sessionStorage.getItem('authToken'))
 let authToken = sessionStorage.getItem('authToken')
 
@@ -27,8 +32,16 @@ function logOut() {
             if (json.result === true) {
                 sessionStorage.removeItem('authToken');
                 console.log(json.message);
-                alert(json.message)
-                location.href = 'http://127.0.0.1:5502/../index.html';
+                showModernToast(
+                    {
+                        title: 'Logout Successful!',
+                        description: 'You have been logged out. Redirecting to Home page...',
+                        iconType: 'success'
+                    },
+                    setTimeout(() => {
+                        location.href = '../index.html';
+                    }, 3000)
+                );
             } else {
                 alert(json.message);
             }
@@ -116,3 +129,36 @@ document.querySelector('#profile').addEventListener('change', changeAvarta);
 
 }
 
+
+
+function showModernToast({
+    title = '',
+    description = '',
+    iconType = 'success',
+    position = 'bottom-right',
+    timer = 4000,
+    hasCloseButton = true,
+}) {
+    Swal.fire({
+        toast: true,
+        position: position,
+        icon: iconType,
+        title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
+        html: description
+            ? `<p style="margin: 0; font-size: 11px; color: #a8a8a8;">${description}</p>`
+            : '',
+        customClass: {
+            popup: 'modern-toast',
+            closeButton: hasCloseButton ? 'swal-close-btn' : '',
+        },
+        showConfirmButton: false,
+        timer: timer,
+        timerProgressBar: true,
+        showCloseButton: hasCloseButton,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+        },
+    });
+
+}
