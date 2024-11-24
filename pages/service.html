@@ -5,7 +5,7 @@
 
 <head>
 	<!-- Title -->
-	<title>PetZone - Dashboard</title>
+	<title>Service - Dashboard</title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -1245,9 +1245,10 @@
 							<span class="nav-text">Consult</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="../pages/consult-reply.html">Reply Clients</a></li>
-							<li><a href="../pages/consult-table.html">History Clients</a></li>
-						</ul>
+                            <li><a href="../pages/consult-pending-face to face.html">Pending Face to face</a></li>
+                            <li><a href="../pages/consult-pending-online.html">Pending Online</a></li>
+                            <li><a href="../pages/consult-table.html">History Clients</a></li>
+                        </ul>
 					</li>
 					<li>
 						<a href="../pages/trainee.html" aria-expanded="false">
@@ -1328,7 +1329,7 @@
 					<li>
 						<h5 class="bc-title">Services</h5>
 					</li>
-					<li class="breadcrumb-item"><a href="index.html">
+					<li class="breadcrumb-item me-2"><a href="index.html">
 							<!-- SVG icon -->
 							<svg width="17" height="17" viewBox="0 0 17 17" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
@@ -1339,9 +1340,9 @@
 									stroke-linejoin="round" />
 							</svg> Home
 						</a></li>
-					<li class="breadcrumb-item active"><a href="javascript:void(0)">Services</a></li>
+					<li class=" active"><a href="javascript:void(0)"> / Services</a></li>
 				</ol>
-				<a class="text-primary fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button"
+				<a class="text-warning fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button"
 					aria-controls="offcanvasExample1">+ Add Task</a>
 			</div>
 			<div class="container-fluid">
@@ -1368,10 +1369,10 @@
 										<!-- Service Table -->
 										<div class="tab-pane fade show active" id="pills-service" role="tabpanel"
 											aria-labelledby="pills-service-tab">
-											<div class="container mt-5">
-												<div class="d-flex justify-content-between">
-													<h3 class="mb-3">Services</h3>
-													<button class="btn btn-warning mb-3" onclick="CreateService()">Add
+											<div class="">
+												<div class="d-flex justify-content-between" style="margin-top: -50px;">
+													<h3 class="mb-3"></h3>
+													<button class="btn btn-warning mb-3 py-2"  onclick="CreateService()">Add
 														Service</button>
 												</div>
 												<table class="table shadow-sm ">
@@ -1395,10 +1396,10 @@
 										<!-- Animal Table -->
 										<div class="tab-pane fade" id="pills-animal" role="tabpanel"
 											aria-labelledby="pills-animal-tab">
-											<div class="container mt-5">
-												<div class="d-flex justify-content-between">
-													<h3 class="mb-3">Animals</h3>
-													<button class="btn btn-warning mb-3" data-bs-toggle="offcanvas"
+											<div class="">
+												<div class="d-flex justify-content-between" style="margin-top: -50px;">
+													<h3 class="mb-3"></h3>
+													<button class="btn btn-warning mb-3 py-2" data-bs-toggle="offcanvas"
 														data-bs-target="#animalOffcanvas">Add Animal</button>
 												</div>
 												<table class="table table-bordered table-animal">

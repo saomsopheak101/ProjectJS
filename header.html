@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="shortcut icon" type="image/png" href="images/img-pet/logo/favicon.png">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="icons/fontawesome/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -25,136 +25,80 @@
     </style>
 </head>
 
-<body>
-    <div class="col-xl-4 m-5">
-        <div class="card ">
-            <div class="card-header bg-warning ">
-                <div class="row align-items-center g-0 w-100">
+<body class="m-5">
+    <div class="col-xl-4">
+        <div class="card" style="border: 2px solid #f499431f;">
+            <div class="card-header  py-2" style="background-color: #f499431f; border: 1px solid #f499431f;">
+                <div class="row align-items-center  g-0 w-100">
+                    
                     <div class="col-auto">
-                        <img src="images/avatar/1.png" alt="" class="rounded-circle avatar-md avatar me-2"
-                            style="width: 60px; height: 60px;">
+                        <img src="images/avatar/3.jpg" alt=""
+                            class="rounded-circle avatar-md avatar me-2" style="width: 60px; height: 60px;">
                     </div>
-                    <div class="col lh-1 py-0">
-                        <h5 class="mb-1 fw-medium text-white">pheak</h5>
-
+                    <div class="col lh-1">
+                        <h5 class="mb-1 text-warning">kkk</h5>
                     </div>
-                    <div class="col-5 ps-5 ">
-                        <p class="mb-0 fw-medium text-white">Consultant </p>
-                        <div class="badge p-0">
-                            <p class="mb-0   rounded-2"> 10-10-2024 12:20:50 </p>
-                        </div>
+                    <div class="col-auto">
+                        <p class="fs-6 mb-0 text-white">
+                            hhhhhh
+                        </p>
+                        <p class="fs-6 mb-0">
+                            <span class="fs-12 badge light badge-warning rounded-5">3456</span>
+                        </p>
                     </div>
-
                 </div>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="mb-2 ">
-                        <div class="row ps-5 pt-2">
-                            <div class="col-5">
-                                <p class="mb-0 fw-bold ">Visit</p>
+                <div class="row  mb-4">
+                    <div class="col-5">
+                        
+                        <div class="col-12 mt-3">
+                            <img src="images/service/QR-Dollar.png" class="img-fluid w-100 rounded object-fit-cover"
+                                alt="Transaction Image" style="width: 200px; height: 250px;">
+                        </div>
+                    </div>
+                    <div class="col-7 mt-5">
+                        <div class="row">
+                            <div class="col-4 text-dark fw-bold">
+                                Animal
                             </div>
-                            <div class="col-7">
-                                <p class="mb-0">online</p>
+                            <div class="col-8">
+                                <p class="text-start online-type">
+                                    hhjk
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 text-dark fw-bold">
+                                phone
+                            </div>
+                            <div class="col-8">
+                                <p class="text-start online-type">
+                                    123456
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here"
+                                    id="rejectReason-${element.id}" rows="6" style="height: 100px;"></textarea>
+                                <label for="floatingTextarea" class="text-dark">Reject Reason</label>
                             </div>
                         </div>
                     </div>
-                    <div class="mb-2">
-                        <div class="row ps-5 pt-2">
-                            <div class="col-5">
-                                <p class="mb-0 fw-bold">link</p>
-                            </div>
-                            <div class="col-7">
-                                <input class="border-0 rounded-2" id="meet-link" style="width: 230px; height: 35px; background-color:rgb(220, 220, 220);"></input>
-                                <label for="meet-link" class="text-dark"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-2">
-                        <div class="row ps-5 pt-2">
-                            <div class="col-5">
-                                <p class="mb-0 fw-bold">Descriptions</p>
-                            </div>
-                            <div class="col-7">
-                                <p class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-                                    mollitia illo corporis unde at! Labore .</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-2">
-                        <div class="row ps-5 pt-2">
-                            <div class="col-5">
-                                <p class="mb-0 fw-bold">Transaction</p>
-                            </div>
-                            <div class="col-7 mb-2">
-                                <img src="images/card/3.png" class="img-fluid" alt="Transaction Image"
-                                    style="width: 200px; height: 150px;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-2">
-                        <div class="form-floating ps-5 pe-3">
-                            <textarea class="form-control" placeholder="Leave a comment here"
-                                id="rejectReason-${element.id}" rows="5"></textarea>
-                            <label for="floatingTextarea" class="text-light ms-5">Reject Reason</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-3 text-end">
-                    <button class="btn btn-danger btn-xs rounded-5 fw-semibold me-2" data-id="${element.id}"
-                        onclick="handleDeclineClick(this)">
-                        Decline <i class="fas fa-reply fs-6"></i></button>
-                    <button data-id="${element.id}" class="btn btn-warning btn-xs rounded-5 fw-semibold">Decline
-                    </button>
-                    <!-- <button data-id="${element.id}" class="btn btn-warning btn-xs rounded-5 fw-semibold"></button> -->
-                </div>
 
-                
-                
+                </div>    
+                <div class="mt-3 text-end">
+                    <button class="btn btn-danger btn-xs rounded-5 fw-semibold me-2"
+                        data-id="${element.id}" onclick="handleDeclineClick(this)">
+                        Decline <i class="fas fa-reply fs-6"></i>
+                    </button>
+                    <button data-id="${element.id}" class="btn btn-warning btn-xs rounded-5 fw-semibold"
+                        onclick="approveType(this)">Approve</button>
+                </div>
             </div>
         </div>
-    </div>;
-
-    <!-- <div class="row mb-4">
-                    <div class="col-5 text-dark fw-bold  ps-5 pt-2">
-
-                        <p class="mt-2">input link</p>
-                        <p> Descriptions</p>
-                    </div>
-                    <div class="col-7">
-                        <p class="text-start online-type">online</p>
-                        <div class="form-floating">
-                            <button class="border-0 rounded-2" style="width: 230px; height: 35px;"></button>
-                            <textarea class="form-control" placeholder="Leave a comment here" id="meet-link"
-                                rows=""></textarea>
-                            <label for="meet-link" class="text-dark"></label>
-                        </div>
-                        <p class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga mollitia
-                            illo corporis unde at! Labore .</p>
-                    </div>
-                    <div class="col-6 text-dark fw-bold">
-
-                    </div>
-                    <div class="col-6">
-
-                    </div>
-                    <div class="col-6 text-dark fw-bold">
-                        Transaction
-                    </div>
-                    <div class="col-6">
-                        <img src="images/card/3.png" class="img-fluid" alt="Transaction Image"
-                            style="width: 140px; height: 200px;">
-                    </div>
-                </div> -->
-
-                <!-- <div class="mt-3">
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here"
-                            id="rejectReason-${element.id}" rows="5"></textarea>
-                        <label for="floatingTextarea" class="text-light">Reject Reason</label>
-                    </div>
-                </div> -->
-
+    </div>
 
 </body>
 
@@ -162,464 +106,3 @@
 
 
 
-<div class="col-xl-4">
-    <div class="card ">
-        <div class="card-header py-3"  >
-            <div class="row align-items-center g-0 w-100">
-                <div class="col-auto">
-                    <img src="${element.buyer.avatar}" alt=""
-                        class="rounded-circle avatar-md  avatar me-2">
-                </div>
-                <div class="col lh-1 ">
-                    <h5 class="mb-1">${element.buyer.first_name}</h5>
-               
-                </div>
-           
-                <div class="col-auto">
-                     <p class="fs-6 mb-0 text-purple">${element.employee.position.name} ${element.employee.name}</p>
-                    <p class="fs-6 mb-0 "><span class=""> </span><span class=" fs-12 badge light badge-success rounded-5">${element.datetime}</span></p>
-                </div>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="row text-center mb-4">
-                <div class="col-6 text-dark fw-bold">
-                    Visit
-                </div>
-                <div class="col-6">
-                    <p class="text-start online-type">${element.is_online ? 'Online ' : 'Face to face'}</p>
-            <div class="form-floating" ${element.is_online ? '' : 'style="display:none;"'}>
-                <textarea class="form-control" placeholder="Leave a comment here" id="meet-link" rows="3"></textarea>
-            <label for="meet-link" class="text-dark"></label>
-             </div>
-                </div>
-                <div class="col-6 text-dark fw-bold">
-                    Descriptions
-                </div>
-                <div class="col-6">
-                    <p class="text-start">${element.description}</p>
-                </div>
-                <div class="col-6 text-dark fw-bold">
-                    Transaction
-                </div>
-                <div class="col-6">
-                    <img src="../images/card/3.png" class="img-fluid" alt="Transaction Image" style="width: 140px; height: 200px;">
-                </div>
-            </div>
-    
-            <div class="mt-3">
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="rejectReason-${element.id}" rows="5"></textarea>
-                    <label for="floatingTextarea" class="text-light">Reject Reason</label>
-                </div>
-            </div> 
-    
-            <div class="mt-3 text-end">
-                <button class="btn btn-danger btn-xs rounded-5 fw-semibold me-2" data-id="${element.id}"  onclick="handleDeclineClick(this)">
-                    Decline <i class="fas fa-reply fs-6"></i></button>
-                <button data-id="${element.id}" class="btn btn-warning btn-xs rounded-5 fw-semibold"
-                
-                onclick="          
-                let isOnline = ${element.is_online};    
-                let getLink = document.querySelector('#meet-link').value;
-                console.log(isOnline);
-
-                if (isOnline) { 
-                    if (getLink === '') {
-                        alert('Please input the link');
-                    } else {
-                        approveType(this, getLink);
-                    }
-                } else if (isOnline === false) {
-                    alert('This is face to face');
-                    approveType(this, getLink);
-                } ">Approve</button></div>
-            </div>
-        </div>
-</div>`;
-
-
-
-
-<!--  daycare -->
-
-<div class="col-xl-4">
-    <div class="card">
-        <div class="card-header py-3">
-            <div class="row align-items-center g-0 w-100">
-                <div class="col-auto">
-                    <img src="${element?.buyer?.avatar || 'default-avatar.png'}" alt=""
-                        class="rounded-circle avatar-md avatar me-2">
-                </div>
-                <div class="col lh-1">
-                    <h5 class="mb-1">${element?.buyer?.first_name || 'Unknown'}</h5>
-                </div>
-                <div class="col-auto">
-                    <p class="fs-6 mb-0 text-purple">
-                         ${ element?.price?.service?.title || 'No Service Title'}
-                    </p>
-                    <p class="fs-6 mb-0">
-                        <span class="fs-12 badge light badge-success rounded-5">${element?.come_date || 'No Date'}</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="row text-center mb-4">
-                <div class="col-6 text-dark fw-bold">
-                    Animal
-                </div>
-                <div class="col-6">
-                    <p class="text-start online-type">
-                        ${element?.price?.animal?.name || 'Unknown Animal'}
-                    </p>
-                </div>
-                <div class="col-6 text-dark fw-bold">
-                    Phone
-                </div>
-                <div class="col-6">
-                    <p class="text-start">${element?.buyer?.phone || 'No Phone Number'}</p>
-                </div>
-                <div class="col-6 text-dark fw-bold">
-                    Transaction
-                </div>
-                <div class="col-6">
-                    <img src="${element?.transaction_file || 'placeholder-image.png'}" class="img-fluid"
-                        alt="Transaction Image" style="width: 140px; height: 200px;">
-                </div>
-            </div>
-            <div class="mt-3">
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here"
-                        id="rejectReason-${element.id}" rows="5"></textarea>
-                    <label for="floatingTextarea" class="text-light">Reject Reason</label>
-                </div>
-            </div>
-            <div class="mt-3 text-end">
-                <button class="btn btn-danger btn-xs rounded-5 fw-semibold me-2"
-                    data-id="${element.id}" onclick="handleDeclineClick(this)">
-                    Decline <i class="fas fa-reply fs-6"></i>
-                </button>
-                <button data-id="${element.id}" class="btn btn-warning btn-xs rounded-5 fw-semibold"
-                    onclick="approveType(this)">Approve</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- sign up style -->
-<style>
-    header {
-        position: fixed;
-        z-index: 99;
-        top: 0;
-        width: 100%;
-        height: 80px;
-        /* line-height: 80px; */
-        transition: 0.3s;
-        padding-top: 10px;
-
-    }
-
-    header.sticky {
-        /* padding: 5px 110px; */
-        background-color: #ffff;
-        color: black;
-
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    }
-
-    header {
-        color: black;
-    }
-
-    .form-logAndris .btn-login a {
-        display: block;
-        text-align: center;
-        width: 100%;
-        border-radius: 19px;
-        background-color: #f49943;
-        text-decoration: none;
-        color: white;
-        transition: all 0.3s;
-    }
-
-    .form-logAndris .separator div {
-        position: absolute;
-        /* background-color: #ffffff; */
-    }
-
-    .form-logAndris .socail-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 40px;
-        border-radius: 10px;
-        border: 2px solid #a4a4a4;
-        text-decoration: none;
-        color: rgb(0, 0, 0);
-        transition: background-color 0.3s ease;
-        gap: 10px;
-    }
-
-    .form-logAndris .socail-btn img {
-        width: 20px;
-        height: 20px;
-    }
-
-    .form-logAndris .socail-btn p {
-        margin: 0;
-        font-size: 14px;
-    }
-
-    .signUp .form-group .icon-position {
-        position: absolute;
-        top: 65%;
-        left: 18px;
-        transform: translateY(-50%);
-        color: #aaa;
-        pointer-events: none;
-    }
-
-    .form-control {
-        font-size: 15px;
-        height: 40px;
-    }
-
-    .style-login {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        /* height: 100vh; */
-        background-color: blue;
-
-    }
-
-    /* .img-login {
-        border-radius: 0px 10px 10px 0px;
-        filter: brightness(70%);
-
-    } */
-    .bg-glass {
-        backdrop-filter: var(--backdrop-filter);
-        border-radius: 10px 0px 0 10px;
-        /* box-shadow: 0px 0px 10px 5px rgba(218, 218, 218, 0.662); */
-    }
-
-    .style-3 {
-        overflow: hidden !important;
-        width: 300px !important;
-        left: -4%;
-        top: -4%;
-        z-index: -1;
-    }
-
-    .style-4 {
-        overflow: hidden !important;
-        width: 300px !important;
-        bottom: -4%;
-        right: -7%;
-        z-index: -1;
-    }
-
-    .bone-1 {
-        padding-top: 20%;
-        margin-left: 10%;
-
-    }
-
-    .bone-2 {
-        padding-top: 10%;
-        margin-right: 10%;
-        right: 0;
-
-    }
-
-    .text-wrap i {
-        width: 35px;
-        height: 35px;
-        background-color: #f49943;
-        line-height: 35px;
-        text-align: center;
-        border-radius: 10px;
-    }
-
-    header .btn-login {
-        border: 2px solid #f49943;
-        background-color: black;
-        color: white;
-    }
-
-    header .btn-login:hover {
-        color: #e2e2e2;
-        background-color: #141414;
-    }
-</style>
-
-<!-- login -->
-
-<style>
-    header {
-        position: fixed;
-        z-index: 99;
-        top: 0;
-        width: 100%;
-        height: 80px;
-        /* line-height: 80px; */
-        transition: 0.3s;
-        padding-top: 10px;
-
-    }
-
-    header.sticky {
-        /* padding: 5px 110px; */
-        background-color: #ffff;
-        color: black;
-
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    }
-
-    header {
-        color: black;
-    }
-
-    .form-logAndris .btn-login a {
-        display: block;
-        text-align: center;
-        width: 100%;
-        border-radius: 19px;
-        background-color: #f49943;
-        text-decoration: none;
-        color: white;
-        transition: all 0.3s;
-    }
-
-    .form-logAndris .separator div {
-        position: absolute;
-        /* background-color: #ffffff; */
-    }
-
-    .form-logAndris .socail-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 40px;
-        border-radius: 10px;
-        border: 2px solid #a4a4a4;
-        text-decoration: none;
-        color: rgb(0, 0, 0);
-        transition: background-color 0.3s ease;
-        gap: 10px;
-    }
-
-    .form-logAndris .socail-btn img {
-        width: 20px;
-        height: 20px;
-    }
-
-    .form-logAndris .socail-btn p {
-        margin: 0;
-        font-size: 14px;
-    }
-
-    .form-control {
-        font-size: 15px;
-        height: 40px;
-    }
-
-    .style-login {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        /* height: 100vh; */
-        background-color: blue;
-
-    }
-
-    /* .img-login {
-        border-radius: 0px 10px 10px 0px;
-        filter: brightness(70%);
-
-    } */
-    .bg-glass {
-        backdrop-filter: var(--backdrop-filter);
-        border-radius: 10px 0px 0 10px;
-        /* box-shadow: 0px 0px 10px 5px rgba(218, 218, 218, 0.662); */
-    }
-
-    .style-3 {
-        overflow: hidden !important;
-        width: 300px !important;
-        left: -4%;
-        top: -4%;
-        z-index: -1;
-    }
-
-    .style-4 {
-        overflow: hidden !important;
-        width: 300px !important;
-        bottom: -4%;
-        right: -7%;
-        z-index: -1;
-    }
-
-    .bone-1 {
-        padding-top: 20%;
-        margin-left: 10%;
-
-    }
-
-    .bone-2 {
-        padding-top: 10%;
-        margin-right: 10%;
-        right: 0;
-
-    }
-
-    .text-wrap i {
-        width: 35px;
-        height: 35px;
-        background-color: #f49943;
-        line-height: 35px;
-        text-align: center;
-        border-radius: 10px;
-    }
-
-    header .btn-login {
-        border: 2px solid #f49943;
-        background-color: black;
-        color: white;
-    }
-
-    header .btn-login:hover {
-        color: #e2e2e2;
-        background-color: #141414;
-    }
-
-    .form-control.is-invalid {
-        border-color: #dc3545;
-    }
-
-    .invalid-feedback {
-        display: block;
-        color: #dc3545;
-        font-size: 0.875em;
-    }
-
-    /* Ensure the icons are positioned correctly */
-
-    /* Editable */
-    
-</style>
-
-
-
-
-
-
-
-
-    
