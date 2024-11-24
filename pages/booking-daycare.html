@@ -524,10 +524,11 @@
 
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/auth-btn.js"></script>
+    <script src="../js/sweetalert2@11.js"></script>
+
     <script src="../js/petzone/getdata-profile.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-    <script src="../js/sweetalert.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
 
@@ -761,11 +762,21 @@
 
                     if (json.result === true) {
                         console.log(json.message)
-                        alert(json.message)
+                        // alert(json.message)
                         let data_id = json.data.id;
                         console.log('ID buyer ', data_id);
                         transaction(linkTransaction, data_id);
-                        console.log(json)
+                        console.log(json);
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Booking Successful!',
+                            text: 'Your booking has been confirmed.',
+                            confirmButtonText: 'Okay', // The button text
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.href = 'http://127.0.0.1:5502/pages/profile-daycare.html'; // Update with the correct URL
+                            }
+                        });
                     } else {
                         console.log(json.message)
                         alert(json.message)
