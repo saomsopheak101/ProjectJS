@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
+    <title>Booking grooming</title>
     <link rel="shortcut icon" type="image/png" href="../images/img-pet/logo/favicon.png">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
@@ -512,7 +512,7 @@
     <script src="../js/petzone/getdata-profile.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-    <script src="../js/sweetalert.min.js"></script>
+    <script src="../js/sweetalert2@11.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
     <script>
@@ -717,13 +717,15 @@
                     if (json.result === true) {
                         let data_id = json.data.id;
                         transaction(linkTransaction, data_id);
-                        swal({
-                            title: "Booking successfully!",
-                            text: json.message,
-                            icon: "success",
-                            button: "Back!",
-                        }).then(() => {
-                            location.href = 'http://127.0.0.1:5502/../pages/petGrooming.html';
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Booking Successful!',
+                            text: 'Your booking has been confirmed.',
+                            confirmButtonText: 'Okay', // The button text
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.href = 'http://127.0.0.1:5502/pages/profile-grooming.html'; // Update with the correct URL
+                            }
                         });
                     } else {
                         alert(json.message);
