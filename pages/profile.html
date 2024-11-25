@@ -16,13 +16,13 @@
     <!--*******************
         Preloader start
     ********************-->
-    <div id="preloader">
-        <div class="lds-ripple">
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-    <!--*******************
+	<div id="preloader">
+		<div class="lds-ripple">
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<!--*******************
         Preloader end
     ********************-->
 
@@ -48,11 +48,9 @@
                                 Service
                             </a>
                             <ul class="dropdown-menu  dropdown-services">
-                                <li><a class="dropdown-item text-black fw-medium "
-                                        href="../pages/service-main.html">Service main</a>
+                                <li><a class="dropdown-item text-black fw-medium " href="../pages/service-main.html">Service main</a>
                                 </li>
-                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet
-                                        Day care</a>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet Day care</a>
                                 </li>
                                 <li><a class="dropdown-item text-black fw-medium" href="../pages/petGrooming.html">Pet
                                         Grooming</a>
@@ -82,40 +80,35 @@
                         </li>
                     </ul>
                     <div class="d-flex align-items-center ">
+                  
+                        <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
-                                <form class="d-flex position-relative" role="search">
-                                    <div class="search-container position-relative">
-                                        <input class="form-control bg-white text-black position-relative" type="search"
-                                            placeholder="Search" aria-label="Search" id="searchInput">
-                                        <i class="fa-solid fa-search position-absolute bg-white"
-                                            style="top: 10px; right: 12px;"></i>
-                                        <ul id="searchResults" class="list-group position-absolute mt-1"
-                                            style="display: none; z-index: 1000; width: 100%;">
-                                            <!-- Search results will be appended here -->
-                                        </ul>
+                                <form class="d-flex" role="search">
+                                    <input class="form-control  bg-white text-black" type="search" placeholder="Search"
+                                        aria-label="Search">
+                                    <div class="position-absolute icon-search-homepage ">
+                                        <i class="fa-solid fa-search "></i>
                                     </div>
                                 </form>
                                 <a class="btn btn-icon d-flex py-0 position-relative" role="button" href=""
                                     title="profile" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                    <div class="hp-user p-0 m-0 rounded-circle overflow-hidden">
-                                        <img class="mb-2 changeImg" src="images/img-pet/icon/user.png">
+                                    <div class="">
+                                        <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                            src="../images/img-pet/icon/user.png" alt="#" width="35px">
                                     </div>
                                     <span
                                         class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
                                         <small></small>
                                     </span>
                                 </a>
-                                <ul class="dropdown-menu mt-4 rounded-3 profile-management overflow-hidden"
-                                    style="width: 270px; transform: translateX(30px); transition: 0.3s;">
-                                    <div class="bg-warning-subtle btn-shadow"
-                                        style="width: 100%; height: 150px;position: absolute;z-index: 1;transform: translateY(-100px); ">
-                                    </div>
-                                    <div class="border-0 pb-3 position-relative ">
+                                <ul class="dropdown-menu mt-4 rounded-3 profile-management">
+                                    <div class="border-0 py-3 ">
                                         <div class="account-header d-flex flex-column align-items-center  pt-2">
-                                            <div class=" z-2 mb-2 ph-user2 overflow-hidden rounded-circle">
-                                                <img class="changeImg" src="images/img-pet/icon/user.png" alt="#">
+                                            <div class="mb-2">
+                                                <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                                    src="../images/img-pet/icon/user.png" alt="#" width="60px">
                                             </div>
                                             <div
                                                 class="d-flex flex-column align-items-center justify-content-center text-whitee">
@@ -194,8 +187,8 @@
                                             </li>
                                             <li class="nav-item border-0  w-100">
                                                 <button
-                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0"
-                                                    aria-current="page" id="logout">
+                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0 logout"
+                                                    aria-current="page" >
                                                     <div class="px-3">
                                                         <img src="../images/service/log-out.png" alt="" width="20">
                                                     </div>
@@ -217,7 +210,7 @@
         <section class=" bg-profile  position-relative ">
             <div class="banner-profile booking-service"></div>
             <div class="content d-flex align-items-center">
-
+                
             </div>
         </section>
         <section class="profile-book margin-bottom">
@@ -229,17 +222,17 @@
                                 <div class="card-header bg-transparent mb-3">
                                     <a href="#" class="img-pro">
                                         <img src="../images/img-pet/icon/user.png" alt="" class="changeImg">
-                                        <div class="icon-delete " onclick="deleteAvatar()" style="cursor: pointer;">
+                                        <div class="icon-delete "  onclick="deleteAvatar()" style="cursor: pointer;">
                                             <i class="fa-solid fa-trash-can fs-4 text-white"></i>
                                         </div>
                                     </a>
                                     <label type="button" for="profile"
                                         class="btn btn-edit-1 color-bg btn-camera position-absolute">
-                                        <i class="fa-solid fa-camera text-white"></i>
+                                        <i class="fa-solid fa-camera text-white" ></i>
                                     </label>
                                     <input type="file" class="form-control bg-transparent d-none" id="profile"
                                         accept="image/*">
-
+                                   
                                     <!-- <button type="button" class="btn btn-primary">Delete</button> -->
                                     <h5 class="mb-0 mt-4 firstname">Kinki</h5>
                                     <span class="Gemail">Kinki@gmail.com</span>
@@ -255,18 +248,19 @@
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-grooming.html" class="nav-link d-flex fw-medium px-4">
+                                        <a href="../pages/profile-grooming.html"
+                                            class="nav-link d-flex fw-medium px-4">
                                             <div>
                                                 <div>
-                                                    <img src="../images/service/grooming-setting (2).png" alt=""
-                                                        width="25">
+                                                    <img src="../images/service/grooming-setting (2).png" alt="" width="25">
                                                 </div>
                                             </div>
                                             Grooming
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-daycare.html" class="nav-link d-flex fw-medium px-4">
+                                        <a href="../pages/profile-daycare.html"
+                                            class="nav-link d-flex fw-medium px-4">
                                             <div>
                                                 <div>
                                                     <img src="../images/service/daycare-setting.png" alt="" width="25">
@@ -276,8 +270,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-consulting.html"
-                                            class="nav-link  d-flex fw-medium px-4">
+                                        <a href="../pages/profile-consulting.html" class="nav-link  d-flex fw-medium px-4">
                                             <div>
                                                 <div>
                                                     <img src="../images/service/consult-setting.png" alt="" width="24">
@@ -297,12 +290,10 @@
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-notification.html"
-                                            class="nav-link d-flex fw-medium px-4">
+                                        <a href="../pages/profile-notification.html" class="nav-link d-flex fw-medium px-4">
                                             <div>
                                                 <div>
-                                                    <img src="../images/service/notification-svgrepo-com.svg" alt=""
-                                                        width="20">
+                                                    <img src="../images/service/notification-svgrepo-com.svg" alt="" width="20">
                                                 </div>
                                             </div>
                                             Notification
@@ -330,16 +321,14 @@
                                             <label for="inputEmail" class="col-sm-3 col-form-label text-black">First
                                                 name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control bg-transparent" id="fname"
-                                                    value="">
+                                                <input type="text" class="form-control bg-transparent" id="fname" value="">
                                             </div>
                                         </div>
                                         <div class="row mb-4">
                                             <label for="inputEmail" class="col-sm-3 col-form-label text-black">Last
                                                 name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control bg-transparent" id="lname"
-                                                    value="">
+                                                <input type="text" class="form-control bg-transparent" id="lname" value="">
                                             </div>
                                         </div>
                                         <div class="row mb-4">
@@ -351,23 +340,20 @@
                                             </div>
                                         </div>
                                         <div class="row mb-4">
-                                            <label for="inputEmail"
-                                                class="col-sm-3 col-form-label text-black">Phone</label>
+                                            <label for="inputEmail" class="col-sm-3 col-form-label text-black">Phone</label>
                                             <div class="col-sm-9">
-                                                <input type="tel" class="form-control bg-transparent" id="pnumber"
-                                                    value="">
+                                                <input type="tel" class="form-control bg-transparent" id="pnumber" value="">
                                             </div>
                                         </div>
-
+    
                                         <div class="row mb-4">
                                             <label for="inputEmail"
                                                 class="col-sm-3 col-form-label text-black">Address</label>
                                             <div class="col-sm-9">
-                                                <input type="tel" class="form-control bg-transparent" id="address"
-                                                    value="">
+                                                <input type="tel" class="form-control bg-transparent" id="address" value="">
                                             </div>
                                         </div>
-
+    
                                         <div class="row gutters mt-4">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="text-right">
@@ -383,10 +369,10 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                   
                                 </div>
                             </div>
-
+                            
                         </div>
                     </div>
                 </div>
@@ -481,11 +467,11 @@
                                     <li>
                                         <a href="../pages/booking.html">Book Traning</a>
                                     </li>
-
+                                    
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-4 col-lg-4 col-xl-3 pt-3 pt-xl-5 flex-lg-grow-0 ps-5 ">
+                        <div class="col-md-4 col-lg-4 col-xl-3 pt-3 pt-xl-5 flex-lg-grow-0 ps-5 " >
                             <div class="content-right">
                                 <h3 class="pb-2">Working Hours</h3>
                                 <div class="working-time">
@@ -517,7 +503,7 @@
     <script src="../js/petzone/profile-delete.js"></script>
     <script src="../js/sweetalert2@11.js"></script>
     <script>
-
+      
         getData();
         function getData() {
             fetch('https://mps4.chandalen.dev/api/me', {
@@ -549,13 +535,13 @@
                     document.querySelectorAll('.firstname').forEach(element => {
                         element.innerHTML = firstName;
                     });
-                    document.querySelectorAll('.Gemail').forEach(element => {
+                    document.querySelectorAll('.Gemail').forEach(element=>{
                         element.innerHTML = email;
                     });
-
+                    
                 })
         }
-
+        
         function deleteAcc() {
             fetch('https://mps4.chandalen.dev/api/profile/acc', {
                 method: 'DELETE',
@@ -580,17 +566,17 @@
         document.querySelector('#delete-acc').addEventListener('click', () => {
             deleteAcc();
         })
-
-
-
+    
+     
+        
     </script>
-    <script src="../vendor/global/global.min.js"></script>
-    <script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+   <script src="../vendor/global/global.min.js"></script>
+<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <!-- Preloader -->
     <script src="../vendor/global/global.min.js"></script>
-    <script src="../js/custom.js"></script>
-
-
+	<script src="../js/custom.js"></script>
+    
+    
 </body>
 
 </html>

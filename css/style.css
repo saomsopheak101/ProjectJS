@@ -30,7 +30,6 @@ button {
     box-shadow: rgba(255, 255, 255, 0.375) 0px 8px 24px;
 }
 
-
 .c-item {
     height: 85vh;
 }
@@ -55,8 +54,11 @@ button {
 
 .section-top {
     margin-top: -100px;
-
 }
+
+
+/* start header 
+ =====================*/
 
 header {
     position: fixed;
@@ -75,7 +77,14 @@ header.sticky {
 
 .navbar .navbar-brand img {
     transform: scale(1.5);
+}
 
+header .navbar .navbar-nav .nav-item .nav-link {
+    color: white;
+}
+
+header.sticky .navbar .navbar-nav .nav-item .nav-link {
+    color: black;
 }
 
 header.sticky .navbar .navbar-nav .nav-item .nav-link:hover {
@@ -95,10 +104,12 @@ header.sticky .btn-login-header {
 .btn-login-header {
     width: 100px;
     height: 40px;
-
 }
 
-
+.navbar-nav {
+    right: 0;
+    margin: auto;
+}
 
 .navbar .navbar-nav .nav-item .nav-link {
     width: 100px;
@@ -166,6 +177,9 @@ header.sticky .btn-login-header {
     font-size: 1.6rem;
     border: 0;
 }
+
+/* end header 
+ =====================*/
 
 
 /* Homepage 
@@ -402,7 +416,45 @@ header.sticky .btn-login-header {
 }
 
 /* ============== toast =========  */
+.modern-toast {
+    background-color: #20232a;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    padding: 16px;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    width: 350px;
+    animation: slideIn 0.5s ease-out;
+}
 
+.swal2-timer-progress-bar {
+    background-color: #4caf50;
+    height: 4px;
+    border-radius: 2px;
+}
+
+.swal-close-btn {
+    color: #ffffff;
+    font-size: 12px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .style-1 {
     overflow: hidden !important;
@@ -1727,7 +1779,6 @@ header .btn-login:hover {
     background-color: #141414;
 }
 
-
 .form-group.position-relative {
     position: relative;
 }
@@ -1833,17 +1884,6 @@ header .btn-login:hover {
     margin-top: -20%;
 }
 
-
-.faq .faq-q ul li{
-    border-bottom: 1px solid gainsboro;
-}
-.faq .faq-q ul li:hover{
-    border-left: 2px solid #f49943;
-    background-color: #f6f6f6;
-}
-.faq .faq-q ul li:hover a{
-    color: #000 !important;
-
 /* style toast */
 
 .modern-toast {
@@ -1912,5 +1952,4 @@ header .btn-login:hover {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
