@@ -102,37 +102,34 @@
                                 id="signupForm" type="button"
                                 onclick="window.location.href='../pages/signup.html';">Signup</button>
                         </div>
+                        <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
-                                <form class="d-flex position-relative" role="search">
-                                    <div class="search-container position-relative">
-                                        <input class="form-control bg-white text-black position-relative" type="search" placeholder="Search"
-                                               aria-label="Search" id="searchInput">
-                                        <i class="fa-solid fa-search position-absolute bg-white" style="top: 10px; right: 12px;"></i>
-                                        <ul id="searchResults" class="list-group position-absolute mt-1" style="display: none; z-index: 1000; width: 100%;">
-                                            <!-- Search results will be appended here -->
-                                        </ul>
+                                <form class="d-flex" role="search">
+                                    <input class="form-control  bg-white text-black" type="search" placeholder="Search"
+                                        aria-label="Search">
+                                    <div class="position-absolute icon-search-homepage ">
+                                        <i class="fa-solid fa-search "></i>
                                     </div>
                                 </form>
                                 <a class="btn btn-icon d-flex py-0 position-relative" role="button" href=""
                                     title="profile" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                    <div class="hp-user p-0 m-0 rounded-circle overflow-hidden" >
-                                        <img class="mb-2 changeImg"
-                                            src="images/img-pet/icon/user.png">
+                                    <div class="">
+                                        <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                            src="../images/img-pet/icon/user.png" alt="#" width="35px">
                                     </div>
                                     <span
                                         class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
                                         <small></small>
                                     </span>
                                 </a>
-                                <ul class="dropdown-menu mt-4 rounded-3 profile-management overflow-hidden" style="width: 270px; transform: translateX(30px); transition: 0.3s;" >
-                                    <div class="bg-warning-subtle btn-shadow" style="width: 100%; height: 150px;position: absolute;z-index: 1;transform: translateY(-100px); "></div>
-                                    <div class="border-0 pb-3 position-relative ">
+                                <ul class="dropdown-menu mt-4 rounded-3 profile-management">
+                                    <div class="border-0 py-3 ">
                                         <div class="account-header d-flex flex-column align-items-center  pt-2">
-                                            <div class=" z-2 mb-2 ph-user2 overflow-hidden rounded-circle">
-                                                <img class="changeImg"
-                                                    src="images/img-pet/icon/user.png" alt="#">
+                                            <div class="mb-2">
+                                                <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                                    src="../images/img-pet/icon/user.png" alt="#" width="60px">
                                             </div>
                                             <div
                                                 class="d-flex flex-column align-items-center justify-content-center text-whitee">

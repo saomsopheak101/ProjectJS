@@ -79,38 +79,35 @@
                             <a class="nav-link fw-medium black-nav" href="../pages/contact.html">Contact</a>
                         </li>
                     </ul>
-                    <div class="d-flex align-items-center ">
+                    <div class="d-flex align-items-center ">      
+                        <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
-                                <form class="d-flex position-relative" role="search">
-                                    <div class="search-container position-relative">
-                                        <input class="form-control bg-white text-black position-relative" type="search" placeholder="Search"
-                                               aria-label="Search" id="searchInput">
-                                        <i class="fa-solid fa-search position-absolute bg-white" style="top: 10px; right: 12px;"></i>
-                                        <ul id="searchResults" class="list-group position-absolute mt-1" style="display: none; z-index: 1000; width: 100%;">
-                                            <!-- Search results will be appended here -->
-                                        </ul>
+                                <form class="d-flex" role="search">
+                                    <input class="form-control  bg-white text-black" type="search" placeholder="Search"
+                                        aria-label="Search">
+                                    <div class="position-absolute icon-search-homepage ">
+                                        <i class="fa-solid fa-search "></i>
                                     </div>
                                 </form>
                                 <a class="btn btn-icon d-flex py-0 position-relative" role="button" href=""
                                     title="profile" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                    <div class="hp-user p-0 m-0 rounded-circle overflow-hidden" >
-                                        <img class="mb-2 changeImg"
-                                            src="images/img-pet/icon/user.png">
+                                    <div class="">
+                                        <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                            src="../images/img-pet/icon/user.png" alt="#" width="35px">
                                     </div>
                                     <span
                                         class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
                                         <small></small>
                                     </span>
                                 </a>
-                                <ul class="dropdown-menu mt-4 rounded-3 profile-management overflow-hidden" style="width: 270px; transform: translateX(30px); transition: 0.3s;" >
-                                    <div class="bg-warning-subtle btn-shadow" style="width: 100%; height: 150px;position: absolute;z-index: 1;transform: translateY(-100px); "></div>
-                                    <div class="border-0 pb-3 position-relative ">
+                                <ul class="dropdown-menu mt-4 rounded-3 profile-management">
+                                    <div class="border-0 py-3 ">
                                         <div class="account-header d-flex flex-column align-items-center  pt-2">
-                                            <div class=" z-2 mb-2 ph-user2 overflow-hidden rounded-circle">
-                                                <img class="changeImg"
-                                                    src="images/img-pet/icon/user.png" alt="#">
+                                            <div class="mb-2">
+                                                <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
+                                                    src="../images/img-pet/icon/user.png" alt="#" width="60px">
                                             </div>
                                             <div
                                                 class="d-flex flex-column align-items-center justify-content-center text-whitee">
@@ -189,8 +186,8 @@
                                             </li>
                                             <li class="nav-item border-0  w-100">
                                                 <button
-                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0"
-                                                    aria-current="page" id="logout">
+                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0 logout"
+                                                    aria-current="page" >
                                                     <div class="px-3">
                                                         <img src="../images/service/log-out.png" alt="" width="20">
                                                     </div>
@@ -222,10 +219,10 @@
                         <div class="setting-sidebar col-md-4 col-xl-4 me-4 z-3">
                             <div class="card border-0 shadow py-4 ">
                                 <div class="card-header bg-transparent mb-3">
-                                    <a href="#" class="img-pro" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <a href="#" class="img-pro">
                                         <img src="../images/img-pet/icon/user.png" alt="" class="changeImg">
-                                        <div class="icon-delete " style="cursor: pointer;">
-                                            <i class="fa-solid fa-ellipsis fs-4 text-white"></i>
+                                        <div class="icon-delete "  onclick="deleteAvatar()" style="cursor: pointer;">
+                                            <i class="fa-solid fa-trash-can fs-4 text-white"></i>
                                         </div>
                                     </a>
                                     <label type="button" for="profile"
@@ -314,8 +311,8 @@
                         </div>
                         <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12 col-12 " >
                             <div class="card shadow border-0 ">
-                                <div class="col-xl-12 col-lg-12 px-0 col-md-12 color-bg col-sm-12 col-12" style="border-top-left-radius: 7px;border-top-right-radius: 7px;">
-                                    <h4 class="mb-0 py-3 px-4 text-white fw-bold">Day care</h4>
+                                <div class="col-xl-12  rounded-2 col-lg-12 px-0 col-md-12 color-bg col-sm-12 col-12">
+                                    <h4 class="mb-0 p-3 text-white fw-bold">Day care</h4>
                                 </div>
                                 <div class="col-12 px-3">
                                     <div class="row gutters p-4 get-row">
@@ -486,23 +483,6 @@
             </section>
         </div>
     </footer>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="deleteAvatar()">Delete Profile</button>
-              <button type="button" class="btn btn-primary">Change Profile</button>
-            </div>
-          </div>
-        </div>
-      </div>
     
 
 
@@ -531,20 +511,28 @@
                         if (element.pet_care_service?.id == 8) {
                             row += `
 		                       <div class="card ps-2 my-2">
-                                        <div class="row w-100 overflow-hidden">
-                                            <div class="col-md-5 ps-1 px-0" style="height: 200px;">
+                                        <div class="row w-100">
+                                            <div class="col-md-3 ps-1 px-0">
                                                 <img src="${element.pet_care_service.image}"
-                                                    class="object-fit-cover img-fluid w-100 rounded-2" >
+                                                    class="h-75 object-fit-cover img-fluid rounded-start" alt="..." style="width: 150px ; " >
                                             </div>
                                             <div class="col-md-7">
                                                 <div class="card-body d-flex justify-content-between">
                                                     <div>
                                                         <div class="d-flex">
-                                                            <h4 class="card-title fw-bold">${element.pet_care_service.title}</h4>
-                                                            <p class="pt-1 ps-2 text-warning fw-bold">${element.status == 1 ? 'Pending' : element.status == 2 ? 'Approved' : element.status == 3 ? 'Declined' : ''}</p>
-    
+                                                            <h4 class="card-title">${element.pet_care_service.title}</h4>
+                                                            <p class="pt-1 ps-2 text-warning">${element.status == 1 ? 'Pending' : element.status == 2 ? 'Approved' : element.status == 3 ? 'Declined' : ''}</p>
                                                         </div>
-                                                        <p class="text-secondary mb-0 fs-7">
+                                                        <p class="color-text mb-0">${element.buyer.first_name}</p>
+                                                        <p class="pt-1 mb-0">${element.pet_care_animal.name}</p>
+                                                        <p class="pt-1 mb-0">${element.pet_care_service.feature}</p>
+                                                        <h4 class="mb-0 fw-medium pt-2">${element.pet_care_price}$</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2  mt-1">
+                                                <div class="btn">
+                                                    <p class="text-secondary">
                                                         Start Date: ${new Intl.DateTimeFormat('en-US', {
                                                             timeZone: 'Asia/Bangkok',
                                                             year: 'numeric',
@@ -554,7 +542,7 @@
                                                             minute: '2-digit'
                                                         }).format(new Date(element.pet_care_start_date))}
                                                     </p>
-                                                     <p class="text-secondary fs-7">
+                                                    <p class="text-secondary">
                                                     End Date: ${new Intl.DateTimeFormat('en-US', {
                                                         timeZone: 'Asia/Bangkok',
                                                         year: 'numeric',
@@ -564,13 +552,10 @@
                                                         minute: '2-digit'
                                                     }).format(new Date(element.pet_care_end_date))}
                                                     </p>
-                                                        <p class="color-text mb-0">Name: ${element.buyer.first_name}&nbsp;${element.buyer.last_name}</p>
-                                                        <p class="pt-1 mb-0">Animal: ${element.pet_care_animal.name}</p>
-                                                        <h4 class="mb-0 fw-medium pt-2">${element.pet_care_price}$</h4>
-                                                    </div>
+                                                    <div class="">
+                                                        <button class="btn btn-warning btn-book text-white ">Cancel</button>
                                                 </div>
                                             </div>
-
                                          </div>
                                     </div>
                                 </div>
