@@ -1953,3 +1953,33 @@ header .btn-login:hover {
         transform: translateY(0);
     }
 }
+
+.hp-user {
+    width: 38px;
+    height: 38px;
+    border: 2px solid rgb(255, 255, 255);
+}
+.ph-user2{
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+
+.hp-user .changeImg,
+.ph-user2 .changeImg {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.faq .faq-q ul li{
+    border-bottom: 1px solid gainsboro;
+}
+.faq .faq-q ul li:hover{
+    border-left: 2px solid #f49943;
+    background-color: #f6f6f6;
+}
+.faq .faq-q ul li:hover a{
+    color: #000 !important;
+}

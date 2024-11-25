@@ -544,7 +544,6 @@
     <script
         src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
 
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const submitButton = document.querySelector("#btn-book");
@@ -581,14 +580,12 @@
                         if (calendarIcon) calendarIcon.classList.add("is-valid-icon");
                         return true;
                     }
-
                 }
                 return true; // Default for other cases
             }
-        
-            // Main validation function for the form
-            function validateForm() {
 
+            // Main validation function
+            function validateForm() {
                 let isValid = true;
                 const fieldsToValidate = [
                     document.querySelector("#dateTime"),
@@ -629,26 +626,19 @@
 
             submitButton.addEventListener("click", function (event) {
                 event.preventDefault();
-
-        
                 const isFormValid = validateForm();
-        
-                // If the form is valid, proceed with the booking logic
-                if (isFormValid) {
 
-                    Swal.fire({
-                        icon: "success",
-                        title: "Success",
-                        text: "Booking successfully submitted!",
-                        confirmButtonText: "Okay",
-                    });
+                if (isFormValid) {
+               booking();
                 } else {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Validation Error",
-                        text: "Please correct the errors in the form before proceeding.",
-                        confirmButtonText: "Okay",
-                    });
+                
+                    Inconrrect({
+                        title: 'Please fill out all required fields correctly.',
+                        // description: 'Welcome back Admin! Redirecting...',
+                        iconType: ''
+                    })
+            
+
                 }
             });
         });
@@ -661,39 +651,23 @@
         window.addEventListener('unload', () => {
 
             sessionStorage.removeItem('petCareId');
-
-
-                    booking(); // Proceed with the booking logic
-                } 
-                else {
-                    Inconrrect({
-                        title: 'Please fill out all required fields correctly.',
-                        // description: 'Welcome back Admin! Redirecting...',
-                        iconType: ''
-                    })
-
-                }
-            });
-        
-            // Real-time validation for inputs
-            document.querySelectorAll("input, select").forEach((input) => {
-                input.addEventListener("input", () => validateField(input));
-            });
-
         });
-
         if (serviceID === null) {
             location.href = 'http://127.0.0.1:5502/../pages/petDayCare.html'
         }
 
         animalId();
         function animalId() {
+
+
+
             fetch('https://mps4.chandalen.dev/api/animals', {
                 method: 'GET',
                 headers: {
                     'Accept': "application/json",
 
                 }
+
             })
                 .then(res => res.json())
                 .then(json => {
@@ -715,129 +689,132 @@
                     })
 
                 });
-                if (serviceID === null) {
-                    location.href = 'http://127.0.0.1:5502/../pages/petDayCare.html'
-                }
-        
-                animalId();
-                function animalId() {
-        
-        
-        
-                    fetch('https://mps4.chandalen.dev/api/animals', {
-                        method: 'GET',
-                        headers: {
-                            'Accept': "application/json",
-        
-                        }
-        
-                    })
-                        .then(res => res.json())
-                        .then(json => {
-                            // console.log(json)
-                            let animal = document.querySelector('#animalType');
-                            animal.innerHTML = '<option selected disabled>Please select</option>';
-        
-                            json.data.forEach(item => {
-                                let option = document.createElement('option');
-                                option.value = item.id;
-                                option.textContent = item.name;
-        
-                                animal.appendChild(option);
-                            });
-        
-                            animal.addEventListener('change', (event) => {
-                                const selectedOption = event.target.selectedOptions[0];
-                                console.log(selectedOption);
-                            })
-        
-                        });
-                };
-        
-                function transaction(linkTransaction, serviceID) {
-        
-        
-                    let formData = new FormData();
-                    formData.append('transaction_file', linkTransaction)
-        
-                    console.log('transaction file', formData);
-        
-        
-                    fetch('https://mps4.chandalen.dev/api/books/transaction-file/' + serviceID, {
-                        method: 'POST',
-                        headers: {
-                            'Accept': "application/json",
-                            'Authorization': `Bearer ${authToken}`
-                        },
-                        body: formData
-                    })
-                        .then(res => res.json())
-                        .then(json => {
-                            console.log(json)
-                            // if(json.result=== true){
-                            //     alert(json.message)
-                            // }else{
-                            //     alert(json.message)
-                            // }
-                        })
-                }
-                function calculatePriceAndDays() {
-                    const selectedAnimal = document.querySelector('#animalType').value;
-                    const priceLabel = document.querySelector('#aniLabel');
-                    const dayLabel = document.querySelector('#dayLabel');
-                    const totalPriceLabel = document.querySelector('#priceLabel');
-                    const startDate = document.querySelector('#dateTime').value;
-                    const endDate = document.querySelector('#dateTime1').value;
-        
-                    // Clear everything if no animal is selected or it's the default option
-                    if (!selectedAnimal || selectedAnimal === "Please select") {
-                        priceLabel.value = '';
-                        dayLabel.value = '';
-                        totalPriceLabel.value = '';
-                        return;
-                    }
-        
-        
-                    let priceAnimal = 0;
-                    if (selectedAnimal == 2) {
-                        priceAnimal = 30; // Cat
-                    } else if (selectedAnimal == 1) {
-                        priceAnimal = 25; // Dog
-                    } else {
-                        priceAnimal = 15; // Other
-                    }
-        
-                    // Always update the animal price
-                    priceLabel.value = `$${priceAnimal}`;
-        
-                    // Calculate days and total price if we have dates
-                    if (startDate && endDate) {
-                        const start = new Date(startDate);
-                        const end = new Date(endDate);
-        
-                        // Validate dates
-                        if (end < start) {
-                            alert('End date cannot be before start date');
-                            dayLabel.value = '';
-                            selectedAnimal = "Please select";
-                            totalPriceLabel.value = '';
-                            return;
-                        }
-        
-                        // Calculate the time difference and days difference
-                        const timeDifference = end - start;
-                        const daysDifference = Math.max(1, Math.ceil(timeDifference / (1000 * 60 * 60 * 24)));
-        
-                        // Update days and total price
-                        dayLabel.value = daysDifference;
-                        totalPriceLabel.value = `$${daysDifference * priceAnimal}`;
-                    } else {
-                        // Clear days and total price if dates are missing
-                        dayLabel.value = '';
-                        totalPriceLabel.value = '';
-                    }
+        };
+
+        function transaction(linkTransaction, serviceID) {
+
+
+            let formData = new FormData();
+            formData.append('transaction_file', linkTransaction)
+
+            console.log('transaction file', formData);
+
+
+            fetch('https://mps4.chandalen.dev/api/books/transaction-file/' + serviceID, {
+                method: 'POST',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                },
+                body: formData
+            })
+                .then(res => res.json())
+                .then(json => {
+                    console.log(json)
+                    // if(json.result=== true){
+                    //     alert(json.message)
+                    // }else{
+                    //     alert(json.message)
+                    // }
+                })
+        }
+        function calculatePriceAndDays() {
+            const selectedAnimal = document.querySelector('#animalType').value;
+            const priceLabel = document.querySelector('#aniLabel');
+            const dayLabel = document.querySelector('#dayLabel');
+            const totalPriceLabel = document.querySelector('#priceLabel');
+            const startDate = document.querySelector('#dateTime').value;
+            const endDate = document.querySelector('#dateTime1').value;
+
+            // Clear everything if no animal is selected or it's the default option
+            if (!selectedAnimal || selectedAnimal === "Please select") {
+                priceLabel.value = '';
+                dayLabel.value = '';
+                totalPriceLabel.value = '';
+                return;
+            }
+
+
+            let priceAnimal = 0;
+            if (selectedAnimal == 2) {
+                priceAnimal = 30; // Cat
+            } else if (selectedAnimal == 1) {
+                priceAnimal = 25; // Dog
+            } else {
+                priceAnimal = 15; // Other
+            }
+
+            // Always update the animal price
+            priceLabel.value = `$${priceAnimal}`;
+
+            // Calculate days and total price if we have dates
+            if (startDate && endDate) {
+                const start = new Date(startDate);
+                const end = new Date(endDate);
+
+                // Validate dates
+                if (end < start) {
+                    alert('End date cannot be before start date');
+                    dayLabel.value = '';
+                    selectedAnimal = "Please select";
+                    totalPriceLabel.value = '';
+                    return;
                 }
 
+                // Calculate the time difference and days difference
+                const timeDifference = end - start;
+                const daysDifference = Math.max(1, Math.ceil(timeDifference / (1000 * 60 * 60 * 24)));
+
+                // Update days and total price
+                dayLabel.value = daysDifference;
+                totalPriceLabel.value = `$${daysDifference * priceAnimal}`;
+            } else {
+                // Clear days and total price if dates are missing
+                dayLabel.value = '';
+                totalPriceLabel.value = '';
+            }
+        }
+
+        // Initialize everything when the document is ready
+        $(document).ready(function () {
+            // Initialize datetime pickers
+            $('#datetimepicker').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm:ss',
+                minDate: new Date(),
+                icons: {
+                    time: 'fa fa-clock',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-arrow-up',
+                    down: 'fa fa-arrow-down',
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-calendar-check',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-times'
+                }
+            });
+
+            $('#datetimepicker1').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm:ss',
+                minDate: new Date(),
+                icons: {
+                    time: 'fa fa-clock',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-arrow-up',
+                    down: 'fa fa-arrow-down',
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-calendar-check',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-times'
+                }
+            });
+
+            // Add event listeners for datetime pickers
+            $('#datetimepicker').on('change.datetimepicker', function (e) {
+                if (e.date) {
+                    $('#datetimepicker1').datetimepicker('minDate', e.date);
+                }
                 calculatePriceAndDays();
             });
 
@@ -853,6 +830,7 @@
 
         function booking() {
             const selectedAnimal = document.querySelector('#animalType').value;
+
             const totalPriceLabel = document.querySelector('#priceLabel')
                 .value = document.querySelector('#priceLabel').value.replace('$', '');;
             const startDate = document.querySelector('#dateTime').value;
@@ -879,37 +857,34 @@
                 .then((res) => res.json())
                 .then((json) => {
                     if (json.result === true) {
+                        transaction(linkTransaction, json.data.id);
                         showModernToast({
                             iconType: "success",
                             title: "Booking Successful!",
-                            description: "Your booking has been confirmed.",
-                            confirmButtonText: "Okay",
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                location.href = "http://127.0.0.1:5502/pages/profile-daycare.html";
-                            }
+                            description: "Your booking has been confirmed.hehe",  
+                        },
+                        setTimeout(() => {
+                        location.href = 'http://127.0.0.1:5502/pages/profile-daycare.html';
+                    }, 3000)
+                     
+
+                    );
+                
+                 } else {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Booking Failed",
+                            text: json.message || "An error occurred while booking.",
                         });
-
-                        transaction(linkTransaction, json.data.id);
                     }
-                    // else {
-                    //     Swal.fire({
-                    //         icon: "error",
-                    //         title: "Booking Failed",
-                    //         text: json.message || "An error occurred while booking.",
-                    //     });
-                    // }
-
                 });
-        
-        
-                document.querySelector('#btn-book').addEventListener('click', () => {
-        
-                    booking();
-                })
-            </script>
-        
-    
+        }
+        document.querySelector('#btn-book').addEventListener('click', () => {
+
+            booking();
+        })
+    </script>
+
 
     <!-- <script src="../vendor/global/global.min.js"></script> -->
     <script src="../js/custom.js"></script>
