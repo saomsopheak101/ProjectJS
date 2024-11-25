@@ -1208,10 +1208,10 @@
 							<span class="nav-text">Consult</span>
 						</a>
 						<ul aria-expanded="false">
-                            <li><a href="../pages/consult-pending-face to face.html">Pending Face to face</a></li>
-                            <li><a href="../pages/consult-pending-online.html">Pending Online</a></li>
-                            <li><a href="../pages/consult-table.html">History Clients</a></li>
-                        </ul>
+							<li><a href="../pages/consult-pending-face to face.html">Pending Face to face</a></li>
+							<li><a href="../pages/consult-pending-online.html">Pending Online</a></li>
+							<li><a href="../pages/consult-table.html">History Clients</a></li>
+						</ul>
 					</li>
 					<li>
 						<a href="../pages/trainee.html" aria-expanded="false">
@@ -1319,7 +1319,7 @@
 										<div>
 											<a class="btn btn-warning btn-sm" data-bs-toggle="offcanvas"
 												href="#offcanvasExample" role="button" onclick="document.querySelector('.update-employ').innerHTML = 'Add Employee';
-												document.querySelector('.change-subtxt').innerHTML = 'Submit';" aria-controls="offcanvasExample">+ Add
+												document.querySelector('.change-subtxt').innerHTML = 'Submit'; clearAll();" aria-controls="offcanvasExample">+ Add
 												Employee</a>
 
 										</div>
@@ -1691,32 +1691,32 @@
 						<td><span>${i++}</span></td>
 						<td>
 							<div class="products">
-								<img src="${element.image}" class="avatar avatar-md"
+								<img src="${element?.image}" class="avatar avatar-md"
 									alt="">
 								<div>
-									<h6 class="tname">${element.name}</h6>
+									<h6 class="tname">${element?.name}</h6>
 									<!-- <span>Web Designer</span>	 -->
 								</div>
 							</div>
 						</td>
-						<td><span class="text-primary tphone">${element.phone}</span></td>
+						<td><span class="text-primary tphone">${element?.phone}</span></td>
 						<td>
-							<span class="badge badge-success light border-0 tposition">${element.position.name}</span>
+							<span class="badge badge-success light border-0 tposition">${element.position?.name}</span>
 						</td>
 						<td>
-							<span class="text-success tday">${element.work_day.name}</span>
+							<span class="text-success tday">${element.work_day?.name}</span>
 						</td>
 						<td>
-							<span class="text-blue ttime">${element.work_time.name}</span>
+							<span class="text-blue ttime">${element.work_time?.name}</span>
 						</td>
 						<td>
-							<span class="tcreate">${element.created_at}</span>
+							<span class="tcreate">${element?.created_at}</span>
 						</td>
 						<td>
 							<span class="">
 								<button type="button" class="btn btn-info btn-icon-xs" data-id="${element.id}" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"  onclick="viewEmployee(this)"><i
 										class="fa-sharp fa-regular fa-eye" ></i></button>
-								<button type="button" class="btn btn-primary btn-icon-xs"  data-id="${element.id}"  data-img="${element.image}" data-des="${element.description}" data-address="${element.address}" id="btn-up" onclick="getUpdate(this)" data-bs-toggle="offcanvas"
+								<button type="button" class="btn btn-primary btn-icon-xs"  data-id="${element.id}"  data-img="${element.image}" data-des="${element?.description}" data-address="${element?.address}" id="btn-up" onclick="getUpdate(this)" data-bs-toggle="offcanvas"
 												href="#offcanvasExample" role="button"
 												aria-controls="offcanvasExample"><i
 										class="fa-solid fa-pen-to-square"></i></button>
@@ -1898,7 +1898,11 @@
 
 
 		// Event listeners
-		document.addEventListener('DOMContentLoaded', createEmployee);
+		document.addEventListener('DOMContentLoaded', function () {
+			createEmployee();
+			clearAll();
+		});
+
 		// document.getElementById('btn-sub').addEventListener('click', handleSubmit);
 		// document.getElementById('btn-sub').addEventListener('click', () => {
 		// 	handleSubmit();
@@ -2032,7 +2036,7 @@
 				.then(json => {
 					if (json.result === true) {
 						employeeAll();
-						clearAll()
+						clearAll();
 						alert(json.message)
 					} else {
 						alert(json.message)
