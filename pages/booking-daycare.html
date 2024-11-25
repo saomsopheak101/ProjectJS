@@ -240,8 +240,13 @@
             <div class="container d-flex justify-content-center">
                 <div class="col-8">
 
-                    <form class="row align-items-center row-gap-3 glass p-4">
+                    <form class="row  needs-validation align-items-center row-gap-3 glass p-4 " novalidate>
                         <h4 class="mt-3 fw-bold">Booking information</h4>
+
+                        <!-- <select class="form-select" id="validationCustom04" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>...</option>
+                          </select> -->
 
                         <div class="col-3">
                             <label for="">From:</label>
@@ -351,7 +356,7 @@
                         </div>
                     </form>
                 </div>
-                </div>
+            </div>
 
         </section>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -535,86 +540,94 @@
     <script>
         
         document.addEventListener("DOMContentLoaded", function () {
-    const bookingForm = document.querySelector("#bookingForm");
-    const submitButton = document.querySelector("#btn-book");
+            const submitButton = document.querySelector("#btn-book");
 
-    // Function to validate individual fields
-    function validateField(field) {
-        if (!field.checkValidity()) {
-            
-            field.classList.add("is-valid");
-            field.classList.remove("is-invalid");
-        } else {
-            
-            field.classList.remove("is-valid");
-            field.classList.add("is-invalid");
-        }
-    }
-
-    // Main validation function for the form
-    function validateForm() {
-        let isValid = true; // Reset validity for every form validation attempt
-
-        const requiredFields = [
-            document.querySelector("#dateTime"), // Start date
-            document.querySelector("#dateTime1"), // End date
-            document.querySelector("#animalType"), // Animal type
-            document.querySelector("#tran-link"), // Transaction file
-        ];
-
-        requiredFields.forEach((field) => {
-            if (field.type === "file") {
-                if (!field.files[0]) {
+            // Validate individual fields
+            function validateField(field) {
+                if (field.type === "file") {
+                    if (field.files.length === 0) {
+                        field.classList.add("is-invalid");
+                        field.classList.remove("is-valid");
+                        return false;
+                    } else {
+                        field.classList.remove("is-invalid");
+                        field.classList.add("is-valid");
+                        return true;
+                    }
+                } else if (field.value.trim() === "" || !field.checkValidity()) {
                     field.classList.add("is-invalid");
                     field.classList.remove("is-valid");
-                    isValid = false;
+                    return false;
                 } else {
                     field.classList.remove("is-invalid");
                     field.classList.add("is-valid");
-                }
-            } else {
-                validateField(field);
-                if (!field.checkValidity()) {
-                    isValid = false;
+                    return true;
                 }
             }
+
+            // Main validation function
+            function validateForm() {
+                let isValid = true;
+
+                // Required fields
+                const requiredFields = [
+                    document.querySelector("#dateTime"),
+                    document.querySelector("#dateTime1"),
+                    document.querySelector("#animalType"),
+                    document.querySelector("#tran-link"),
+                ];
+
+                // Validate each field
+                requiredFields.forEach((field) => {
+                    if (!validateField(field)) {
+                        isValid = false;
+                    }
+                });
+
+                // Custom date validation
+                const startDateField = document.querySelector("#dateTime");
+                const endDateField = document.querySelector("#dateTime1");
+
+                const startDate = new Date(startDateField.value);
+                const endDate = new Date(endDateField.value);
+
+                if (endDate <= startDate) {
+                    endDateField.classList.add("is-invalid");
+                    endDateField.classList.remove("is-valid");
+                    isValid = false;
+                } else {
+                    endDateField.classList.remove("is-invalid");
+                    endDateField.classList.add("is-valid");
+                }
+
+                return isValid;
+            }
+
+            // Real-time validation
+            document.querySelectorAll("input, select").forEach((input) => {
+                input.addEventListener("input", () => validateField(input));
+            });
+
+            // Submit button logic
+            submitButton.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                // Validate the form
+                const isFormValid = validateForm();
+
+                if (isFormValid) {
+                    booking(); // Proceed with the booking logic
+                } 
+                else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Validation Error",
+                        text: "Please correct the errors in the form before proceeding.",
+                        confirmButtonText: "Okay",
+                    });
+                }
+            });
         });
-
-        // Custom validation for start and end dates
-        const startDate = new Date(document.querySelector("#dateTime").value);
-        const endDate = new Date(document.querySelector("#dateTime1").value);
-        // if (startDate >= endDate) {
-        //     document.querySelector("#dateTime1").classList.add("is-invalid");
-        //     document.querySelector("#dateTime1").classList.remove("is-valid");
-        //     isValid = false;
-        // } else {
-        //     document.querySelector("#dateTime1").classList.remove("is-invalid");
-        //     document.querySelector("#dateTime1").classList.add("is-valid");
-        // }
-
-        return isValid;
-    }
-
-    // Attach event listener to the button
-    submitButton.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Validate the form
-        const isFormValid = validateForm();
-
-        // If the form is valid, proceed with the booking logic
-        if (isFormValid) {
-            booking(); // Call your existing booking logic
-        } else {
-            alert("Please fill in all required fields correctly.");
-        }
-    });
-
-    // Real-time validation for inputs
-    document.querySelectorAll("input, select").forEach((input) => {
-        input.addEventListener("input", () => validateField(input));
-    });
-});
 
 
         
@@ -811,64 +824,47 @@
             const endDate = document.querySelector('#dateTime1').value;
             let linkTransaction = document.querySelector('#tran-link').files[0];
 
-            calculatePriceAndDays()
+            calculatePriceAndDays();
 
-            // console.log('animal :', selectedAnimal);
-            // console.log('Total Price :', totalPriceLabel);
-            // console.log(startDate);
-            // console.log(endDate);
-            // console.log(priceLabel);
-            // console.log(dayLabel);
+            const formData = new FormData();
+            formData.append("pet_care_service_id", sessionStorage.getItem("petCareId"));
+            formData.append("pet_care_animal_id", selectedAnimal);
+            formData.append("pet_care_start_date", startDate);
+            formData.append("pet_care_end_date", endDate);
+            formData.append("pet_care_price", totalPriceLabel);
 
-
-            let formData = new FormData();
-            formData.append('pet_care_service_id', serviceID)
-            formData.append('pet_care_animal_id', selectedAnimal)
-            formData.append('pet_care_start_date', startDate)
-            formData.append('pet_care_end_date', endDate)
-            formData.append('pet_care_price', totalPriceLabel)
-            
-
-            // Log the FormData contents
-            for (let [key, value] of formData.entries()) {
-                console.log(`${key}: ${value}`);
-            }
-            fetch('https://mps4.chandalen.dev/api/books', {
-                method: 'POST',
+            fetch("https://mps4.chandalen.dev/api/books", {
+                method: "POST",
                 headers: {
-                    'Accept': "application/json",
-                    'Authorization': `Bearer ${authToken}`
+                    Accept: "application/json",
+                    Authorization: `Bearer ${authToken}`,
                 },
-                body: formData
+                body: formData,
             })
-                .then(res => res.json())
-                .then(json => {
-
+                .then((res) => res.json())
+                .then((json) => {
                     if (json.result === true) {
-
-                        console.log(json.message)
-
-                        let data_id = json.data.id;
-                        // console.log('ID buyer ', data_id);
-                        transaction(linkTransaction, data_id);
-
-                        console.log(json);
                         Swal.fire({
-                            icon: 'success',
-                            title: 'Booking Successful!',
-                            text: 'Your booking has been confirmed.',
-                            confirmButtonText: 'Okay', // The button text
+                            icon: "success",
+                            title: "Booking Successful!",
+                            text: "Your booking has been confirmed.",
+                            confirmButtonText: "Okay",
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                location.href = 'http://127.0.0.1:5502/pages/profile-daycare.html'; // Update with the correct URL
+                                location.href = "http://127.0.0.1:5502/pages/profile-daycare.html";
                             }
                         });
 
-                    } else {
-                        // console.log(json.message)
-                        // alert(json.message)
-                    }
-                })
+                        transaction(linkTransaction, json.data.id);
+                    } 
+                    // else {
+                    //     Swal.fire({
+                    //         icon: "error",
+                    //         title: "Booking Failed",
+                    //         text: json.message || "An error occurred while booking.",
+                    //     });
+                    // }
+                });
         }
         document.querySelector('#btn-book').addEventListener('click', () => {
 
