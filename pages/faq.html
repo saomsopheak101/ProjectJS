@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link rel="shortcut icon" type="image/png" href="../images/img-pet/logo/favicon.png">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../icons/fontawesome/css/all.min.css">
+</head>
+
+<body class="about-us-page">
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <header class="">
+        <nav class="navbar navbar-expand-lg  z-3">
+            <div class="container px-5 py-3  px-md-0">
+                <a class="navbar-brand" href="">
+                    <img src="../images/img-pet/logo/PetZone (2).png" style="width: 80px;" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-0" style="z-index: 99;">
+                        <li class="nav-item ">
+                            <a class="nav-link fw-medium" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item mx-lg-2 dropdown">
+                            <a class="nav-link dropdown-toggle  black-nav fw-medium pe-0"
+                                href="../pages/service-main.html" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Service
+                            </a>
+                            <ul class="dropdown-menu  dropdown-services">
+                                <!-- <li><a class="dropdown-item text-black fw-medium "
+                                        href="../pages/service-main.html">Service main</a>
+                                </li> -->
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet
+                                        Day care</a>
+                                </li>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petGrooming.html">Pet
+                                        Grooming</a>
+                                </li>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petTraining.html">Pet
+                                        Training</a>
+                                </li>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petConsult.html">Pet
+                                        Consulting</a>
+                                </li>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petVeterinary.html">Pet
+                                        Veterinary</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mx-lg-2  ">
+                            <a class="nav-link  fw-medium black-nav" href="../pages/about-us.html">
+                                About us
+                            </a>
+                        </li>
+                        <li class="nav-item mx-lg-2">
+                            <a class="nav-link fw-medium black-nav" href="../pages/feedback.html">Feedback</a>
+                        </li>
+                        <li class="nav-item mx-lg-2">
+                            <a class="nav-link fw-medium black-nav" href="../pages/contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center ">
+                        <div class="d-flex align-items-center">
+                            <button class="rounded-2 btn-login-header btn-light border-0 ms-3 btn-shadow" id="login"
+                                type="button" onclick="window.location.href='../pages/login.html';">Login</button>
+                            <button class=" rounded-2 btn-login-header btn-light border-0 ms-3 btn-shadow"
+                                id="signupForm" type="button"
+                                onclick="window.location.href='../pages/signup.html';">Signup</button>
+                        </div>
+                        <div class="dropdown-center dropdown-account" id="profiles">
+                            <div class="d-flex">
+                                <form class="d-flex position-relative" role="search">
+                                    <div class="search-container position-relative">
+                                        <input class="form-control bg-white text-black position-relative" type="search" placeholder="Search"
+                                               aria-label="Search" id="searchInput">
+                                        <i class="fa-solid fa-search position-absolute bg-white" style="top: 10px; right: 12px;"></i>
+                                        <ul id="searchResults" class="list-group position-absolute mt-1" style="display: none; z-index: 1000; width: 100%;">
+                                            <!-- Search results will be appended here -->
+                                        </ul>
+                                    </div>
+                                </form>
+                                <a class="btn btn-icon d-flex py-0 position-relative" role="button" href=""
+                                    title="profile" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                    <div class="hp-user p-0 m-0 rounded-circle overflow-hidden" >
+                                        <img class="mb-2 changeImg"
+                                            src="images/img-pet/icon/user.png">
+                                    </div>
+                                    <span
+                                        class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
+                                        <small></small>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu mt-4 rounded-3 profile-management overflow-hidden" style="width: 270px; transform: translateX(30px); transition: 0.3s;" >
+                                    <div class="bg-warning-subtle btn-shadow" style="width: 100%; height: 150px;position: absolute;z-index: 1;transform: translateY(-100px); "></div>
+                                    <div class="border-0 pb-3 position-relative ">
+                                        <div class="account-header d-flex flex-column align-items-center  pt-2">
+                                            <div class=" z-2 mb-2 ph-user2 overflow-hidden rounded-circle">
+                                                <img class="changeImg"
+                                                    src="images/img-pet/icon/user.png" alt="#">
+                                            </div>
+                                            <div
+                                                class="d-flex flex-column align-items-center justify-content-center text-whitee">
+                                                <h5 class="mb-0 firstname">NIKI</h5>
+                                                <p class="Gemail">niki@gmail.com</p>
+                                            </div>
+                                        </div>
+                                        <ul class="nav">
+                                            <li class="nav-item border-0  w-100">
+                                                <a href="../pages/profile.html" class="nav-link d-flex fw-medium px-4"
+                                                    aria-current="page">
+                                                    <div class="px-2">
+                                                        <img src="../images/service/setting-profile.png" alt=""
+                                                            width="20">
+                                                    </div>
+                                                    My Profile
+                                                </a>
+                                            </li>
+                                            <li class="nav-item border-0  w-100">
+                                                <a href="../pages/profile-grooming.html"
+                                                    class="nav-link d-flex fw-medium px-4">
+
+                                                    <div class="px-2">
+                                                        <img src="../images/service/grooming-setting (2).png" alt=""
+                                                            width="25">
+                                                    </div>
+
+                                                    Grooming
+                                                </a>
+                                            </li>
+                                            <li class="nav-item border-0  w-100">
+                                                <a href="../pages/profile-daycare.html"
+                                                    class="nav-link active d-flex fw-medium px-4">
+
+                                                    <div class="px-2">
+                                                        <img src="../images/service/daycare-setting.png" alt=""
+                                                            width="25">
+                                                    </div>
+
+                                                    Day care
+                                                </a>
+                                            </li>
+                                            <li class="nav-item border-0  w-100">
+                                                <a href="../pages/profile-consulting.html"
+                                                    class="nav-link  d-flex fw-medium px-4">
+
+                                                    <div class="px-2">
+                                                        <img src="../images/service/consult-setting.png" alt=""
+                                                            width="24">
+                                                    </div>
+
+                                                    Consulting
+                                                </a>
+                                            </li>
+                                            <li class="nav-item border-0 w-100">
+                                                <a href="../pages/profile.feedback.html"
+                                                    class="nav-link d-flex fw-medium px-4">
+
+                                                    <div class="px-2">
+                                                        <img src="../images/service/feedback-setting.png" alt=""
+                                                            width="24">
+                                                    </div>
+
+                                                    Feedback
+                                                </a>
+                                            </li>
+                                            <li class="nav-item border-0  w-100">
+                                                <a href="../pages/profile-notification.html"
+                                                    class="nav-link d-flex fw-medium px-4">
+                                                    <div class="px-2">
+                                                        <img src="../images/service/notification-svgrepo-com.svg" alt=""
+                                                            width="20">
+                                                    </div>
+                                                    Notification
+                                                </a>
+                                            </li>
+                                            <li class="nav-item border-0  w-100">
+                                                <button
+                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0"
+                                                    aria-current="page" id="logout">
+                                                    <div class="px-3">
+                                                        <img src="../images/service/log-out.png" alt="" width="20">
+                                                    </div>
+                                                    Log out
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-banner position-relative mb-0">
+            <div class="banner-bg booking-service"></div>
+            <div class="content d-flex align-items-center">
+                <div class="container">
+                    <div class="text-center text-white-light mb-5">
+                        <h2 class="display-5 my-4 text-white fw-bold">FAQs</h2>
+                        <div class="badge bg-white color-text py-2 shadow">
+                            <a href="../index.html" class="text-white-light text-decoration-none">Home</a>
+                            <span> &nbsp;>&nbsp; </span>
+                            <span class="text-brand">FAQs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="faq py-5">
+            <div class="container pt-4">
+                <div class="row  g-4 position-relative flex-nowrap">
+                    <div class="mx-4 faq-q col-lg-3 col-12 bg-warning rounded-3 px-3 pt-3 h-100">
+                        <ul class="quick-see list-unstyled  sticky-top z-2 " style="top: 22%;">
+                            <li class="py-3 px-5 active show bg-white">
+                                <a href="#about-fa" class="nav-link active fs-5 fw-bold text-black"
+                                    style="text-decoration: none;">Petzone</a>
+                            </li>
+                            <li class="py-3 px-5 bg-white">
+                                <a href="#about-fa" class="nav-link fs-5 fw-bold text-black"
+                                    style="text-decoration: none;">Service</a>
+                            </li>
+                            <li class="py-3 px-5 bg-white">
+                                <a href="#about-fa" class="nav-link fs-5 fw-bold text-black "
+                                    style="text-decoration: none;">Payment</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-9 col-12">
+                        <div class="accordion-content " for="a">
+                            <h2 class="text-warning fw-bold mb-4" id="about-fa">PetZone</h2>
+                            <div class="accordion accordion-flush " id="accordionFlushExample">
+                                <div class="accordion-item mb-4 border-bottom-0">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fs-5 z-1 " type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                            aria-expanded="false" aria-controls="flush-collapseOne">
+                                            <img src="../images/service/paw.png" width="22" alt=""> &nbsp;What is your
+                                            main purpose of making this website?
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse bg-white"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">ក្រុមហ៊ុនហូមី​បង្កើតឡើងនៅក្នុងកំឡុងឆ្នាំ២០២៤
+                                            ហើយបង្កើតឡើងក្នុងគោលបំណងផ្ដល់នូវសេវាកម្មទិញ លក់
+                                            ជួលផ្ទះដល់អតិថិជន​និងជួយបង្កើតទីផ្សារជូនអាជីករនៅកម្ពុជា។</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-4 border-0 bg-warning-subtle">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fs-5 z-1" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+                                            aria-expanded="false" aria-controls="flush-collapseTwo">
+                                            <img src="../images/service/paw.png" width="22" alt="">
+                                            &nbsp;When did you make this website?
+
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseTwo" class="accordion-collapse collapse bg-white"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">អតិថិជន
+                                            រឺអ្នកប្រើប្រាស់គ្រប់រូបដែលចង់ក្លាយជាអាជីវករក្នុងវេបសាយរបស់យើង
+                                            ពួកគាត់អាច <a href="apply-to-seller.html">ចុះឈ្មោះធ្វើជាអាជីវករ</a>
+                                            រួចបង្ហោះលក់ផ្ទះជាការស្រេច។
+                                            លើសពីនេះប្រសិនបើអាជីវករចង់អោយការលក់របស់គាត់កាន់តែមានសក្ដានុភាពគាត់អាចទិញជា<a
+                                                href="package.html">កញ្ចប់លក់ពិសេស</a>ដែលផ្ដល់ជូនដោយក្រុមហ៊ុនរបស់យើងផ្ទាល់។
+                                            ចំពោះការចុះឈ្មោះរឺស្នើរធ្វើជាអាជីវករ
+                                            អ្នកប្រើប្រាស់គ្រាន់តែទាមទារអោយបំពេញលក្ខខ័ណ្ឌមួយចំនួន
+                                            ដូចជាប័ត៌មានផ្ទាល់ខ្លួន និង Upload អត្តសញ្ញាណប័ណ្ណប៉ុណ្ណោះ</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-4">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fs-5 z-1" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+                                            aria-expanded="false" aria-controls="flush-collapseThree">
+                                            <img src="../images/service/paw.png" width="22" alt="">
+                                            &nbsp;Why do users need to log in?
+
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">ដើម្បីធ្វើការ ទិញ រឺ ជួលផ្ទះក្នុងវេបសាយរបស់យើង​
+                                            អ្នកគ្រាន់តែចុចទៅលើពាក្យថា សេវាកម្ម នៅលើមីនុយខាងលើ រួចរកពាក្យថា ផ្ទះទាំងអស់
+                                            នោះវេបសាយរបស់យើងនឹងបង្ហាញនូវផ្ទះជាច្រើនសប្បូរបែប
+                                            និងមានពាក្យបញ្ជាក់នៅលើផ្ទះនីមួយជាស្រេចថាផ្ទះនោះសម្រាប់លក់ រឺសម្រាប់ជួល។
+                                            ជាពិសេសទៅទៀត
+                                            នៅក្នុងនោះក៏មាន Fuctions សម្រាប់បញ្ចូលទីតាំងដែលអ្នកចង់បានផងដែរ
+                                            បន្ទាប់ពីអ្នកពេញចិត្តផ្ទះណាមួយអ្នកអាចចុចពីលើផ្ទះនោះ
+                                            រួចវានឹងបង្ហាញនូវព័ត៌មានលម្អិតអំពីផ្ទះ។
+                                            សម្រាប់កាទិញផ្ទះ អ្នកអាចទំនាក់ទំនងទៅអ្នកលក់ផ្ទាល់ក៏បាន
+                                            រឺអាចទំនាក់ទំនងទៅកាន់ភ្នាក់ងារលក់របស់វេបសាយដោយផ្ទាល់ក៏បាន។ រីឯសម្រាប់ការជួល
+                                            អ្នកអាចទំនាក់ទំនងទៅកាន់ម្ចាស់ផ្ទះដោយផ្ទាល់ក៏បាន​ រឺធ្វើការកក់តែម្ដងក៏បាន។
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <h2 class="text-warning fw-bold my-4" id="buy-fa">Pet Day Care</h2>
+                            <div class="accordion accordion-flush " id="accordionFlushExample">
+                                <div class="accordion-item mb-4 border-bottom-0">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fs-5 z-1" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse1"
+                                            aria-expanded="false" aria-controls="flush-collapse1">
+                                            <img src="../images/service/paw.png" width="22" alt="">
+                                            &nbsp;What is included in the pet day care service?
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse1" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Our pet day care service includes supervised
+                                            playtime, socialization with other pets, feeding, bathroom breaks, and
+                                            plenty of cuddles and attention from our trained staff.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-4">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fs-5 z-1" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse2"
+                                            aria-expanded="false" aria-controls="flush-collapse2">
+                                            <img src="../images/service/paw.png" width="22" alt="">
+                                            &nbsp;What are the operating hours for pet day care?
+
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse2" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">We offer pet day care from Monday to Friday, 7 AM to
+                                            7 PM. We also have limited hours on weekends for special occasions.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-4">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fs-5 z-1" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse3"
+                                            aria-expanded="false" aria-controls="flush-collapse3">
+                                            <img src="../images/service/paw.png" width="22" alt="">
+                                            &nbsp;Can I tour the facility before enrolling my pet?
+
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse3" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Yes, we encourage potential clients to schedule a
+                                            tour of our facility to meet our staff and see the environment where your
+                                            pet will be cared for.
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <h2 class="text-warning fw-bold my-4" id="sell-fa">Pet Grooming</h2>
+                            <div class="accordion accordion-flush " id="accordionFlushExample">
+                                <div class="accordion-item mb-4 border-bottom-0">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fs-5 z-1" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse7"
+                                            aria-expanded="false" aria-controls="flush-collapse7">
+                                            <img src="../images/service/paw.png" width="22" alt="">
+                                            &nbsp; What grooming services do you offer?
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse7" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Our grooming services include bathing, brushing,
+                                            nail trimming, ear cleaning, and haircuts. We cater to all breeds and sizes,
+                                            ensuring your pet looks and feels their best.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-4">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fs-5 z-1" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse5"
+                                            aria-expanded="false" aria-controls="flush-collapse5">
+                                            <img src="../images/service/paw.png" width="22" alt="">
+                                            &nbsp;How often should I have my pet groomed?
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse5" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            Grooming frequency depends on your pet’s breed and coat type. Generally,
+                                            long-haired breeds may require grooming every 4-6 weeks, while short-haired
+                                            breeds may only need it every 8-12 weeks.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-4">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fs-5 z-1" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse6"
+                                            aria-expanded="false" aria-controls="flush-collapse6">
+                                            <img src="../images/service/paw.png" width="22" alt="">
+                                            &nbsp;តើការបង់ប្រាក់ម្ចាស់ផ្ទះនឹងទទួលបានតាមរបៀបណា?
+
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse6" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">សម្រាប់ការផ្តល់ប្រាក់មាន២ផ្លូវ ទី១
+                                            អតិថិជននឹងធ្វើការបង់ប្រាក់ទៅកាន់ម្ចាស់ផ្ទះដោយផ្ទាល់
+                                            និងម្យាងទៀតគឺមកកាន់ក្រុមហ៊ុនរួចក្រុមហ៊ុននឹងប្រគល់ជូនទៅម្ចាស់ផ្ទះវិញ។
+                                            សូមបញ្ជាក់ថា
+                                            ការទូទាត់ប្រាក់សម្រាប់ការទិញផ្ទះរបស់អតិថិជនពុំមានធ្វើនៅក្នុងវេបសាយរបស់យើងទេ
+                                            លើកលែងតែការកក់ផ្ទះជួលប៉ុណ្ណោះ។</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <h2 class="text-warning fw-bold my-4" id="rent-fa">Payment</h2>
+                            <div class="accordion accordion-flush " id="accordionFlushExample">
+                                <div class="accordion-item mb-4 border-bottom-0">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fs-5 z-1" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse8"
+                                            aria-expanded="false" aria-controls="flush-collapse8">
+                                            <img src="../images/service/paw.png" width="22" alt="">
+                                            &nbsp;តើធ្វើដូចម្តេចដើម្បីទទួលបានគណនីក្លាយជាអ្នកលក់ផ្ទះ?
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse8" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Placeholder content for this accordion, which is
+                                            intended to demonstrate
+                                            the <code>.accordion-flush</code> class. This is the first item's accordion
+                                            body.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-4">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fs-5 z-1" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse9"
+                                            aria-expanded="false" aria-controls="flush-collapse9">
+                                            <img src="../images/service/paw.png" width="22" alt="">
+                                            &nbsp;តើធ្វើដូចម្តេចដើម្បីទទួលបានគណនីក្លាយជាអ្នកលក់ផ្ទះ?
+
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse9" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Placeholder content for this accordion, which is
+                                            intended to demonstrate
+                                            the <code>.accordion-flush</code> class. This is the second item's accordion
+                                            body. Let's imagine
+                                            this being filled with some actual content.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-4">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fs-5 z-1" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse10"
+                                            aria-expanded="false" aria-controls="flush-collapse10">
+                                            <img src="../images/service/paw.png" width="22" alt="">
+                                            &nbsp;តើធ្វើដូចម្តេចដើម្បីទទួលបានគណនីក្លាយជាអ្នកលក់ផ្ទះ?
+
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse10" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Placeholder content for this accordion, which is
+                                            intended to demonstrate
+                                            the <code>.accordion-flush</code> class. This is the third item's accordion
+                                            body. Nothing more
+                                            exciting happening here in terms of content, but just filling up the space
+                                            to make it look, at
+                                            least at first glance, a bit more representative of how this would look in a
+                                            real-world
+                                            application.</div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-4">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed fs-5 z-1" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse11"
+                                            aria-expanded="false" aria-controls="flush-collapse11">
+                                            <img src="../images/service/paw.png" width="22" alt="">
+                                            &nbsp;តើធ្វើដូចម្តេចដើម្បីទទួលបានគណនីក្លាយជាអ្នកលក់ផ្ទះ?
+
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse11" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Placeholder content for this accordion, which is
+                                            intended to demonstrate
+                                            the <code>.accordion-flush</code> class. This is the third item's accordion
+                                            body. Nothing more
+                                            exciting happening here in terms of content, but just filling up the space
+                                            to make it look, at
+                                            least at first glance, a bit more representative of how this would look in a
+                                            real-world
+                                            application.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="">
+        <div class="container">
+            <section class="top-footer py-5 ">
+                <div class="container-fluid px-0 mx-0">
+                    <div class="row text-white justify-content-center">
+                        <div class="col-3 col-md-12 col-xl-3 ">
+                            <div class="content-left">
+                                <div class="logo-lg-img">
+                                    <img class=" object-fit-cover pb-4" src="../images/img-pet/logo/PetZone (2).png"
+                                        alt="">
+                                </div>
+                                <div class="foot-icon">
+                                    <div class="d-flex">
+                                        <i class="fa-solid fa-phone fs-2 color-text mt-2"></i>
+                                        <div class="text ps-4">
+                                            <p> +855 0123 456 789 <br> Got Questions? Call us 24/7</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5> Our Address</h5>
+                                        <p> 92 Bowery St., New York, NY 10013</p>
+                                    </div>
+                                    <div class="app position-relative d-flex gap-3 py-2">
+                                        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                                        <a href=""> <i class="fa-brands fa-instagram"></i></a>
+                                        <a href=""><i class="fa-brands fa-tiktok"></i></a>
+                                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-xl-2  pt-3 pt-xl-5 flex-lg-grow-1">
+                            <div class="content-center">
+                                <h3 class="pb-2 ps-4">Quick link</h3>
+                                <ul class="list-unstyled d-flex flex-column ps-4 gap-2">
+                                    <li>
+                                        <a href="../index.html">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="../pages/about-us.html">About us</a>
+                                    </li>
+                                    <li>
+                                        <a href="../pages/feedback.html">Feedback</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="../pages/contact.html">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-xl-2  pt-3 pt-xl-5 flex-lg-grow-1">
+                            <div class="content-center">
+                                <h3 class="pb-2 ps-4">Services</h3>
+
+                                <ul class="list-unstyled d-flex flex-column text-white ps-4 gap-2">
+                                    <li>
+                                        <a href="../pages/petTraining.html">Pet Training</a>
+                                    </li>
+                                    <li>
+                                        <a href="../pages/petConsult.html">Pet Consulting</a>
+                                    </li>
+                                    <li>
+                                        <a href="../pages/petGrooming.html">Pet Grooming</a>
+                                    </li>
+                                    <li>
+                                        <a href="../pages/petDayCare.html">Pet Daycare</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-2 col-xl-2 pt-3 pt-xl-5 flex-lg-grow-1">
+                            <div class="content-center">
+                                <h3 class="pb-2 ps-4">Booking</h3>
+
+                                <ul class="list-unstyled d-flex flex-column ps-4 gap-2">
+                                    <li>
+                                        <a href="../pages/booking-consult.html">Book Consulting</a>
+                                    </li>
+                                    <li>
+                                        <a href="../pages/booking-daycare.html">Book Day care</a>
+                                    </li>
+                                    <li>
+                                        <a href="../pages/booking-grooming.html">Book Gromming</a>
+                                    </li>
+                                    <li>
+                                        <a href="../pages/booking.html">Book Traning</a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="contact.html">Contact</a>
+                                    </li> -->
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-xl-3 pt-3 pt-xl-5 flex-lg-grow-0 ps-5">
+                            <div class="content-right">
+                                <h3 class="pb-2">Working Hours</h3>
+                                <div class="working-time">
+                                    <p>Mon - Fri: 7am - 6pm
+                                        Saturday: 9am - 4pm <br>
+                                        Sunday: Closed</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="copyright py-3 border-top">
+                <div class="container-fluid px-0">
+                    <div class="d-sm-flex text-center text-sm-start justify-content-between text-white">
+                        <p class="m-0 p-0">
+                            <a href="" class="border-end pe-2 ">Terms of use</a>
+                            <a href="" class="ps-1 ">Privacy Environmental Policy</a>
+                        </p>
+                        <p class="m-0 p-0 ">Copyright © 2024 by <span class="color-text">PetZone</span> <span>. All
+                                Rights Reserved.</span></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </footer>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth-btn.js"></script>
+
+
+    <script src="../js/sweetalert2@11.js"></script>
+
+    <script src="../js/petzone/getdata-profile.js"></script>
+
+
+    <script src="../vendor/global/global.min.js"></script>
+    <script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <!-- Preloader -->
+    <script src="../vendor/global/global.min.js"></script>
+    <script src="../js/custom.js"></script>
+
+</body>
+
+</html>

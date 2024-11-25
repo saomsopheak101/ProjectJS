@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +10,19 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../icons/fontawesome/css/all.min.css">
 </head>
+
 <body class="profile-page">
 
     <!--*******************
         Preloader start
     ********************-->
-	<div id="preloader">
-		<div class="lds-ripple">
-			<div></div>
-			<div></div>
-		</div>
-	</div>
-	<!--*******************
+    <div id="preloader">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--*******************
         Preloader end
     ********************-->
     <header class="">
@@ -40,14 +42,16 @@
                             <a class="nav-link fw-medium" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown">
-                            <a class="nav-link dropdown-toggle  black-nav fw-medium pe-0" href="pages/service-main.html" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle  black-nav fw-medium pe-0" href="pages/service-main.html"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Service
                             </a>
                             <ul class="dropdown-menu  dropdown-services">
-                                <li><a class="dropdown-item text-black fw-medium " href="../pages/service-main.html">Service main</a>
+                                <li><a class="dropdown-item text-black fw-medium "
+                                        href="../pages/service-main.html">Service main</a>
                                 </li>
-                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet Day care</a>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet
+                                        Day care</a>
                                 </li>
                                 <li><a class="dropdown-item text-black fw-medium" href="../pages/petGrooming.html">Pet
                                         Grooming</a>
@@ -77,35 +81,40 @@
                         </li>
                     </ul>
                     <div class="d-flex align-items-center ">
-                  
-                        <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
-                                <form class="d-flex" role="search">
-                                    <input class="form-control  bg-white text-black" type="search" placeholder="Search"
-                                        aria-label="Search">
-                                    <div class="position-absolute icon-search-homepage ">
-                                        <i class="fa-solid fa-search "></i>
+                                <form class="d-flex position-relative" role="search">
+                                    <div class="search-container position-relative">
+                                        <input class="form-control bg-white text-black position-relative" type="search"
+                                            placeholder="Search" aria-label="Search" id="searchInput">
+                                        <i class="fa-solid fa-search position-absolute bg-white"
+                                            style="top: 10px; right: 12px;"></i>
+                                        <ul id="searchResults" class="list-group position-absolute mt-1"
+                                            style="display: none; z-index: 1000; width: 100%;">
+                                            <!-- Search results will be appended here -->
+                                        </ul>
                                     </div>
                                 </form>
                                 <a class="btn btn-icon d-flex py-0 position-relative" role="button" href=""
                                     title="profile" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                    <div class="">
-                                        <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                            src="../images/img-pet/icon/user.png" alt="#" width="35px">
+                                    <div class="hp-user p-0 m-0 rounded-circle overflow-hidden">
+                                        <img class="mb-2 changeImg" src="images/img-pet/icon/user.png">
                                     </div>
                                     <span
                                         class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
                                         <small></small>
                                     </span>
                                 </a>
-                                <ul class="dropdown-menu mt-4 rounded-3 profile-management">
-                                    <div class="border-0 py-3 ">
+                                <ul class="dropdown-menu mt-4 rounded-3 profile-management overflow-hidden"
+                                    style="width: 270px; transform: translateX(30px); transition: 0.3s;">
+                                    <div class="bg-warning-subtle btn-shadow"
+                                        style="width: 100%; height: 150px;position: absolute;z-index: 1;transform: translateY(-100px); ">
+                                    </div>
+                                    <div class="border-0 pb-3 position-relative ">
                                         <div class="account-header d-flex flex-column align-items-center  pt-2">
-                                            <div class="mb-2">
-                                                <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                                    src="../images/img-pet/icon/user.png" alt="#" width="60px">
+                                            <div class=" z-2 mb-2 ph-user2 overflow-hidden rounded-circle">
+                                                <img class="changeImg" src="images/img-pet/icon/user.png" alt="#">
                                             </div>
                                             <div
                                                 class="d-flex flex-column align-items-center justify-content-center text-whitee">
@@ -184,8 +193,8 @@
                                             </li>
                                             <li class="nav-item border-0  w-100">
                                                 <button
-                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0 logout"
-                                                    aria-current="page" >
+                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0"
+                                                    aria-current="page" id="logout">
                                                     <div class="px-3">
                                                         <img src="../images/service/log-out.png" alt="" width="20">
                                                     </div>
@@ -208,7 +217,7 @@
             <div class="banner-profile booking-service"></div>
             <div class="content d-flex align-items-center">
                 <div class="container">
-                    
+
                 </div>
             </div>
         </section>
@@ -221,17 +230,17 @@
                                 <div class="card-header bg-transparent mb-3">
                                     <a href="#" class="img-pro">
                                         <img src="../images/img-pet/icon/user.png" alt="" class="changeImg">
-                                        <div class="icon-delete "  onclick="deleteAvatar()" style="cursor: pointer;">
+                                        <div class="icon-delete " onclick="deleteAvatar()" style="cursor: pointer;">
                                             <i class="fa-solid fa-trash-can fs-4 text-white"></i>
                                         </div>
                                     </a>
                                     <label type="button" for="profile"
                                         class="btn btn-edit-1 color-bg btn-camera position-absolute">
-                                        <i class="fa-solid fa-camera text-white" ></i>
+                                        <i class="fa-solid fa-camera text-white"></i>
                                     </label>
                                     <input type="file" class="form-control bg-transparent d-none" id="profile"
                                         accept="image/*">
-                                   
+
                                     <!-- <button type="button" class="btn btn-primary">Delete</button> -->
                                     <h5 class="mb-0 mt-4 firstname">Kinki</h5>
                                     <span class="Gemail">Kinki@gmail.com</span>
@@ -247,19 +256,18 @@
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-grooming.html"
-                                            class="nav-link d-flex fw-medium px-4">
+                                        <a href="../pages/profile-grooming.html" class="nav-link d-flex fw-medium px-4">
                                             <div>
                                                 <div>
-                                                    <img src="../images/service/grooming-setting (2).png" alt="" width="25">
+                                                    <img src="../images/service/grooming-setting (2).png" alt=""
+                                                        width="25">
                                                 </div>
                                             </div>
                                             Grooming
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-daycare.html"
-                                            class="nav-link d-flex fw-medium px-4">
+                                        <a href="../pages/profile-daycare.html" class="nav-link d-flex fw-medium px-4">
                                             <div>
                                                 <div>
                                                     <img src="../images/service/daycare-setting.png" alt="" width="25">
@@ -269,7 +277,8 @@
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-consulting.html" class="nav-link  d-flex fw-medium px-4">
+                                        <a href="../pages/profile-consulting.html"
+                                            class="nav-link  d-flex fw-medium px-4">
                                             <div>
                                                 <div>
                                                     <img src="../images/service/consult-setting.png" alt="" width="24">
@@ -289,10 +298,12 @@
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-notification.html" class="nav-link active d-flex fw-medium px-4">
+                                        <a href="../pages/profile-notification.html"
+                                            class="nav-link active d-flex fw-medium px-4">
                                             <div>
                                                 <div>
-                                                    <img src="../images/service/notification-svgrepo-com.svg" alt="" width="20">
+                                                    <img src="../images/service/notification-svgrepo-com.svg" alt=""
+                                                        width="20">
                                                 </div>
                                             </div>
                                             Notification
@@ -315,49 +326,51 @@
                                     <h4 class="mb-0 p-3 text-white fw-bold">Notification</h4>
                                 </div>
                                 <div class="col-12 px-3">
-                                    <div class="row gutters px-4 "> 
-                                        <div class="card ps-4  my-2 mt-3" >
+                                    <div class="row gutters px-4 ">
+                                        <div class="card ps-4  my-2 mt-3">
                                             <div class="row w-100">
                                                 <div class="col-md-2 px-0 d-flex align-items-center">
                                                     <img src="../images/img-pet/grooming/dog-nail.jpg"
-                                                        class=" object-fit-cover imge-not"
-                                                        alt="...">
+                                                        class=" object-fit-cover imge-not" alt="...">
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="card-body d-flex justify-content-between">
-                                                        <div>                                            
+                                                        <div>
                                                             <h4 class="card-title">Grooming </h4>
                                                             <p class="color-text mb-0">booking is successfully </p>
-                                                            <p class="">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio corporis recusandae voluptate laboriosam.</p>
-                                                            <h5 class="mb-0 fw-medium ">$15</h5>            
-                                                        </div>       
+                                                            <p class="">Lorem ipsum, dolor sit amet consectetur
+                                                                adipisicing elit. Odio corporis recusandae voluptate
+                                                                laboriosam.</p>
+                                                            <h5 class="mb-0 fw-medium ">$15</h5>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1 d-flex mt-1 ms-5">
                                                     <div class="btn">
-                                                        
+
                                                         <p class="text-black ">Today</p>
                                                         <!-- <button class="btn btn-danger btn-book ">Pending</button>
                                                         <button class="btn btn-warning btn-book text-white mt-2">Cancel</button>        -->
-                                                    </div>                 
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>  
-                                        <div class="card ps-4  my-2 mt-3" >
+                                        </div>
+                                        <div class="card ps-4  my-2 mt-3">
                                             <div class="row w-100">
                                                 <div class="col-md-2 px-0 d-flex align-items-center">
                                                     <img src="../images/img-pet/grooming/dog-nail.jpg"
-                                                        class=" object-fit-cover imge-not"
-                                                        alt="...">
+                                                        class=" object-fit-cover imge-not" alt="...">
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="card-body d-flex justify-content-between">
-                                                        <div>                                            
+                                                        <div>
                                                             <h4 class="card-title">Grooming </h4>
                                                             <p class="color-text mb-0">booking is successfully </p>
-                                                            <p class="">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio corporis recusandae voluptate laboriosam.</p>
-                                                            <h5 class="mb-0 fw-medium ">$15</h5>            
-                                                        </div>       
+                                                            <p class="">Lorem ipsum, dolor sit amet consectetur
+                                                                adipisicing elit. Odio corporis recusandae voluptate
+                                                                laboriosam.</p>
+                                                            <h5 class="mb-0 fw-medium ">$15</h5>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1 d-flex mt-1 ms-5">
@@ -365,37 +378,38 @@
                                                         <p class="text-black ">Today</p>
                                                         <!-- <button class="btn btn-danger btn-book ">Pending</button>
                                                         <button class="btn btn-warning btn-book text-white mt-2">Cancel</button>        -->
-                                                    </div>                 
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>  
-                                        <div class="card ps-4  my-2 mt-3" >
+                                        </div>
+                                        <div class="card ps-4  my-2 mt-3">
                                             <div class="row w-100">
                                                 <div class="col-md-2 px-0 d-flex align-items-center">
                                                     <img src="../images/img-pet/grooming/dog-nail.jpg"
-                                                        class=" object-fit-cover imge-not"
-                                                        alt="...">
+                                                        class=" object-fit-cover imge-not" alt="...">
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="card-body d-flex justify-content-between">
-                                                        <div>                                            
+                                                        <div>
                                                             <h4 class="card-title">Grooming </h4>
                                                             <p class="color-text mb-0">booking is successfully </p>
-                                                            <p class="">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio corporis recusandae voluptate laboriosam.</p>
-                                                            <h5 class="mb-0 fw-medium ">$15</h5>            
-                                                        </div>       
+                                                            <p class="">Lorem ipsum, dolor sit amet consectetur
+                                                                adipisicing elit. Odio corporis recusandae voluptate
+                                                                laboriosam.</p>
+                                                            <h5 class="mb-0 fw-medium ">$15</h5>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1 d-flex mt-1 ms-5">
-                                                    <div class="btn">     
+                                                    <div class="btn">
                                                         <p class="text-black ">Today</p>
                                                         <!-- <button class="btn btn-danger btn-book ">Pending</button>
                                                         <button class="btn btn-warning btn-book text-white mt-2">Cancel</button>        -->
-                                                    </div>                 
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>                                 
-                                    </div> 
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -539,10 +553,11 @@
 
     <script src="../vendor/global/global.min.js"></script>
     <script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-        <!-- Preloader -->
-        <script src="../vendor/global/global.min.js"></script>
-        <script src="../js/custom.js"></script>
-    
-    
+    <!-- Preloader -->
+    <script src="../vendor/global/global.min.js"></script>
+    <script src="../js/custom.js"></script>
+
+
 </body>
+
 </html>
