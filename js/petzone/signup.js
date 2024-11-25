@@ -46,11 +46,12 @@ function getdata() {
             return response.json(); // Parse the response as JSON
         })
         .then(json => {
-            spinner.classList.add('d-none');
+            spinner.classList.add('d-none')
             signupButton.classList.remove('d-none');
     
             if (json.result === true) {
                 handleSignUpSuccess(json);
+               
             }else {
                 alert("Invalid credentials.");
             }
@@ -72,7 +73,7 @@ function getdata() {
         });
 
 }
-function validateName(name, fieldId) {
+        function validateName(name, fieldId) {
             const errorId = `${fieldId}-error`;
             const successId = `${fieldId}-success`;
             const input = document.querySelector(`#${fieldId}`);
@@ -174,3 +175,4 @@ function validateName(name, fieldId) {
                 alert(' no roles assigned to this user.');
             }
         }
+    
