@@ -245,98 +245,72 @@
             <div class="container d-flex justify-content-center">
                 <div class="col-9">
                     <div class="row d-flex justify-content-center glass p-4">
-                        <form class="row align-items-center row-gap-2">
-                            <h4 class="mt-3 fw-bold">Booking information</h4>
+                        <form class="row align-items-center row-gap-2" id="bookingForm">
+                            <h4 class="mt-3 fw-bold">Booking Information</h4>
                             <div class="col-3">
-                                <label for="">Consultant:</label>
+                                <label for="employLabel">Consultant:</label>
                                 <input type="text" class="form-control" id="employLabel" placeholder="Name" disabled>
                             </div>
                             <div class="col-3">
-                                <label for="">Status:</label>
-                                <select class="form-select" aria-label="Default select example" id="status" required>
-                                    <option selected disabled>Please Select</option>
+                                <label for="status">Status:</label>
+                                <select class="form-select" id="status" required>
+                                    <option selected disabled value="">Please Select</option>
                                     <option value="1">Online</option>
-                                    <option value="2">Face to face</option>
+                                    <option value="2">Face to Face</option>
                                 </select>
+                                <div class="invalid-feedback">Please select a status.</div>
                             </div>
                             <div class="col-4 mt-3">
-                                <label for="">Datetime:</label>
+                                <label for="dateTime">Datetime:</label>
                                 <div class="form-group">
                                     <div class="input-group date" id="datetimepicker" data-target-input="nearest">
                                         <input type="text" id="dateTime" class="form-control datetimepicker-input"
                                             data-target="#datetimepicker" placeholder="Select datetime" />
-                                        <div class="input-group-append" data-target="#datetimepicker"
-                                            data-toggle="datetimepicker">
+                                        <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>
-
+                                        <div class="invalid-feedback">Please select a date and time.</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-2">
-                                <label for="">Price:</label>
+                                <label for="priceLabel">Price:</label>
                                 <input type="text" class="form-control" id="priceLabel" placeholder="Price" disabled>
                             </div>
-
                             <div class="col-12">
-                                <label for="">Description:</label>
-                                <label for="" class="form-label"></label>
-                                <textarea class="form-control" id="description" rows="3" aria-label=""
-                                    placeholder="About your pet . . . ." required></textarea>
+                                <label for="description">Description:</label>
+                                <textarea class="form-control" id="description" rows="3" placeholder="About your pet..."
+                                    required></textarea>
+                                <div class="invalid-feedback">Please provide a description.</div>
                             </div>
                             <h4 class="my-2 fw-bold">Payment</h4>
                             <div class="col-12">
-                                <div class="mb-2 mb-lg-4">
-                                    <div class="row g-4 g-lg-5">
-                                        <div class="col-12">
-                                            <div class="d-flex align-items-center my-2 mb-lg-0 flex-wrap">
-                                                <div
-                                                    class="form-check form-check-inline d-flex align-items-center me-sm-3">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="inlineRadioOptions" id="inlineRadio2" checked>
-                                                    <label class="form-check-label" data-bs-toggle="collapse"
-                                                        data-bs-target="#collapseExample" aria-expanded="false"
-                                                        aria-controls="collapseExample" for="inlineRadio1">
-                                                        pay 50%
-                                                    </label>
-                                                </div>
-                                                <div
-                                                    class="form-check form-check-inline d-flex align-items-center me-5">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="inlineRadioOptions" id="inlineRadio3" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2">pay
-                                                        100%</label>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-column mt-3">
-                                                <span class="short-des pb-2 text-black-50">Click the
-                                                    bank below to get QR Code</span>
+                                <div class="d-flex flex-column ">
+                                    <span class="short-des pb-2 text-black-50">Click the
+                                        bank below to get QR Code</span>
 
-                                                <div class="d-flex column-gap-2">
-                                                    <a href="#" type="button" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal"><img src="images/service/ABA.png"
-                                                            alt="" style="width: 40px;" class="rounded-1"></a>
-                                                    <a href="#" type="button" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal1"><img
-                                                            src="images/service/ACLeda.png" alt="" style="width: 40px;"
-                                                            class="rounded-1"></a>
-                                                </div>
-                                            </div>
-                                            <h1 class="modal-title fs-6 my-2">Transaction file
-                                            </h1>
-                                            <input class="form-control py-2 bg-white my-3" id="tran-link" type="file"
-                                                required />
-                                            <button class="btn btn-warning w-100 text-white mb-0" id="btn-book"
-                                                type="button">Book Now</button>
-                                        </div>
+                                    <div class="d-flex column-gap-2 mt-2 ">
+                                        <a href="#" type="button" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal"><img
+                                                src="../images/service/ABA.png" alt="" style="width: 40px;"
+                                                class="rounded-1"></a>
+                                        <a href="#" type="button" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal1"><img
+                                                src="../images/service/ACLeda.png" alt=""
+                                                style="width: 40px;" class="rounded-1"></a>
                                     </div>
                                 </div>
+                                <h6 class="modal-title fs-6 my-2 mt-3 ">Transaction File</h6>
+                                <input class="form-control py-2 bg-white my-3" id="tran-link" type="file" required />
+                                <div class="invalid-feedback">Please upload the transaction file.</div>
+                                <button class="btn btn-warning w-100 text-white mb-0 mt-3 " id="btn-book" type="button">Book Now</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
+        
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content p-2">
@@ -511,36 +485,34 @@
     <script>
         let employId = sessionStorage.getItem('employeeID');
         console.log(employId);
-
-        window.addEventListener('unload', () => {
-
-            sessionStorage.removeItem('employeeID');
-        });
+    
+        // Redirect if employee ID is not available
         if (employId === null) {
             location.href = 'http://127.0.0.1:5502/../pages/petConsult.html';
         }
+    
+        // Remove employee ID from session storage when leaving the page
+        window.addEventListener('unload', () => {
+            sessionStorage.removeItem('employeeID');
+        });
+    
         let nameEmployee = '';
         let price = 25;
         if (employId == 2) {
             nameEmployee = 'Ga Hong';
-
         } else if (employId == 3) {
             nameEmployee = 'Len Nhiek';
-
         }
         document.querySelector('#employLabel').value = nameEmployee;
         document.querySelector('#priceLabel').value = `$${price}`;
-
-
+    
+        // Transaction function to upload file
         function transaction(linkTransaction, consultID) {
-
-
             let formData = new FormData();
-            formData.append('transaction_file', linkTransaction)
-
+            formData.append('transaction_file', linkTransaction);
+    
             console.log('transaction file', formData);
-
-
+    
             fetch('https://mps4.chandalen.dev/api/consultants/transaction-file/' + consultID, {
                 method: 'POST',
                 headers: {
@@ -548,30 +520,66 @@
                     'Authorization': `Bearer ${authToken}`
                 },
                 body: formData
-            })
-
+            });
         }
-
+    
+        // Booking function with validation
         function booking() {
+            // Get form field values
             let status = document.querySelector('#status').value;
-
             let dateTime = document.querySelector('#dateTime').value;
             let description = document.querySelector('#description').value;
             let linkTransaction = document.querySelector('#tran-link').files[0];
-
-
-            console.log(status);
-            console.log(dateTime);
-            console.log(description);
-            console.log(linkTransaction);
-
+    
+            let isValid = true; // Validation flag
+    
+            // Validate status
+            if (!status) {
+                isValid = false;
+                document.querySelector('#status').classList.add('is-invalid');
+            } else {
+                document.querySelector('#status').classList.remove('is-invalid');
+            }
+    
+            // Validate date and time
+            if (!dateTime) {
+                isValid = false;
+                document.querySelector('#dateTime').classList.add('is-invalid');
+            } else {
+                document.querySelector('#dateTime').classList.remove('is-invalid');
+            }
+    
+            // Validate description
+            if (!description.trim()) {
+                isValid = false;
+                document.querySelector('#description').classList.add('is-invalid');
+            } else {
+                document.querySelector('#description').classList.remove('is-invalid');
+            }
+    
+            // Validate file input
+            if (!linkTransaction) {
+                isValid = false;
+                document.querySelector('#tran-link').classList.add('is-invalid');
+            } else {
+                document.querySelector('#tran-link').classList.remove('is-invalid');
+            }
+    
+            // Stop if validation fails
+            if (!isValid) {
+                alert("Please fill out all required fields correctly.");
+                return;
+            }
+    
+            // Create form data
             let formData = new FormData();
             formData.append('employee_id', employId);
             formData.append('datetime', dateTime);
             formData.append('is_online', status);
             formData.append('description', description);
             formData.append('transaction_file', linkTransaction);
-
+    
+            // API call for booking
             fetch('https://mps4.chandalen.dev/api/consultants', {
                 method: 'POST',
                 headers: {
@@ -580,38 +588,47 @@
                 },
                 body: formData
             })
-                .then(res => res.json())
-                .then(json => {
-                    if (json.result === true) {
-                        console.log(json.message)
-                        // alert(json.message)
-                        let data_id = json.data.id;
-                        console.log('ID buyer ', data_id);
-                        transaction(linkTransaction, data_id);
-                        console.log(json)
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Booking Successful!',
-                            text: 'Your booking has been confirmed.',
-                            confirmButtonText: 'Okay', // The button text
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                location.href = 'http://127.0.0.1:5502/pages/profile-consulting.html'; // Update with the correct URL
-                            }
-                        });
-
-
-                    } else {
-                        console.log(json.message)
-                        alert(json.message)
-                    }
-                })
+            .then(res => res.json())
+            .then(json => {
+                if (json.result === true) {
+                    console.log(json.message);
+                    let data_id = json.data.id;
+                    transaction(linkTransaction, data_id);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Booking Successful!',
+                        text: 'Your booking has been confirmed.',
+                        confirmButtonText: 'Okay',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.href = 'http://127.0.0.1:5502/pages/profile-consulting.html'; // Update with correct URL
+                        }
+                    });
+                } else {
+                    console.log(json.message);
+                    alert(json.message);
+                }
+            });
         }
+    
+        // Add click event listener to the "Book Now" button
         document.querySelector('#btn-book').addEventListener('click', booking);
-
-
-
+    
+        // Add input validation feedback removal
+        document.querySelector('#status').addEventListener('change', () => {
+            document.querySelector('#status').classList.remove('is-invalid');
+        });
+        document.querySelector('#dateTime').addEventListener('input', () => {
+            document.querySelector('#dateTime').classList.remove('is-invalid');
+        });
+        document.querySelector('#description').addEventListener('input', () => {
+            document.querySelector('#description').classList.remove('is-invalid');
+        });
+        document.querySelector('#tran-link').addEventListener('change', () => {
+            document.querySelector('#tran-link').classList.remove('is-invalid');
+        });
     </script>
+    
     <script src="../vendor/global/global.min.js"></script>
     <script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <!-- Preloader -->
