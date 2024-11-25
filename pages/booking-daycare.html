@@ -21,6 +21,12 @@
             backdrop-filter: blur(5px);
             transform: translateY(-100px);
         }
+
+        /* Example CSS */
+        .input-group-append {
+            color: rgb(221, 71, 71);
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -29,16 +35,16 @@
     <!--*******************
         Preloader start
     ********************-->
-	<div id="preloader">
-		<div class="lds-ripple">
-			<div></div>
-			<div></div>
-		</div>
-	</div>
-	<!--*******************
+    <div id="preloader">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--*******************
         Preloader end
     ********************-->
-    
+
 
     <header class="">
         <nav class="navbar navbar-expand-lg  z-3">
@@ -57,14 +63,16 @@
                             <a class="nav-link fw-medium" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown">
-                            <a class="nav-link dropdown-toggle  black-nav fw-medium pe-0" href="pages/service-main.html" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle  black-nav fw-medium pe-0" href="pages/service-main.html"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Service
                             </a>
                             <ul class="dropdown-menu  dropdown-services">
-                                <li><a class="dropdown-item text-black fw-medium " href="../pages/service-main.html">Service main</a>
+                                <li><a class="dropdown-item text-black fw-medium "
+                                        href="../pages/service-main.html">Service main</a>
                                 </li>
-                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet Day care</a>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet
+                                        Day care</a>
                                 </li>
                                 <li><a class="dropdown-item text-black fw-medium" href="../pages/petGrooming.html">Pet
                                         Grooming</a>
@@ -94,7 +102,7 @@
                         </li>
                     </ul>
                     <div class="d-flex align-items-center ">
-                  
+
                         <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
@@ -202,7 +210,7 @@
                                             <li class="nav-item border-0  w-100">
                                                 <button
                                                     class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0 logout"
-                                                    aria-current="page" >
+                                                    aria-current="page">
                                                     <div class="px-3">
                                                         <img src="../images/service/log-out.png" alt="" width="20">
                                                     </div>
@@ -258,8 +266,6 @@
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
                             </div>
-                            <div class="invalid-feedback" id="formselect-error"></div>
-                            <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
                         </div>
 
                         <div class="col-3">
@@ -273,7 +279,7 @@
                                 </div>
                             </div>
                             <div class="invalid-feedback" id="formselect-error"></div>
-                                <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
+                            <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
                         </div>
 
                         <div class="col-3">
@@ -334,7 +340,7 @@
                                             <div class="d-flex column-gap-2">
                                                 <a href="#" type="button" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal"><img src="../images/service/ABA.png"
-                                                        alt="" style="width: 40px;" class="rounded-1"></a> 
+                                                        alt="" style="width: 40px;" class="rounded-1"></a>
                                                 <a href="#" type="button" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal1"><img
                                                         src="../images/service/ACLeda.png" alt="" style="width: 40px;"
@@ -346,7 +352,8 @@
                                         <input class="form-control py-1 bg-white mt-3" id="tran-link" type="file"
                                             required />
                                         <div class="invalid-feedback" id="formselect-error"></div>
-                                            <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
+                                        <div class="valid-feedback text-success" id="formselect-success">Select looks
+                                            good!</div>
 
                                         <button class="btn btn-warning w-100 text-white mb-0 mt-4" id="btn-book"
                                             type="button">Book Now</button>
@@ -538,50 +545,57 @@
         src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <script>
-        
         document.addEventListener("DOMContentLoaded", function () {
             const submitButton = document.querySelector("#btn-book");
 
-            // Validate individual fields
             function validateField(field) {
+                const errorMessage = field.nextElementSibling;
+                const calendarIcon = field.nextElementSibling.nextElementSibling; // Reference to the calendar icon
+
                 if (field.type === "file") {
                     if (field.files.length === 0) {
                         field.classList.add("is-invalid");
                         field.classList.remove("is-valid");
+                        if (errorMessage) errorMessage.textContent = "Please upload a transaction file.";
+                  
                         return false;
                     } else {
                         field.classList.remove("is-invalid");
                         field.classList.add("is-valid");
+                        if (errorMessage) errorMessage.textContent = "";
+                        if (calendarIcon) calendarIcon.classList.add("is-valid-icon");
                         return true;
                     }
-                } else if (field.value.trim() === "" || !field.checkValidity()) {
-                    field.classList.add("is-invalid");
-                    field.classList.remove("is-valid");
-                    return false;
-                } else {
-                    field.classList.remove("is-invalid");
-                    field.classList.add("is-valid");
-                    return true;
+                } else if (field.type === "text" || field.tagName === "SELECT") {
+                    if (field.value.trim() === "" || field.value === "Please select") {
+                        field.classList.add("is-invalid");
+                        field.classList.remove("is-valid");
+                        if (errorMessage) errorMessage.textContent = "This field is required.";
+                  
+                        return false;
+                    } else {
+                        field.classList.remove("is-invalid");
+                        field.classList.add("is-valid");
+                        if (errorMessage) errorMessage.textContent = "";
+                        if (calendarIcon) calendarIcon.classList.add("is-valid-icon");
+                        return true;
+                    }
                 }
+                return true; // Default for other cases
             }
 
             // Main validation function
             function validateForm() {
                 let isValid = true;
-
-                // Required fields
-                const requiredFields = [
+                const fieldsToValidate = [
                     document.querySelector("#dateTime"),
                     document.querySelector("#dateTime1"),
                     document.querySelector("#animalType"),
                     document.querySelector("#tran-link"),
                 ];
 
-                // Validate each field
-                requiredFields.forEach((field) => {
-                    if (!validateField(field)) {
-                        isValid = false;
-                    }
+                fieldsToValidate.forEach((field) => {
+                    if (!validateField(field)) isValid = false;
                 });
 
                 // Custom date validation
@@ -591,34 +605,37 @@
                 const startDate = new Date(startDateField.value);
                 const endDate = new Date(endDateField.value);
 
-                if (endDate <= startDate) {
+                if (startDateField.value && endDateField.value && endDate <= startDate) {
                     endDateField.classList.add("is-invalid");
                     endDateField.classList.remove("is-valid");
+                    if (endDateField.nextElementSibling)
+                        endDateField.nextElementSibling.textContent = "End date must be after the start date.";
                     isValid = false;
-                } else {
+                } else if (endDateField.value) {
                     endDateField.classList.remove("is-invalid");
                     endDateField.classList.add("is-valid");
+                    if (endDateField.nextElementSibling) endDateField.nextElementSibling.textContent = "";
                 }
 
                 return isValid;
             }
 
-            // Real-time validation
             document.querySelectorAll("input, select").forEach((input) => {
                 input.addEventListener("input", () => validateField(input));
             });
 
-            // Submit button logic
             submitButton.addEventListener("click", function (event) {
                 event.preventDefault();
-
-                // Validate the form
                 const isFormValid = validateForm();
 
                 if (isFormValid) {
-                    booking(); // Proceed with the booking logic
-                } 
-                else {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: "Booking successfully submitted!",
+                        confirmButtonText: "Okay",
+                    });
+                } else {
                     Swal.fire({
                         icon: "error",
                         title: "Validation Error",
@@ -630,7 +647,6 @@
         });
 
 
-        
         let serviceID = sessionStorage.getItem('petCareId');
         console.log(serviceID);
 
@@ -856,7 +872,7 @@
                         });
 
                         transaction(linkTransaction, json.data.id);
-                    } 
+                    }
                     // else {
                     //     Swal.fire({
                     //         icon: "error",
@@ -874,9 +890,9 @@
 
 
     <!-- <script src="../vendor/global/global.min.js"></script> -->
-	<script src="../js/custom.js"></script>
-    
-    
+    <script src="../js/custom.js"></script>
+
+
 </body>
 
 </html>
