@@ -621,7 +621,7 @@
                         // description: 'Welcome back Admin! Redirecting...',
                         iconType: ''
                     })
-                    
+
                 } else {
                     // Proceed with the booking if all fields are valid
                     booking();
@@ -699,6 +699,13 @@
                             priceLabel.value = selectedOption ? `$${selectedOption.dataset.price}` : '';
                         });
                     });
+            }
+            window.addEventListener('unload', () => {
+
+                sessionStorage.removeItem('serviceID');
+            });
+            if (serviceID === null) {
+                location.href = 'http://127.0.0.1:5502/pages/petGrooming.html'
             }
 
             // Function to handle transaction file upload
