@@ -2334,7 +2334,7 @@ pre code {
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
-    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
+    /* box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25) */
 }
 
 .form-control::-webkit-input-placeholder {
@@ -3233,7 +3233,7 @@ fieldset:disabled a.btn {
 .show>.btn-outline-primary.dropdown-toggle {
     color: #fff;
     background-color: #007bff;
-    border-color: #007bff
+    border-color: #f499431c
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
