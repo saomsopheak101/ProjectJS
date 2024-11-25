@@ -619,12 +619,11 @@
                     booking(); // Proceed with the booking logic
                 } 
                 else {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Validation Error",
-                        text: "Please correct the errors in the form before proceeding.",
-                        confirmButtonText: "Okay",
-                    });
+                    Inconrrect({
+                        title: 'Please fill out all required fields correctly.',
+                        // description: 'Welcome back Admin! Redirecting...',
+                        iconType: ''
+                    })
                 }
             });
         });
@@ -645,16 +644,12 @@
 
         animalId();
         function animalId() {
-
-
-
             fetch('https://mps4.chandalen.dev/api/animals', {
                 method: 'GET',
                 headers: {
                     'Accept': "application/json",
 
                 }
-
             })
                 .then(res => res.json())
                 .then(json => {
@@ -817,7 +812,6 @@
 
         function booking() {
             const selectedAnimal = document.querySelector('#animalType').value;
-
             const totalPriceLabel = document.querySelector('#priceLabel')
                 .value = document.querySelector('#priceLabel').value.replace('$', '');;
             const startDate = document.querySelector('#dateTime').value;
@@ -844,10 +838,10 @@
                 .then((res) => res.json())
                 .then((json) => {
                     if (json.result === true) {
-                        Swal.fire({
-                            icon: "success",
+                        showModernToast({
+                            iconType: "success",
                             title: "Booking Successful!",
-                            text: "Your booking has been confirmed.",
+                            description: "Your booking has been confirmed.",
                             confirmButtonText: "Okay",
                         }).then((result) => {
                             if (result.isConfirmed) {

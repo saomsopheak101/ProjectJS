@@ -6,10 +6,10 @@ function getdata() {
 
     let email = document.querySelector('#email').value.trim();
     let password = document.querySelector('#password').value.trim();
-    
+
     let emailIsValid = validateEmail(email);
     let passwordIsValid = validatePassword(password);
-    
+
     // If either field is invalid, stop form submission
     if (!emailIsValid || !passwordIsValid) {
         return; // Prevent login attempt
@@ -50,7 +50,7 @@ function getdata() {
                     description: 'Incorrect password. Please try again.',
                     iconType: 'error',
                 });
-                
+
 
             }
         })
@@ -101,24 +101,26 @@ function handleLoginSuccess(json) {
             // alert(json.message + " Token stored.");
             // location.href = '../index.html';
             showModernToast(
-                {    title: 'Login Successful!',
+                {
+                    title: 'Login Successful!',
                     description: 'Welcome back! Redirecting...',
                     iconType: 'success'
-                 },
-                 setTimeout(() => {
+                },
+                setTimeout(() => {
                     location.href = '../index.html';
                 }, 3000))
-                      
+
         } else if (roleName === 'System Admin') {
             sessionStorage.setItem('adminToken', json.data.token);
             // alert(json.message + " Token stored.");
             // location.href = '../pages/employee.html';
             showModernToast(
-                {    title: 'Login Successful!',
+                {
+                    title: 'Login Successful!',
                     description: 'Welcome back Admin! Redirecting...',
                     iconType: 'success'
-                 },
-                 setTimeout(() => {
+                },
+                setTimeout(() => {
                     location.href = '../pages/employee.html';
                 }, 3000))
         } else {
@@ -133,17 +135,17 @@ function showModernToast({
     title = '',
     description = '',
     iconType = 'success',
-    position = 'bottom-right',
-    timer = 4000,
+    position = 'top-right',
+    timer = 3000,
     hasCloseButton = true,
 }) {
     Swal.fire({
         toast: true,
         position: position,
         icon: iconType,
-        title: `<p style="color:#f49943; margin-bottom:0px;">${title}</p>`,
+        title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
         html: description
-            ? `<p style="margin: 0; font-size: 11px; color: #a8a8a8;">${description}</p>`
+            ? `<p style="margin: -4px; font-size: 13px; color: #101114;">${description}</p>`
             : '',
         customClass: {
             popup: 'modern-toast',
@@ -164,17 +166,17 @@ function Inconrrect({
     title = '',
     description = '',
     iconType = 'error',
-    position = 'bottom-right',
-    timer = 4000,
+    position = 'top-right',
+    timer = 3000,
     hasCloseButton = true,
 }) {
     Swal.fire({
         toast: true,
         position: position,
         icon: iconType,
-        title: `<p style="color:#f49943; margin-bottom:0px;">${title}</p>`,
+        title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
         html: description
-            ? `<p style="margin: 0; font-size: 11px; color: #a8a8a8;">${description}</p>`
+            ? `<p style="margin: -4px; font-size: 12px; color: #101114;">${description}</p>`
             : '',
         customClass: {
             popup: 'modern-toast',
