@@ -32,16 +32,16 @@ function logOut() {
             if (json.result === true) {
                 sessionStorage.removeItem('authToken');
                 console.log(json.message);
-                showModernToast(
-                    {
-                        title: 'Logout Successful!',
-                        description: 'You have been logged out. Redirecting to Home page...',
-                        iconType: 'success'
-                    },
-                    setTimeout(() => {
-                        location.href = '../index.html';
-                    }, 3000)
-                );
+                Swal.fire({ 
+                    icon: 'success',
+                    title: 'Booking Successful!',
+                    text: 'Your booking has been confirmed.',
+                    confirmButtonText: 'Okay', // The button text
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.href = 'http://127.0.0.1:5502/pages/profile-grooming.html'; // Update with the correct URL
+                    }
+                });
             } else {
                 alert(json.message);
             }
@@ -128,24 +128,21 @@ document.querySelector('#profile').addEventListener('change', changeAvarta);
         })
 
 }
-
-
-
 function showModernToast({
     title = '',
     description = '',
     iconType = 'success',
-    position = 'bottom-right',
-    timer = 4000,
+    position = 'top-right',
+    timer = 3000,
     hasCloseButton = true,
 }) {
     Swal.fire({
         toast: true,
         position: position,
         icon: iconType,
-        title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
+        title: `<p style="color:#222222; margin-bottom:0px; margin-bottom :0px;">${title}</p>`,
         html: description
-            ? `<p style="margin: 0; font-size: 11px; color: #a8a8a8;">${description}</p>`
+            ? `<p style="margin: -4px; font-size: 12px; color: #101114;">${description}</p>`
             : '',
         customClass: {
             popup: 'modern-toast',

@@ -1,37 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Toast</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            word-spacing: 0.1px;
+        }
+
+        body {
+            font-family: "Kantumruy Pro", sans-serif;
+            background-color: rgb(255, 255, 255);
+        }
+
         .modern-toast {
-            background-color: #20232a;
+            background-color: #fff3e7 !important;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            padding: 16px;
+            font-size: 16px;
+            /* padding: 16px; */
             text-align: left;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-            width: 350px;
+            box-shadow: 0 4px 5px rgba(52, 52, 52, 0.386) !important;
+            width: 300px;
             animation: slideIn 0.5s ease-out;
         }
 
         .swal2-timer-progress-bar {
-            background-color: #4caf50;
-            height: 4px;
+            background-color: #f1870d;
+            height: 3px;
             border-radius: 2px;
         }
 
+        /* Change border and background of the success icon (checkmark) */
+        .swal2-icon.swal2-success {
+            border-color: #f1870d;
+            /* Change border color */
+            background-color: #f1870d;
+            /* Change background color */
+        }
+
+        /* Change the color of the checkmark inside */
+        .swal2-icon.swal2-success .swal2-success-line {
+            background-color: #ffffff;
+            /* Keep the checkmark line white */
+        }
+
+        /* Optional: Change the border color of the checkmark's circle */
+        .swal2-icon.swal2-success .swal2-success-ring {
+            border-color: #f1870d;
+            /* Change ring border color */
+        }
+
         .swal-close-btn {
-            color: #ffffff;
-            font-size: 12px;
+            color: #f1870d;
+            font-size: 40px !important;
             position: absolute;
             top: 10px;
             right: 10px;
             cursor: pointer;
+        }
+
+        .swal2-icon.swal2-success {
+            border-color: #f1870d;
+        }
+
+        .swal2-icon.swal2-success [class^="swal2-success-line"] {
+            background-color: #f1870d;
         }
 
         @keyframes slideIn {
@@ -39,6 +90,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -46,11 +98,20 @@
         }
     </style>
 </head>
+
 <body>
-    <button onclick="showModernToast({ title: 'កក់បានជោគជ័យ​ !', description: 'Your profile has been updated.', iconType: 'success' })">Show Success Toast</button>
-    <button onclick="showModernToast({ title: 'Error!', description: 'An error occurred.', iconType: 'error', hasCloseButton: true })">Show Error Toast</button>
-    <button onclick="showModernToast({ title: 'Warning!', description: 'Check your inputs.', iconType: 'warning', position: 'bottom-left' })">Show Warning Toast</button>
-    <button onclick="showModernToast({ title: 'Info!', description: 'Your session will expire soon.', iconType: 'info', timer: 5000 })">Show Info Toast</button>
+    <button
+        onclick="showModernToast({ title: 'Login Successful!!', description: 'Welcome back! Redirecting...', iconType: 'success' })">Show
+        Success Toast</button>
+    <button
+        onclick="showModernToast({ title: 'កក់បានជោគជ័យ​ !', description: 'An error occurred.', iconType: 'error', hasCloseButton: true })">Show
+        Error Toast</button>
+    <button
+        onclick="showModernToast({ title: 'Warning!', description: 'Check your inputs.', iconType: 'warning', position: 'bottom-left' })">Show
+        Warning Toast</button>
+    <button
+        onclick="showModernToast({ title: 'Info!', description: 'Your session will expire soon.', iconType: 'info', timer: 5000 })">Show
+        Info Toast</button>
 
     <script>
         function showModernToast({
@@ -67,7 +128,7 @@
                 icon: iconType,
                 title: `<strong style="color:#222222">${title}</strong>`,
                 html: description
-                    ? `<p style="margin: 0; font-size: 12px; color: #ccc;">${description}</p>`
+                    ? `<p style="margin: -5px; font-size: 14px; color: #101114;">${description}</p>`
                     : '',
                 customClass: {
                     popup: 'modern-toast',
@@ -85,4 +146,5 @@
         }
     </script>
 </body>
+
 </html>

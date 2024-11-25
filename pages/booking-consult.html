@@ -266,7 +266,8 @@
                                     <div class="input-group date" id="datetimepicker" data-target-input="nearest">
                                         <input type="text" id="dateTime" class="form-control datetimepicker-input"
                                             data-target="#datetimepicker" placeholder="Select datetime" />
-                                        <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
+                                        <div class="input-group-append" data-target="#datetimepicker"
+                                            data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>
                                         <div class="invalid-feedback">Please select a date and time.</div>
@@ -291,26 +292,25 @@
 
                                     <div class="d-flex column-gap-2 mt-2 ">
                                         <a href="#" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"><img
-                                                src="../images/service/ABA.png" alt="" style="width: 40px;"
-                                                class="rounded-1"></a>
-                                        <a href="#" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal1"><img
-                                                src="../images/service/ACLeda.png" alt=""
+                                            data-bs-target="#exampleModal"><img src="../images/service/ABA.png" alt=""
                                                 style="width: 40px;" class="rounded-1"></a>
+                                        <a href="#" type="button" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal1"><img src="../images/service/ACLeda.png"
+                                                alt="" style="width: 40px;" class="rounded-1"></a>
                                     </div>
                                 </div>
                                 <h6 class="modal-title fs-6 my-2 mt-3 ">Transaction File</h6>
                                 <input class="form-control py-2 bg-white my-3" id="tran-link" type="file" required />
                                 <div class="invalid-feedback">Please upload the transaction file.</div>
-                                <button class="btn btn-warning w-100 text-white mb-0 mt-3 " id="btn-book" type="button">Book Now</button>
+                                <button class="btn btn-warning w-100 text-white mb-0 mt-3 " id="btn-book"
+                                    type="button">Book Now</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content p-2">
@@ -485,34 +485,46 @@
     <script>
         let employId = sessionStorage.getItem('employeeID');
         console.log(employId);
-    
+
         // Redirect if employee ID is not available
         if (employId === null) {
             location.href = 'http://127.0.0.1:5502/../pages/petConsult.html';
         }
-    
+
         // Remove employee ID from session storage when leaving the page
         window.addEventListener('unload', () => {
             sessionStorage.removeItem('employeeID');
         });
-    
+
         let nameEmployee = '';
         let price = 25;
-        if (employId == 2) {
-            nameEmployee = 'Ga Hong';
+        if (employId == 1) {
+            nameEmployee = 'Oun Kimhong';
+        } else if (employId == 2) {
+            nameEmployee = 'Nhiek Philen';
         } else if (employId == 3) {
-            nameEmployee = 'Len Nhiek';
+            nameEmployee = 'Art Pengse';
+        } else if (employId == 4) {
+            nameEmployee = 'Lim teang';
+        } else if (employId == 5) {
+            nameEmployee = 'Sun Sopha';
+        } else if (employId == 6) {
+            nameEmployee = 'Song Eang';
+        } else if (employId == 7) {
+            nameEmployee = 'Siev Meng';
+        } else if (employId == 8) {
+            nameEmployee = 'Sat Makara';
         }
         document.querySelector('#employLabel').value = nameEmployee;
         document.querySelector('#priceLabel').value = `$${price}`;
-    
+
         // Transaction function to upload file
         function transaction(linkTransaction, consultID) {
             let formData = new FormData();
             formData.append('transaction_file', linkTransaction);
-    
+
             console.log('transaction file', formData);
-    
+
             fetch('https://mps4.chandalen.dev/api/consultants/transaction-file/' + consultID, {
                 method: 'POST',
                 headers: {
@@ -522,7 +534,7 @@
                 body: formData
             });
         }
-    
+
         // Booking function with validation
         function booking() {
             // Get form field values
@@ -530,9 +542,9 @@
             let dateTime = document.querySelector('#dateTime').value;
             let description = document.querySelector('#description').value;
             let linkTransaction = document.querySelector('#tran-link').files[0];
-    
+
             let isValid = true; // Validation flag
-    
+
             // Validate status
             if (!status) {
                 isValid = false;
@@ -540,7 +552,7 @@
             } else {
                 document.querySelector('#status').classList.remove('is-invalid');
             }
-    
+
             // Validate date and time
             if (!dateTime) {
                 isValid = false;
@@ -548,7 +560,7 @@
             } else {
                 document.querySelector('#dateTime').classList.remove('is-invalid');
             }
-    
+
             // Validate description
             if (!description.trim()) {
                 isValid = false;
@@ -556,7 +568,7 @@
             } else {
                 document.querySelector('#description').classList.remove('is-invalid');
             }
-    
+
             // Validate file input
             if (!linkTransaction) {
                 isValid = false;
@@ -564,13 +576,16 @@
             } else {
                 document.querySelector('#tran-link').classList.remove('is-invalid');
             }
-    
+
             // Stop if validation fails
             if (!isValid) {
-                alert("Please fill out all required fields correctly.");
-                return;
+                Inconrrect({
+                    title: 'Please fill out all required fields correctly.',
+                    // description: 'Welcome back Admin! Redirecting...',
+                    iconType: ''
+                })
             }
-    
+
             // Create form data
             let formData = new FormData();
             formData.append('employee_id', employId);
@@ -578,7 +593,7 @@
             formData.append('is_online', status);
             formData.append('description', description);
             formData.append('transaction_file', linkTransaction);
-    
+
             // API call for booking
             fetch('https://mps4.chandalen.dev/api/consultants', {
                 method: 'POST',
@@ -588,32 +603,31 @@
                 },
                 body: formData
             })
-            .then(res => res.json())
-            .then(json => {
-                if (json.result === true) {
-                    console.log(json.message);
-                    let data_id = json.data.id;
-                    transaction(linkTransaction, data_id);
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Booking Successful!',
-                        text: 'Your booking has been confirmed.',
-                        confirmButtonText: 'Okay',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            location.href = 'http://127.0.0.1:5502/pages/profile-consulting.html'; // Update with correct URL
-                        }
-                    });
-                } else {
-                    console.log(json.message);
-                    alert(json.message);
-                }
-            });
+                .then(res => res.json())
+                .then(json => {
+                    if (json.result === true) {
+                        console.log(json.message);
+                        let data_id = json.data.id;
+                        transaction(linkTransaction, data_id);
+                        showModernToast({
+                            iconType: 'success',
+                            title: 'Booking Successful!',
+                            description: 'Your booking has been confirmed.',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.href = 'http://127.0.0.1:5502/pages/profile-consulting.html'; // Update with correct URL
+                            }
+                        });
+                    } else {
+                        console.log(json.message);
+                        // alert(json.message);
+                    }
+                });
         }
-    
+
         // Add click event listener to the "Book Now" button
         document.querySelector('#btn-book').addEventListener('click', booking);
-    
+
         // Add input validation feedback removal
         document.querySelector('#status').addEventListener('change', () => {
             document.querySelector('#status').classList.remove('is-invalid');
@@ -628,7 +642,7 @@
             document.querySelector('#tran-link').classList.remove('is-invalid');
         });
     </script>
-    
+
     <script src="../vendor/global/global.min.js"></script>
     <script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <!-- Preloader -->

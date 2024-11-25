@@ -611,9 +611,16 @@
         
                 // If the form is valid, proceed with the booking logic
                 if (isFormValid) {
-                    booking(); // Call your existing booking logic
-                } else {
-                    alert("Please fill in all required fields correctly.");
+
+                    booking(); // Proceed with the booking logic
+                } 
+                else {
+                    Inconrrect({
+                        title: 'Please fill out all required fields correctly.',
+                        // description: 'Welcome back Admin! Redirecting...',
+                        iconType: ''
+                    })
+
                 }
             });
         
@@ -622,16 +629,39 @@
                 input.addEventListener("input", () => validateField(input));
             });
         });
-        
-        
-                
-                let serviceID = sessionStorage.getItem('petCareId');
-                console.log(serviceID);
-        
-        
-                window.addEventListener('unload', () => {
-        
-                    sessionStorage.removeItem('petCareId');
+
+        if (serviceID === null) {
+            location.href = 'http://127.0.0.1:5502/../pages/petDayCare.html'
+        }
+
+        animalId();
+        function animalId() {
+            fetch('https://mps4.chandalen.dev/api/animals', {
+                method: 'GET',
+                headers: {
+                    'Accept': "application/json",
+
+                }
+            })
+                .then(res => res.json())
+                .then(json => {
+                    // console.log(json)
+                    let animal = document.querySelector('#animalType');
+                    animal.innerHTML = '<option selected disabled>Please select</option>';
+
+                    json.data.forEach(item => {
+                        let option = document.createElement('option');
+                        option.value = item.id;
+                        option.textContent = item.name;
+
+                        animal.appendChild(option);
+                    });
+
+                    animal.addEventListener('change', (event) => {
+                        const selectedOption = event.target.selectedOptions[0];
+                        console.log(selectedOption);
+                    })
+
                 });
                 if (serviceID === null) {
                     location.href = 'http://127.0.0.1:5502/../pages/petDayCare.html'
@@ -755,57 +785,69 @@
                         totalPriceLabel.value = '';
                     }
                 }
-        
-                // Initialize everything when the document is ready
-                $(document).ready(function () {
-                    // Initialize datetime pickers
-                    $('#datetimepicker').datetimepicker({
-                        format: 'YYYY-MM-DD HH:mm:ss',
-                        minDate: new Date(),
-                        icons: {
-                            time: 'fa fa-clock',
-                            date: 'fa fa-calendar',
-                            up: 'fa fa-arrow-up',
-                            down: 'fa fa-arrow-down',
-                            previous: 'fa fa-chevron-left',
-                            next: 'fa fa-chevron-right',
-                            today: 'fa fa-calendar-check',
-                            clear: 'fa fa-trash',
-                            close: 'fa fa-times'
-                        }
-                    });
-        
-                    $('#datetimepicker1').datetimepicker({
-                        format: 'YYYY-MM-DD HH:mm:ss',
-                        minDate: new Date(),
-                        icons: {
-                            time: 'fa fa-clock',
-                            date: 'fa fa-calendar',
-                            up: 'fa fa-arrow-up',
-                            down: 'fa fa-arrow-down',
-                            previous: 'fa fa-chevron-left',
-                            next: 'fa fa-chevron-right',
-                            today: 'fa fa-calendar-check',
-                            clear: 'fa fa-trash',
-                            close: 'fa fa-times'
-                        }
-                    });
-        
-                    // Add event listeners for datetime pickers
-                    $('#datetimepicker').on('change.datetimepicker', function (e) {
-                        if (e.date) {
-                            $('#datetimepicker1').datetimepicker('minDate', e.date);
-                        }
-                        calculatePriceAndDays();
-                    });
-        
-                    $('#datetimepicker1').on('change.datetimepicker', function (e) {
-                        calculatePriceAndDays();
-                    });
-        
-                    // Add event listener for animal type
-                    const animalType = document.querySelector('#animalType');
-                    animalType.addEventListener('change', calculatePriceAndDays);
+
+                calculatePriceAndDays();
+            });
+
+            $('#datetimepicker1').on('change.datetimepicker', function (e) {
+                calculatePriceAndDays();
+            });
+
+            // Add event listener for animal type
+            const animalType = document.querySelector('#animalType');
+            animalType.addEventListener('change', calculatePriceAndDays);
+        });
+
+
+        function booking() {
+            const selectedAnimal = document.querySelector('#animalType').value;
+            const totalPriceLabel = document.querySelector('#priceLabel')
+                .value = document.querySelector('#priceLabel').value.replace('$', '');;
+            const startDate = document.querySelector('#dateTime').value;
+            const endDate = document.querySelector('#dateTime1').value;
+            let linkTransaction = document.querySelector('#tran-link').files[0];
+
+            calculatePriceAndDays();
+
+            const formData = new FormData();
+            formData.append("pet_care_service_id", sessionStorage.getItem("petCareId"));
+            formData.append("pet_care_animal_id", selectedAnimal);
+            formData.append("pet_care_start_date", startDate);
+            formData.append("pet_care_end_date", endDate);
+            formData.append("pet_care_price", totalPriceLabel);
+
+            fetch("https://mps4.chandalen.dev/api/books", {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    Authorization: `Bearer ${authToken}`,
+                },
+                body: formData,
+            })
+                .then((res) => res.json())
+                .then((json) => {
+                    if (json.result === true) {
+                        showModernToast({
+                            iconType: "success",
+                            title: "Booking Successful!",
+                            description: "Your booking has been confirmed.",
+                            confirmButtonText: "Okay",
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.href = "http://127.0.0.1:5502/pages/profile-daycare.html";
+                            }
+                        });
+
+                        transaction(linkTransaction, json.data.id);
+                    } 
+                    // else {
+                    //     Swal.fire({
+                    //         icon: "error",
+                    //         title: "Booking Failed",
+                    //         text: json.message || "An error occurred while booking.",
+                    //     });
+                    // }
+
                 });
         
         
