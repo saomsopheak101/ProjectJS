@@ -537,341 +537,353 @@
     <script
         src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
 
-    <script>
+    
+    
+        <script>
         
-        document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("DOMContentLoaded", function () {
+            const bookingForm = document.querySelector("#bookingForm");
             const submitButton = document.querySelector("#btn-book");
-
-            // Validate individual fields
+        
+            // Function to validate individual fields
             function validateField(field) {
-                if (field.type === "file") {
-                    if (field.files.length === 0) {
-                        field.classList.add("is-invalid");
-                        field.classList.remove("is-valid");
-                        return false;
-                    } else {
-                        field.classList.remove("is-invalid");
-                        field.classList.add("is-valid");
-                        return true;
-                    }
-                } else if (field.value.trim() === "" || !field.checkValidity()) {
-                    field.classList.add("is-invalid");
-                    field.classList.remove("is-valid");
-                    return false;
-                } else {
-                    field.classList.remove("is-invalid");
+                if (!field.checkValidity()) {
+                    
                     field.classList.add("is-valid");
-                    return true;
+                    field.classList.remove("is-invalid");
+                } else {
+                    
+                    field.classList.remove("is-valid");
+                    field.classList.add("is-invalid");
                 }
             }
-
-            // Main validation function
+        
+            // Main validation function for the form
             function validateForm() {
-                let isValid = true;
-
-                // Required fields
+                let isValid = true; // Reset validity for every form validation attempt
+        
                 const requiredFields = [
-                    document.querySelector("#dateTime"),
-                    document.querySelector("#dateTime1"),
-                    document.querySelector("#animalType"),
-                    document.querySelector("#tran-link"),
+                    document.querySelector("#dateTime"), // Start date
+                    document.querySelector("#dateTime1"), // End date
+                    document.querySelector("#animalType"), // Animal type
+                    document.querySelector("#tran-link"), // Transaction file
                 ];
-
-                // Validate each field
+        
                 requiredFields.forEach((field) => {
-                    if (!validateField(field)) {
-                        isValid = false;
+                    if (field.type === "file") {
+                        if (!field.files[0]) {
+                            field.classList.add("is-invalid");
+                            field.classList.remove("is-valid");
+                            isValid = false;
+                        } else {
+                            field.classList.remove("is-invalid");
+                            field.classList.add("is-valid");
+                        }
+                    } else {
+                        validateField(field);
+                        if (!field.checkValidity()) {
+                            isValid = false;
+                        }
                     }
                 });
-
-                // Custom date validation
-                const startDateField = document.querySelector("#dateTime");
-                const endDateField = document.querySelector("#dateTime1");
-
-                const startDate = new Date(startDateField.value);
-                const endDate = new Date(endDateField.value);
-
-                if (endDate <= startDate) {
-                    endDateField.classList.add("is-invalid");
-                    endDateField.classList.remove("is-valid");
-                    isValid = false;
-                } else {
-                    endDateField.classList.remove("is-invalid");
-                    endDateField.classList.add("is-valid");
-                }
-
+        
+                // Custom validation for start and end dates
+                const startDate = new Date(document.querySelector("#dateTime").value);
+                const endDate = new Date(document.querySelector("#dateTime1").value);
+                // if (startDate >= endDate) {
+                //     document.querySelector("#dateTime1").classList.add("is-invalid");
+                //     document.querySelector("#dateTime1").classList.remove("is-valid");
+                //     isValid = false;
+                // } else {
+                //     document.querySelector("#dateTime1").classList.remove("is-invalid");
+                //     document.querySelector("#dateTime1").classList.add("is-valid");
+                // }
+        
                 return isValid;
             }
-
-            // Real-time validation
+        
+            // Attach event listener to the button
+            submitButton.addEventListener("click", function (event) {
+                event.preventDefault(); // Prevent default form submission
+        
+                // Validate the form
+                const isFormValid = validateForm();
+        
+                // If the form is valid, proceed with the booking logic
+                if (isFormValid) {
+                    booking(); // Call your existing booking logic
+                } else {
+                    alert("Please fill in all required fields correctly.");
+                }
+            });
+        
+            // Real-time validation for inputs
             document.querySelectorAll("input, select").forEach((input) => {
                 input.addEventListener("input", () => validateField(input));
             });
-
-            // Submit button logic
-            submitButton.addEventListener("click", function (event) {
-                event.preventDefault();
-
-                // Validate the form
-                const isFormValid = validateForm();
-
-                if (isFormValid) {
-                    booking(); // Proceed with the booking logic
-                } 
-                else {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Validation Error",
-                        text: "Please correct the errors in the form before proceeding.",
-                        confirmButtonText: "Okay",
-                    });
-                }
-            });
         });
-
-
         
-        let serviceID = sessionStorage.getItem('petCareId');
-        console.log(serviceID);
-
-
-        window.addEventListener('unload', () => {
-
-            sessionStorage.removeItem('petCareId');
-        });
-        if (serviceID === null) {
-            location.href = 'http://127.0.0.1:5502/../pages/petDayCare.html'
-        }
-
-        animalId();
-        function animalId() {
-
-
-
-            fetch('https://mps4.chandalen.dev/api/animals', {
-                method: 'GET',
-                headers: {
-                    'Accept': "application/json",
-
+        
+                
+                let serviceID = sessionStorage.getItem('petCareId');
+                console.log(serviceID);
+        
+        
+                window.addEventListener('unload', () => {
+        
+                    sessionStorage.removeItem('petCareId');
+                });
+                if (serviceID === null) {
+                    location.href = 'http://127.0.0.1:5502/../pages/petDayCare.html'
                 }
-
-            })
-                .then(res => res.json())
-                .then(json => {
-                    // console.log(json)
-                    let animal = document.querySelector('#animalType');
-                    animal.innerHTML = '<option selected disabled>Please select</option>';
-
-                    json.data.forEach(item => {
-                        let option = document.createElement('option');
-                        option.value = item.id;
-                        option.textContent = item.name;
-
-                        animal.appendChild(option);
-                    });
-
-                    animal.addEventListener('change', (event) => {
-                        const selectedOption = event.target.selectedOptions[0];
-                        console.log(selectedOption);
+        
+                animalId();
+                function animalId() {
+        
+        
+        
+                    fetch('https://mps4.chandalen.dev/api/animals', {
+                        method: 'GET',
+                        headers: {
+                            'Accept': "application/json",
+        
+                        }
+        
                     })
-
-                });
-        };
-
-        function transaction(linkTransaction, serviceID) {
-
-
-            let formData = new FormData();
-            formData.append('transaction_file', linkTransaction)
-
-            console.log('transaction file', formData);
-
-
-            fetch('https://mps4.chandalen.dev/api/books/transaction-file/' + serviceID, {
-                method: 'POST',
-                headers: {
-                    'Accept': "application/json",
-                    'Authorization': `Bearer ${authToken}`
-                },
-                body: formData
-            })
-                .then(res => res.json())
-                .then(json => {
-                    console.log(json)
-                    // if(json.result=== true){
-                    //     alert(json.message)
-                    // }else{
-                    //     alert(json.message)
-                    // }
-                })
-        }
-        function calculatePriceAndDays() {
-            const selectedAnimal = document.querySelector('#animalType').value;
-            const priceLabel = document.querySelector('#aniLabel');
-            const dayLabel = document.querySelector('#dayLabel');
-            const totalPriceLabel = document.querySelector('#priceLabel');
-            const startDate = document.querySelector('#dateTime').value;
-            const endDate = document.querySelector('#dateTime1').value;
-
-            // Clear everything if no animal is selected or it's the default option
-            if (!selectedAnimal || selectedAnimal === "Please select") {
-                priceLabel.value = '';
-                dayLabel.value = '';
-                totalPriceLabel.value = '';
-                return;
-            }
-
-
-            let priceAnimal = 0;
-            if (selectedAnimal == 2) {
-                priceAnimal = 30; // Cat
-            } else if (selectedAnimal == 1) {
-                priceAnimal = 25; // Dog
-            } else {
-                priceAnimal = 15; // Other
-            }
-
-            // Always update the animal price
-            priceLabel.value = `$${priceAnimal}`;
-
-            // Calculate days and total price if we have dates
-            if (startDate && endDate) {
-                const start = new Date(startDate);
-                const end = new Date(endDate);
-
-                // Validate dates
-                if (end < start) {
-                    alert('End date cannot be before start date');
-                    dayLabel.value = '';
-                    selectedAnimal = "Please select";
-                    totalPriceLabel.value = '';
-                    return;
-                }
-
-                // Calculate the time difference and days difference
-                const timeDifference = end - start;
-                const daysDifference = Math.max(1, Math.ceil(timeDifference / (1000 * 60 * 60 * 24)));
-
-                // Update days and total price
-                dayLabel.value = daysDifference;
-                totalPriceLabel.value = `$${daysDifference * priceAnimal}`;
-            } else {
-                // Clear days and total price if dates are missing
-                dayLabel.value = '';
-                totalPriceLabel.value = '';
-            }
-        }
-
-        // Initialize everything when the document is ready
-        $(document).ready(function () {
-            // Initialize datetime pickers
-            $('#datetimepicker').datetimepicker({
-                format: 'YYYY-MM-DD HH:mm:ss',
-                minDate: new Date(),
-                icons: {
-                    time: 'fa fa-clock',
-                    date: 'fa fa-calendar',
-                    up: 'fa fa-arrow-up',
-                    down: 'fa fa-arrow-down',
-                    previous: 'fa fa-chevron-left',
-                    next: 'fa fa-chevron-right',
-                    today: 'fa fa-calendar-check',
-                    clear: 'fa fa-trash',
-                    close: 'fa fa-times'
-                }
-            });
-
-            $('#datetimepicker1').datetimepicker({
-                format: 'YYYY-MM-DD HH:mm:ss',
-                minDate: new Date(),
-                icons: {
-                    time: 'fa fa-clock',
-                    date: 'fa fa-calendar',
-                    up: 'fa fa-arrow-up',
-                    down: 'fa fa-arrow-down',
-                    previous: 'fa fa-chevron-left',
-                    next: 'fa fa-chevron-right',
-                    today: 'fa fa-calendar-check',
-                    clear: 'fa fa-trash',
-                    close: 'fa fa-times'
-                }
-            });
-
-            // Add event listeners for datetime pickers
-            $('#datetimepicker').on('change.datetimepicker', function (e) {
-                if (e.date) {
-                    $('#datetimepicker1').datetimepicker('minDate', e.date);
-                }
-                calculatePriceAndDays();
-            });
-
-            $('#datetimepicker1').on('change.datetimepicker', function (e) {
-                calculatePriceAndDays();
-            });
-
-            // Add event listener for animal type
-            const animalType = document.querySelector('#animalType');
-            animalType.addEventListener('change', calculatePriceAndDays);
-        });
-
-
-        function booking() {
-            const selectedAnimal = document.querySelector('#animalType').value;
-
-            const totalPriceLabel = document.querySelector('#priceLabel')
-                .value = document.querySelector('#priceLabel').value.replace('$', '');;
-            const startDate = document.querySelector('#dateTime').value;
-            const endDate = document.querySelector('#dateTime1').value;
-            let linkTransaction = document.querySelector('#tran-link').files[0];
-
-            calculatePriceAndDays();
-
-            const formData = new FormData();
-            formData.append("pet_care_service_id", sessionStorage.getItem("petCareId"));
-            formData.append("pet_care_animal_id", selectedAnimal);
-            formData.append("pet_care_start_date", startDate);
-            formData.append("pet_care_end_date", endDate);
-            formData.append("pet_care_price", totalPriceLabel);
-
-            fetch("https://mps4.chandalen.dev/api/books", {
-                method: "POST",
-                headers: {
-                    Accept: "application/json",
-                    Authorization: `Bearer ${authToken}`,
-                },
-                body: formData,
-            })
-                .then((res) => res.json())
-                .then((json) => {
-                    if (json.result === true) {
-                        Swal.fire({
-                            icon: "success",
-                            title: "Booking Successful!",
-                            text: "Your booking has been confirmed.",
-                            confirmButtonText: "Okay",
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                location.href = "http://127.0.0.1:5502/pages/profile-daycare.html";
-                            }
+                        .then(res => res.json())
+                        .then(json => {
+                            // console.log(json)
+                            let animal = document.querySelector('#animalType');
+                            animal.innerHTML = '<option selected disabled>Please select</option>';
+        
+                            json.data.forEach(item => {
+                                let option = document.createElement('option');
+                                option.value = item.id;
+                                option.textContent = item.name;
+        
+                                animal.appendChild(option);
+                            });
+        
+                            animal.addEventListener('change', (event) => {
+                                const selectedOption = event.target.selectedOptions[0];
+                                console.log(selectedOption);
+                            })
+        
                         });
-
-                        transaction(linkTransaction, json.data.id);
-                    } 
-                    // else {
-                    //     Swal.fire({
-                    //         icon: "error",
-                    //         title: "Booking Failed",
-                    //         text: json.message || "An error occurred while booking.",
-                    //     });
-                    // }
+                };
+        
+                function transaction(linkTransaction, serviceID) {
+        
+        
+                    let formData = new FormData();
+                    formData.append('transaction_file', linkTransaction)
+        
+                    console.log('transaction file', formData);
+        
+        
+                    fetch('https://mps4.chandalen.dev/api/books/transaction-file/' + serviceID, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': "application/json",
+                            'Authorization': `Bearer ${authToken}`
+                        },
+                        body: formData
+                    })
+                        .then(res => res.json())
+                        .then(json => {
+                            console.log(json)
+                            // if(json.result=== true){
+                            //     alert(json.message)
+                            // }else{
+                            //     alert(json.message)
+                            // }
+                        })
+                }
+                function calculatePriceAndDays() {
+                    const selectedAnimal = document.querySelector('#animalType').value;
+                    const priceLabel = document.querySelector('#aniLabel');
+                    const dayLabel = document.querySelector('#dayLabel');
+                    const totalPriceLabel = document.querySelector('#priceLabel');
+                    const startDate = document.querySelector('#dateTime').value;
+                    const endDate = document.querySelector('#dateTime1').value;
+        
+                    // Clear everything if no animal is selected or it's the default option
+                    if (!selectedAnimal || selectedAnimal === "Please select") {
+                        priceLabel.value = '';
+                        dayLabel.value = '';
+                        totalPriceLabel.value = '';
+                        return;
+                    }
+        
+        
+                    let priceAnimal = 0;
+                    if (selectedAnimal == 2) {
+                        priceAnimal = 30; // Cat
+                    } else if (selectedAnimal == 1) {
+                        priceAnimal = 25; // Dog
+                    } else {
+                        priceAnimal = 15; // Other
+                    }
+        
+                    // Always update the animal price
+                    priceLabel.value = `$${priceAnimal}`;
+        
+                    // Calculate days and total price if we have dates
+                    if (startDate && endDate) {
+                        const start = new Date(startDate);
+                        const end = new Date(endDate);
+        
+                        // Validate dates
+                        if (end < start) {
+                            alert('End date cannot be before start date');
+                            dayLabel.value = '';
+                            selectedAnimal = "Please select";
+                            totalPriceLabel.value = '';
+                            return;
+                        }
+        
+                        // Calculate the time difference and days difference
+                        const timeDifference = end - start;
+                        const daysDifference = Math.max(1, Math.ceil(timeDifference / (1000 * 60 * 60 * 24)));
+        
+                        // Update days and total price
+                        dayLabel.value = daysDifference;
+                        totalPriceLabel.value = `$${daysDifference * priceAnimal}`;
+                    } else {
+                        // Clear days and total price if dates are missing
+                        dayLabel.value = '';
+                        totalPriceLabel.value = '';
+                    }
+                }
+        
+                // Initialize everything when the document is ready
+                $(document).ready(function () {
+                    // Initialize datetime pickers
+                    $('#datetimepicker').datetimepicker({
+                        format: 'YYYY-MM-DD HH:mm:ss',
+                        minDate: new Date(),
+                        icons: {
+                            time: 'fa fa-clock',
+                            date: 'fa fa-calendar',
+                            up: 'fa fa-arrow-up',
+                            down: 'fa fa-arrow-down',
+                            previous: 'fa fa-chevron-left',
+                            next: 'fa fa-chevron-right',
+                            today: 'fa fa-calendar-check',
+                            clear: 'fa fa-trash',
+                            close: 'fa fa-times'
+                        }
+                    });
+        
+                    $('#datetimepicker1').datetimepicker({
+                        format: 'YYYY-MM-DD HH:mm:ss',
+                        minDate: new Date(),
+                        icons: {
+                            time: 'fa fa-clock',
+                            date: 'fa fa-calendar',
+                            up: 'fa fa-arrow-up',
+                            down: 'fa fa-arrow-down',
+                            previous: 'fa fa-chevron-left',
+                            next: 'fa fa-chevron-right',
+                            today: 'fa fa-calendar-check',
+                            clear: 'fa fa-trash',
+                            close: 'fa fa-times'
+                        }
+                    });
+        
+                    // Add event listeners for datetime pickers
+                    $('#datetimepicker').on('change.datetimepicker', function (e) {
+                        if (e.date) {
+                            $('#datetimepicker1').datetimepicker('minDate', e.date);
+                        }
+                        calculatePriceAndDays();
+                    });
+        
+                    $('#datetimepicker1').on('change.datetimepicker', function (e) {
+                        calculatePriceAndDays();
+                    });
+        
+                    // Add event listener for animal type
+                    const animalType = document.querySelector('#animalType');
+                    animalType.addEventListener('change', calculatePriceAndDays);
                 });
-        }
-        document.querySelector('#btn-book').addEventListener('click', () => {
-
-            booking();
-        })
-    </script>
-
+        
+        
+                function booking() {
+                    const selectedAnimal = document.querySelector('#animalType').value;
+        
+                    const totalPriceLabel = document.querySelector('#priceLabel')
+                        .value = document.querySelector('#priceLabel').value.replace('$', '');;
+                    const startDate = document.querySelector('#dateTime').value;
+                    const endDate = document.querySelector('#dateTime1').value;
+                    let linkTransaction = document.querySelector('#tran-link').files[0];
+        
+                    calculatePriceAndDays()
+        
+                    // console.log('animal :', selectedAnimal);
+                    // console.log('Total Price :', totalPriceLabel);
+                    // console.log(startDate);
+                    // console.log(endDate);
+                    // console.log(priceLabel);
+                    // console.log(dayLabel);
+        
+        
+                    let formData = new FormData();
+                    formData.append('pet_care_service_id', serviceID)
+                    formData.append('pet_care_animal_id', selectedAnimal)
+                    formData.append('pet_care_start_date', startDate)
+                    formData.append('pet_care_end_date', endDate)
+                    formData.append('pet_care_price', totalPriceLabel)
+                    
+        
+                    // Log the FormData contents
+                    for (let [key, value] of formData.entries()) {
+                        console.log(`${key}: ${value}`);
+                    }
+                    fetch('https://mps4.chandalen.dev/api/books', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': "application/json",
+                            'Authorization': `Bearer ${authToken}`
+                        },
+                        body: formData
+                    })
+                        .then(res => res.json())
+                        .then(json => {
+        
+                            if (json.result === true) {
+        
+                                console.log(json.message)
+        
+                                let data_id = json.data.id;
+                                // console.log('ID buyer ', data_id);
+                                transaction(linkTransaction, data_id);
+        
+                                console.log(json);
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Booking Successful!',
+                                    text: 'Your booking has been confirmed.',
+                                    confirmButtonText: 'Okay', // The button text
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        location.href = 'http://127.0.0.1:5502/pages/profile-daycare.html'; // Update with the correct URL
+                                    }
+                                });
+        
+                            } else {
+                                // console.log(json.message)
+                                // alert(json.message)
+                            }
+                        })
+                }
+                document.querySelector('#btn-book').addEventListener('click', () => {
+        
+                    booking();
+                })
+            </script>
+        
+    
 
     <!-- <script src="../vendor/global/global.min.js"></script> -->
 	<script src="../js/custom.js"></script>
