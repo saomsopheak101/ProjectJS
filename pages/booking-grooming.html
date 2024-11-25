@@ -249,10 +249,11 @@
                         novalidate>
                         <form class=" row align-items-center row-gap-3">
                             <h4 class="mt-3 fw-bold">Booking information</h4>
+                            <!-- Select Pet Type -->
                             <div class="col-4">
-                                <label for="">Select pet type:</label>
-                                <select class="form-select" aria-label="Default select example" id="animalType"
-                                    required>
+                                <label for="animalType">Select pet type:</label>
+                                <select class="form-select" aria-label="Default select example" id="animalType" required
+                                    title="Please select">
                                     <option selected disabled>Please select</option>
 
                                 </select>
@@ -260,28 +261,30 @@
                                 <div class="valid-feedback text-success" id="formselect-success">Select looks good!
                                 </div>
                             </div>
-                            <div class="col-4 mt-3">
-                                <label for="">Datetime:</label>
 
+                            <!-- Date Time Input -->
+                            <div class="col-4 mt-3">
+                                <label for="dateTime">Datetime:</label>
                                 <div class="form-group">
                                     <div class="input-group date" id="datetimepicker" data-target-input="nearest">
                                         <input type="text" id="dateTime" class="form-control datetimepicker-input"
-                                            data-target="#datetimepicker" placeholder="Select date and time" />
+                                            data-target="#datetimepicker" placeholder="Select date and time"
+                                            title="Please select a date and time" />
                                         <div class="input-group-append" data-target="#datetimepicker"
                                             data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>
-
-
                                     </div>
                                 </div>
                                 <div class="invalid-feedback" id="dateTime-error"></div>
                                 <div class="valid-feedback text-success" id="dateTime-success">Date time looks good!
                                 </div>
+
                             </div>
                             <div class="col-4">
                                 <label for="">Price:</label>
                                 <input type="text" class="form-control" id="priceLabel" placeholder="Price" disabled>
+
                             </div>
 
                             <h4 class="my-2 fw-bold">Payment</h4>
@@ -560,8 +563,12 @@
             const dateTimeInput = document.getElementById("dateTime");
             const priceLabel = document.getElementById("priceLabel");
 
-            // Initialize the invalid-feedback element as hidden
             fileError.style.display = "none";
+
+            // Select elements
+            const formselectError = document.getElementById("formselect-error");
+            const dateTimeError = document.getElementById("dateTime-error");
+
 
             // Add click event listener to the "Book Now" button
             bookButton.addEventListener("click", function (event) {
@@ -570,28 +577,40 @@
                 // Validate file input
                 if (!fileInput.value) {
                     isValid = false;
+                    fileInput.classList.add("is-invalid");
+                    fileInput.title = "Please upload a transaction file.";  // Custom title
                     fileError.style.display = "block";
                     fileError.textContent = "Please upload a transaction file.";
-                    fileInput.classList.add("is-invalid");
                 } else {
-                    fileError.style.display = "none";
                     fileInput.classList.remove("is-invalid");
+                    fileInput.title = "Chosen file";  // Show custom title for chosen file
+                    fileError.style.display = "none";
                 }
 
                 // Validate animal type selection
                 if (!animalTypeSelect.value || animalTypeSelect.value === "Please select") {
                     isValid = false;
                     animalTypeSelect.classList.add("is-invalid");
+                    animalTypeSelect.title = "Please select a pet type.";  // Custom title
+                    formselectError.style.display = "block";
+                    formselectError.textContent = "Please select a pet type.";  // Custom error message for invalid input
                 } else {
                     animalTypeSelect.classList.remove("is-invalid");
+                    animalTypeSelect.title = "Pet type selected";  // Custom title for valid input
+                    formselectError.style.display = "none";
                 }
 
                 // Validate datetime input
                 if (!dateTimeInput.value) {
                     isValid = false;
                     dateTimeInput.classList.add("is-invalid");
+                    dateTimeInput.title = "Please select a date and time.";  // Custom title
+                    dateTimeError.style.display = "block";
+                    dateTimeError.textContent = "Please select a date and time.";
                 } else {
                     dateTimeInput.classList.remove("is-invalid");
+                    dateTimeInput.title = "Datetime selected";  // Custom title for valid input
+                    dateTimeError.style.display = "none";
                 }
 
                 // If form is not valid, prevent submission
@@ -613,18 +632,21 @@
             animalTypeSelect.addEventListener("change", function () {
                 if (animalTypeSelect.value !== "Please select") {
                     animalTypeSelect.classList.remove("is-invalid");
+                    animalTypeSelect.title = "Pet type selected";  // Custom title for valid selection
                 }
             });
 
             dateTimeInput.addEventListener("input", function () {
                 if (dateTimeInput.value) {
                     dateTimeInput.classList.remove("is-invalid");
+                    dateTimeInput.title = "Datetime selected";  // Custom title for valid input
                 }
             });
 
             fileInput.addEventListener("change", function () {
                 if (fileInput.value) {
                     fileInput.classList.remove("is-invalid");
+                    fileInput.title = "Chosen file";  // Custom title for chosen file
                 }
             });
 
@@ -670,6 +692,7 @@
                             option.dataset.price = animalType.price; // Store price as a data attribute
                             animalService.appendChild(option);
                         });
+
                         // Update price when animal type is selected
                         animalService.addEventListener('change', (event) => {
                             const selectedOption = event.target.selectedOptions[0];
@@ -726,6 +749,7 @@
                         if (json.result === true) {
                             let data_id = json.data.id;
                             transaction(linkTransaction, data_id);
+
                             showModernToast({
                                 iconType: 'success',
                                 title: 'Booking Successful!',

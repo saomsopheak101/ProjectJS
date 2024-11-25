@@ -21,6 +21,12 @@
             backdrop-filter: blur(5px);
             transform: translateY(-100px);
         }
+
+        /* Example CSS */
+        .input-group-append {
+            color: rgb(221, 71, 71);
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -29,16 +35,16 @@
     <!--*******************
         Preloader start
     ********************-->
-	<div id="preloader">
-		<div class="lds-ripple">
-			<div></div>
-			<div></div>
-		</div>
-	</div>
-	<!--*******************
+    <div id="preloader">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--*******************
         Preloader end
     ********************-->
-    
+
 
     <header class="">
         <nav class="navbar navbar-expand-lg  z-3">
@@ -57,14 +63,16 @@
                             <a class="nav-link fw-medium" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown">
-                            <a class="nav-link dropdown-toggle  black-nav fw-medium pe-0" href="pages/service-main.html" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle  black-nav fw-medium pe-0" href="pages/service-main.html"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Service
                             </a>
                             <ul class="dropdown-menu  dropdown-services">
-                                <li><a class="dropdown-item text-black fw-medium " href="../pages/service-main.html">Service main</a>
+                                <li><a class="dropdown-item text-black fw-medium "
+                                        href="../pages/service-main.html">Service main</a>
                                 </li>
-                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet Day care</a>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet
+                                        Day care</a>
                                 </li>
                                 <li><a class="dropdown-item text-black fw-medium" href="../pages/petGrooming.html">Pet
                                         Grooming</a>
@@ -94,7 +102,7 @@
                         </li>
                     </ul>
                     <div class="d-flex align-items-center ">
-                  
+
                         <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
@@ -202,7 +210,7 @@
                                             <li class="nav-item border-0  w-100">
                                                 <button
                                                     class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0 logout"
-                                                    aria-current="page" >
+                                                    aria-current="page">
                                                     <div class="px-3">
                                                         <img src="../images/service/log-out.png" alt="" width="20">
                                                     </div>
@@ -258,8 +266,6 @@
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
                             </div>
-                            <div class="invalid-feedback" id="formselect-error"></div>
-                            <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
                         </div>
 
                         <div class="col-3">
@@ -273,7 +279,7 @@
                                 </div>
                             </div>
                             <div class="invalid-feedback" id="formselect-error"></div>
-                                <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
+                            <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
                         </div>
 
                         <div class="col-3">
@@ -334,7 +340,7 @@
                                             <div class="d-flex column-gap-2">
                                                 <a href="#" type="button" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal"><img src="../images/service/ABA.png"
-                                                        alt="" style="width: 40px;" class="rounded-1"></a> 
+                                                        alt="" style="width: 40px;" class="rounded-1"></a>
                                                 <a href="#" type="button" data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal1"><img
                                                         src="../images/service/ACLeda.png" alt="" style="width: 40px;"
@@ -346,7 +352,8 @@
                                         <input class="form-control py-1 bg-white mt-3" id="tran-link" type="file"
                                             required />
                                         <div class="invalid-feedback" id="formselect-error"></div>
-                                            <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
+                                        <div class="valid-feedback text-success" id="formselect-success">Select looks
+                                            good!</div>
 
                                         <button class="btn btn-warning w-100 text-white mb-0 mt-4" id="btn-book"
                                             type="button">Book Now</button>
@@ -537,80 +544,124 @@
     <script
         src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
 
-    
-    
-        <script>
-        
-            document.addEventListener("DOMContentLoaded", function () {
-            const bookingForm = document.querySelector("#bookingForm");
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
             const submitButton = document.querySelector("#btn-book");
-        
-            // Function to validate individual fields
+
             function validateField(field) {
-                if (!field.checkValidity()) {
-                    
-                    field.classList.add("is-valid");
-                    field.classList.remove("is-invalid");
-                } else {
-                    
-                    field.classList.remove("is-valid");
-                    field.classList.add("is-invalid");
+                const errorMessage = field.nextElementSibling;
+                const calendarIcon = field.nextElementSibling.nextElementSibling; // Reference to the calendar icon
+
+                if (field.type === "file") {
+                    if (field.files.length === 0) {
+                        field.classList.add("is-invalid");
+                        field.classList.remove("is-valid");
+                        if (errorMessage) errorMessage.textContent = "Please upload a transaction file.";
+                  
+                        return false;
+                    } else {
+                        field.classList.remove("is-invalid");
+                        field.classList.add("is-valid");
+                        if (errorMessage) errorMessage.textContent = "";
+                        if (calendarIcon) calendarIcon.classList.add("is-valid-icon");
+                        return true;
+                    }
+                } else if (field.type === "text" || field.tagName === "SELECT") {
+                    if (field.value.trim() === "" || field.value === "Please select") {
+                        field.classList.add("is-invalid");
+                        field.classList.remove("is-valid");
+                        if (errorMessage) errorMessage.textContent = "This field is required.";
+                  
+                        return false;
+                    } else {
+                        field.classList.remove("is-invalid");
+                        field.classList.add("is-valid");
+                        if (errorMessage) errorMessage.textContent = "";
+                        if (calendarIcon) calendarIcon.classList.add("is-valid-icon");
+                        return true;
+                    }
+
                 }
+                return true; // Default for other cases
             }
         
             // Main validation function for the form
             function validateForm() {
-                let isValid = true; // Reset validity for every form validation attempt
-        
-                const requiredFields = [
-                    document.querySelector("#dateTime"), // Start date
-                    document.querySelector("#dateTime1"), // End date
-                    document.querySelector("#animalType"), // Animal type
-                    document.querySelector("#tran-link"), // Transaction file
+
+                let isValid = true;
+                const fieldsToValidate = [
+                    document.querySelector("#dateTime"),
+                    document.querySelector("#dateTime1"),
+                    document.querySelector("#animalType"),
+                    document.querySelector("#tran-link"),
                 ];
-        
-                requiredFields.forEach((field) => {
-                    if (field.type === "file") {
-                        if (!field.files[0]) {
-                            field.classList.add("is-invalid");
-                            field.classList.remove("is-valid");
-                            isValid = false;
-                        } else {
-                            field.classList.remove("is-invalid");
-                            field.classList.add("is-valid");
-                        }
-                    } else {
-                        validateField(field);
-                        if (!field.checkValidity()) {
-                            isValid = false;
-                        }
-                    }
+
+                fieldsToValidate.forEach((field) => {
+                    if (!validateField(field)) isValid = false;
                 });
-        
-                // Custom validation for start and end dates
-                const startDate = new Date(document.querySelector("#dateTime").value);
-                const endDate = new Date(document.querySelector("#dateTime1").value);
-                // if (startDate >= endDate) {
-                //     document.querySelector("#dateTime1").classList.add("is-invalid");
-                //     document.querySelector("#dateTime1").classList.remove("is-valid");
-                //     isValid = false;
-                // } else {
-                //     document.querySelector("#dateTime1").classList.remove("is-invalid");
-                //     document.querySelector("#dateTime1").classList.add("is-valid");
-                // }
-        
+
+                // Custom date validation
+                const startDateField = document.querySelector("#dateTime");
+                const endDateField = document.querySelector("#dateTime1");
+
+                const startDate = new Date(startDateField.value);
+                const endDate = new Date(endDateField.value);
+
+                if (startDateField.value && endDateField.value && endDate <= startDate) {
+                    endDateField.classList.add("is-invalid");
+                    endDateField.classList.remove("is-valid");
+                    if (endDateField.nextElementSibling)
+                        endDateField.nextElementSibling.textContent = "End date must be after the start date.";
+                    isValid = false;
+                } else if (endDateField.value) {
+                    endDateField.classList.remove("is-invalid");
+                    endDateField.classList.add("is-valid");
+                    if (endDateField.nextElementSibling) endDateField.nextElementSibling.textContent = "";
+                }
+
                 return isValid;
             }
-        
-            // Attach event listener to the button
+
+            document.querySelectorAll("input, select").forEach((input) => {
+                input.addEventListener("input", () => validateField(input));
+            });
+
             submitButton.addEventListener("click", function (event) {
-                event.preventDefault(); // Prevent default form submission
+                event.preventDefault();
+
         
-                // Validate the form
                 const isFormValid = validateForm();
         
                 // If the form is valid, proceed with the booking logic
                 if (isFormValid) {
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: "Booking successfully submitted!",
+                        confirmButtonText: "Okay",
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Validation Error",
+                        text: "Please correct the errors in the form before proceeding.",
+                        confirmButtonText: "Okay",
+                    });
+                }
+            });
+        });
+
+
+        let serviceID = sessionStorage.getItem('petCareId');
+        console.log(serviceID);
+
+
+        window.addEventListener('unload', () => {
+
+            sessionStorage.removeItem('petCareId');
+
 
                     booking(); // Proceed with the booking logic
                 } 
@@ -628,6 +679,7 @@
             document.querySelectorAll("input, select").forEach((input) => {
                 input.addEventListener("input", () => validateField(input));
             });
+
         });
 
         if (serviceID === null) {
@@ -839,7 +891,7 @@
                         });
 
                         transaction(linkTransaction, json.data.id);
-                    } 
+                    }
                     // else {
                     //     Swal.fire({
                     //         icon: "error",
@@ -851,74 +903,6 @@
                 });
         
         
-                function booking() {
-                    const selectedAnimal = document.querySelector('#animalType').value;
-        
-                    const totalPriceLabel = document.querySelector('#priceLabel')
-                        .value = document.querySelector('#priceLabel').value.replace('$', '');;
-                    const startDate = document.querySelector('#dateTime').value;
-                    const endDate = document.querySelector('#dateTime1').value;
-                    let linkTransaction = document.querySelector('#tran-link').files[0];
-        
-                    calculatePriceAndDays()
-        
-                    // console.log('animal :', selectedAnimal);
-                    // console.log('Total Price :', totalPriceLabel);
-                    // console.log(startDate);
-                    // console.log(endDate);
-                    // console.log(priceLabel);
-                    // console.log(dayLabel);
-        
-        
-                    let formData = new FormData();
-                    formData.append('pet_care_service_id', serviceID)
-                    formData.append('pet_care_animal_id', selectedAnimal)
-                    formData.append('pet_care_start_date', startDate)
-                    formData.append('pet_care_end_date', endDate)
-                    formData.append('pet_care_price', totalPriceLabel)
-                    
-        
-                    // Log the FormData contents
-                    for (let [key, value] of formData.entries()) {
-                        console.log(`${key}: ${value}`);
-                    }
-                    fetch('https://mps4.chandalen.dev/api/books', {
-                        method: 'POST',
-                        headers: {
-                            'Accept': "application/json",
-                            'Authorization': `Bearer ${authToken}`
-                        },
-                        body: formData
-                    })
-                        .then(res => res.json())
-                        .then(json => {
-        
-                            if (json.result === true) {
-        
-                                console.log(json.message)
-        
-                                let data_id = json.data.id;
-                                // console.log('ID buyer ', data_id);
-                                transaction(linkTransaction, data_id);
-        
-                                console.log(json);
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Booking Successful!',
-                                    text: 'Your booking has been confirmed.',
-                                    confirmButtonText: 'Okay', // The button text
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        location.href = 'http://127.0.0.1:5502/pages/profile-daycare.html'; // Update with the correct URL
-                                    }
-                                });
-        
-                            } else {
-                                // console.log(json.message)
-                                // alert(json.message)
-                            }
-                        })
-                }
                 document.querySelector('#btn-book').addEventListener('click', () => {
         
                     booking();
@@ -928,9 +912,9 @@
     
 
     <!-- <script src="../vendor/global/global.min.js"></script> -->
-	<script src="../js/custom.js"></script>
-    
-    
+    <script src="../js/custom.js"></script>
+
+
 </body>
 
 </html>
