@@ -29,13 +29,13 @@
     <!--*******************
         Preloader start
     ********************-->
-	<div id="preloader">
-		<div class="lds-ripple">
-			<div></div>
-			<div></div>
-		</div>
-	</div>
-	<!--*******************
+    <div id="preloader">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--*******************
         Preloader end
     ********************-->
 
@@ -56,14 +56,16 @@
                             <a class="nav-link fw-medium" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item mx-lg-2 dropdown">
-                            <a class="nav-link dropdown-toggle  black-nav fw-medium pe-0" href="pages/service-main.html" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle  black-nav fw-medium pe-0" href="pages/service-main.html"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Service
                             </a>
                             <ul class="dropdown-menu  dropdown-services">
-                                <li><a class="dropdown-item text-black fw-medium " href="../pages/service-main.html">Service main</a>
+                                <li><a class="dropdown-item text-black fw-medium "
+                                        href="../pages/service-main.html">Service main</a>
                                 </li>
-                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet Day care</a>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet
+                                        Day care</a>
                                 </li>
                                 <li><a class="dropdown-item text-black fw-medium" href="../pages/petGrooming.html">Pet
                                         Grooming</a>
@@ -246,40 +248,46 @@
         <section class="mt-5">
             <div class="container d-flex justify-content-center">
                 <div class="col-9">
-                    <div class="row d-flex justify-content-center needs-validation glass p-4" style="z-index: 888;" novalidate>
+                    <div class="row d-flex justify-content-center needs-validation glass p-4" style="z-index: 888;"
+                        novalidate>
                         <form class=" row align-items-center row-gap-3">
                             <h4 class="mt-3 fw-bold">Booking information</h4>
+                            <!-- Select Pet Type -->
                             <div class="col-4">
-                                <label for="">Select pet type:</label>
-                                <select class="form-select" aria-label="Default select example" id="animalType"
-                                    required>
+                                <label for="animalType">Select pet type:</label>
+                                <select class="form-select" aria-label="Default select example" id="animalType" required
+                                    title="Please select">
                                     <option selected disabled>Please select</option>
-                                    
+
                                 </select>
                                 <div class="invalid-feedback" id="formselect-error"></div>
-                                <div class="valid-feedback text-success" id="formselect-success">Select looks good!</div>
+                                <div class="valid-feedback text-success" id="formselect-success">Select looks good!
+                                </div>
                             </div>
-                            <div class="col-4 mt-3">
-                                <label for="">Datetime:</label>
 
+                            <!-- Date Time Input -->
+                            <div class="col-4 mt-3">
+                                <label for="dateTime">Datetime:</label>
                                 <div class="form-group">
                                     <div class="input-group date" id="datetimepicker" data-target-input="nearest">
                                         <input type="text" id="dateTime" class="form-control datetimepicker-input"
-                                            data-target="#datetimepicker" placeholder="Select date and time" />
+                                            data-target="#datetimepicker" placeholder="Select date and time"
+                                            title="Please select a date and time" />
                                         <div class="input-group-append" data-target="#datetimepicker"
                                             data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>
-
-
                                     </div>
                                 </div>
                                 <div class="invalid-feedback" id="dateTime-error"></div>
-                                <div class="valid-feedback text-success" id="dateTime-success">Date time looks good!</div>
+                                <div class="valid-feedback text-success" id="dateTime-success">Date time looks good!
+                                </div>
+
                             </div>
                             <div class="col-4">
                                 <label for="">Price:</label>
                                 <input type="text" class="form-control" id="priceLabel" placeholder="Price" disabled>
+
                             </div>
 
                             <h4 class="my-2 fw-bold">Payment</h4>
@@ -327,8 +335,8 @@
                                             </h1>
                                             <input class="form-control py-2 bg-white mt-3" id="tran-link" type="file"
                                                 required />
-                                                <div class="invalid-feedback" id="file-error"></div>
-                                                <!-- <div class="valid-feedback text-success" id="dateTime-success">Date time looks good!</div> -->
+                                            <div class="invalid-feedback" id="file-error"></div>
+                                            <!-- <div class="valid-feedback text-success" id="dateTime-success">Date time looks good!</div> -->
                                             <button class="btn btn-warning w-100 mt-3 text-white mb-0" type="button"
                                                 id="btn-book">Book Now</button>
                                         </div>
@@ -557,76 +565,100 @@
             const animalTypeSelect = document.getElementById("animalType");
             const dateTimeInput = document.getElementById("dateTime");
             const priceLabel = document.getElementById("priceLabel");
-    
-            // Initialize the invalid-feedback element as hidden
+
             fileError.style.display = "none";
-    
+
+            // Select elements
+            const formselectError = document.getElementById("formselect-error");
+            const dateTimeError = document.getElementById("dateTime-error");
+
+
             // Add click event listener to the "Book Now" button
             bookButton.addEventListener("click", function (event) {
                 let isValid = true;
-    
+
                 // Validate file input
                 if (!fileInput.value) {
                     isValid = false;
+                    fileInput.classList.add("is-invalid");
+                    fileInput.title = "Please upload a transaction file.";  // Custom title
                     fileError.style.display = "block";
                     fileError.textContent = "Please upload a transaction file.";
-                    fileInput.classList.add("is-invalid");
                 } else {
-                    fileError.style.display = "none";
                     fileInput.classList.remove("is-invalid");
+                    fileInput.title = "Chosen file";  // Show custom title for chosen file
+                    fileError.style.display = "none";
                 }
-    
+
                 // Validate animal type selection
                 if (!animalTypeSelect.value || animalTypeSelect.value === "Please select") {
                     isValid = false;
                     animalTypeSelect.classList.add("is-invalid");
+                    animalTypeSelect.title = "Please select a pet type.";  // Custom title
+                    formselectError.style.display = "block";
+                    formselectError.textContent = "Please select a pet type.";  // Custom error message for invalid input
                 } else {
                     animalTypeSelect.classList.remove("is-invalid");
+                    animalTypeSelect.title = "Pet type selected";  // Custom title for valid input
+                    formselectError.style.display = "none";
                 }
-    
+
                 // Validate datetime input
                 if (!dateTimeInput.value) {
                     isValid = false;
                     dateTimeInput.classList.add("is-invalid");
+                    dateTimeInput.title = "Please select a date and time.";  // Custom title
+                    dateTimeError.style.display = "block";
+                    dateTimeError.textContent = "Please select a date and time.";
                 } else {
                     dateTimeInput.classList.remove("is-invalid");
+                    dateTimeInput.title = "Datetime selected";  // Custom title for valid input
+                    dateTimeError.style.display = "none";
                 }
-    
+
                 // If form is not valid, prevent submission
                 if (!isValid) {
                     event.preventDefault();
-                    alert("Please fill out all required fields correctly.");
+                    Inconrrect({
+                        title: 'Please fill out all required fields correctly.',
+                        // description: 'Welcome back Admin! Redirecting...',
+                        iconType: ''
+                    })
+                    
                 } else {
                     // Proceed with the booking if all fields are valid
                     booking();
                 }
             });
-    
+
             // Add event listeners to remove validation on valid input
             animalTypeSelect.addEventListener("change", function () {
                 if (animalTypeSelect.value !== "Please select") {
                     animalTypeSelect.classList.remove("is-invalid");
+                    animalTypeSelect.title = "Pet type selected";  // Custom title for valid selection
                 }
             });
-    
+
             dateTimeInput.addEventListener("input", function () {
                 if (dateTimeInput.value) {
                     dateTimeInput.classList.remove("is-invalid");
+                    dateTimeInput.title = "Datetime selected";  // Custom title for valid input
                 }
             });
-    
+
             fileInput.addEventListener("change", function () {
                 if (fileInput.value) {
                     fileInput.classList.remove("is-invalid");
+                    fileInput.title = "Chosen file";  // Custom title for chosen file
                 }
             });
-    
+
             // Fetching service details and handling the price dynamically
             let serviceID = sessionStorage.getItem('serviceID');
             if (!serviceID) {
                 location.href = 'http://127.0.0.1:5502/../pages/petGrooming.html';
             }
-    
+
             serviceList();
             function serviceList() {
                 fetch('https://mps4.chandalen.dev/api/services/' + serviceID, {
@@ -636,12 +668,12 @@
                         'Authorization': `Bearer ${authToken}`
                     }
                 })
-                .then(res => res.json())
-                .then(json => {
-                    document.querySelector('#book-service').innerHTML = json.data.title;
-                });
+                    .then(res => res.json())
+                    .then(json => {
+                        document.querySelector('#book-service').innerHTML = json.data.title;
+                    });
             }
-    
+
             // Dynamically populate animal types and prices
             function getDetailId() {
                 fetch('https://mps4.chandalen.dev/api/services/' + serviceID, {
@@ -651,32 +683,32 @@
                         'Authorization': `Bearer ${authToken}`
                     }
                 })
-                .then(res => res.json())
-                .then(json => {
-                    let animalService = document.querySelector('#animalType');
-                    animalService.innerHTML = '<option selected disabled>Please select</option>';
-                    let priceLabel = document.querySelector('#priceLabel');
-                    json.data.prices.forEach(animalType => {
-                        let option = document.createElement('option');
-                        option.value = animalType.id;
-                        option.textContent = animalType.animal.name;
-                        option.dataset.price = animalType.price; // Store price as a data attribute
-                        animalService.appendChild(option);
+                    .then(res => res.json())
+                    .then(json => {
+                        let animalService = document.querySelector('#animalType');
+                        animalService.innerHTML = '<option selected disabled>Please select</option>';
+                        let priceLabel = document.querySelector('#priceLabel');
+                        json.data.prices.forEach(animalType => {
+                            let option = document.createElement('option');
+                            option.value = animalType.id;
+                            option.textContent = animalType.animal.name;
+                            option.dataset.price = animalType.price; // Store price as a data attribute
+                            animalService.appendChild(option);
+                        });
+
+                        // Update price when animal type is selected
+                        animalService.addEventListener('change', (event) => {
+                            const selectedOption = event.target.selectedOptions[0];
+                            priceLabel.value = selectedOption ? `$${selectedOption.dataset.price}` : '';
+                        });
                     });
-    
-                    // Update price when animal type is selected
-                    animalService.addEventListener('change', (event) => {
-                        const selectedOption = event.target.selectedOptions[0];
-                        priceLabel.value = selectedOption ? `$${selectedOption.dataset.price}` : '';
-                    });
-                });
             }
-    
+
             // Function to handle transaction file upload
             function transaction(linkTransaction, serviceID) {
                 let formData = new FormData();
                 formData.append('transaction_file', linkTransaction);
-    
+
                 fetch('https://mps4.chandalen.dev/api/books/transaction-file/' + serviceID, {
                     method: 'POST',
                     headers: {
@@ -685,28 +717,28 @@
                     },
                     body: formData
                 })
-                .then(res => res.json())
-                .then(json => {
-                    // Handle transaction response if needed
-                    console.log(json);
-                });
+                    .then(res => res.json())
+                    .then(json => {
+                        // Handle transaction response if needed
+                        console.log(json);
+                    });
             }
-    
+
             // Function to handle booking
             function booking() {
                 let linkTransaction = document.querySelector('#tran-link').files[0];
                 let dateTime = document.querySelector('#dateTime').value;
                 let selectedId = document.querySelector('#animalType').value;
-    
+
                 if (!dateTime || !linkTransaction || !selectedId) {
                     alert("Please fill all fields before proceeding.");
                     return;
                 }
-    
+
                 let formData = new FormData();
                 formData.append('service_price_id', selectedId);
                 formData.append('come_date', dateTime);
-    
+
                 fetch('https://mps4.chandalen.dev/api/books', {
                     method: 'POST',
                     headers: {
@@ -715,27 +747,28 @@
                     },
                     body: formData
                 })
-                .then(res => res.json())
-                .then(json => {
-                    if (json.result === true) {
-                        let data_id = json.data.id;
-                        transaction(linkTransaction, data_id);
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Booking Successful!',
-                            text: 'Your booking has been confirmed.',
-                            confirmButtonText: 'Okay', // The button text
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                location.href = 'http://127.0.0.1:5502/pages/profile-grooming.html'; // Update with the correct URL
-                            }
-                        });
-                    } else {
-                        alert(json.message);
-                    }
-                });
+                    .then(res => res.json())
+                    .then(json => {
+                        if (json.result === true) {
+                            let data_id = json.data.id;
+                            transaction(linkTransaction, data_id);
+
+                            showModernToast({
+                                iconType: 'success',
+                                title: 'Booking Successful!',
+                                description: 'Your booking has been confirmed.',
+                                // confirmButtonText: 'Okay', // The button text
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.href = 'http://127.0.0.1:5502/pages/profile-grooming.html'; // Update with the correct URL
+                                }
+                            });
+                        } else {
+                            alert(json.message);
+                        }
+                    });
             }
-    
+
             // Initialize service details when page loads
             getDetailId();
         });
@@ -747,9 +780,9 @@
             footer: true
         });
     </script>
-	<script src="../js/custom.js"></script>
-    
-    
+    <script src="../js/custom.js"></script>
+
+
 </body>
 
 </html>

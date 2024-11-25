@@ -30,6 +30,7 @@ button {
     box-shadow: rgba(255, 255, 255, 0.375) 0px 8px 24px;
 }
 
+
 .c-item {
     height: 85vh;
 }
@@ -54,11 +55,8 @@ button {
 
 .section-top {
     margin-top: -100px;
+
 }
-
-
-/* start header 
- =====================*/
 
 header {
     position: fixed;
@@ -77,14 +75,7 @@ header.sticky {
 
 .navbar .navbar-brand img {
     transform: scale(1.5);
-}
 
-header .navbar .navbar-nav .nav-item .nav-link {
-    color: white;
-}
-
-header.sticky .navbar .navbar-nav .nav-item .nav-link {
-    color: black;
 }
 
 header.sticky .navbar .navbar-nav .nav-item .nav-link:hover {
@@ -104,12 +95,10 @@ header.sticky .btn-login-header {
 .btn-login-header {
     width: 100px;
     height: 40px;
+
 }
 
-.navbar-nav {
-    right: 0;
-    margin: auto;
-}
+
 
 .navbar .navbar-nav .nav-item .nav-link {
     width: 100px;
@@ -177,33 +166,12 @@ header.sticky .btn-login-header {
     font-size: 1.6rem;
     border: 0;
 }
-/* end header 
- =====================*/
 
 
 /* Homepage 
   =====================*/
 .home-page .about img {
     width: 100%;
-}
-
-.hp-user {
-    width: 38px;
-    height: 38px;
-    border: 2px solid rgb(255, 255, 255);
-}
-.ph-user2{
-    width: 80px;
-    height: 80px;
-    border: 2px solid rgb(255, 255, 255);
-}
-
-
-.hp-user .changeImg,
-.ph-user2 .changeImg {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
 }
 
 .home-page .about .px-text {
@@ -434,45 +402,7 @@ header.sticky .btn-login-header {
 }
 
 /* ============== toast =========  */
-.modern-toast {
-    background-color: #20232a;
-    color: #ffffff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    padding: 16px;
-    text-align: left;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    width: 350px;
-    animation: slideIn 0.5s ease-out;
-}
 
-.swal2-timer-progress-bar {
-    background-color: #4caf50;
-    height: 4px;
-    border-radius: 2px;
-}
-
-.swal-close-btn {
-    color: #ffffff;
-    font-size: 12px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 .style-1 {
     overflow: hidden !important;
@@ -882,6 +812,14 @@ header.sticky .btn-login-header {
     line-height: 35px;
     color: #fff;
 
+}
+
+.changeImg {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-top: -5px;
+    object-fit: cover;
 }
 
 header.sticky .icon-search-homepage {
@@ -1789,6 +1727,7 @@ header .btn-login:hover {
     background-color: #141414;
 }
 
+
 .form-group.position-relative {
     position: relative;
 }
@@ -1894,6 +1833,7 @@ header .btn-login:hover {
     margin-top: -20%;
 }
 
+
 .faq .faq-q ul li{
     border-bottom: 1px solid gainsboro;
 }
@@ -1903,4 +1843,74 @@ header .btn-login:hover {
 }
 .faq .faq-q ul li:hover a{
     color: #000 !important;
+
+/* style toast */
+
+.modern-toast {
+    background-color: #fff3e7 !important;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    /* padding: 16px; */
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 4px 5px rgba(52, 52, 52, 0.386) !important;
+    width: 320px !important;
+    animation: slideIn 0.5s ease-out;
+}
+
+.swal2-timer-progress-bar {
+    background-color: #f1870d;
+    height: 3px;
+    border-radius: 2px;
+}
+
+/* Change border and background of the success icon (checkmark) */
+.swal2-icon.swal2-success {
+    border-color: #f1870d;
+    /* Change border color */
+    background-color: #f1870d;
+    /* Change background color */
+}
+
+/* Change the color of the checkmark inside */
+.swal2-icon.swal2-success .swal2-success-line {
+    background-color: #ffffff;
+    /* Keep the checkmark line white */
+}
+
+/* Optional: Change the border color of the checkmark's circle */
+.swal2-icon.swal2-success .swal2-success-ring {
+    border-color: #f1870d;
+    /* Change ring border color */
+}
+
+.swal-close-btn {
+    color: #f1870d;
+    font-size: 40px !important;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.swal2-icon.swal2-success {
+    border-color: #f1870d;
+}
+
+.swal2-icon.swal2-success [class^="swal2-success-line"] {
+    background-color: #f1870d;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 }

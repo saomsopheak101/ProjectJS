@@ -1815,6 +1815,7 @@
 			let worktime = document.querySelector('#worktime').value;
 			let workday = document.querySelector('#workday').value;
 			let position = document.querySelector('#position').value;
+			let address = document.querySelector('#gaddress').value;
 			let description = document.querySelector('#gdescription').value
 
 			// Validate selection
@@ -1847,6 +1848,7 @@
 			formData.append("work_time_id", worktime);
 			formData.append("work_day_id", workday);
 			formData.append("position_id", position);
+			formData.append("address", address);
 			formData.append("description", description);
 
 			// Post employee data

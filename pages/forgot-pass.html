@@ -321,20 +321,97 @@
                 .then(json => {
                     if (json.result === true) {
                         sessionStorage.setItem('StoreEmail', email);
-                        console.log(json.message);
-                        alert(json.message);
-                        location.href = 'http://127.0.0.1:5502/../pages/otp.html';
+                        // console.log(json.message);
+                        showModernToast(
+                            {
+                                title: 'Forgot password successful!',
+                                description: 'We sent OTP to your email.',
+                                iconType: 'success'
+                            },
+                            setTimeout(() => {
+                                location.href = 'http://127.0.0.1:5502/../pages/otp.html';
+                            }, 3000))
+
                     } else {
-                        alert('Failed to send OTP, please try again.');
+                        Inconrrect({
+                            title: 'Failed to send OTP, please try again.',
+                        })
                     }
                 })
 
         }
+
+        function showModernToast({
+            title = '',
+            description = '',
+            iconType = 'success',
+            position = 'top-right',
+            timer = 3000,
+            hasCloseButton = true,
+        }) {
+            Swal.fire({
+                toast: true,
+                position: position,
+                icon: iconType,
+                title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
+                html: description
+                    ? `<p style="margin: -4px; font-size: 13px; color: #101114;">${description}</p>`
+                    : '',
+                customClass: {
+                    popup: 'modern-toast',
+                    closeButton: hasCloseButton ? 'swal-close-btn' : '',
+                },
+                showConfirmButton: false,
+                timer: timer,
+                timerProgressBar: true,
+                showCloseButton: hasCloseButton,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer);
+                    toast.addEventListener('mouseleave', Swal.resumeTimer);
+                },
+            });
+
+        }
+        function Inconrrect({
+            title = '',
+            description = '',
+            iconType = 'error',
+            position = 'top-right',
+            timer = 3000,
+            hasCloseButton = true,
+        }) {
+            Swal.fire({
+                toast: true,
+                position: position,
+                icon: iconType,
+                title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
+                html: description
+                    ? `<p style="margin: -4px; font-size: 12px; color: #101114;">${description}</p>`
+                    : '',
+                customClass: {
+                    popup: 'modern-toast',
+                    closeButton: hasCloseButton ? 'swal-close-btn' : '',
+                },
+                showConfirmButton: false,
+                timer: timer,
+                timerProgressBar: true,
+                showCloseButton: hasCloseButton,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer);
+                    toast.addEventListener('mouseleave', Swal.resumeTimer);
+                },
+            });
+
+        }
     </script>
-    
+
+    <script src="../js/petzone/login.js"></script>
+    <script src="../js/sweetalert2@11.js"></script>
+
+
     <!-- Preloader -->
     <script src="../vendor/global/global.min.js"></script>
-	<script src="../js/custom.js"></script>
+    <script src="../js/custom.js"></script>
 
 </body>
 
