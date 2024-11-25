@@ -5,7 +5,7 @@
 
 <head>
 	<!-- Title -->
-	<title>Service - Dashboard</title>
+	<title>PetZone - Dashboard</title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -1245,10 +1245,9 @@
 							<span class="nav-text">Consult</span>
 						</a>
 						<ul aria-expanded="false">
-                            <li><a href="../pages/consult-pending-face to face.html">Pending Face to face</a></li>
-                            <li><a href="../pages/consult-pending-online.html">Pending Online</a></li>
-                            <li><a href="../pages/consult-table.html">History Clients</a></li>
-                        </ul>
+							<li><a href="../pages/consult-reply.html">Reply Clients</a></li>
+							<li><a href="../pages/consult-table.html">History Clients</a></li>
+						</ul>
 					</li>
 					<li>
 						<a href="../pages/trainee.html" aria-expanded="false">
@@ -1329,7 +1328,7 @@
 					<li>
 						<h5 class="bc-title">Services</h5>
 					</li>
-					<li class="breadcrumb-item me-2"><a href="index.html">
+					<li class="breadcrumb-item"><a href="index.html">
 							<!-- SVG icon -->
 							<svg width="17" height="17" viewBox="0 0 17 17" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
@@ -1340,9 +1339,9 @@
 									stroke-linejoin="round" />
 							</svg> Home
 						</a></li>
-					<li class=" active"><a href="javascript:void(0)"> / Services</a></li>
+					<li class="breadcrumb-item active"><a href="javascript:void(0)">Services</a></li>
 				</ol>
-				<a class="text-warning fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button"
+				<a class="text-primary fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button"
 					aria-controls="offcanvasExample1">+ Add Task</a>
 			</div>
 			<div class="container-fluid">
@@ -1369,10 +1368,10 @@
 										<!-- Service Table -->
 										<div class="tab-pane fade show active" id="pills-service" role="tabpanel"
 											aria-labelledby="pills-service-tab">
-											<div class="">
-												<div class="d-flex justify-content-between" style="margin-top: -50px;">
-													<h3 class="mb-3"></h3>
-													<button class="btn btn-warning mb-3 py-2"  onclick="CreateService()">Add
+											<div class="container mt-5">
+												<div class="d-flex justify-content-between">
+													<h3 class="mb-3">Services</h3>
+													<button class="btn btn-warning mb-3" onclick="CreateService()">Add
 														Service</button>
 												</div>
 												<table class="table shadow-sm ">
@@ -1396,10 +1395,10 @@
 										<!-- Animal Table -->
 										<div class="tab-pane fade" id="pills-animal" role="tabpanel"
 											aria-labelledby="pills-animal-tab">
-											<div class="">
-												<div class="d-flex justify-content-between" style="margin-top: -50px;">
-													<h3 class="mb-3"></h3>
-													<button class="btn btn-warning mb-3 py-2" data-bs-toggle="offcanvas"
+											<div class="container mt-5">
+												<div class="d-flex justify-content-between">
+													<h3 class="mb-3">Animals</h3>
+													<button class="btn btn-warning mb-3" data-bs-toggle="offcanvas"
 														data-bs-target="#animalOffcanvas">Add Animal</button>
 												</div>
 												<table class="table table-bordered table-animal">
@@ -1464,8 +1463,11 @@
 							<textarea id="service-description" class="form-control"></textarea>
 						</div>
 						<div class="mb-3">
-							<label for="image" class="form-label">Image</label>
-							<input type="file" id="image" class="form-control">
+							<div class="form-group">
+								<label for="image">Upload Image:</label>
+								<input type="file" id="image" name="image" class="form-control">
+								<img id="image-preview" style="max-width: 100%; display: none;" alt="Service Preview">
+							</div>							
 						</div>
 						<button type="button" id="btn-sub" class="btn btn-primary change-subtxt"
 							onclick="btnCreate()">Submit</button>
@@ -1804,46 +1806,49 @@
 		}
 
 		function UpdateService(id) {
-			fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
-				headers: {
-					'Accept': 'application/json',
-					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
-				}
-			})
-				.then(response => response.json())
-				.then(service => {
-					console.log("Fetched service data:", service);
-					if (service.result) {
-						// Populate the form fields with fetched data
-						const titleElement = document.getElementById('title');
-						if (titleElement) titleElement.value = service.data.title || '';
+    fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
+        }
+    })
+    .then(response => response.json())
+    .then(service => {
+        console.log("Fetched service data:", service);
+        if (service.result) {
+            // Populate the form fields with fetched data
+            document.getElementById('service-title').value = service.data.title || '';
+            document.getElementById('service-feature').value = service.data.feature || '';
+            document.getElementById('service-description').value = service.data.description || '';
+            
+            // Image preview (if applicable)
+            if (service.data.image) {
+                const imagePreview = document.getElementById('image-preview');
+                imagePreview.src = service.data.image; // Set the image source
+                imagePreview.style.display = 'block'; // Ensure the image is visible
+            } else {
+                // Hide the preview if no image
+                const imagePreview = document.getElementById('image-preview');
+                imagePreview.style.display = 'none';
+                imagePreview.src = ''; // Clear the source
+            }
 
-						const featureElement = document.getElementById('feature');
-						if (featureElement) featureElement.value = service.data.feature || '';
+            // Set the hidden service ID field
+            document.getElementById('service-id').value = service.data.id || '';
 
-						const imageElement = document.getElementById('image');
-						if (imageElement) imageElement.src = service.data.image || '';
+            // Update button text
+            document.querySelector('.update-service').innerText = 'Update Service';
+            document.querySelector('.change-subtxt').innerText = 'Update';
 
-						const descriptionElement = document.getElementById('description');
-						if (descriptionElement) descriptionElement.value = service.data.description || '';
-
-						const serviceIdElement = document.getElementById('service-id');
-						if (serviceIdElement) serviceIdElement.value = service.data.id || '';
-
-						document.querySelector('.update-service').innerText = 'Update Service';
-						document.querySelector('.change-subtxt').innerText = 'Update';
-
-						const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
-						offcanvas.show();
-					} else {
-						alert(service.message || 'Failed to load service data.');
-					}
-				})
-				.catch(error => console.error("Error fetching service for update:", error));
-		}
-
-
-
+            // Show the offcanvas form
+            const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
+            offcanvas.show();
+        } else {
+            alert(service.message || 'Failed to load service data.');
+        }
+    })
+    .catch(error => console.error("Error fetching service for update:", error));
+}
 
 
 		function showAddPriceModal(serviceId) {
@@ -1944,49 +1949,6 @@ function showUpdatePriceModal(priceId) {
     .catch(error => {
         console.error("Error fetching price data:", error);
         alert("An error occurred while fetching price data.");
-    });
-}
-
-function UpdatePrice(priceId, serviceId) {
-    const animalId = document.getElementById("animal_id").value;
-    const price = document.getElementById("price").value;
-
-    // Validate inputs
-    if (!serviceId || !price) {
-        alert("Service ID and price are required.");
-        return;
-    }
-
-    // Prepare form-urlencoded data
-    const params = new URLSearchParams();
-    params.append("service_id", serviceId);
-    params.append("animal_id", animalId);
-    params.append("price", price);
-
-    // Make the API request to update price
-    fetch(`https://mps4.chandalen.dev/api/services/price/${priceId}`, {
-        method: "PUT",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Authorization": `Bearer ${sessionStorage.getItem('adminToken')}`
-        },
-        body: params.toString()
-    })
-    .then(response => response.json())
-    .then(result => {
-        if (result.result) {
-            alert("Price updated successfully!");
-            const modal = bootstrap.Modal.getInstance(document.getElementById("editPriceModal"));
-            modal.hide(); // Close modal
-            location.reload(); // Refresh the page
-        } else {
-            alert("Failed to update price.");
-        }
-    })
-    .catch(error => {
-        console.error("Error updating price:", error);
-        alert("An error occurred while updating the price.");
     });
 }
 
