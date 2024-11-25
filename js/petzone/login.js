@@ -93,7 +93,6 @@ function validatePassword(password) {
     return true;
 }
 
-
 function handleLoginSuccess(json) {
     if (json.data.roles && json.data.roles.length > 0) {
         const roleName = json.data.roles[0].name;
@@ -142,7 +141,7 @@ function showModernToast({
         toast: true,
         position: position,
         icon: iconType,
-        title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
+        title: `<p style="color:#f49943; margin-bottom:0px;">${title}</p>`,
         html: description
             ? `<p style="margin: 0; font-size: 11px; color: #a8a8a8;">${description}</p>`
             : '',
@@ -173,7 +172,7 @@ function Inconrrect({
         toast: true,
         position: position,
         icon: iconType,
-        title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
+        title: `<p style="color:#f49943; margin-bottom:0px;">${title}</p>`,
         html: description
             ? `<p style="margin: 0; font-size: 11px; color: #a8a8a8;">${description}</p>`
             : '',
