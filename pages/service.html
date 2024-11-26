@@ -1477,11 +1477,13 @@
 								</div>
 							</div>
 						</div>
+						<!-- Create/Update Button -->
 						<button type="button" id="btn-sub" class="btn btn-primary change-subtxt"
 							onclick="btnCreate()">Submit</button>
 					</form>
 				</div>
 			</div>
+
 
 			<!-- Modal for Viewing Service Details -->
 			<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel"
@@ -1519,6 +1521,7 @@
 					<div class="mb-3">
 						<label for="animal_name" class="form-label">Name</label>
 						<input type="text" id="animal_name" class="form-control" required>
+						<small id="animal_name_error" class="text-danger d-none">Please enter a valid name </small>
 					</div>
 				</div>
 				<div class="offcanvas-footer d-flex justify-content-end">
@@ -1527,6 +1530,7 @@
 						onclick="handleAnimalAction()">Save</button>
 				</div>
 			</div>
+
 			<!-- Modal for Editing/Adding Service Price -->
 			<div class="modal fade" id="editPriceModal" tabindex="-1" aria-labelledby="editPriceModalLabel"
 				aria-hidden="true">
@@ -1543,22 +1547,26 @@
 							<form id="priceForm">
 								<!-- Service ID -->
 								<div class="mb-3">
-									<label for="service_id" class="form-label">Service ID</label>
+									<label for="service_id" class="form-label" id="service_id_label">Service ID</label>
 									<input type="text" id="service_id" class="form-control"
 										placeholder="Enter Service ID">
+									<span class="text-danger" id="service_id_error"></span>
 								</div>
 								<!-- Animal ID -->
 								<div class="mb-3">
-									<label for="animal_id" class="form-label">Type of Pet</label>
+									<label for="animal_id" class="form-label" id="animal_id_label">Type of Pet</label>
 									<input type="text" id="animal_id" class="form-control"
 										placeholder="Enter Animal Type">
+									<span class="text-danger" id="animal_id_error"></span>
 								</div>
 								<!-- New Price -->
 								<div class="mb-3">
-									<label for="price" class="form-label">New Price</label>
+									<label for="price" class="form-label" id="price_label">New Price</label>
 									<input type="number" id="price" class="form-control" placeholder="Enter Price">
+									<span class="text-danger" id="price_error"></span>
 								</div>
 							</form>
+
 						</div>
 						<!-- Modal Footer -->
 						<div class="modal-footer">
@@ -1760,38 +1768,38 @@
 					document.querySelector('.service-tbody').innerHTML = '<tr><td colspan="7" class="text-center text-danger">Failed to load services.</td></tr>';
 				});
 		}
+		// Reset form for creating a new service
 		function CreateService() {
-			// Reset the form for creating a new service
 			const form = document.getElementById('service-form');
 			form.reset(); // Reset all input fields
+			document.getElementById('service-id').value = ''; // Clear hidden service ID
 
-			// Clear the hidden service ID and update button text
-			document.getElementById('service-id').value = '';
+			// Reset button and title for adding a service
 			document.querySelector('.change-subtxt').innerText = 'Submit';
 			document.querySelector('.update-service').innerText = 'Add Service';
-			document.querySelector('.change-subtxt').innerText = 'Update';
-			document.querySelector('.update-service').innerText = 'Update Service';
 
+			resetErrors(); // Clear error messages
+			resetImagePreview(); // Reset image preview
 
-			// Clear error messages and borders
-			resetErrors();
-
-			// Reset the image preview
-			const imagePreview = document.getElementById('image-preview');
-			imagePreview.style.display = 'none';
-			imagePreview.src = '';
-
-			// Show the offcanvas form
+			// Show offcanvas form
 			const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
 			offcanvas.show();
 		}
 
+		// Reset error styles and messages
 		function resetErrors() {
-			// Hide all error messages
 			document.querySelectorAll('.text-danger').forEach(el => el.style.display = 'none');
 			document.querySelectorAll('.form-control').forEach(el => el.style.border = '');
 		}
 
+		// Reset image preview to default state
+		function resetImagePreview() {
+			const imagePreview = document.getElementById('image-preview');
+			imagePreview.style.display = 'none';
+			imagePreview.src = '';
+		}
+
+		// Validate form fields
 		function validateForm() {
 			resetErrors();
 			let isValid = true;
@@ -1805,19 +1813,17 @@
 			return isValid;
 		}
 
+		// Function for creating a new service
 		function btnCreate() {
 			const title = document.getElementById('service-title').value;
 			const feature = document.getElementById('service-feature').value;
 			const description = document.getElementById('service-description').value;
-			const serviceId = document.getElementById('service-id').value;
 			const image = document.getElementById('image').files[0]; // Get the image file
 
-			// Reset previous errors
+			// Validate form fields
 			resetErrors();
 
 			let isValid = true;
-
-			// Validation
 			if (!title) {
 				document.getElementById('title-error').style.display = 'block';
 				document.getElementById('service-title').style.border = '1px solid red';
@@ -1833,8 +1839,7 @@
 				document.getElementById('service-description').style.border = '1px solid red';
 				isValid = false;
 			}
-			if (!image && !serviceId) {
-				// Image is required only for new service creation
+			if (!image) {
 				document.getElementById('image-error').style.display = 'block';
 				document.getElementById('image').style.border = '1px solid red';
 				isValid = false;
@@ -1848,14 +1853,9 @@
 			formData.append('description', description);
 			if (image) formData.append('image', image);
 
-			// Determine method (POST for new service, PUT for update)
-			const method = serviceId ? 'PUT' : 'POST';
-			const url = serviceId
-				? `https://mps4.chandalen.dev/api/services/${serviceId}`
-				: 'https://mps4.chandalen.dev/api/services';
-
-			fetch(url, {
-				method,
+			// Send the create request
+			fetch('https://mps4.chandalen.dev/api/services', {
+				method: 'POST',
 				headers: {
 					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
 				},
@@ -1864,22 +1864,22 @@
 				.then(response => response.json())
 				.then(result => {
 					if (result.result) {
-						alert(result.message);
-						AllService(); // Reload the services list
+						alert('Service created successfully!');
+						AllService(); // Reload the service list
 						const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasExample'));
-						offcanvas.hide(); // Hide the offcanvas form after submission
+						offcanvas.hide();
 					} else {
-						alert(result.message || 'Failed to save service.');
+						alert(result.message || 'Failed to create service.');
 					}
 				})
-				.catch(error => console.error("Error submitting form:", error));
+				.catch(error => console.error("Error creating service:", error));
 		}
 
+		// Function for updating an existing service
 		function UpdateService(id) {
 			fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
-				method: 'GET', // Fetch service data for editing
+				method: 'GET',
 				headers: {
-					'Accept': 'application/json',
 					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
 				}
 			})
@@ -1888,7 +1888,7 @@
 					if (service.result) {
 						const data = service.data;
 
-						// Populate form fields
+						// Populate the form with the service data
 						document.getElementById('service-title').value = data.title || '';
 						document.getElementById('service-feature').value = data.feature || '';
 						document.getElementById('service-description').value = data.description || '';
@@ -1904,12 +1904,9 @@
 							imagePreview.style.display = 'none';
 						}
 
-						// Update button text
-						document.querySelector('.update-service').innerText = 'Update Service';
+						// Update button text and title for updating
 						document.querySelector('.change-subtxt').innerText = 'Update';
-
-						// Reset any previous errors
-						resetErrors();
+						document.querySelector('.update-service').innerText = 'Update Service';
 
 						// Show the offcanvas form
 						const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
@@ -1921,54 +1918,68 @@
 				.catch(error => console.error("Error fetching service for update:", error));
 		}
 
-		// Function to handle the update request
 		function btnUpdate() {
-			const serviceId = document.getElementById('service-id').value; // Get the service ID
-			const title = document.getElementById('service-title').value;
-			const feature = document.getElementById('service-feature').value;
-			const description = document.getElementById('service-description').value;
-			const image = document.getElementById('image').files[0]; // Get the uploaded file
+    const serviceId = document.getElementById('service-id').value.trim(); // Retrieve service ID
+    const title = document.getElementById('service-title').value.trim();
+    const feature = document.getElementById('service-feature').value.trim();
+    const description = document.getElementById('service-description').value.trim();
+    const image = document.getElementById('image').files[0];
 
-			// Validate form fields
-			resetErrors();
-			let isValid = true;
+    // Validate form fields
+    resetErrors();
+    let isValid = true;
 
-			if (!title) {
-				document.getElementById('title-error').style.display = 'block';
-				document.getElementById('service-title').style.border = '1px solid red';
-				isValid = false;
-			}
+    if (!title) {
+        document.getElementById('title-error').style.display = 'block';
+        document.getElementById('service-title').style.border = '1px solid red';
+        isValid = false;
+    }
+    if (!feature) {
+        document.getElementById('feature-error').style.display = 'block';
+        document.getElementById('service-feature').style.border = '1px solid red';
+        isValid = false;
+    }
+    if (!description) {
+        document.getElementById('description-error').style.display = 'block';
+        document.getElementById('service-description').style.border = '1px solid red';
+        isValid = false;
+    }
+    if (!serviceId) {
+        alert('Service ID is missing. Cannot update.');
+        return;
+    }
+    if (!isValid) return;
 
-			if (!isValid) return;
+    // Prepare form data for update
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('feature', feature);
+    formData.append('description', description);
+    if (image) formData.append('image', image);
 
-			const formData = new FormData();
-			formData.append('title', title);
-			formData.append('feature', feature);
-			formData.append('description', description);
-			if (image) formData.append('image', image);
-			formData.append('id', serviceId); // Include the service ID in the form data
+    // Send the update request
+    fetch(`https://mps4.chandalen.dev/api/services/${serviceId}`, {
+        method: 'PUT',
+        headers: {
+            'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.result) {
+            alert('Service updated successfully!');
+            AllService(); // Reload the service list
+            const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasExample'));
+            offcanvas.hide();
+        } else {
+            alert(result.message || 'Failed to update service.');
+        }
+    })
+    .catch(error => console.error("Error updating service:", error));
+}
 
-			// Send the update request
-			fetch(`https://mps4.chandalen.dev/api/services/${serviceId}`, {
-				method: 'POST', // Use POST for updates as per your API's requirement
-				headers: {
-					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
-				},
-				body: formData
-			})
-				.then(response => response.json())
-				.then(result => {
-					if (result.result) {
-						alert('Service updated successfully.');
-						AllService(); // Reload the list of services
-						const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasExample'));
-						if (offcanvas) offcanvas.hide();
-					} else {
-						alert(result.message || 'Failed to update service.');
-					}
-				})
-				.catch(error => console.error("Error updating service:", error));
-		}
+
 
 		function showAddPriceModal(serviceId) {
 			// Clear the form fields for adding a new price
@@ -1985,48 +1996,6 @@
 			modal.show();
 		}
 
-		function AddPrice(serviceId) {
-			const animalId = document.getElementById("animal_id").value;
-			const price = document.getElementById("price").value;
-
-			// Validate that price is entered
-			if (!animalId || !price) {
-				alert("Please enter a valid animal and price.");
-				return;
-			}
-
-			// Prepare form-urlencoded data
-			const params = new URLSearchParams();
-			params.append("service_id", serviceId);
-			params.append("animal_id", animalId);
-			params.append("price", price);
-
-			// Send the POST request to add the price
-			fetch("https://mps4.chandalen.dev/api/services/price", {
-				method: "POST",
-				headers: {
-					"Accept": "application/json",
-					"Content-Type": "application/x-www-form-urlencoded",
-					"Authorization": `Bearer ${sessionStorage.getItem('adminToken')}`
-				},
-				body: params.toString() // Use URLSearchParams as body
-			})
-				.then(response => response.json())
-				.then(result => {
-					if (result.result) {
-						alert("Price added successfully!");
-						const modal = bootstrap.Modal.getInstance(document.getElementById("editPriceModal"));
-						modal.hide(); // Close modal
-						location.reload(); // Refresh page to show updated price
-					} else {
-						alert("Failed to add price.");
-					}
-				})
-				.catch(error => {
-					console.error("Error adding price:", error);
-					alert("An error occurred while adding the price.");
-				});
-		}
 		function showUpdatePriceModal(priceId) {
 			// Fetch the price data for the given priceId
 			fetch(`https://mps4.chandalen.dev/api/services/price/${priceId}`, {
@@ -2053,10 +2022,10 @@
 							price: document.getElementById("price").value
 						});
 
-						// Update the save button to trigger UpdatePrice with the correct priceId and serviceId
+						// Update the save button to trigger UpdatePrice with the correct priceId
 						const saveBtn = document.getElementById("savePriceBtn");
-						saveBtn.textContent = 'Update Price';
-						saveBtn.onclick = () => UpdatePrice(priceId); // Pass priceId as the argument
+						saveBtn.textContent = 'Update Price'; // Change button text
+						saveBtn.onclick = () => UpdatePrice(priceId); // Pass priceId to the UpdatePrice function
 
 						// Show the modal
 						const modal = new bootstrap.Modal(document.getElementById('editPriceModal'));
@@ -2071,24 +2040,110 @@
 				});
 		}
 
-		function UpdatePrice(priceId) {
-			const animalId = document.getElementById("animal_id").value;
-			const price = document.getElementById("price").value;
-			const serviceId = document.getElementById("service_id").value;
 
-			// Validate inputs
-			if (!serviceId || !price) {
-				alert("Service ID and price are required.");
-				return;
+
+
+		function validateInputs() {
+			let isValid = true;
+
+			// Service ID
+			const serviceId = document.getElementById("service_id");
+			const serviceIdLabel = document.getElementById("service_id_label");
+			const serviceIdError = document.getElementById("service_id_error");
+			if (!serviceId.value.trim()) {
+				serviceId.classList.add("is-invalid");
+				serviceIdLabel.classList.add("invalid-label");
+				serviceIdError.textContent = "Service ID is required.";
+				isValid = false;
+			} else {
+				serviceId.classList.remove("is-invalid");
+				serviceIdLabel.classList.remove("invalid-label");
+				serviceIdError.textContent = "";
 			}
 
-			// Prepare form-urlencoded data
+			// Animal ID
+			const animalId = document.getElementById("animal_id");
+			const animalIdLabel = document.getElementById("animal_id_label");
+			const animalIdError = document.getElementById("animal_id_error");
+			if (!animalId.value.trim()) {
+				animalId.classList.add("is-invalid");
+				animalIdLabel.classList.add("invalid-label");
+				animalIdError.textContent = "Animal type is required.";
+				isValid = false;
+			} else {
+				animalId.classList.remove("is-invalid");
+				animalIdLabel.classList.remove("invalid-label");
+				animalIdError.textContent = "";
+			}
+
+			// Price
+			const price = document.getElementById("price");
+			const priceLabel = document.getElementById("price_label");
+			const priceError = document.getElementById("price_error");
+			if (!price.value.trim() || isNaN(price.value) || parseFloat(price.value) <= 0) {
+				price.classList.add("is-invalid");
+				priceLabel.classList.add("invalid-label");
+				priceError.textContent = "Please enter a valid price.";
+				isValid = false;
+			} else {
+				price.classList.remove("is-invalid");
+				priceLabel.classList.remove("invalid-label");
+				priceError.textContent = "";
+			}
+
+			return isValid;
+		}
+
+		function AddPrice(serviceId) {
+			if (!validateInputs()) return; // Stop if validation fails
+
+			const animalId = document.getElementById("animal_id").value.trim();
+			const price = document.getElementById("price").value.trim();
+
 			const params = new URLSearchParams();
 			params.append("service_id", serviceId);
 			params.append("animal_id", animalId);
 			params.append("price", price);
 
-			// Make the API request to update price
+			fetch("https://mps4.chandalen.dev/api/services/price", {
+				method: "POST",
+				headers: {
+					"Accept": "application/json",
+					"Content-Type": "application/x-www-form-urlencoded",
+					"Authorization": `Bearer ${sessionStorage.getItem('adminToken')}`
+				},
+				body: params.toString()
+			})
+				.then(response => response.json())
+				.then(result => {
+					if (result.result) {
+						alert("Price added successfully!");
+						const modal = bootstrap.Modal.getInstance(document.getElementById("editPriceModal"));
+						modal.hide();
+						location.reload();
+					} else {
+						alert("Failed to add price.");
+					}
+				})
+				.catch(error => {
+					console.error("Error adding price:", error);
+					alert("An error occurred while adding the price.");
+				});
+		}
+
+
+		function UpdatePrice(priceId) {
+			if (!validateInputs()) return; // Stop if validation fails
+
+			const animalId = document.getElementById("animal_id").value.trim();
+			const price = document.getElementById("price").value.trim();
+			const serviceId = document.getElementById("service_id").value.trim();
+
+			const params = new URLSearchParams();
+			params.append("service_id", serviceId);
+			params.append("animal_id", animalId);
+			params.append("price", price);
+
 			fetch(`https://mps4.chandalen.dev/api/services/price/${priceId}`, {
 				method: "PUT",
 				headers: {
@@ -2103,8 +2158,8 @@
 					if (result.result) {
 						alert("Price updated successfully!");
 						const modal = bootstrap.Modal.getInstance(document.getElementById("editPriceModal"));
-						modal.hide(); // Close modal
-						location.reload(); // Refresh the page
+						modal.hide();
+						location.reload();
 					} else {
 						alert("Failed to update price.");
 					}
@@ -2114,7 +2169,6 @@
 					alert("An error occurred while updating the price.");
 				});
 		}
-
 
 
 		function deleteService(id) {
@@ -2224,11 +2278,29 @@
 			updateOffcanvas.show();
 		}
 
+		// Function to validate the input
+		function validateAnimalName(name) {
+			const errorElement = document.querySelector('#animal_name_error');
+			const inputElement = document.querySelector('#animal_name');
+
+			if (!name || name.length < 3 || name.length > 50) {
+				errorElement.classList.remove('d-none');
+				inputElement.classList.add('is-invalid');
+				return false;
+			} else {
+				errorElement.classList.add('d-none');
+				inputElement.classList.remove('is-invalid');
+				inputElement.classList.add('is-valid');
+				return true;
+			}
+		}
+
+		// Function to handle the save/update button action
 		function handleAnimalAction() {
 			const animalName = document.querySelector('#animal_name').value.trim();
 
-			if (!animalName) {
-				alert('Please enter a valid animal name.');
+			// Validate the input
+			if (!validateAnimalName(animalName)) {
 				return;
 			}
 
@@ -2241,6 +2313,7 @@
 			}
 		}
 
+		// Function to add a new animal
 		function addAnimal(animalName) {
 			const adminToken = sessionStorage.getItem('adminToken');
 			if (!adminToken) {
@@ -2265,9 +2338,9 @@
 					} else {
 						alert(data.message || 'Failed to add animal. Please try again.');
 					}
-				})
+				});
 		}
-  
+
 		function updateAnimal(animalId, animalName) {
 			const adminToken = sessionStorage.getItem('adminToken');
 
@@ -2287,9 +2360,17 @@
 					} else {
 						alert('Failed to update animal.');
 					}
-				})
+				});
 		}
 
+		// Function to open the update offcanvas with pre-filled data
+		function openUpdateOffcanvas(id, name) {
+			document.querySelector('#animal_name').value = name;
+			document.querySelector('#save-animal-btn').textContent = 'Update'; // Change button text to "Update"
+			document.querySelector('#save-animal-btn').setAttribute('onclick', `updateAnimal(${id})`); // Update the function to call updateAnimal
+			const updateOffcanvas = new bootstrap.Offcanvas(document.querySelector('#animalOffcanvas'));
+			updateOffcanvas.show();
+		}
 		function deleteAnimal(animalId) {
 			const adminToken = sessionStorage.getItem('adminToken');
 
