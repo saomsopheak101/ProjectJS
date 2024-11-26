@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sign up</title>
+    <title>OTP</title>
     <link rel="shortcut icon" type="image/png" href="../images/img-pet/logo/favicon.png">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -87,7 +87,7 @@
             background-color: #fff;
         }
 
-        .form-logAndris .btn-login,
+        /* .form-logAndris .btn-login,
         .form-logAndris .btn-next {
             display: block;
             text-align: center;
@@ -98,7 +98,37 @@
             color: #fff;
             transition: background-color 0.3s ease;
             border: none;
+        } */
+        .form-otp{
+            text-align: center;
+            width: 100%;
         }
+        .form-otp .form-group{
+            width: 100%;
+        }
+        .form-otp .form-group .btn-bn{
+            width: 500px;
+            display: block;
+            text-align: center; 
+            padding: 8px 0;
+            border-radius: 19px;
+            background-color: #f49943;
+            color: #fff;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .form-otp .form-group #spinner{
+            width: 500px;
+            text-align: center;
+            padding: 8px 0;
+            border-radius: 19px;
+            background-color: #f49943;
+            color: #fff;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
 
         .form-logAndris .btn-next:hover {
             background-color: #d2823c;
@@ -283,9 +313,17 @@
                                             <input type="text" id="b5" class="form-control" maxlength="1" required>
                                             <input type="text" id="b6" class="form-control" maxlength="1" required>
                                         </div>
-                                        <div class="mt-4">
-                                            <input type="submit" class="btn-bn w-100" value="Next">
+                                        <div class="form-otp mt-4">
+                                            <div class="form-group ">
+                                                <input type="submit" class="btn-bn " value="Next" id="nextButton">
+                                                <button class="btn btn-primary d-none" id="spinner" type="button" disabled>
+                                                    <span class="spinner-border spinner-border-sm"
+                                                        aria-hidden="true"></span>
+                                                    <span role="status">Next...</span>
+                                                </button>
+                                            </div>
                                         </div>
+                                        
                                     </form>
 
                                 </div>

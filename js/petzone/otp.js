@@ -12,6 +12,11 @@ function subOtp() {
     let otpValue = otp1 + otp2 + otp3 + otp4 + otp5 + otp6;
     console.log(otpValue);
 
+     // Show loading spinner and update button text
+     let nextButton = document.querySelector('#nextButton');
+     let spinner = document.querySelector('#spinner');
+     nextButton.classList.add('d-none'); // Hide the Next button
+     spinner.classList.remove('d-none'); // Show the spinner button
     fetch('https://mps4.chandalen.dev/api/forgot/verify-otp', {
         method: 'POST',
         headers: {
@@ -25,10 +30,13 @@ function subOtp() {
     })
         .then(res => res.json())
         .then(json => {
-            console.log(json)
+            // console.log(json)
+             // Reset spinner and show the Next button
+             spinner.classList.add('d-none');
+             nextButton.classList.remove('d-none');
             if (json.result === true) {
                 sessionStorage.setItem('optCode', otpValue);
-                console.log(json.message);
+                // console.log(json.message);
                 showModernToast(
                     {
                        title: 'This OTP is correct!',
@@ -45,6 +53,16 @@ function subOtp() {
                 })
             }
         })
+        .catch(error => {
+            console.error('There was an error!', error);
+            spinner.classList.add('d-none');
+            nextButton.classList.remove('d-none');
+            Inconrrect({
+                title: 'Error',
+                description: 'Something went wrong. Please try again.',
+                iconType: 'error'
+            });
+        });
 
 }
 

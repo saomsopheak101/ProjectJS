@@ -1430,6 +1430,10 @@ footer .content-center ul li a:hover {
     width: 290px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+.main-training .train-course .card .card-body .btn-light:hover{
+    background-color: white;
+    color: #f49943;
+}
 
 .main-training .train-course .card-1 {
     background-color: #808080;
