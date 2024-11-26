@@ -157,7 +157,7 @@ header.sticky .btn-login-header {
 }
 
 .navbar .dropdown .dropdown-menu .dropdown-item {
-    font-size: 20px !important;
+    font-size: 17px !important;
     font-weight: 400;
 }
 
@@ -866,13 +866,13 @@ header.sticky .btn-login-header {
 
 }
 
-.changeImg {
-    width: 35px;
-    height: 35px;
+/* .changeImg {
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     margin-top: -5px;
     object-fit: cover;
-}
+} */
 
 header.sticky .icon-search-homepage {
     background-color: #f49943;
@@ -1895,7 +1895,7 @@ header .btn-login:hover {
     text-align: left;
     border-radius: 8px;
     box-shadow: 0 4px 5px rgba(52, 52, 52, 0.386) !important;
-    width: 320px !important;
+    width: 350px !important;
     animation: slideIn 0.5s ease-out;
 }
 
@@ -1929,7 +1929,7 @@ header .btn-login:hover {
     color: #f1870d;
     font-size: 40px !important;
     position: absolute;
-    top: 10px;
+    top: -2px;
     right: 10px;
     cursor: pointer;
 }
@@ -1958,6 +1958,7 @@ header .btn-login:hover {
     width: 38px;
     height: 38px;
     border: 2px solid rgb(255, 255, 255);
+    
 }
 .ph-user2{
     width: 80px;

@@ -62,7 +62,6 @@ function logOut() {
                     }, 3000)
                 );
 
-
             } else {
                 alert(json.message);
             }
