@@ -53,8 +53,6 @@ function changeAvarta() {
 
     // Display the image preview
 
-
-
     const reader = new FileReader();
     reader.onload = (event) => {
         let avatar = document.querySelector('#profile-pic');
@@ -82,7 +80,6 @@ function changeAvarta() {
             "Authorization": `Bearer ${authToken}`
         },
         body: formdata
-
     })
         .then(res => res.json())
         .then(json => {
