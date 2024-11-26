@@ -83,31 +83,38 @@
                         <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
-                                <form class="d-flex" role="search">
-                                    <input class="form-control  bg-white text-black" type="search" placeholder="Search"
-                                        aria-label="Search">
-                                    <div class="position-absolute icon-search-homepage ">
-                                        <i class="fa-solid fa-search "></i>
+                                <form class="d-flex position-relative" role="search">
+                                    <div class="search-container position-relative">
+                                        <input class="form-control bg-white text-black position-relative" type="search"
+                                            placeholder="Search" aria-label="Search" id="searchInput">
+                                        <i class="fa-solid fa-search position-absolute bg-white"
+                                            style="top: 10px; right: 12px;"></i>
+                                        <ul id="searchResults" class="list-group position-absolute mt-1"
+                                            style="display: none; z-index: 1000; width: 100%;">
+                                            <!-- Search results will be appended here -->
+                                        </ul>
                                     </div>
                                 </form>
                                 <a class="btn btn-icon d-flex py-0 position-relative" role="button" href=""
                                     title="profile" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                    <div class="">
-                                        <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                            src="../images/img-pet/icon/user.png" alt="#" width="35px">
+                                    <div class="hp-user p-0 m-0 rounded-circle overflow-hidden">
+                                        <img class="mb-2 changeImg" src="../images/img-pet/icon/user.png">
                                     </div>
                                     <span
                                         class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
                                         <small></small>
                                     </span>
                                 </a>
-                                <ul class="dropdown-menu mt-4 rounded-3 profile-management">
-                                    <div class="border-0 py-3 ">
+                                <ul class="dropdown-menu mt-4 rounded-3 profile-management overflow-hidden"
+                                    style="width: 270px; transform: translateX(30px); transition: 0.3s;">
+                                    <div class="bg-warning-subtle btn-shadow"
+                                        style="width: 100%; height: 150px;position: absolute;z-index: 1;transform: translateY(-100px); ">
+                                    </div>
+                                    <div class="border-0 pb-3 position-relative ">
                                         <div class="account-header d-flex flex-column align-items-center  pt-2">
-                                            <div class="mb-2">
-                                                <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                                    src="../images/img-pet/icon/user.png" alt="#" width="60px">
+                                            <div class=" z-2 mb-2 ph-user2 overflow-hidden rounded-circle">
+                                                <img class="changeImg" src="../images/img-pet/icon/user.png" alt="#">
                                             </div>
                                             <div
                                                 class="d-flex flex-column align-items-center justify-content-center text-whitee">
@@ -126,6 +133,8 @@
                                                     My Profile
                                                 </a>
                                             </li>
+
+
                                             <li class="nav-item border-0  w-100">
                                                 <a href="../pages/profile-grooming.html"
                                                     class="nav-link d-flex fw-medium px-4">
@@ -171,6 +180,8 @@
                                                             width="24">
                                                     </div>
 
+
+
                                                     Feedback
                                                 </a>
                                             </li>
@@ -186,8 +197,8 @@
                                             </li>
                                             <li class="nav-item border-0  w-100">
                                                 <button
-                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0 logout"
-                                                    aria-current="page" >
+                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0"
+                                                    aria-current="page" id="logout">
                                                     <div class="px-3">
                                                         <img src="../images/service/log-out.png" alt="" width="20">
                                                     </div>
@@ -221,18 +232,11 @@
                                 <div class="card-header bg-transparent mb-3">
                                     <a href="#" class="img-pro">
                                         <img src="../images/img-pet/icon/user.png" alt="" class="changeImg">
-                                        <div class="icon-delete "  onclick="deleteAvatar()" style="cursor: pointer;">
-                                            <i class="fa-solid fa-trash-can fs-4 text-white"></i>
-                                        </div>
                                     </a>
-                                    <label type="button" for="profile"
-                                        class="btn btn-edit-1 color-bg btn-camera position-absolute">
-                                        <i class="fa-solid fa-camera text-white" ></i>
+                                    <label type="button" class="btn btn-edit-1 bg-warning btn-camera position-absolute"
+                                        data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                        <i class="fa-regular fa-pen-to-square text-white"></i>
                                     </label>
-                                    <input type="file" class="form-control bg-transparent d-none" id="profile"
-                                        accept="image/*">
-                                   
-                                    <!-- <button type="button" class="btn btn-primary">Delete</button> -->
                                     <h5 class="mb-0 mt-4 firstname">Kinki</h5>
                                     <span class="Gemail">Kinki@gmail.com</span>
                                 </div>
@@ -318,34 +322,7 @@
                                     <div class="row gutters p-4 get-row">
                                         <div class="card ps-2 my-2">
                                             <div class="row w-100">
-                                                <div class="col-md-3 px-0">
-                                                    <img src="../images/img-pet/grooming/dog-nail.jpg"
-                                                        class="h-100 object-fit-cover img-fluid rounded-start" alt="...">
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <div class="card-body d-flex justify-content-between">
-                                                        <div>
-                                                            <div class="d-flex">
-                                                                <h4 class="card-title">Pet Grooming</h4>
-                                                                <p class="pt-1 ps-2 text-warning">Pending</p>
-                                                            </div>
-                                                            <p class="color-text mb-0">Ms. Ananliya</p>
-                                                            <p class="pt-1 mb-0">Grooming is essential to keeping <br> your
-                                                                pet looking </p>
-                                                            <h4 class="mb-0 fw-medium pt-2">15%</h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2 d-flex mt-1">
-                                                    <div class="btn">
-                                                        <p class="text-secondary ">9:20 - 10:30 am</p>
-                                                        <!-- <button class=" btn-danger btn-book border-0 bg-transparent">Pending</button> -->
-                                                        <div class="mt-5">
-                                                            <button
-                                                                class="btn btn-warning btn-book text-white mt-5">Cancel</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
                                         </div>
     
@@ -358,6 +335,51 @@
             </div>
         </section>
     </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content " style="width: 450px;">
+                <div class="card-header m-auto bg-transparent mb-3 mt-3">
+                    <a href="#" class="img-pro" style="margin-left: 40px;">
+                        <!-- <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first modal</button> -->
+                        <img src="../images/img-pet/icon/user.png" alt="" class="changeImg ">
+
+                    </a>
+                    <div class="align-content-center text-center">
+                        <h5 class="mb-0 mt-2 firstname ">Kinki</h5>
+                        <span class="Gemail ">Kinki@gmail.com</span>
+                    </div>
+    
+                    <div class="d-flex mt-1 gap-2">
+                        <div class="div">
+                            <!-- <div class="icon-delete " style="cursor: pointer;"  style="  width: 100px; text-align: center;  height:40px; line-height: 40px;">
+                                <span>
+                                        Dele
+                                </span>
+                                <i class="fa-solid fa-trash-can fs-4 text-black"></i>
+                            </div> -->
+                            <div type="button"  class="mt-2  rounded text-white"  onclick="deleteAvatar()"
+                                style=" background-color: rgb(251, 18, 18); width: 100px; text-align: center;  height:40px; line-height: 40px;" >
+                                <span class="">Delete</span>
+                            </div>
+                            <input type="file" class="form-control bg-transparent d-none" id="profile" accept="image/*">
+                        </div>
+
+                        <div>
+                            <label type="button" for="profile" class="mt-2 bg-warning  rounded text-white"
+                                style="  width: 100px; text-align: center;  height:40px; line-height: 40px;">
+                                <span class="">Change</span>
+                            </label>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class="">
         <div class="container">
             <section class="top-footer py-5 ">
@@ -510,29 +532,21 @@
                     json.data.forEach(element => {
                         if (element.pet_care_service?.id == 8) {
                             row += `
-		                       <div class="card ps-2 my-2">
-                                        <div class="row w-100">
-                                            <div class="col-md-3 ps-1 px-0">
+		                      <div class="card ps-2 my-2">
+                                        <div class="row w-100 overflow-hidden">
+                                            <div class="col-md-5 ps-1 px-0" style="height: 200px;">
                                                 <img src="${element.pet_care_service.image}"
-                                                    class="h-75 object-fit-cover img-fluid rounded-start" alt="..." style="width: 150px ; " >
+                                                    class="object-fit-cover img-fluid w-100 rounded-2" >
                                             </div>
                                             <div class="col-md-7">
                                                 <div class="card-body d-flex justify-content-between">
                                                     <div>
                                                         <div class="d-flex">
-                                                            <h4 class="card-title">${element.pet_care_service.title}</h4>
-                                                            <p class="pt-1 ps-2 text-warning">${element.status == 1 ? 'Pending' : element.status == 2 ? 'Approved' : element.status == 3 ? 'Declined' : ''}</p>
+                                                            <h4 class="card-title fw-bold">${element.pet_care_service.title}</h4>
+                                                            <p class="pt-1 ps-2 text-warning fw-bold">${element.status == 1 ? 'Pending' : element.status == 2 ? 'Approved' : element.status == 3 ? 'Declined' : ''}</p>
+    
                                                         </div>
-                                                        <p class="color-text mb-0">${element.buyer.first_name}</p>
-                                                        <p class="pt-1 mb-0">${element.pet_care_animal.name}</p>
-                                                        <p class="pt-1 mb-0">${element.pet_care_service.feature}</p>
-                                                        <h4 class="mb-0 fw-medium pt-2">${element.pet_care_price}$</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2  mt-1">
-                                                <div class="btn">
-                                                    <p class="text-secondary">
+                                                        <p class="text-secondary mb-0 fs-7">
                                                         Start Date: ${new Intl.DateTimeFormat('en-US', {
                                                             timeZone: 'Asia/Bangkok',
                                                             year: 'numeric',
@@ -542,7 +556,7 @@
                                                             minute: '2-digit'
                                                         }).format(new Date(element.pet_care_start_date))}
                                                     </p>
-                                                    <p class="text-secondary">
+                                                     <p class="text-secondary fs-7">
                                                     End Date: ${new Intl.DateTimeFormat('en-US', {
                                                         timeZone: 'Asia/Bangkok',
                                                         year: 'numeric',
@@ -552,14 +566,16 @@
                                                         minute: '2-digit'
                                                     }).format(new Date(element.pet_care_end_date))}
                                                     </p>
-                                                    <div class="">
-                                                        <button class="btn btn-warning btn-book text-white ">Cancel</button>
+                                                        <p class="color-text mb-0">Name: ${element.buyer.first_name}&nbsp;${element.buyer.last_name}</p>
+                                                        <p class="pt-1 mb-0">Animal: ${element.pet_care_animal.name}</p>
+                                                        <h5 class="mb-0 fw-light pt-2">Price: <span class="fw-bold text-blue"> ${element.pet_care_price}$ </span></h5>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                          </div>
                                     </div>
                                 </div>
-                                
                         `;
 
                         }

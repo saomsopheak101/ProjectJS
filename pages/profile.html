@@ -16,13 +16,13 @@
     <!--*******************
         Preloader start
     ********************-->
-	<div id="preloader">
-		<div class="lds-ripple">
-			<div></div>
-			<div></div>
-		</div>
-	</div>
-	<!--*******************
+    <div id="preloader">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--*******************
         Preloader end
     ********************-->
 
@@ -48,9 +48,11 @@
                                 Service
                             </a>
                             <ul class="dropdown-menu  dropdown-services">
-                                <li><a class="dropdown-item text-black fw-medium " href="../pages/service-main.html">Service main</a>
+                                <li><a class="dropdown-item text-black fw-medium "
+                                        href="../pages/service-main.html">Service main</a>
                                 </li>
-                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet Day care</a>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet
+                                        Day care</a>
                                 </li>
                                 <li><a class="dropdown-item text-black fw-medium" href="../pages/petGrooming.html">Pet
                                         Grooming</a>
@@ -80,35 +82,44 @@
                         </li>
                     </ul>
                     <div class="d-flex align-items-center ">
-                  
+
                         <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
-                                <form class="d-flex" role="search">
-                                    <input class="form-control  bg-white text-black" type="search" placeholder="Search"
-                                        aria-label="Search">
-                                    <div class="position-absolute icon-search-homepage ">
-                                        <i class="fa-solid fa-search "></i>
+                                <form class="d-flex position-relative" role="search">
+                                    <div class="search-container position-relative">
+                                        <input class="form-control bg-white text-black position-relative" type="search"
+                                            placeholder="Search" aria-label="Search" id="searchInput">
+                                        <i class="fa-solid fa-search position-absolute bg-white"
+                                            style="top: 10px; right: 12px;"></i>
+                                        <ul id="searchResults" class="list-group position-absolute mt-1"
+                                            style="display: none; z-index: 1000; width: 100%;">
+                                            <!-- Search results will be appended here -->
+                                        </ul>
                                     </div>
                                 </form>
                                 <a class="btn btn-icon d-flex py-0 position-relative" role="button" href=""
                                     title="profile" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                    <div class="">
-                                        <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                            src="../images/img-pet/icon/user.png" alt="#" width="35px">
+                                    <div class="hp-user p-0 m-0 rounded-circle overflow-hidden">
+                                        <img class="mb-2 changeImg" src="../images/img-pet/icon/user.png">
                                     </div>
                                     <span
                                         class="badge ms-auto rounded-pill fw-normal position-absolute end-0 top-0 fs-7 p-1 px-2 badge-noti">
                                         <small></small>
                                     </span>
                                 </a>
-                                <ul class="dropdown-menu mt-4 rounded-3 profile-management">
-                                    <div class="border-0 py-3 ">
+                                <ul class="dropdown-menu mt-4 rounded-3 profile-management overflow-hidden"
+                                    style="width: 270px; transform: translateX(30px); transition: 0.3s;">
+                                    <div class="bg-warning-subtle btn-shadow"
+                                        style="width: 100%; height: 150px;position: absolute;z-index: 1;transform: translateY(-100px); ">
+                                    </div>
+                                    <div class="border-0 pb-3 position-relative ">
                                         <div class="account-header d-flex flex-column align-items-center  pt-2">
-                                            <div class="mb-2">
-                                                <img class="border border-brand border-2 rounded-circle object-fit-cover changeImg"
-                                                    src="../images/img-pet/icon/user.png" alt="#" width="60px">
+
+                                            <div class=" z-2 mb-2 ph-user2 overflow-hidden rounded-circle">
+                                                <img class="changeImg" src="../images/img-pet/icon/user.png" alt="#">
+
                                             </div>
                                             <div
                                                 class="d-flex flex-column align-items-center justify-content-center text-whitee">
@@ -127,6 +138,8 @@
                                                     My Profile
                                                 </a>
                                             </li>
+
+
                                             <li class="nav-item border-0  w-100">
                                                 <a href="../pages/profile-grooming.html"
                                                     class="nav-link d-flex fw-medium px-4">
@@ -172,6 +185,8 @@
                                                             width="24">
                                                     </div>
 
+
+
                                                     Feedback
                                                 </a>
                                             </li>
@@ -187,8 +202,8 @@
                                             </li>
                                             <li class="nav-item border-0  w-100">
                                                 <button
-                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0 logout"
-                                                    aria-current="page" >
+                                                    class="dropdown-item text-white-light px-4  d-flex py-2 align-items-center mb-0"
+                                                    aria-current="page" id="logout">
                                                     <div class="px-3">
                                                         <img src="../images/service/log-out.png" alt="" width="20">
                                                     </div>
@@ -210,7 +225,7 @@
         <section class=" bg-profile  position-relative ">
             <div class="banner-profile booking-service"></div>
             <div class="content d-flex align-items-center">
-                
+
             </div>
         </section>
         <section class="profile-book margin-bottom">
@@ -222,18 +237,11 @@
                                 <div class="card-header bg-transparent mb-3">
                                     <a href="#" class="img-pro">
                                         <img src="../images/img-pet/icon/user.png" alt="" class="changeImg">
-                                        <div class="icon-delete "  onclick="deleteAvatar()" style="cursor: pointer;">
-                                            <i class="fa-solid fa-trash-can fs-4 text-white"></i>
-                                        </div>
                                     </a>
-                                    <label type="button" for="profile"
-                                        class="btn btn-edit-1 color-bg btn-camera position-absolute">
-                                        <i class="fa-solid fa-camera text-white" ></i>
+                                    <label type="button" class="btn btn-edit-1 bg-warning btn-camera position-absolute"
+                                        data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                        <i class="fa-regular fa-pen-to-square text-white"></i>
                                     </label>
-                                    <input type="file" class="form-control bg-transparent d-none" id="profile"
-                                        accept="image/*">
-                                   
-                                    <!-- <button type="button" class="btn btn-primary">Delete</button> -->
                                     <h5 class="mb-0 mt-4 firstname">Kinki</h5>
                                     <span class="Gemail">Kinki@gmail.com</span>
                                 </div>
@@ -248,19 +256,18 @@
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-grooming.html"
-                                            class="nav-link d-flex fw-medium px-4">
+                                        <a href="../pages/profile-grooming.html" class="nav-link d-flex fw-medium px-4">
                                             <div>
                                                 <div>
-                                                    <img src="../images/service/grooming-setting (2).png" alt="" width="25">
+                                                    <img src="../images/service/grooming-setting (2).png" alt=""
+                                                        width="25">
                                                 </div>
                                             </div>
                                             Grooming
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-daycare.html"
-                                            class="nav-link d-flex fw-medium px-4">
+                                        <a href="../pages/profile-daycare.html" class="nav-link d-flex fw-medium px-4">
                                             <div>
                                                 <div>
                                                     <img src="../images/service/daycare-setting.png" alt="" width="25">
@@ -270,7 +277,8 @@
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-consulting.html" class="nav-link  d-flex fw-medium px-4">
+                                        <a href="../pages/profile-consulting.html"
+                                            class="nav-link  d-flex fw-medium px-4">
                                             <div>
                                                 <div>
                                                     <img src="../images/service/consult-setting.png" alt="" width="24">
@@ -290,10 +298,12 @@
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-notification.html" class="nav-link d-flex fw-medium px-4">
+                                        <a href="../pages/profile-notification.html"
+                                            class="nav-link d-flex fw-medium px-4">
                                             <div>
                                                 <div>
-                                                    <img src="../images/service/notification-svgrepo-com.svg" alt="" width="20">
+                                                    <img src="../images/service/notification-svgrepo-com.svg" alt=""
+                                                        width="20">
                                                 </div>
                                             </div>
                                             Notification
@@ -317,43 +327,51 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row gutters p-4">
-                                        <div class="row mb-4">
+                                        <div class="row mb-3">
                                             <label for="inputEmail" class="col-sm-3 col-form-label text-black">First
-                                                name</label>
+                                                name : </label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control bg-transparent" id="fname" value="">
+                                                <input type="text"
+                                                    class="form-control-lg bg-transparent fw-medium border-0" id="fname"
+                                                    value="" style="transform: translateY(-4px);">
                                             </div>
                                         </div>
-                                        <div class="row mb-4">
+                                        <div class="row mb-3">
                                             <label for="inputEmail" class="col-sm-3 col-form-label text-black">Last
-                                                name</label>
+                                                name :</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control bg-transparent" id="lname" value="">
+                                                <input type="text"
+                                                    class="form-control-lg bg-transparent fw-medium border-0" id="lname"
+                                                    value="" style="transform: translateY(-4px);">
                                             </div>
                                         </div>
-                                        <div class="row mb-4">
+                                        <div class="row mb-3">
                                             <label for="inputEmail" class="col-sm-3 col-form-label text-black">Email
-                                                Address</label>
+                                                Address :</label>
                                             <div class="col-sm-9">
-                                                <input type="email" class="form-control bg-transparent" id="Memail"
-                                                    value="">
+                                                <input type="text"
+                                                    class="form-control-lg bg-transparent fw-medium border-0"
+                                                    id="Memail" value="" style="transform: translateY(-4px);">
                                             </div>
                                         </div>
-                                        <div class="row mb-4">
-                                            <label for="inputEmail" class="col-sm-3 col-form-label text-black">Phone</label>
+                                        <div class="row mb-3">
+                                            <label for="inputEmail" class="col-sm-3 col-form-label text-black">Phone
+                                                :</label>
                                             <div class="col-sm-9">
-                                                <input type="tel" class="form-control bg-transparent" id="pnumber" value="">
+                                                <input type="tel" class="form-control bg-transparent fw-medium border-0"
+                                                    id="pnumber" value="" style="transform: translateY(-4px);">
                                             </div>
                                         </div>
-    
-                                        <div class="row mb-4">
-                                            <label for="inputEmail"
-                                                class="col-sm-3 col-form-label text-black">Address</label>
+
+                                        <div class="row mb-3">
+                                            <label for="inputEmail" class="col-sm-3 col-form-label text-black">Address :
+                                            </label>
                                             <div class="col-sm-9">
-                                                <input type="tel" class="form-control bg-transparent" id="address" value="">
+                                                <input type="tel" class="form-control bg-transparent fw-medium border-0"
+                                                    id="address" value="">
                                             </div>
                                         </div>
-    
+
                                         <div class="row gutters mt-4">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="text-right">
@@ -369,16 +387,63 @@
                                             </div>
                                         </div>
                                     </div>
-                                   
+
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content " style="width: 450px;">
+                <div class="card-header m-auto bg-transparent mb-3 mt-3">
+                    <a href="#" class="img-pro" style="margin-left: 40px;">
+                        <!-- <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first modal</button> -->
+                        <img src="../images/img-pet/icon/user.png" alt="" class="changeImg ">
+
+                    </a>
+                    <div class="align-content-center text-center">
+                        <h5 class="mb-0 mt-2 firstname ">Kinki</h5>
+                        <span class="Gemail ">Kinki@gmail.com</span>
+                    </div>
+    
+                    <div class="d-flex mt-1 gap-2">
+                        <div class="div">
+                            <!-- <div class="icon-delete " style="cursor: pointer;"  style="  width: 100px; text-align: center;  height:40px; line-height: 40px;">
+                                <span>
+                                        Dele
+                                </span>
+                                <i class="fa-solid fa-trash-can fs-4 text-black"></i>
+                            </div> -->
+                            <div type="button"  class="mt-2  rounded text-white"  onclick="deleteAvatar()"
+                                style=" background-color: rgb(251, 18, 18); width: 100px; text-align: center;  height:40px; line-height: 40px;" >
+                                <span class="">Delete</span>
+                            </div>
+                            <input type="file" class="form-control bg-transparent d-none" id="profile" accept="image/*">
+                        </div>
+
+                        <div>
+                            <label type="button" for="profile" class="mt-2 bg-warning  rounded text-white"
+                                style="  width: 100px; text-align: center;  height:40px; line-height: 40px;">
+                                <span class="">Change</span>
+                            </label>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <footer class="">
         <div class="container">
             <section class="top-footer py-5 ">
@@ -467,11 +532,11 @@
                                     <li>
                                         <a href="../pages/booking.html">Book Traning</a>
                                     </li>
-                                    
+
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-4 col-lg-4 col-xl-3 pt-3 pt-xl-5 flex-lg-grow-0 ps-5 " >
+                        <div class="col-md-4 col-lg-4 col-xl-3 pt-3 pt-xl-5 flex-lg-grow-0 ps-5 ">
                             <div class="content-right">
                                 <h3 class="pb-2">Working Hours</h3>
                                 <div class="working-time">
@@ -503,7 +568,7 @@
     <script src="../js/petzone/profile-delete.js"></script>
     <script src="../js/sweetalert2@11.js"></script>
     <script>
-      
+
         getData();
         function getData() {
             fetch('https://mps4.chandalen.dev/api/me', {
@@ -535,13 +600,13 @@
                     document.querySelectorAll('.firstname').forEach(element => {
                         element.innerHTML = firstName;
                     });
-                    document.querySelectorAll('.Gemail').forEach(element=>{
+                    document.querySelectorAll('.Gemail').forEach(element => {
                         element.innerHTML = email;
                     });
-                    
+
                 })
         }
-        
+
         function deleteAcc() {
             fetch('https://mps4.chandalen.dev/api/profile/acc', {
                 method: 'DELETE',
@@ -566,17 +631,17 @@
         document.querySelector('#delete-acc').addEventListener('click', () => {
             deleteAcc();
         })
-    
-     
-        
+
+
+
     </script>
-   <script src="../vendor/global/global.min.js"></script>
-<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../vendor/global/global.min.js"></script>
+    <script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <!-- Preloader -->
     <script src="../vendor/global/global.min.js"></script>
-	<script src="../js/custom.js"></script>
-    
-    
+    <script src="../js/custom.js"></script>
+
+
 </body>
 
 </html>

@@ -399,7 +399,7 @@
                             // console.log(json.message);
                             showModernToast(
                                 {
-                                    title: 'New pasword uccessful!',
+                                    title: 'Successfully!',
                                     // description: 'Welcome back Admin! Redirecting...',
                                     iconType: 'success'
                                 },
@@ -415,6 +415,7 @@
                         });
                         }
                     })
+
                     .catch(error => {
                         console.error('There was an error!', error);
                         spinner.classList.add('d-none');
@@ -429,6 +430,8 @@
             }
 
 
+
+            }
         }
 
         function showModernToast({

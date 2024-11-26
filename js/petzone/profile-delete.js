@@ -10,11 +10,11 @@ let authToken = sessionStorage.getItem('authToken')
 if (!authToken) {
     location.href = 'http://127.0.0.1:5502/../index.html';
 }
- document.querySelectorAll('.logout').forEach((logout)=>{
+document.querySelectorAll('.logout').forEach((logout) => {
     logout.addEventListener('click', () => {
-            logOut();
+        logOut();
     })
- })
+})
 
 
 function logOut() {
@@ -22,26 +22,24 @@ function logOut() {
         method: 'DELETE',
         headers: {
             'Accept': "application/json",
-            'Authorization': `Bearer ${authToken}`
+            'Authorization': `Bearer ${authToken}` 
         }
-
-
     })
         .then(res => res.json())
         .then(json => {
             if (json.result === true) {
                 sessionStorage.removeItem('authToken');
                 console.log(json.message);
-                Swal.fire({ 
-                    icon: 'success',
-                    title: 'Booking Successful!',
-                    text: 'Your booking has been confirmed.',
-                    confirmButtonText: 'Okay', // The button text
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        location.href = 'http://127.0.0.1:5502/pages/profile-grooming.html'; // Update with the correct URL
-                    }
-                });
+                showModernToast(
+                    {
+                        title: 'Logout Successful!',
+                        description: 'You have been logged out. Redirecting to Home page...',
+                        iconType: 'success'
+                    },
+                    setTimeout(() => {
+                        location.href = '../index.html';
+                    }, 3000)
+                );
             } else {
                 alert(json.message);
             }
@@ -54,8 +52,6 @@ function changeAvarta() {
     let profile = document.querySelector('#profile').files[0];
 
     // Display the image preview
-
-
 
     const reader = new FileReader();
     reader.onload = (event) => {
@@ -84,15 +80,22 @@ function changeAvarta() {
             "Authorization": `Bearer ${authToken}`
         },
         body: formdata
-
     })
         .then(res => res.json())
         .then(json => {
             console.log(json)
             if (json.result === true) {
                 console.log(json.message);
-                alert(json.message)
-                location.reload();
+                showModernToast(
+                    {
+                        title: 'Update successfully.',
+                        // description: 'Redirecting to homepage...',
+                        iconType: 'success'
+                    },
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000))
+
             } else {
                 alert(json.message)
             }
@@ -106,8 +109,8 @@ function changeAvarta() {
 // }
 document.querySelector('#profile').addEventListener('change', changeAvarta);
 
-   // not yet test it 
-   function deleteAvatar() {
+// not yet test it 
+function deleteAvatar() {
     fetch('https://mps4.chandalen.dev/api/profile/avatar', {
         method: 'DELETE',
         headers: {
@@ -119,9 +122,15 @@ document.querySelector('#profile').addEventListener('change', changeAvarta);
         .then(json => {
             if (json.result === true) {
                 console.log(json.message)
-                alert(json.message);
-                location.reload();
-
+                showModernToast(
+                    {
+                        title: 'Delete Successfully !',
+                        // description: 'Redirecting to homepage...',
+                        iconType: 'success'
+                    },
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000))
             } else {
                 alert(json.message)
             }
@@ -142,7 +151,7 @@ function showModernToast({
         icon: iconType,
         title: `<p style="color:#222222; margin-bottom:0px; margin-bottom :0px;">${title}</p>`,
         html: description
-            ? `<p style="margin: -4px; font-size: 12px; color: #101114;">${description}</p>`
+            ? `<p style="margin: 0px; font-size: 10px; color: #101114;">${description}</p>`
             : '',
         customClass: {
             popup: 'modern-toast',
