@@ -653,6 +653,7 @@ header.sticky .btn-login-header {
 .profile-page .btn-camera {
     margin-top: 4%;
     margin-left: 20%;
+    border: 3px solid #fff;
 }
 
 
@@ -759,12 +760,6 @@ header.sticky .btn-login-header {
 
 .setting-sidebar {
     width: 360px;
-}
-
-.imge-not {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
 }
 
 .img-pro img {
@@ -966,11 +961,6 @@ header.sticky .icon-search-homepage {
     width: 360px;
 }
 
-.imge-not {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-}
 
 .mt-profile {
     margin-top: -23% !important;
@@ -1429,6 +1419,10 @@ footer .content-center ul li a:hover {
     position: relative;
     width: 290px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.main-training .train-course .card .card-body .btn-light:hover{
+    background-color: white;
+    color: #f49943;
 }
 
 .main-training .train-course .card-1 {
@@ -1890,7 +1884,7 @@ header .btn-login:hover {
     background-color: #fff3e7 !important;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     /* padding: 16px; */
     text-align: left;
     border-radius: 8px;
