@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sign up</title>
+    <title>Confirm Password</title>
     <link rel="shortcut icon" type="image/png" href="../images/img-pet/logo/favicon.png">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -177,13 +177,43 @@
             border-radius: 0 15px 15px 0;
         }
 
-        .form-logAndris .btn-bn {
+        .form-logAndris .conf-pass .form-group .btn-bn {
+            width: 517px;
             background-color: #f49943;
             border: none;
             color: white;
             padding: 8px 105px;
             font-size: 16px;
-            margin: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 19px;
+            transition: background-color 0.3s ease;
+        }
+
+        .conf-pass{
+            text-align: center;
+            width: 517px;
+            /* height: 40px;
+            /* padding: 8px 0; */
+            /* border-radius: 19px;
+            background-color: #f49943;
+            color: #fff;
+            transition: background-color 0.3s ease;
+            border: none; */ 
+        }
+        .conf-pass .form-group{
+            width: 100%;
+            justify-items: center;
+            display: flex;
+        }
+        .form-logAndris .conf-pass .form-group #spinner{
+            width: 517px;
+            background-color: #f49943;
+            border: none;
+            color: white;
+            padding: 8px 105px;
+            font-size: 16px;
+            margin: 10px 0;
             cursor: pointer;
             border-radius: 19px;
             transition: background-color 0.3s ease;
@@ -281,8 +311,15 @@
                                         <div class="invalid text-danger">
                                             Incorrect password!
                                         </div>
-                                        <div class="mt-4 ">
-                                            <input type="submit" class="btn-bn w-100 m-0" value="Save">
+                                        <div class="conf-pass">
+                                            <div class="form-group mt-3 m-0 p-0">
+                                                <input type="submit" class="btn-bn " value="Save" id="nextButton">
+                                                <button class="btn btn-primary d-none" id="spinner" type="button" disabled>
+                                                    <span class="spinner-border spinner-border-sm"
+                                                        aria-hidden="true"></span>
+                                                    <span role="status">Save...</span>
+                                                </button>
+                                            </div>
                                         </div>
                                     </form>
 
@@ -315,9 +352,9 @@
         </section>
     </footer>
     <script>
-        console.log(sessionStorage.getItem('optCode'));
+        // console.log(sessionStorage.getItem('optCode'));
         let optcode = sessionStorage.getItem('optCode');
-        console.log(sessionStorage.getItem('StoreEmail'));
+        // console.log(sessionStorage.getItem('StoreEmail'));
         let email = sessionStorage.getItem('StoreEmail');
         document.querySelector('.invalid').style.display = "none";
         function ConfirmPw() {
@@ -338,7 +375,13 @@
                 formdata.append('new_pass', password);
                 formdata.append('new_pass_confirmation', ConfirmPw);
 
-                console.log(formdata);
+                // console.log(formdata);
+
+                // Show loading spinner and update button text
+                let nextButton = document.querySelector('#nextButton');
+                let spinner = document.querySelector('#spinner');
+                nextButton.classList.add('d-none'); // Hide the Next button
+                spinner.classList.remove('d-none'); // Show the spinner button
                 fetch('https://mps4.chandalen.dev/api/reset/pass', {
                     method: 'POST',
                     headers: { "Accept": "application/json" },
@@ -346,11 +389,14 @@
                 })
                     .then(res => res.json())
                     .then(json => {
-                        console.log(json);
+                        // console.log(json);
+                        // Reset spinner and show the Next button
+                        spinner.classList.add('d-none');
+                        nextButton.classList.remove('d-none');
                         if (json.result === true) {
                             sessionStorage.setItem('password', password);
                             sessionStorage.setItem('confirm', ConfirmPw);
-                            console.log(json.message);
+                            // console.log(json.message);
                             showModernToast(
                                 {
                                     title: 'Successfully!',
@@ -362,9 +408,28 @@
                                 }, 3000))
 
                         } else {
-                            // alert(json.message);
+                            Inconrrect({
+                            title: 'Error',
+                            description: 'Something went wrong. Please try again.',
+                            iconType: 'error'
+                        });
                         }
                     })
+
+                    .catch(error => {
+                        console.error('There was an error!', error);
+                        spinner.classList.add('d-none');
+                        nextButton.classList.remove('d-none');
+                        Inconrrect({
+                            title: 'Error',
+                            description: 'Something went wrong. Please try again.',
+                            iconType: 'error'
+                        });
+                    });
+                    
+            }
+
+
 
             }
         }

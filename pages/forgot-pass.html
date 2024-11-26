@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sign up</title>
+    <title>Forgot Password</title>
     <link rel="shortcut icon" type="image/png" href="../images/img-pet/logo/favicon.png">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -86,17 +86,36 @@
             background-color: #fff;
         }
 
-        .form-logAndris .btn-login,
-        .form-logAndris .btn-next {
+        .form-logAndris .btn-bn {
             display: block;
             text-align: center;
-            width: 100%;
-            padding: 8px 0;
+            width: 250px;
+            padding: 8px 5px;
             border-radius: 19px;
             background-color: #f49943;
             color: #fff;
             transition: background-color 0.3s ease;
             border: none;
+        }
+        .form-logAndris #spinner{
+            /* display: block; */
+            text-align: center;
+            width: 250px;
+            width: 100%;
+            padding: 8px 5px;
+            border-radius: 19px;
+            background-color: #f49943;
+            color: #fff;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .form-logAndris .col-6 .form-group{
+            width: 100%;
+        }
+
+        .form-logAndris .col-6{
+            padding: 0 12px;
         }
 
         .form-logAndris .btn-next:hover {
@@ -183,6 +202,7 @@
             padding: 8px 105px;
             font-size: 16px;
             margin: 10px;
+            margin-left: 0;
             cursor: pointer;
             border-radius: 19px;
             transition: background-color 0.3s ease;
@@ -269,11 +289,28 @@
                                                 name="email" placeholder="Your email" required>
                                             <i class="fa-solid fa-envelope icon-position"></i>
                                         </div>
-                                        <div class="form-group mt-3 d-flex justify-content-center">
-                                            <button type="button" class="btn-bn"
-                                                onclick="window.location.href='login.html'">Back</button>
-                                            <input type="submit" class="btn-bn w-100" value="Next">
+                                        <div class="row d-flex  mt-3 align-items-center text-center justify-content-center">
+                                            <div class="col-6 ">
+                                                <div class="form-group">
+                                                    <button type="button" class="btn-bn"
+                                                        onclick="window.location.href='login.html'">Back</button>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <input type="submit" class="btn-bn " value="Next" id="nextButton">
+                                                    <button class="btn btn-primary d-none" id="spinner" type="button" disabled>
+                                                        <span class="spinner-border spinner-border-sm"
+                                                            aria-hidden="true"></span>
+                                                        <span role="status">Next...</span>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
+                                        
+
+                                        
                                     </form>
                                 </div>
                             </div>
@@ -304,43 +341,74 @@
     </footer>
     <script>
         function getOTP() {
-            let email = document.querySelector('#email').value;
-            console.log(email);
+            let emailField = document.querySelector('#email');
+            let email = emailField.value;
+    
+            // Validation: Check if email is entered and valid
+            if (!email) {
+                // Highlight input field with a red border and show error message
+                emailField.style.border = '2px solid red';
+                showModernToast({
+                    title: 'Invalid Email',
+                    description: 'Please enter a valid email address.',
+                    iconType: 'error',
+                });
+                return;
+            } else {
+                // Reset the border color if email is valid
+                emailField.style.border = '1px solid #ced4da';
+            }
+    
+            // Show loading spinner and update button text
+            let nextButton = document.querySelector('#nextButton');
+            let spinner = document.querySelector('#spinner');
+            nextButton.classList.add('d-none'); // Hide the Next button
+            spinner.classList.remove('d-none'); // Show the spinner button
+    
             fetch('https://mps4.chandalen.dev/api/forgot/pass', {
                 method: 'POST',
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    email: email
-                })
-
+                body: JSON.stringify({ email: email })
             })
                 .then(res => res.json())
                 .then(json => {
+                    // Reset spinner and show the Next button
+                    spinner.classList.add('d-none');
+                    nextButton.classList.remove('d-none');
+    
                     if (json.result === true) {
                         sessionStorage.setItem('StoreEmail', email);
-                        // console.log(json.message);
-                        showModernToast(
-                            {
-                                title: 'Forgot password successful!',
-                                description: 'We sent OTP to your email.',
-                                iconType: 'success'
-                            },
-                            setTimeout(() => {
-                                location.href = 'http://127.0.0.1:5502/../pages/otp.html';
-                            }, 3000))
-
+                        showModernToast({
+                            title: 'Forgot Password Successful!',
+                            description: 'We sent an OTP to your email.',
+                            iconType: 'success'
+                        });
+                        setTimeout(() => {
+                            location.href = '../pages/otp.html';
+                        }, 3000);
                     } else {
                         Inconrrect({
-                            title: 'Failed to send OTP, please try again.',
-                        })
+                            title: 'Failed to send OTP',
+                            description: 'Please try again.',
+                            iconType: 'error'
+                        });
                     }
                 })
-
+                .catch(error => {
+                    console.error('There was an error!', error);
+                    spinner.classList.add('d-none');
+                    nextButton.classList.remove('d-none');
+                    Inconrrect({
+                        title: 'Error',
+                        description: 'Something went wrong. Please try again.',
+                        iconType: 'error'
+                    });
+                });
         }
-
+    
         function showModernToast({
             title = '',
             description = '',
@@ -370,8 +438,8 @@
                     toast.addEventListener('mouseleave', Swal.resumeTimer);
                 },
             });
-
         }
+    
         function Inconrrect({
             title = '',
             description = '',
@@ -401,9 +469,9 @@
                     toast.addEventListener('mouseleave', Swal.resumeTimer);
                 },
             });
-
         }
     </script>
+    
 
     <script src="../js/petzone/login.js"></script>
     <script src="../js/sweetalert2@11.js"></script>
