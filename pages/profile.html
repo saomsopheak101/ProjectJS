@@ -16,13 +16,13 @@
     <!--*******************
         Preloader start
     ********************-->
-	<div id="preloader">
-		<div class="lds-ripple">
-			<div></div>
-			<div></div>
-		</div>
-	</div>
-	<!--*******************
+    <div id="preloader">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--*******************
         Preloader end
     ********************-->
 
@@ -48,9 +48,11 @@
                                 Service
                             </a>
                             <ul class="dropdown-menu  dropdown-services">
-                                <li><a class="dropdown-item text-black fw-medium " href="../pages/service-main.html">Service main</a>
+                                <li><a class="dropdown-item text-black fw-medium "
+                                        href="../pages/service-main.html">Service main</a>
                                 </li>
-                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet Day care</a>
+                                <li><a class="dropdown-item text-black fw-medium" href="../pages/petDayCare.html">Pet
+                                        Day care</a>
                                 </li>
                                 <li><a class="dropdown-item text-black fw-medium" href="../pages/petGrooming.html">Pet
                                         Grooming</a>
@@ -80,7 +82,7 @@
                         </li>
                     </ul>
                     <div class="d-flex align-items-center ">
-                  
+
                         <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
@@ -223,7 +225,7 @@
         <section class=" bg-profile  position-relative ">
             <div class="banner-profile booking-service"></div>
             <div class="content d-flex align-items-center">
-                
+
             </div>
         </section>
         <section class="profile-book margin-bottom">
@@ -234,19 +236,12 @@
                             <div class="card border-0 shadow py-4 ">
                                 <div class="card-header bg-transparent mb-3">
                                     <a href="#" class="img-pro">
-                                        <img src="../images/img-pet/icon/user.png" alt="" class="changeImg" >
-                                        <div class="icon-delete "  onclick="deleteAvatar()" style="cursor: pointer;">
-                                            <i class="fa-solid fa-trash-can fs-4 text-white"></i>
-                                        </div>
+                                        <img src="../images/img-pet/icon/user.png" alt="" class="changeImg">
                                     </a>
-                                    <label type="button" for="profile"
-                                        class="btn btn-edit-1 bg-warning btn-camera position-absolute" style="border: 3px solid #fff;">
-                                        <i class="fa-solid fa-camera text-white" ></i>
+                                    <label type="button" class="btn btn-edit-1 bg-warning btn-camera position-absolute"
+                                        data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                        <i class="fa-regular fa-pen-to-square text-white"></i>
                                     </label>
-                                    <input type="file" class="form-control bg-transparent d-none" id="profile"
-                                        accept="image/*">
-                                   
-                                    <!-- <button type="button" class="btn btn-primary">Delete</button> -->
                                     <h5 class="mb-0 mt-4 firstname">Kinki</h5>
                                     <span class="Gemail">Kinki@gmail.com</span>
                                 </div>
@@ -255,25 +250,24 @@
                                         <a href="../pages/profile.html" class="nav-link active d-flex fw-medium px-4"
                                             aria-current="page">
                                             <div>
-                                                <img src="../images/service/setting-profile.png" alt="" width="20" >
+                                                <img src="../images/service/setting-profile.png" alt="" width="20">
                                             </div>
                                             My Profile
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-grooming.html"
-                                            class="nav-link d-flex fw-medium px-4">
+                                        <a href="../pages/profile-grooming.html" class="nav-link d-flex fw-medium px-4">
                                             <div>
                                                 <div>
-                                                    <img src="../images/service/grooming-setting (2).png" alt="" width="25">
+                                                    <img src="../images/service/grooming-setting (2).png" alt=""
+                                                        width="25">
                                                 </div>
                                             </div>
                                             Grooming
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-daycare.html"
-                                            class="nav-link d-flex fw-medium px-4">
+                                        <a href="../pages/profile-daycare.html" class="nav-link d-flex fw-medium px-4">
                                             <div>
                                                 <div>
                                                     <img src="../images/service/daycare-setting.png" alt="" width="25">
@@ -283,7 +277,8 @@
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-consulting.html" class="nav-link  d-flex fw-medium px-4">
+                                        <a href="../pages/profile-consulting.html"
+                                            class="nav-link  d-flex fw-medium px-4">
                                             <div>
                                                 <div>
                                                     <img src="../images/service/consult-setting.png" alt="" width="24">
@@ -303,10 +298,12 @@
                                         </a>
                                     </li>
                                     <li class="nav-item border-0">
-                                        <a href="../pages/profile-notification.html" class="nav-link d-flex fw-medium px-4">
+                                        <a href="../pages/profile-notification.html"
+                                            class="nav-link d-flex fw-medium px-4">
                                             <div>
                                                 <div>
-                                                    <img src="../images/service/notification-svgrepo-com.svg" alt="" width="20">
+                                                    <img src="../images/service/notification-svgrepo-com.svg" alt=""
+                                                        width="20">
                                                 </div>
                                             </div>
                                             Notification
@@ -332,40 +329,49 @@
                                     <div class="row gutters p-4">
                                         <div class="row mb-3">
                                             <label for="inputEmail" class="col-sm-3 col-form-label text-black">First
-                                                name</label>
+                                                name : </label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control-lg bg-transparent fw-medium border-0" id="fname" value="" style="transform: translateY(-4px);">
+                                                <input type="text"
+                                                    class="form-control-lg bg-transparent fw-medium border-0" id="fname"
+                                                    value="" style="transform: translateY(-4px);">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <label for="inputEmail" class="col-sm-3 col-form-label text-black">Last
-                                                name</label>
+                                                name :</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control-lg bg-transparent fw-medium border-0" id="lname" value="" style="transform: translateY(-4px);">
+                                                <input type="text"
+                                                    class="form-control-lg bg-transparent fw-medium border-0" id="lname"
+                                                    value="" style="transform: translateY(-4px);">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <label for="inputEmail" class="col-sm-3 col-form-label text-black">Email
-                                                Address</label>
+                                                Address :</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control-lg bg-transparent fw-medium border-0" id="Memail" value="" style="transform: translateY(-4px);">
+                                                <input type="text"
+                                                    class="form-control-lg bg-transparent fw-medium border-0"
+                                                    id="Memail" value="" style="transform: translateY(-4px);">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <label for="inputEmail" class="col-sm-3 col-form-label text-black">Phone</label>
+                                            <label for="inputEmail" class="col-sm-3 col-form-label text-black">Phone
+                                                :</label>
                                             <div class="col-sm-9">
-                                                <input type="tel" class="form-control bg-transparent" id="pnumber" value="">
+                                                <input type="tel" class="form-control bg-transparent fw-medium border-0"
+                                                    id="pnumber" value="" style="transform: translateY(-4px);">
                                             </div>
                                         </div>
-    
+
                                         <div class="row mb-3">
-                                            <label for="inputEmail"
-                                                class="col-sm-3 col-form-label text-black">Address</label>
+                                            <label for="inputEmail" class="col-sm-3 col-form-label text-black">Address :
+                                            </label>
                                             <div class="col-sm-9">
-                                                <input type="tel" class="form-control bg-transparent" id="address" value="">
+                                                <input type="tel" class="form-control bg-transparent fw-medium border-0"
+                                                    id="address" value="">
                                             </div>
                                         </div>
-    
+
                                         <div class="row gutters mt-4">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="text-right">
@@ -381,16 +387,63 @@
                                             </div>
                                         </div>
                                     </div>
-                                   
+
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content " style="width: 450px;">
+                <div class="card-header m-auto bg-transparent mb-3 mt-3">
+                    <a href="#" class="img-pro" style="margin-left: 40px;">
+                        <!-- <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first modal</button> -->
+                        <img src="../images/img-pet/icon/user.png" alt="" class="changeImg ">
+
+                    </a>
+                    <div class="align-content-center text-center">
+                        <h5 class="mb-0 mt-2 firstname ">Kinki</h5>
+                        <span class="Gemail ">Kinki@gmail.com</span>
+                    </div>
+    
+                    <div class="d-flex mt-1 gap-2">
+                        <div class="div">
+                            <!-- <div class="icon-delete " style="cursor: pointer;"  style="  width: 100px; text-align: center;  height:40px; line-height: 40px;">
+                                <span>
+                                        Dele
+                                </span>
+                                <i class="fa-solid fa-trash-can fs-4 text-black"></i>
+                            </div> -->
+                            <div type="button"  class="mt-2  rounded text-white"  onclick="deleteAvatar()"
+                                style=" background-color: rgb(251, 18, 18); width: 100px; text-align: center;  height:40px; line-height: 40px;" >
+                                <span class="">Delete</span>
+                            </div>
+                            <input type="file" class="form-control bg-transparent d-none" id="profile" accept="image/*">
+                        </div>
+
+                        <div>
+                            <label type="button" for="profile" class="mt-2 bg-warning  rounded text-white"
+                                style="  width: 100px; text-align: center;  height:40px; line-height: 40px;">
+                                <span class="">Change</span>
+                            </label>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <footer class="">
         <div class="container">
             <section class="top-footer py-5 ">
@@ -479,11 +532,11 @@
                                     <li>
                                         <a href="../pages/booking.html">Book Traning</a>
                                     </li>
-                                    
+
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-4 col-lg-4 col-xl-3 pt-3 pt-xl-5 flex-lg-grow-0 ps-5 " >
+                        <div class="col-md-4 col-lg-4 col-xl-3 pt-3 pt-xl-5 flex-lg-grow-0 ps-5 ">
                             <div class="content-right">
                                 <h3 class="pb-2">Working Hours</h3>
                                 <div class="working-time">
@@ -515,7 +568,7 @@
     <script src="../js/petzone/profile-delete.js"></script>
     <script src="../js/sweetalert2@11.js"></script>
     <script>
-      
+
         getData();
         function getData() {
             fetch('https://mps4.chandalen.dev/api/me', {
@@ -547,13 +600,13 @@
                     document.querySelectorAll('.firstname').forEach(element => {
                         element.innerHTML = firstName;
                     });
-                    document.querySelectorAll('.Gemail').forEach(element=>{
+                    document.querySelectorAll('.Gemail').forEach(element => {
                         element.innerHTML = email;
                     });
-                    
+
                 })
         }
-        
+
         function deleteAcc() {
             fetch('https://mps4.chandalen.dev/api/profile/acc', {
                 method: 'DELETE',
@@ -578,17 +631,17 @@
         document.querySelector('#delete-acc').addEventListener('click', () => {
             deleteAcc();
         })
-    
-     
-        
+
+
+
     </script>
-   <script src="../vendor/global/global.min.js"></script>
-<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../vendor/global/global.min.js"></script>
+    <script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <!-- Preloader -->
     <script src="../vendor/global/global.min.js"></script>
-	<script src="../js/custom.js"></script>
-    
-    
+    <script src="../js/custom.js"></script>
+
+
 </body>
 
 </html>
