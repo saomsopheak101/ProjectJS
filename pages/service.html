@@ -1245,8 +1245,10 @@
 							<span class="nav-text">Consult</span>
 						</a>
 						<ul aria-expanded="false">
+
 							<li><a href="../pages/consult-pending-face to face.html">Pending Face to face</a></li>
 							<li><a href="../pages/consult-pending-online.html">Pending Online</a></li>
+
 							<li><a href="../pages/consult-table.html">History Clients</a></li>
 						</ul>
 					</li>
@@ -1364,7 +1366,7 @@
 											</li>
 
 										</ul>
-										<button class="btn btn-warning mb-3 py-2" onclick="CreateService()">Add
+										<button class="btn btn-warning mb-3" onclick="CreateService()">Add
 											Service</button>
 									</div>
 									<div class="tab-content mx-4" id="pills-tabContent">
@@ -1454,36 +1456,28 @@
 						<div class="mb-3">
 							<label for="service-title" class="form-label">Title</label>
 							<input type="text" id="service-title" class="form-control" required>
-							<div id="title-error" class="text-danger" style="display: none;">Title is required.</div>
-						</div>
-						<div class="mb-3">
+							<div class="invalid-feedback" id="title-error">Please provide a title.</div>
+						  </div>
+						  <div class="mb-3">
 							<label for="service-feature" class="form-label">Feature</label>
 							<input type="text" id="service-feature" class="form-control">
-							<div id="feature-error" class="text-danger" style="display: none;">Feature is required.
-							</div>
-						</div>
-						<div class="mb-3">
+							<div class="invalid-feedback" id="feature-error">Feature cannot be empty.</div>
+						  </div>
+						  <div class="mb-3">
 							<label for="service-description" class="form-label">Description</label>
 							<textarea id="service-description" class="form-control"></textarea>
-							<div id="description-error" class="text-danger" style="display: none;">Description is
-								required.</div>
-						</div>
-						<div class="mb-3">
-							<div class="form-group">
-								<label for="image">Upload Image:</label>
-								<input type="file" id="image" name="image" class="form-control">
-								<img id="image-preview" style="max-width: 100%; display: none;" alt="Service Preview">
-								<div id="image-error" class="text-danger" style="display: none;">Image is required.
-								</div>
-							</div>
-						</div>
-						<!-- Create/Update Button -->
-						<button type="button" id="btn-sub" class="btn btn-primary change-subtxt"
-							onclick="btnCreate()">Submit</button>
+							<div class="invalid-feedback" id="description-error">Description cannot exceed 500 characters.</div>
+						  </div>
+						  <div class="mb-3">
+							<label for="image" class="form-label">Image</label>
+							<input type="file" id="image" class="form-control">
+							<div class="invalid-feedback" id="image-error">Please select an image.</div>
+						  </div>
+						  <button type="button" id="btn-sub" class="btn btn-primary change-subtxt" onclick="btnCreate()">Submit</button>
+						  
 					</form>
 				</div>
 			</div>
-
 
 			<!-- Modal for Viewing Service Details -->
 			<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel"
@@ -1768,90 +1762,116 @@
 					document.querySelector('.service-tbody').innerHTML = '<tr><td colspan="7" class="text-center text-danger">Failed to load services.</td></tr>';
 				});
 		}
-		// Reset form for creating a new service
 		function CreateService() {
-			const form = document.getElementById('service-form');
-			form.reset(); // Reset all input fields
-			document.getElementById('service-id').value = ''; // Clear hidden service ID
+  // Reset the form for creating a new service
+  document.getElementById('service-form').reset();
+  document.getElementById('service-id').value = '';
+  document.querySelector('.update-service').innerText = 'Add Service';
+  document.querySelector('.change-subtxt').innerText = 'Submit';
 
-			// Reset button and title for adding a service
-			document.querySelector('.change-subtxt').innerText = 'Submit';
-			document.querySelector('.update-service').innerText = 'Add Service';
+  // Show the offcanvas form
+  const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
+  offcanvas.show();
+}
 
-			resetErrors(); // Clear error messages
-			resetImagePreview(); // Reset image preview
+function btnCreate() {
+  // Collect input values
+  const title = document.getElementById('service-title').value.trim();
+  const feature = document.getElementById('service-feature').value.trim();
+  const description = document.getElementById('service-description').value.trim();
+  const serviceId = document.getElementById('service-id').value;
+  const image = document.getElementById('image').files[0]; // Get the image file
 
-			// Show offcanvas form
-			const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
-			offcanvas.show();
-		}
+  // Clear previous error messages and styling
+  clearErrors();
 
-		// Reset error styles and messages
-		function resetErrors() {
-			document.querySelectorAll('.text-danger').forEach(el => el.style.display = 'none');
-			document.querySelectorAll('.form-control').forEach(el => el.style.border = '');
-		}
+  // Flag to check if there are errors
+  let hasError = false;
 
-		// Reset image preview to default state
-		function resetImagePreview() {
-			const imagePreview = document.getElementById('image-preview');
-			imagePreview.style.display = 'none';
-			imagePreview.src = '';
-		}
+  // Validate required fields
+  if (!title) {
+    showError('service-title', 'title-error', 'Please provide a title.');
+    hasError = true;
+  }
 
-		// Validate form fields
-		function validateForm() {
-			resetErrors();
-			let isValid = true;
+  if (!feature) {
+    showError('service-feature', 'feature-error', 'Feature cannot be empty.');
+    hasError = true;
+  }
 
-			if (!document.getElementById('service-title').value.trim()) {
-				document.getElementById('title-error').style.display = 'block';
-				document.getElementById('service-title').style.border = '1px solid red';
-				isValid = false;
-			}
+  // Validate Description length (max 500 characters)
+  if (!description) {
+    showError('service-description', 'description-error', 'Please provide a title .');
+    hasError = true;
+  }
 
-			return isValid;
-		}
+  if (!image) {
+    showError('image', 'image-error', 'Please select an image.');
+    hasError = true;
+  }
 
-		// Function for creating a new service
-		function btnCreate() {
-			const title = document.getElementById('service-title').value;
-			const feature = document.getElementById('service-feature').value;
-			const description = document.getElementById('service-description').value;
-			const image = document.getElementById('image').files[0]; // Get the image file
+  // If there are any validation errors, stop form submission
+  if (hasError) {
+    return;
+  }
 
-			// Validate form fields
-			resetErrors();
+  const formData = new FormData();
+  formData.append('title', title);
+  formData.append('feature', feature);
+  formData.append('description', description);
+  formData.append('image', image); // Image is now required
 
-			let isValid = true;
-			if (!title) {
-				document.getElementById('title-error').style.display = 'block';
-				document.getElementById('service-title').style.border = '1px solid red';
-				isValid = false;
-			}
-			if (!feature) {
-				document.getElementById('feature-error').style.display = 'block';
-				document.getElementById('service-feature').style.border = '1px solid red';
-				isValid = false;
-			}
-			if (!description) {
-				document.getElementById('description-error').style.display = 'block';
-				document.getElementById('service-description').style.border = '1px solid red';
-				isValid = false;
-			}
-			if (!image) {
-				document.getElementById('image-error').style.display = 'block';
-				document.getElementById('image').style.border = '1px solid red';
-				isValid = false;
-			}
+  // Determine method and URL based on serviceId
+  let method = serviceId ? 'POST' : 'POST';
+  let url = serviceId ? `https://mps4.chandalen.dev/api/services/${serviceId}` : 'https://mps4.chandalen.dev/api/services';
 
-			if (!isValid) return;
+  fetch(url, {
+    method: method,
+    headers: {
+      'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
+    },
+    body: formData // Send FormData instead of JSON
+  })
+    .then(response => response.json())
+    .then(result => {
+      if (result.result) {
+        alert(result.message);
+        AllService(); // Reload the services list
+        const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
+        offcanvas.hide(); // Hide offcanvas after submitting
+      } else {
+        alert(result.message || 'Failed to save service.');
+      }
+    })
+    .catch(error => console.error("Error submitting form:", error));
+}
 
-			const formData = new FormData();
-			formData.append('title', title);
-			formData.append('feature', feature);
-			formData.append('description', description);
-			if (image) formData.append('image', image);
+// Function to show error message and apply red border
+function showError(inputId, errorId, message) {
+  const inputField = document.getElementById(inputId);
+  const errorMessage = document.getElementById(errorId);
+  
+  // Apply red border to the input field
+  inputField.classList.add('is-invalid');
+
+  // Display the error message
+  errorMessage.textContent = message;
+  errorMessage.style.display = 'block';
+}
+
+
+// Function to clear error styles and messages
+function clearErrors() {
+  const inputFields = document.querySelectorAll('.form-control');
+  inputFields.forEach(input => {
+    input.classList.remove('is-invalid');
+  });
+
+  const errorMessages = document.querySelectorAll('.invalid-feedback');
+  errorMessages.forEach(error => {
+    error.style.display = 'none';
+  });
+}
 
 			// Send the create request
 			fetch('https://mps4.chandalen.dev/api/services', {
@@ -1878,48 +1898,42 @@
 				.catch(error => console.error("Error creating service:", error));
 		}
 
-		// Function for updating an existing service
-		function UpdateService(id) {
-			fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
-				method: 'GET',
-				headers: {
-					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
-				}
-			})
-				.then(response => response.json())
-				.then(service => {
-					if (service.result) {
-						const data = service.data;
 
-						// Populate the form with the service data
-						document.getElementById('service-title').value = data.title || '';
-						document.getElementById('service-feature').value = data.feature || '';
-						document.getElementById('service-description').value = data.description || '';
-						document.getElementById('service-id').value = data.id || '';
 
-						// Show image preview
-						const imagePreview = document.getElementById('image-preview');
-						if (data.image) {
-							imagePreview.src = data.image;
-							imagePreview.style.display = 'block';
-						} else {
-							imagePreview.src = '';
-							imagePreview.style.display = 'none';
-						}
 
-						// Update button text and title for updating
-						document.querySelector('.change-subtxt').innerText = 'Update';
-						document.querySelector('.update-service').innerText = 'Update Service';
 
-						// Show the offcanvas form
-						const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
-						offcanvas.show();
-					} else {
-						alert(service.message || 'Failed to load service data.');
-					}
-				})
-				.catch(error => console.error("Error fetching service for update:", error));
-		}
+
+function UpdateService(id) {
+  fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
+    headers: {
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
+    }
+  })
+    .then(response => response.json())
+    .then(service => {
+      if (service.result) {
+        // Populate the form fields with fetched data
+        document.getElementById('service-title').value = service.data.title || '';
+        document.getElementById('service-feature').value = service.data.feature || '';
+        document.getElementById('service-description').value = service.data.description || '';
+        
+        // Reset image file input by setting its value to an empty string
+        document.getElementById('image').value = ''; // Clear the file input
+        
+        document.getElementById('service-id').value = service.data.id || '';
+
+        document.querySelector('.update-service').innerText = 'Update Service';
+        document.querySelector('.change-subtxt').innerText = 'Update';
+
+        const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
+        offcanvas.show();
+      } else {
+        alert(service.message || 'Failed to load service data.');
+      }
+    })
+    .catch(error => console.error("Error fetching service for update:", error));
+}
 
 		function btnUpdate() {
 			const serviceId = document.getElementById('service-id').value.trim(); // Retrieve service ID
@@ -1989,7 +2003,6 @@
 				})
 				.catch(error => console.error("Error updating service:", error));
 		}
-
 
 
 		function showAddPriceModal(serviceId) {
@@ -2384,6 +2397,7 @@
 				});
 		}
 
+		// Function to update an existing animal
 		function updateAnimal(animalId, animalName) {
 			const adminToken = sessionStorage.getItem('adminToken');
 

@@ -259,120 +259,97 @@
             <div class="container d-flex justify-content-center">
                 <div class="col-8">
 
-                    <form class="row  needs-validation align-items-center row-gap-3 glass p-4 " novalidate>
-                        <h4 class="mt-3 fw-bold">Booking information</h4>
-
-                        <!-- <select class="form-select" id="validationCustom04" required>
-                            <option selected disabled value="">Choose...</option>
-                            <option>...</option>
-                          </select> -->
-
+                    <form class="row needs-validation align-items-center row-gap-3 glass p-4" novalidate>
+                        <h4 class="mt-3 fw-bold">Booking Information</h4>
+                    
                         <div class="col-3">
-                            <label for="">From:</label>
+                            <label for="dateTime">From:</label>
                             <div class="input-group date" id="datetimepicker" data-target-input="nearest">
                                 <input type="text" id="dateTime" class="form-control datetimepicker-input"
-                                    data-target="#datetimepicker" placeholder="Select date and time" />
-                                <div class="input-group-append" data-target="#datetimepicker"
-                                    data-toggle="datetimepicker">
+                                    data-target="#datetimepicker" placeholder="Select date and time" required />
+                                <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
+                                <div class="invalid-feedback">Please select a start date and time.</div>
                             </div>
                         </div>
-
+                    
                         <div class="col-3">
-                            <label for="">to</label>
+                            <label for="dateTime1">To:</label>
                             <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                                 <input type="text" id="dateTime1" class="form-control datetimepicker-input"
-                                    data-target="#datetimepicker1" placeholder="Select date and time" />
-                                <div class="input-group-append" data-target="#datetimepicker1"
-                                    data-toggle="datetimepicker">
+                                    data-target="#datetimepicker1" placeholder="Select date and time" required />
+                                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
+                                <div class="invalid-feedback">Please select an end date and time.</div>
                             </div>
+
                             <div class="invalid-feedback" id="formselect-error"></div>
                             <div class="valid-feedback text-success" id="formselect-success"></div>
-                        </div>
 
+                        </div>
+                    
                         <div class="col-3">
-                            <label for="">Select pet type:</label>
-                            <select class="form-select" aria-label="Default select example" id="animalType" required>
+                            <label for="animalType">Select pet type:</label>
+                            <select class="form-select" id="animalType" required>
                                 <option selected disabled>Please select</option>
+                                <option value="dog">Dog</option>
+                                <option value="cat">Cat</option>
                             </select>
-                            <div class="invalid-feedback" id="formselect-error"></div>
-                            <div class="valid-feedback text-success" id="formselect-success"></div>
+                            <div class="invalid-feedback">Please select a pet type.</div>
                         </div>
-
+                    
                         <div class="col-3">
+
                             <label for="">Days:</label>
                             <input type="text" class="form-control" id="dayLabel" placeholder="Days" disabled>
                             <div class="invalid-feedback" id="formselect-error"></div>
                             <div class="valid-feedback text-success" id="formselect-success"></div>
-                        </div>
 
+                        </div>
+                    
                         <div class="col-3">
+
                             <label for="">Animal:</label>
                             <input type="text" class="form-control" id="aniLabel" placeholder="Animal price" disabled>
                             <div class="invalid-feedback" id="formselect-error"></div>
                             <div class="valid-feedback text-success" id="formselect-success"></div>
+
                         </div>
+                    
                         <div class="col-3">
+
                             <label for="">Total price:</label>
                             <input type="text" class="form-control" id="priceLabel" placeholder="Price" disabled>
                             <div class="invalid-feedback" id="formselect-error"></div>
                             <div class="valid-feedback text-success" id="formselect-success"></div>
-                        </div>
 
+                        </div>
+                    
                         <h4 class="my-2 fw-bold">Payment</h4>
                         <div class="col-12">
-                            <div class="mb-2 mb-lg-4">
-                                <div class="row g-4 g-lg-5">
-                                    <div class="col-12">
-                                        <div class="d-flex align-items-center my-2 mb-lg-0 flex-wrap">
-                                            <div class="form-check form-check-inline d-flex align-items-center me-sm-3">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                    id="inlineRadio2" checked>
-                                                <label class="form-check-label" data-bs-toggle="collapse"
-                                                    data-bs-target="#collapseExample" aria-expanded="false"
-                                                    aria-controls="collapseExample" for="inlineRadio1">
-                                                    pay 50%
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-inline d-flex align-items-center me-5">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                    id="inlineRadio3" value="option2">
-                                                <label class="form-check-label" for="inlineRadio2">pay
-                                                    100%</label>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex flex-column mt-3">
-                                            <span class="short-des pb-2 text-black-50">Click the
-                                                bank below to get QR Code</span>
-
-                                            <div class="d-flex column-gap-2">
-                                                <a href="#" type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal"><img src="../images/service/ABA.png"
-                                                        alt="" style="width: 40px;" class="rounded-1"></a>
-                                                <a href="#" type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal1"><img
-                                                        src="../images/service/ACLeda.png" alt="" style="width: 40px;"
-                                                        class="rounded-1"></a>
-                                            </div>
-                                        </div>
-                                        <h1 class="modal-title fs-6 my-2">Transaction file
-                                        </h1>
-                                        <input class="form-control py-1 bg-white mt-3" id="tran-link" type="file"
-                                            required />
-                                        <div class="invalid-feedback" id="formselect-error"></div>
-                                        <div class="valid-feedback text-success" id="formselect-success">Select looks
-                                            good!</div>
-
-                                        <button class="btn btn-warning w-100 text-white mb-0 mt-4" id="btn-book"
-                                            type="button">Book Now</button>
-                                    </div>
-                                </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="paymentOption" id="pay50" value="50" checked />
+                                <label class="form-check-label" for="pay50">Pay 50%</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="paymentOption" id="pay100" value="100" />
+                                <label class="form-check-label" for="pay100">Pay 100%</label>
                             </div>
                         </div>
+                    
+                        <div class="col-12">
+                            <label for="tran-link">Transaction File:</label>
+                            <input class="form-control" id="tran-link" type="file" required />
+                            <div class="invalid-feedback">Please upload a transaction file.</div>
+                        </div>
+                    
+                        <div class="col-12">
+                            <button class="btn btn-warning w-100 text-white mt-4" id="btn-book" type="button">Book Now</button>
+                        </div>
                     </form>
+                    
                 </div>
             </div>
 
@@ -555,103 +532,53 @@
         src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const submitButton = document.querySelector("#btn-book");
+     document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".needs-validation");
 
-            function validateField(field) {
-                const errorMessage = field.nextElementSibling;
-                const calendarIcon = field.nextElementSibling.nextElementSibling; // Reference to the calendar icon
+    function validateField(field) {
+        if (!field.checkValidity()) {
+            field.classList.add("is-invalid");
+            field.classList.remove("is-valid");
+        } else {
+            field.classList.remove("is-invalid");
+            field.classList.add("is-valid");
+        }
+    }
 
-                if (field.type === "file") {
-                    if (field.files.length === 0) {
-                        field.classList.add("is-invalid");
-                        field.classList.remove("is-valid");
-                        if (errorMessage) errorMessage.textContent = "Please upload a transaction file.";
+    function validateForm() {
+        const fields = form.querySelectorAll("input, select");
+        let isFormValid = true;
 
-                        return false;
-                    } else {
-                        field.classList.remove("is-invalid");
-                        field.classList.add("is-valid");
-                        if (errorMessage) errorMessage.textContent = "";
-                        if (calendarIcon) calendarIcon.classList.add("is-valid-icon");
-                        return true;
-                    }
-                } else if (field.type === "text" || field.tagName === "SELECT") {
-                    if (field.value.trim() === "" || field.value === "Please select") {
-                        field.classList.add("is-invalid");
-                        field.classList.remove("is-valid");
-                        if (errorMessage) errorMessage.textContent = "This field is required.";
-
-                        return false;
-                    } else {
-                        field.classList.remove("is-invalid");
-                        field.classList.add("is-valid");
-                        if (errorMessage) errorMessage.textContent = "";
-                        if (calendarIcon) calendarIcon.classList.add("is-valid-icon");
-                        return true;
-                    }
-                }
-                return true; // Default for other cases
-            }
-
-            // Main validation function
-            function validateForm() {
-                let isValid = true;
-                const fieldsToValidate = [
-                    document.querySelector("#dateTime"),
-                    document.querySelector("#dateTime1"),
-                    document.querySelector("#animalType"),
-                    document.querySelector("#tran-link"),
-                ];
-
-                fieldsToValidate.forEach((field) => {
-                    if (!validateField(field)) isValid = false;
-                });
-
-                // Custom date validation
-                const startDateField = document.querySelector("#dateTime");
-                const endDateField = document.querySelector("#dateTime1");
-
-                const startDate = new Date(startDateField.value);
-                const endDate = new Date(endDateField.value);
-
-                if (startDateField.value && endDateField.value && endDate <= startDate) {
-                    endDateField.classList.add("is-invalid");
-                    endDateField.classList.remove("is-valid");
-                    if (endDateField.nextElementSibling)
-                        endDateField.nextElementSibling.textContent = "End date must be after the start date.";
-                    isValid = false;
-                } else if (endDateField.value) {
-                    endDateField.classList.remove("is-invalid");
-                    endDateField.classList.add("is-valid");
-                    if (endDateField.nextElementSibling) endDateField.nextElementSibling.textContent = "";
-                }
-
-                return isValid;
-            }
-
-            document.querySelectorAll("input, select").forEach((input) => {
-                input.addEventListener("input", () => validateField(input));
-            });
-
-            submitButton.addEventListener("click", function (event) {
-                event.preventDefault();
-                const isFormValid = validateForm();
-
-                if (isFormValid) {
-                    booking();
-                } else {
-
-                    Inconrrect({
-                        title: 'Please fill out all required fields correctly.',
-                        // description: 'Welcome back Admin! Redirecting...',
-                        iconType: ''
-                    })
-
-
-                }
-            });
+        fields.forEach((field) => {
+            validateField(field);
+            if (!field.checkValidity()) isFormValid = false;
         });
+
+        // Date range validation
+        const startDate = new Date(document.querySelector("#dateTime").value);
+        const endDate = new Date(document.querySelector("#dateTime1").value);
+        if (endDate <= startDate) {
+            const endDateField = document.querySelector("#dateTime1");
+            endDateField.classList.add("is-invalid");
+            endDateField.nextElementSibling.textContent = "";
+            isFormValid = false;
+        }
+
+        return isFormValid;
+    }
+
+    form.addEventListener("input", (e) => validateField(e.target));
+
+    document.querySelector("#btn-book").addEventListener("click", function (event) {
+        event.preventDefault();
+        if (validateForm()) {
+            alert("Form submitted successfully!");
+        } else {
+            alert("Please fix the errors in the form.");
+        }
+    });
+});
+
 
 
         let serviceID = sessionStorage.getItem('petCareId');
