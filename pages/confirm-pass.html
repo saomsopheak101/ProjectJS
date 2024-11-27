@@ -309,11 +309,11 @@
 
                                         </div>
                                         <div class="invalid text-danger">
-                                            Incorrect password!
+                                            
                                         </div>
                                         <div class="conf-pass">
                                             <div class="form-group mt-3 m-0 p-0">
-                                                <input type="submit" class="btn-bn " value="Save" id="nextButton">
+                                                <input type="submit" class="btn-bn " value="Save" id="saveButton">
                                                 <button class="btn btn-primary d-none" id="spinner" type="button" disabled>
                                                     <span class="spinner-border spinner-border-sm"
                                                         aria-hidden="true"></span>
@@ -361,8 +361,8 @@
             let password = document.querySelector('#password').value;
             let ConfirmPw = document.querySelector('#passwordCon').value;
 
-            console.log(password);
-            console.log(ConfirmPw);
+            // console.log(password);
+            // console.log(ConfirmPw);
             if (password !== ConfirmPw) {
                 document.querySelector('.invalid').style.display = "block";
             } else {
@@ -378,9 +378,9 @@
                 // console.log(formdata);
 
                 // Show loading spinner and update button text
-                let nextButton = document.querySelector('#nextButton');
+                let saveButton = document.querySelector('#saveButton');
                 let spinner = document.querySelector('#spinner');
-                nextButton.classList.add('d-none'); // Hide the Next button
+                saveButton.classList.add('d-none'); // Hide the Next button
                 spinner.classList.remove('d-none'); // Show the spinner button
                 fetch('https://mps4.chandalen.dev/api/reset/pass', {
                     method: 'POST',
@@ -392,7 +392,7 @@
                         // console.log(json);
                         // Reset spinner and show the Next button
                         spinner.classList.add('d-none');
-                        nextButton.classList.remove('d-none');
+                        saveButton.classList.remove('d-none');
                         if (json.result === true) {
                             sessionStorage.setItem('password', password);
                             sessionStorage.setItem('confirm', ConfirmPw);
@@ -431,8 +431,8 @@
 
 
 
-            }
         }
+        
 
         function showModernToast({
             title = '',

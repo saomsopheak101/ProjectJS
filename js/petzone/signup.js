@@ -50,7 +50,7 @@ function getdata() {
             signupButton.classList.remove('d-none');
 
             if (json.result === true) {
-                handleSignUpSuccess(json);
+                handleSignUpSuccess(json) ;
 
             } else {
                 alert("Invalid credentials.");
@@ -166,9 +166,11 @@ function handleSignUpSuccess(json) {
 
         if (roleName === 'Normal User') {
             sessionStorage.setItem('authToken', json.data.token);
+            // alert(json.message + " Token stored.");
+            // location.href = '../index.html';
             showModernToast(
                 {
-                    title: 'Signup Successful!',
+                    title: 'Signup Successfully!',
                     description: 'Redirecting to homepage...',
                     iconType: 'success'
                 },
@@ -183,40 +185,65 @@ function handleSignUpSuccess(json) {
     }
 }
 
-function handleLoginSuccess(json) {
-    if (json.data.roles && json.data.roles.length > 0) {
-        const roleName = json.data.roles[0].name;
-        if (roleName === 'Normal User') {
-            sessionStorage.setItem('authToken', json.data.token);
-            // alert(json.message + " Token stored.");
-            // location.href = '../index.html';
-            showModernToast(
-                {
-                    title: 'Login Successful!',
-                    description: 'Welcome back! Redirecting...',
-                    iconType: 'success'
-                },
-                setTimeout(() => {
-                    location.href = '../index.html';
-                }, 3000))
+function showModernToast({
+    title = '',
+    description = '',
+    iconType = 'success',
+    position = 'top-right',
+    timer = 3000,
+    hasCloseButton = true,
+}) {
+    Swal.fire({
+        toast: true,
+        position: position,
+        icon: iconType,
+        title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
+        html: description
+            ? `<p style="margin: -4px; font-size: 13px; color: #101114;">${description}</p>`
+            : '',
+        customClass: {
+            popup: 'modern-toast',
+            closeButton: hasCloseButton ? 'swal-close-btn' : '',
+        },
+        showConfirmButton: false,
+        timer: timer,
+        timerProgressBar: true,
+        showCloseButton: hasCloseButton,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+        },
+    });
 
-        } else if (roleName === 'System Admin') {
-            sessionStorage.setItem('adminToken', json.data.token);
-            // alert(json.message + " Token stored.");
-            // location.href = '../pages/employee.html';
-            showModernToast(
-                {
-                    title: 'Login Successful!',
-                    description: 'Welcome back Admin! Redirecting...',
-                    iconType: 'success'
-                },
-                setTimeout(() => {
-                    location.href = '../pages/employee.html';
-                }, 3000))
-        } else {
-            alert("User role not recognized.");
-        }
-    } else {
-        alert("No roles assigned to this user.");
-    }
+}
+function Inconrrect({
+    title = '',
+    description = '',
+    iconType = 'error',
+    position = 'top-right',
+    timer = 3000,
+    hasCloseButton = true,
+}) {
+    Swal.fire({
+        toast: true,
+        position: position,
+        icon: iconType,
+        title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
+        html: description
+            ? `<p style="margin: -4px; font-size: 12px; color: #101114;">${description}</p>`
+            : '',
+        customClass: {
+            popup: 'modern-toast',
+            closeButton: hasCloseButton ? 'swal-close-btn' : '',
+        },
+        showConfirmButton: false,
+        timer: timer,
+        timerProgressBar: true,
+        showCloseButton: hasCloseButton,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+        },
+    });
+
 }

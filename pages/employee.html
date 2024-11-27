@@ -1463,7 +1463,7 @@
 
 						</div>
 						<div>
-							<button type="button" class="btn btn-danger light ms-1">Cancel</button>
+							<button type="button" class="btn btn-danger light ms-1 me-2">Cancel</button>
 							<button type="button" onclick="handleSubmit();" id="btn-sub"
 								class="btn btn-primary me-1 change-subtxt">Submit</button>
 						</div>
@@ -1807,72 +1807,144 @@
 
 		}
 
+		// ------------------------------------------------------------------------
 		function handleSubmit() {
+    const avatarInput = document.querySelector('#upload-img');
+    const avatar = avatarInput.files[0];
+    const name = document.querySelector('#gname').value.trim();
+    const number = document.querySelector('#pnumber').value.trim();
+    const worktime = document.querySelector('#worktime').value;
+    const workday = document.querySelector('#workday').value;
+    const position = document.querySelector('#position').value;
+    const address = document.querySelector('#gaddress').value.trim();
+    const description = document.querySelector('#gdescription').value.trim();
 
-			let avatar = document.querySelector('#upload-img').files[0];
-			let name = document.querySelector('#gname').value;
-			let number = document.querySelector('#pnumber').value;
-			let worktime = document.querySelector('#worktime').value;
-			let workday = document.querySelector('#workday').value;
-			let position = document.querySelector('#position').value;
-			let address = document.querySelector('#gaddress').value;
-			let description = document.querySelector('#gdescription').value
+    let isValid = true;
 
-			// Validate selection
-			if (!worktime) {
-				alert("Please select a work time.");
-				return;
-			}
-			if (!workday) {
-				alert("Please select a work time.");
-				return;
-			}
-			if (!position) {
-				alert("Please select a work time.");
-				return;
-			}
+    // Validation helper function
+    const showFeedback = (input, valid, message = '') => {
+        const feedback = input.nextElementSibling; // Assumes there is a feedback element (e.g., a <span>)
+        if (valid) {
+            input.classList.remove('is-invalid');
+            input.classList.add('is-valid');
+            if (feedback) feedback.textContent = '';
+        } else {
+            input.classList.add('is-invalid');
+            input.classList.remove('is-valid');
+            if (feedback) feedback.textContent = message;
+            isValid = false;
+        }
+    };
 
-			console.log("Avatar:", avatar);
-			console.log("Name:", name);
-			console.log("Phone Number:", number);
-			console.log("Selected Work Time ID:", worktime);
-			console.log("Selected Work Time ID:", position);
-			console.log("Selected Work Time ID:", workday);
-			console.log("Selected Work Time ID:", description);
+    // Validate Avatar
+    if (!avatar) {
+        showFeedback(avatarInput, false, 'Please upload an image.');
+    } else if (!['image/jpeg', 'image/png'].includes(avatar.type)) {
+        showFeedback(avatarInput, false, 'Image must be in JPEG or PNG format.');
+    } else {
+        showFeedback(avatarInput, true);
+    }
 
-			// Prepare form data
-			let formData = new FormData();
-			formData.append("image", avatar); // Append the avatar file
-			formData.append("name", name); // Append the name
-			formData.append("phone", number); // Append the phone number
-			formData.append("work_time_id", worktime);
-			formData.append("work_day_id", workday);
-			formData.append("position_id", position);
-			formData.append("address", address);
-			formData.append("description", description);
+    // Validate Name
+    if (!name) {
+        showFeedback(document.querySelector('#gname'), false, 'Please enter a name.');
+    } else if (name.length < 3 || name.length > 50) {
+        showFeedback(document.querySelector('#gname'), false, 'Name must be between 3 and 50 characters.');
+    } else {
+        showFeedback(document.querySelector('#gname'), true);
+    }
 
-			// Post employee data
-			fetch('https://mps4.chandalen.dev/api/employees', {
-				method: 'POST',
-				headers: {
-					'Accept': "application/json",
-					'Authorization': `Bearer ${authToken}`
-				},
-				body: formData // Send the form data
-			})
-				.then(res => res.json())
-				.then(json => {
-					if (json.result === true) {
-						employeeAll();
-						alert(json.message)
-						console.log(json.message)
-					} else {
-						alert(json.message)
-					}
+    // Validate Phone Number
+    if (!number) {
+        showFeedback(document.querySelector('#pnumber'), false, 'Please enter a phone number.');
+    } else if (!/^\d{10,15}$/.test(number)) {
+        showFeedback(document.querySelector('#pnumber'), false, 'Phone number must be 10 to 15 digits long.');
+    } else {
+        showFeedback(document.querySelector('#pnumber'), true);
+    }
 
-				})
+    // Validate Work Time
+    if (!worktime || worktime === 'Select') {
+        showFeedback(document.querySelector('#worktime'), false, 'Please select a work time.');
+    } else {
+        showFeedback(document.querySelector('#worktime'), true);
+    }
 
-		}
+    // Validate Work Day
+    if (!workday || workday === 'Select') {
+        showFeedback(document.querySelector('#workday'), false, 'Please select a work day.');
+    } else {
+        showFeedback(document.querySelector('#workday'), true);
+    }
+
+    // Validate Position
+    if (!position || position === 'Select') {
+        showFeedback(document.querySelector('#position'), false, 'Please select a position.');
+    } else {
+        showFeedback(document.querySelector('#position'), true);
+    }
+
+    // Validate Address
+    if (!address) {
+        showFeedback(document.querySelector('#gaddress'), false, 'Please enter an address.');
+    } else if (address.length < 5 || address.length > 100) {
+        showFeedback(document.querySelector('#gaddress'), false, 'Address must be between 5 and 100 characters.');
+    } else {
+        showFeedback(document.querySelector('#gaddress'), true);
+    }
+
+    // Validate Description
+    if (!description) {
+        showFeedback(document.querySelector('#gdescription'), false, 'Please enter a description.');
+    } else if (description.length < 10 || description.length > 200) {
+        showFeedback(document.querySelector('#gdescription'), false, 'Description must be between 10 and 200 characters.');
+    } else {
+        showFeedback(document.querySelector('#gdescription'), true);
+    }
+
+    // Stop submission if form is invalid
+    if (!isValid) {
+        alert('Please fix the highlighted errors before submitting.');
+        return;
+    }
+
+    // Prepare form data
+    let formData = new FormData();
+    formData.append("image", avatar);
+    formData.append("name", name);
+    formData.append("phone", number);
+    formData.append("work_time_id", worktime);
+    formData.append("work_day_id", workday);
+    formData.append("position_id", position);
+    formData.append("address", address);
+    formData.append("description", description);
+
+    // Post employee data
+    fetch('https://mps4.chandalen.dev/api/employees', {
+        method: 'POST',
+        headers: {
+            'Accept': "application/json",
+            'Authorization': `Bearer ${authToken}`
+        },
+        body: formData
+    })
+        .then(res => res.json())
+        .then(json => {
+            if (json.result === true) {
+                employeeAll();
+                alert('Employee added successfully!');
+                clearAll(); // Clear form after successful submission
+            } else {
+                alert('Error: ' + json.message);
+            }
+        })
+        .catch(error => {
+            alert('An error occurred: ' + error.message);
+            console.error(error);
+        });
+}
+
+
 		function DeleteEmploy(row) {
 			console.log(row.dataset.id);
 			let id = row.dataset.id;
@@ -2101,6 +2173,9 @@
         Scripts
     ***********************************-->
 	<!-- Required vendors -->
+	<script src="../js/dashboard/admin.js"></script>
+	<script src="../js/sweetalert2@11.js"></script>
+
 	<script src="../vendor/global/global.min.js"></script>
 	<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
