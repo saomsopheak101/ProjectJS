@@ -46,7 +46,7 @@
     ********************-->
 
 
-  <header class="">
+    <header class="">
         <nav class="navbar navbar-expand-lg  z-3">
             <div class="container px-5 py-3  px-md-0">
                 <a class="navbar-brand" href="">
@@ -265,35 +265,33 @@
 
                     <form class="row needs-validation align-items-center row-gap-3 glass p-4" novalidate>
                         <h4 class="mt-3 fw-bold">Booking Information</h4>
-                    
+
                         <div class="col-3">
                             <label for="dateTime">From:</label>
                             <div class="input-group date" id="datetimepicker" data-target-input="nearest">
                                 <input type="text" id="dateTime" class="form-control datetimepicker-input"
                                     data-target="#datetimepicker" placeholder="Select date and time" required />
-                                <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
+                                <div class="input-group-append" data-target="#datetimepicker"
+                                    data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
                                 <div class="invalid-feedback">Please select a start date and time.</div>
                             </div>
                         </div>
-                    
+
                         <div class="col-3">
                             <label for="dateTime1">To:</label>
                             <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                                 <input type="text" id="dateTime1" class="form-control datetimepicker-input"
                                     data-target="#datetimepicker1" placeholder="Select date and time" required />
-                                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                <div class="input-group-append" data-target="#datetimepicker1"
+                                    data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
                                 <div class="invalid-feedback">Please select an end date and time.</div>
                             </div>
-
-                            <div class="invalid-feedback" id="formselect-error"></div>
-                            <div class="valid-feedback text-success" id="formselect-success"></div>
-
                         </div>
-                    
+
                         <div class="col-3">
                             <label for="animalType">Select pet type:</label>
                             <select class="form-select" id="animalType" required>
@@ -303,57 +301,63 @@
                             </select>
                             <div class="invalid-feedback">Please select a pet type.</div>
                         </div>
-                    
+
                         <div class="col-3">
-
-                            <label for="">Days:</label>
-                            <input type="text" class="form-control" id="dayLabel" placeholder="Days" disabled>
-                            <div class="invalid-feedback" id="formselect-error"></div>
-                            <div class="valid-feedback text-success" id="formselect-success"></div>
-
+                            <label for="dayLabel">Days:</label>
+                            <input type="text" class="form-control" id="dayLabel" placeholder="Days" disabled />
                         </div>
-                    
+
                         <div class="col-3">
-
-                            <label for="">Animal:</label>
-                            <input type="text" class="form-control" id="aniLabel" placeholder="Animal price" disabled>
-                            <div class="invalid-feedback" id="formselect-error"></div>
-                            <div class="valid-feedback text-success" id="formselect-success"></div>
-
+                            <label for="aniLabel">Animal Price:</label>
+                            <input type="text" class="form-control" id="aniLabel" placeholder="Animal price" disabled />
                         </div>
-                    
+
                         <div class="col-3">
-
-                            <label for="">Total price:</label>
-                            <input type="text" class="form-control" id="priceLabel" placeholder="Price" disabled>
-                            <div class="invalid-feedback" id="formselect-error"></div>
-                            <div class="valid-feedback text-success" id="formselect-success"></div>
-
+                            <label for="priceLabel">Total Price:</label>
+                            <input type="text" class="form-control" id="priceLabel" placeholder="Price" disabled />
                         </div>
-                    
+
                         <h4 class="my-2 fw-bold">Payment</h4>
+
                         <div class="col-12">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="paymentOption" id="pay50" value="50" checked />
+                                <input class="form-check-input" type="radio" name="paymentOption" id="pay50" value="50"
+                                    checked />
                                 <label class="form-check-label" for="pay50">Pay 50%</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="paymentOption" id="pay100" value="100" />
+                                <input class="form-check-input" type="radio" name="paymentOption" id="pay100"
+                                    value="100" />
                                 <label class="form-check-label" for="pay100">Pay 100%</label>
                             </div>
                         </div>
-                    
+
                         <div class="col-12">
+                            <div class="d-flex flex-column ">
+                                <span class="short-des pb-2 text-black-50">Click the
+                                    bank below to get QR Code</span>
+
+                                <div class="d-flex column-gap-2 mt-2 ">
+                                    <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><img
+                                            src="../images/service/ABA.png" alt="" style="width: 40px;"
+                                            class="rounded-1"></a>
+                                    <a href="#" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal1"><img src="../images/service/ACLeda.png" alt=""
+                                            style="width: 40px;" class="rounded-1"></a>
+                                </div>
+                            </div>
                             <label for="tran-link">Transaction File:</label>
                             <input class="form-control" id="tran-link" type="file" required />
                             <div class="invalid-feedback">Please upload a transaction file.</div>
                         </div>
-                    
+
                         <div class="col-12">
-                            <button class="btn btn-warning w-100 text-white mt-4" id="btn-book" type="button">Book Now</button>
+                            <button class="btn btn-warning w-100 text-white mt-4" id="btn-book" type="button">Book
+                                Now</button>
                         </div>
                     </form>
-                    
+
+
                 </div>
             </div>
 
@@ -536,346 +540,309 @@
     <script
         src="https://cdn.jsdelivr.net/npm/tempusdominus-bootstrap-4@5.39.0/build/js/tempusdominus-bootstrap-4.min.js"></script>
 
-        <script>
-               document.addEventListener("DOMContentLoaded", function () {
-                   const submitButton = document.querySelector("#btn-book");
-       
-                   function validateField(field) {
-                       const errorMessage = field.nextElementSibling;
-                       const calendarIcon = field.nextElementSibling.nextElementSibling; // Reference to the calendar icon
-       
-                       if (field.type === "file") {
-                           if (field.files.length === 0) {
-                               field.classList.add("is-invalid");
-                               field.classList.remove("is-valid");
-                               if (errorMessage) errorMessage.textContent = "Please upload a transaction file.";
-       
-                               return false;
-                           } else {
-                               field.classList.remove("is-invalid");
-                               field.classList.add("is-valid");
-                               if (errorMessage) errorMessage.textContent = "";
-                               if (calendarIcon) calendarIcon.classList.add("is-valid-icon");
-                               return true;
-                           }
-                       } else if (field.type === "text" || field.tagName === "SELECT") {
-                           if (field.value.trim() === "" || field.value === "Please select") {
-                               field.classList.add("is-invalid");
-                               field.classList.remove("is-valid");
-                               if (errorMessage) errorMessage.textContent = "This field is required.";
-       
-                               return false;
-                           } else {
-                               field.classList.remove("is-invalid");
-                               field.classList.add("is-valid");
-                               if (errorMessage) errorMessage.textContent = "";
-                               if (calendarIcon) calendarIcon.classList.add("is-valid-icon");
-                               return true;
-                           }
-                       }
-                       return true; // Default for other cases
-                   }
-       
-                   // Main validation function
-                   function validateForm() {
-                       let isValid = true;
-                       const fieldsToValidate = [
-                           document.querySelector("#dateTime"),
-                           document.querySelector("#dateTime1"),
-                           document.querySelector("#animalType"),
-                           document.querySelector("#tran-link"),
-                       ];
-       
-                       fieldsToValidate.forEach((field) => {
-                           if (!validateField(field)) isValid = false;
-                       });
-       
-                       // Custom date validation
-                       const startDateField = document.querySelector("#dateTime");
-                       const endDateField = document.querySelector("#dateTime1");
-       
-                       const startDate = new Date(startDateField.value);
-                       const endDate = new Date(endDateField.value);
-       
-                       if (startDateField.value && endDateField.value && endDate <= startDate) {
-                           endDateField.classList.add("is-invalid");
-                           endDateField.classList.remove("is-valid");
-                           if (endDateField.nextElementSibling)
-                               endDateField.nextElementSibling.textContent = "End date must be after the start date.";
-                           isValid = false;
-                       } else if (endDateField.value) {
-                           endDateField.classList.remove("is-invalid");
-                           endDateField.classList.add("is-valid");
-                           if (endDateField.nextElementSibling) endDateField.nextElementSibling.textContent = "";
-                       }
-       
-                       return isValid;
-                   }
-       
-                   document.querySelectorAll("input, select").forEach((input) => {
-                       input.addEventListener("input", () => validateField(input));
-                   });
-       
-                   submitButton.addEventListener("click", function (event) {
-                       event.preventDefault();
-                       const isFormValid = validateForm();
-       
-                       if (isFormValid) {
-                           booking();
-                       } else {
-       
-       
-       
-                           Inconrrect({
-                               title: 'Please fill out all required fields correctly.',
-                               // description: 'Welcome back Admin! Redirecting...',
-                               iconType: ''
-                           })
-       
-       
-                       }
-                   });
-               });
-       
-       
-               let serviceID = sessionStorage.getItem('petCareId');
-               console.log(serviceID);
-       
-       
-               window.addEventListener('unload', () => {
-       
-                   sessionStorage.removeItem('petCareId');
-               });
-               if (serviceID === null) {
-                   location.href = 'http://127.0.0.1:5502/../pages/petDayCare.html'
-               }
-       
-               animalId();
-               function animalId() {
-       
-       
-       
-                   fetch('https://mps4.chandalen.dev/api/animals', {
-                       method: 'GET',
-                       headers: {
-                           'Accept': "application/json",
-       
-                       }
-       
-                   })
-                       .then(res => res.json())
-                       .then(json => {
-                           // console.log(json)
-                           let animal = document.querySelector('#animalType');
-                           animal.innerHTML = '<option selected disabled>Please select</option>';
-       
-                           json.data.forEach(item => {
-                               let option = document.createElement('option');
-                               option.value = item.id;
-                               option.textContent = item.name;
-       
-                               animal.appendChild(option);
-                           });
-       
-                           animal.addEventListener('change', (event) => {
-                               const selectedOption = event.target.selectedOptions[0];
-                               console.log(selectedOption);
-                           })
-       
-                       });
-               };
-       
-               function transaction(linkTransaction, serviceID) {
-       
-       
-                   let formData = new FormData();
-                   formData.append('transaction_file', linkTransaction)
-       
-                   console.log('transaction file', formData);
-       
-       
-                   fetch('https://mps4.chandalen.dev/api/books/transaction-file/' + serviceID, {
-                       method: 'POST',
-                       headers: {
-                           'Accept': "application/json",
-                           'Authorization': `Bearer ${authToken}`
-                       },
-                       body: formData
-                   })
-                       .then(res => res.json())
-                       .then(json => {
-                           console.log(json)
-                           // if(json.result=== true){
-                           //     alert(json.message)
-                           // }else{
-                           //     alert(json.message)
-                           // }
-                       })
-               }
-               function calculatePriceAndDays() {
-                   const selectedAnimal = document.querySelector('#animalType').value;
-                   const priceLabel = document.querySelector('#aniLabel');
-                   const dayLabel = document.querySelector('#dayLabel');
-                   const totalPriceLabel = document.querySelector('#priceLabel');
-                   const startDate = document.querySelector('#dateTime').value;
-                   const endDate = document.querySelector('#dateTime1').value;
-       
-                   // Clear everything if no animal is selected or it's the default option
-                   if (!selectedAnimal || selectedAnimal === "Please select") {
-                       priceLabel.value = '';
-                       dayLabel.value = '';
-                       totalPriceLabel.value = '';
-                       return;
-                   }
-       
-       
-                   let priceAnimal = 0;
-                   if (selectedAnimal == 2) {
-                       priceAnimal = 30; // Cat
-                   } else if (selectedAnimal == 1) {
-                       priceAnimal = 25; // Dog
-                   } else {
-                       priceAnimal = 15; // Other
-                   }
-       
-                   // Always update the animal price
-                   priceLabel.value = `$${priceAnimal}`;
-       
-                   // Calculate days and total price if we have dates
-                   if (startDate && endDate) {
-                       const start = new Date(startDate);
-                       const end = new Date(endDate);
-       
-       
-       
-                       // Validate dates
-                       if (end < start) {
-                           alert('End date cannot be before start date');
-                           dayLabel.value = '';
-                           selectedAnimal = "Please select";
-                           totalPriceLabel.value = '';
-                           return;
-                       }
-       
-                       // Calculate the time difference and days difference
-                       const timeDifference = end - start;
-                       const daysDifference = Math.max(1, Math.ceil(timeDifference / (1000 * 60 * 60 * 24)));
-       
-                       // Update days and total price
-                       dayLabel.value = daysDifference;
-                       totalPriceLabel.value = `$${daysDifference * priceAnimal}`;
-                   } else {
-                       // Clear days and total price if dates are missing
-                       dayLabel.value = '';
-                       totalPriceLabel.value = '';
-                   }
-               }
-       
-               // Initialize everything when the document is ready
-               $(document).ready(function () {
-                   // Initialize datetime pickers
-                   $('#datetimepicker').datetimepicker({
-                       format: 'YYYY-MM-DD HH:mm:ss',
-                       minDate: new Date(),
-                       icons: {
-                           time: 'fa fa-clock',
-                           date: 'fa fa-calendar',
-                           up: 'fa fa-arrow-up',
-                           down: 'fa fa-arrow-down',
-                           previous: 'fa fa-chevron-left',
-                           next: 'fa fa-chevron-right',
-                           today: 'fa fa-calendar-check',
-                           clear: 'fa fa-trash',
-                           close: 'fa fa-times'
-                       }
-                   });
-       
-                   $('#datetimepicker1').datetimepicker({
-                       format: 'YYYY-MM-DD HH:mm:ss',
-                       minDate: new Date(),
-                       icons: {
-                           time: 'fa fa-clock',
-                           date: 'fa fa-calendar',
-                           up: 'fa fa-arrow-up',
-                           down: 'fa fa-arrow-down',
-                           previous: 'fa fa-chevron-left',
-                           next: 'fa fa-chevron-right',
-                           today: 'fa fa-calendar-check',
-                           clear: 'fa fa-trash',
-                           close: 'fa fa-times'
-                       }
-                   });
-       
-                   // Add event listeners for datetime pickers
-                   $('#datetimepicker').on('change.datetimepicker', function (e) {
-                       if (e.date) {
-                           $('#datetimepicker1').datetimepicker('minDate', e.date);
-                       }
-                       calculatePriceAndDays();
-                   });
-       
-                   $('#datetimepicker1').on('change.datetimepicker', function (e) {
-                       calculatePriceAndDays();
-                   });
-       
-                   // Add event listener for animal type
-                   const animalType = document.querySelector('#animalType');
-                   animalType.addEventListener('change', calculatePriceAndDays);
-               });
-       
-       
-               function booking() {
-                   const selectedAnimal = document.querySelector('#animalType').value;
-       
-                   const totalPriceLabel = document.querySelector('#priceLabel')
-                       .value = document.querySelector('#priceLabel').value.replace('$', '');;
-                   const startDate = document.querySelector('#dateTime').value;
-                   const endDate = document.querySelector('#dateTime1').value;
-                   let linkTransaction = document.querySelector('#tran-link').files[0];
-       
-                   calculatePriceAndDays();
-       
-                   const formData = new FormData();
-                   formData.append("pet_care_service_id", sessionStorage.getItem("petCareId"));
-                   formData.append("pet_care_animal_id", selectedAnimal);
-                   formData.append("pet_care_start_date", startDate);
-                   formData.append("pet_care_end_date", endDate);
-                   formData.append("pet_care_price", totalPriceLabel);
-       
-       
-       
-                   fetch("https://mps4.chandalen.dev/api/books", {
-                       method: "POST",
-                       headers: {
-                           Accept: "application/json",
-                           Authorization: `Bearer ${authToken}`,
-                       },
-                       body: formData,
-                   })
-                       .then((res) => res.json())
-                       .then((json) => {
-                           if (json.result === true) {
-                               transaction(linkTransaction, json.data.id);
-                               showModernToast({
-                                   iconType: "success",
-                                   title: "Booking Successful!",
-                                   description: "Your booking has been confirmed.hehe",
-                               },
-                                   setTimeout(() => {
-                                       location.href = 'http://127.0.0.1:5502/pages/profile-daycare.html';
-                                   }, 3000)
-       
-       
-                               );
-                           } else {
-                           }
-                       });
-               }
-               document.querySelector('#btn-book').addEventListener('click', () => {
-       
-                   booking();
-               })
-           </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector(".needs-validation");
+
+            function validateField(field) {
+                if (!field.checkValidity()) {
+                    field.classList.add("is-invalid");
+                    field.classList.remove("is-valid");
+                } else {
+                    field.classList.remove("is-invalid");
+                    field.classList.add("is-valid");
+                }
+            }
+
+            function validateForm() {
+                const fields = form.querySelectorAll("input, select");
+                let isFormValid = true;
+
+                fields.forEach((field) => {
+                    validateField(field);
+                    if (!field.checkValidity()) isFormValid = false;
+                });
+
+                // Date range validation
+                const startDate = new Date(document.querySelector("#dateTime").value);
+                const endDate = new Date(document.querySelector("#dateTime1").value);
+                if (endDate <= startDate) {
+                    const endDateField = document.querySelector("#dateTime1");
+                    endDateField.classList.add("is-invalid");
+                    endDateField.nextElementSibling.textContent = "";
+                    isFormValid = false;
+                }
+
+                return isFormValid;
+            }
+
+            form.addEventListener("input", (e) => validateField(e.target));
+
+            document.querySelector("#btn-book").addEventListener("click", function (event) {
+                event.preventDefault();
+                if (validateForm()) {
+                    showModernToast({
+                        iconType: "success",
+                        title: "Booking Successful!",
+                        description: "Your booking has been confirmed.hehe",
+                    },
+                        setTimeout(() => {
+                            location.href = 'http://127.0.0.1:5502/pages/profile-daycare.html';
+                        }, 3000)
+
+
+                    );
+
+                } else {
+                    Inconrrect({
+                        title: 'Please fill out all required fields correctly.',
+                        // description: 'Welcome back Admin! Redirecting...',
+                        iconType: ''
+                    })
+                }
+            });
+        });
+
+
+
+        let serviceID = sessionStorage.getItem('petCareId');
+        console.log(serviceID);
+
+
+        window.addEventListener('unload', () => {
+
+            sessionStorage.removeItem('petCareId');
+        });
+        if (serviceID === null) {
+            location.href = 'http://127.0.0.1:5502/../pages/petDayCare.html'
+        }
+
+        animalId();
+        function animalId() {
+
+
+
+            fetch('https://mps4.chandalen.dev/api/animals', {
+                method: 'GET',
+                headers: {
+                    'Accept': "application/json",
+
+                }
+
+            })
+                .then(res => res.json())
+                .then(json => {
+                    // console.log(json)
+                    let animal = document.querySelector('#animalType');
+                    animal.innerHTML = '<option selected disabled>Please select</option>';
+
+                    json.data.forEach(item => {
+                        let option = document.createElement('option');
+                        option.value = item.id;
+                        option.textContent = item.name;
+
+                        animal.appendChild(option);
+                    });
+
+                    animal.addEventListener('change', (event) => {
+                        const selectedOption = event.target.selectedOptions[0];
+                        console.log(selectedOption);
+                    })
+
+                });
+        };
+
+        function transaction(linkTransaction, serviceID) {
+
+
+            let formData = new FormData();
+            formData.append('transaction_file', linkTransaction)
+
+            console.log('transaction file', formData);
+
+
+            fetch('https://mps4.chandalen.dev/api/books/transaction-file/' + serviceID, {
+                method: 'POST',
+                headers: {
+                    'Accept': "application/json",
+                    'Authorization': `Bearer ${authToken}`
+                },
+                body: formData
+            })
+                .then(res => res.json())
+                .then(json => {
+                    console.log(json)
+                    // if(json.result=== true){
+                    //     alert(json.message)
+                    // }else{
+                    //     alert(json.message)
+                    // }
+                })
+        }
+        function calculatePriceAndDays() {
+            const selectedAnimal = document.querySelector('#animalType').value;
+            const priceLabel = document.querySelector('#aniLabel');
+            const dayLabel = document.querySelector('#dayLabel');
+            const totalPriceLabel = document.querySelector('#priceLabel');
+            const startDate = document.querySelector('#dateTime').value;
+            const endDate = document.querySelector('#dateTime1').value;
+
+            // Clear everything if no animal is selected or it's the default option
+            if (!selectedAnimal || selectedAnimal === "Please select") {
+                priceLabel.value = '';
+                dayLabel.value = '';
+                totalPriceLabel.value = '';
+                return;
+            }
+
+
+            let priceAnimal = 0;
+            if (selectedAnimal == 2) {
+                priceAnimal = 30; // Cat
+            } else if (selectedAnimal == 1) {
+                priceAnimal = 25; // Dog
+            } else {
+                priceAnimal = 15; // Other
+            }
+
+            // Always update the animal price
+            priceLabel.value = `$${priceAnimal}`;
+
+            // Calculate days and total price if we have dates
+            if (startDate && endDate) {
+                const start = new Date(startDate);
+                const end = new Date(endDate);
+
+
+
+                // Validate dates
+                if (end < start) {
+                    alert('End date cannot be before start date');
+                    dayLabel.value = '';
+                    selectedAnimal = "Please select";
+                    totalPriceLabel.value = '';
+                    return;
+                }
+
+                // Calculate the time difference and days difference
+                const timeDifference = end - start;
+                const daysDifference = Math.max(1, Math.ceil(timeDifference / (1000 * 60 * 60 * 24)));
+
+                // Update days and total price
+                dayLabel.value = daysDifference;
+                totalPriceLabel.value = `$${daysDifference * priceAnimal}`;
+            } else {
+                // Clear days and total price if dates are missing
+                dayLabel.value = '';
+                totalPriceLabel.value = '';
+            }
+        }
+
+        // Initialize everything when the document is ready
+        $(document).ready(function () {
+            // Initialize datetime pickers
+            $('#datetimepicker').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm:ss',
+                minDate: new Date(),
+                icons: {
+                    time: 'fa fa-clock',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-arrow-up',
+                    down: 'fa fa-arrow-down',
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-calendar-check',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-times'
+                }
+            });
+
+            $('#datetimepicker1').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm:ss',
+                minDate: new Date(),
+                icons: {
+                    time: 'fa fa-clock',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-arrow-up',
+                    down: 'fa fa-arrow-down',
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-calendar-check',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-times'
+                }
+            });
+
+            // Add event listeners for datetime pickers
+            $('#datetimepicker').on('change.datetimepicker', function (e) {
+                if (e.date) {
+                    $('#datetimepicker1').datetimepicker('minDate', e.date);
+                }
+                calculatePriceAndDays();
+            });
+
+            $('#datetimepicker1').on('change.datetimepicker', function (e) {
+                calculatePriceAndDays();
+            });
+
+            // Add event listener for animal type
+            const animalType = document.querySelector('#animalType');
+            animalType.addEventListener('change', calculatePriceAndDays);
+        });
+
+
+        function booking() {
+            const selectedAnimal = document.querySelector('#animalType').value;
+
+            const totalPriceLabel = document.querySelector('#priceLabel')
+                .value = document.querySelector('#priceLabel').value.replace('$', '');;
+            const startDate = document.querySelector('#dateTime').value;
+            const endDate = document.querySelector('#dateTime1').value;
+            let linkTransaction = document.querySelector('#tran-link').files[0];
+
+            calculatePriceAndDays();
+
+            const formData = new FormData();
+            formData.append("pet_care_service_id", sessionStorage.getItem("petCareId"));
+            formData.append("pet_care_animal_id", selectedAnimal);
+            formData.append("pet_care_start_date", startDate);
+            formData.append("pet_care_end_date", endDate);
+            formData.append("pet_care_price", totalPriceLabel);
+
+
+
+            fetch("https://mps4.chandalen.dev/api/books", {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    Authorization: `Bearer ${authToken}`,
+                },
+                body: formData,
+            })
+                .then((res) => res.json())
+                .then((json) => {
+                    if (json.result === true) {
+                        transaction(linkTransaction, json.data.id);
+                        showModernToast({
+                            iconType: "success",
+                            title: "Booking Successful!",
+                            description: "Your booking has been confirmed.hehe",
+                        },
+                            setTimeout(() => {
+                                location.href = 'http://127.0.0.1:5502/pages/profile-daycare.html';
+                            }, 3000)
+
+
+                        );
+                    } else {
+                    }
+                });
+        }
+        document.querySelector('#btn-book').addEventListener('click', () => {
+
+            booking();
+        })
+    </script>
 
 
     <!-- <script src="../vendor/global/global.min.js"></script> -->
