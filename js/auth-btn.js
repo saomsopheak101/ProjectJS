@@ -53,7 +53,7 @@ function logOut() {
                 login.style.display = 'inline';
                 showModernToast(
                     {
-                        title: 'Logout Successful!',
+                        title: 'Logout Successfully!',
                         description: 'You have been logged out. Redirecting to Home page...',
                         iconType: 'success'
                     },
