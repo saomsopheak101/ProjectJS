@@ -1245,7 +1245,10 @@
 							<span class="nav-text">Consult</span>
 						</a>
 						<ul aria-expanded="false">
-							<li><a href="../pages/consult-reply.html">Reply Clients</a></li>
+
+							<li><a href="../pages/consult-pending-face to face.html">Pending Face to face</a></li>
+							<li><a href="../pages/consult-pending-online.html">Pending Online</a></li>
+
 							<li><a href="../pages/consult-table.html">History Clients</a></li>
 						</ul>
 					</li>
@@ -1283,7 +1286,6 @@
 							<span class="nav-text">Manage Clients</span>
 						</a>
 					</li>
-
 					<li>
 						<a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
 							<div class="menu-icon">
@@ -1857,6 +1859,7 @@ function showError(inputId, errorId, message) {
   errorMessage.style.display = 'block';
 }
 
+
 // Function to clear error styles and messages
 function clearErrors() {
   const inputFields = document.querySelectorAll('.form-control');
@@ -1869,6 +1872,33 @@ function clearErrors() {
     error.style.display = 'none';
   });
 }
+
+			// Send the create request
+			fetch('https://mps4.chandalen.dev/api/services', {
+				method: 'POST',
+				headers: {
+					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
+				},
+				body: formData
+			})
+				.then(response => response.json())
+				.then(result => {
+					if (result.result) {
+						showModernToast({
+							title: 'Service created successfully!',
+							iconType: 'success'
+						})
+						AllService(); // Reload the service list
+						const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasExample'));
+						offcanvas.hide();
+					} else {
+						alert(result.message || 'Failed to create service.');
+					}
+				})
+				.catch(error => console.error("Error creating service:", error));
+		}
+
+
 
 
 
@@ -1904,6 +1934,76 @@ function UpdateService(id) {
     })
     .catch(error => console.error("Error fetching service for update:", error));
 }
+
+		function btnUpdate() {
+			const serviceId = document.getElementById('service-id').value.trim(); // Retrieve service ID
+			const title = document.getElementById('service-title').value.trim();
+			const feature = document.getElementById('service-feature').value.trim();
+			const description = document.getElementById('service-description').value.trim();
+			const image = document.getElementById('image').files[0];
+
+			// Validate form fields
+			resetErrors();
+			let isValid = true;
+
+			if (!title) {
+				document.getElementById('title-error').style.display = 'block';
+				document.getElementById('service-title').style.border = '1px solid red';
+				isValid = false;
+			}
+			if (!feature) {
+				document.getElementById('feature-error').style.display = 'block';
+				document.getElementById('service-feature').style.border = '1px solid red';
+				isValid = false;
+			}
+			if (!description) {
+				document.getElementById('description-error').style.display = 'block';
+				document.getElementById('service-description').style.border = '1px solid red';
+				isValid = false;
+			}
+			if (!serviceId) {
+				Inconrrect({
+					title: 'Service ID is missing.',
+					description: ' Cannot update.',
+					// iconType: 'success'
+				})
+
+				return;
+			}
+			if (!isValid) return;
+
+			// Prepare form data for update
+			const formData = new FormData();
+			formData.append('title', title);
+			formData.append('feature', feature);
+			formData.append('description', description);
+			if (image) formData.append('image', image);
+
+			// Send the update request
+			fetch(`https://mps4.chandalen.dev/api/services/${serviceId}`, {
+				method: 'PUT',
+				headers: {
+					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
+				},
+				body: formData
+			})
+				.then(response => response.json())
+				.then(result => {
+					if (result.result) {
+						showModernToast({
+							title: 'Service updated successfully!',
+							iconType: 'success'
+						})
+						AllService(); // Reload the service list
+						const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasExample'));
+						offcanvas.hide();
+					} else {
+						alert(result.message || 'Failed to update service.');
+					}
+				})
+				.catch(error => console.error("Error updating service:", error));
+		}
+
 
 		function showAddPriceModal(serviceId) {
 			// Clear the form fields for adding a new price
@@ -1955,6 +2055,11 @@ function UpdateService(id) {
 						const modal = new bootstrap.Modal(document.getElementById('editPriceModal'));
 						modal.show();
 					} else {
+						Inconrrect({
+							title: 'Price data not found.',
+							description: 'Please check again...',
+							// iconType: 'success'
+						})
 						alert("Price data not found.");
 					}
 				})
@@ -2041,12 +2146,19 @@ function UpdateService(id) {
 				.then(response => response.json())
 				.then(result => {
 					if (result.result) {
-						alert("Price added successfully!");
+						showModernToast({
+							title: 'Price added successfully!',
+							iconType: 'success'
+						})
 						const modal = bootstrap.Modal.getInstance(document.getElementById("editPriceModal"));
 						modal.hide();
 						location.reload();
 					} else {
-						alert("Failed to add price.");
+						Inconrrect({
+							title: 'Failed to add price.',
+							description: 'Please check again...',
+							// iconType: 'success'
+						})
 					}
 				})
 				.catch(error => {
@@ -2080,12 +2192,21 @@ function UpdateService(id) {
 				.then(response => response.json())
 				.then(result => {
 					if (result.result) {
-						alert("Price updated successfully!");
+						showModernToast(
+							{
+								title: 'Price updated successfully!',
+								iconType: 'success'
+							})
 						const modal = bootstrap.Modal.getInstance(document.getElementById("editPriceModal"));
 						modal.hide();
 						location.reload();
 					} else {
-						alert("Failed to update price.");
+						Inconrrect(
+							{
+								title: 'Failed to update price.',
+								description: 'Please check again...',
+								// iconType: 'success'
+							})
 					}
 				})
 				.catch(error => {
@@ -2142,7 +2263,10 @@ function UpdateService(id) {
 						const modal = new bootstrap.Modal(document.getElementById('serviceModal'));
 						modal.show();
 					} else {
-						alert("Failed to load service details.");
+						Inconrrect(
+							{
+								title: 'Failed to load service details.',
+							})
 					}
 				})
 				.catch(error => console.error("Error loading service details:", error));
@@ -2241,7 +2365,12 @@ function UpdateService(id) {
 		function addAnimal(animalName) {
 			const adminToken = sessionStorage.getItem('adminToken');
 			if (!adminToken) {
-				alert('You are not authenticated. Please log in.');
+				showModernToast({
+					title: 'You are not authenticated. Please log in.',
+					description: 'Please log in.',
+					// iconType: 'success'
+				})
+
 				return;
 			}
 
@@ -2256,7 +2385,10 @@ function UpdateService(id) {
 				.then(response => response.json())
 				.then(data => {
 					if (data.result) {
-						alert('Animal added successfully!');
+						showModernToast({
+							title: 'Animal added successfully!',
+							iconType: 'success'
+						})
 						document.querySelector('#animal_name').value = ''; // Clear input field
 						getAllAnimals(); // Refresh the table
 					} else {
@@ -2280,10 +2412,19 @@ function UpdateService(id) {
 				.then(response => response.json())
 				.then(data => {
 					if (data.result) {
-						alert('Animal updated successfully!');
+						showModernToast({
+							title: 'Animal updated successfully!',
+							iconType: 'success'
+						})
+
 						getAllAnimals(); // Refresh the list
 					} else {
-						alert('Failed to update animal.');
+						Inconrrect(
+							{
+								title: 'Failed to update animal.',
+								description: 'Please check again...',
+								// iconType: 'success'
+							})
 					}
 				});
 		}
@@ -2308,7 +2449,10 @@ function UpdateService(id) {
 				})
 					.then(response => response.json())
 					.then(data => {
-						alert('Animal deleted successfully.');
+						showModernToast({
+							title: 'Animal deleted successfully.',
+							iconType: 'success'
+						})
 						getAllAnimals(); // Refresh the list
 					})
 			}
@@ -2337,6 +2481,8 @@ function UpdateService(id) {
 	<script src="../js/deznav-init.js"></script>
 	<script src="../js/demo.js"></script>
 	<script src="../js/styleSwitcher.js"></script>
+	<script src="../js/sweetalert2@11.js"></script>
+	<script src="../js/petzone/toast.js"></script>
 
 	<!-- tagify -->
 	<script src="../vendor/tagify/dist/tagify.js"></script>

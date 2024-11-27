@@ -118,7 +118,7 @@
                                         </ul>
                                     </div>
                                 </form>
-                                <a class="btn btn-icon d-flex py-0 position-relative" role="button" href=""
+                                <a class="ms-3 btn-icon d-flex py-0 position-relative" role="button" href=""
                                     title="profile" data-bs-toggle="dropdown" aria-expanded="false">
 
                                     <div class="hp-user p-0 m-0 rounded-circle overflow-hidden">
@@ -284,6 +284,10 @@
                                 </div>
                                 <div class="invalid-feedback">Please select an end date and time.</div>
                             </div>
+
+                            <div class="invalid-feedback" id="formselect-error"></div>
+                            <div class="valid-feedback text-success" id="formselect-success"></div>
+
                         </div>
                     
                         <div class="col-3">
@@ -297,18 +301,30 @@
                         </div>
                     
                         <div class="col-3">
-                            <label for="dayLabel">Days:</label>
-                            <input type="text" class="form-control" id="dayLabel" placeholder="Days" disabled />
+
+                            <label for="">Days:</label>
+                            <input type="text" class="form-control" id="dayLabel" placeholder="Days" disabled>
+                            <div class="invalid-feedback" id="formselect-error"></div>
+                            <div class="valid-feedback text-success" id="formselect-success"></div>
+
                         </div>
                     
                         <div class="col-3">
-                            <label for="aniLabel">Animal Price:</label>
-                            <input type="text" class="form-control" id="aniLabel" placeholder="Animal price" disabled />
+
+                            <label for="">Animal:</label>
+                            <input type="text" class="form-control" id="aniLabel" placeholder="Animal price" disabled>
+                            <div class="invalid-feedback" id="formselect-error"></div>
+                            <div class="valid-feedback text-success" id="formselect-success"></div>
+
                         </div>
                     
                         <div class="col-3">
-                            <label for="priceLabel">Total Price:</label>
-                            <input type="text" class="form-control" id="priceLabel" placeholder="Price" disabled />
+
+                            <label for="">Total price:</label>
+                            <input type="text" class="form-control" id="priceLabel" placeholder="Price" disabled>
+                            <div class="invalid-feedback" id="formselect-error"></div>
+                            <div class="valid-feedback text-success" id="formselect-success"></div>
+
                         </div>
                     
                         <h4 class="my-2 fw-bold">Payment</h4>
@@ -482,9 +498,7 @@
                                     <p>Mon - Fri: 7am - 6pm
                                         Saturday: 9am - 4pm <br>
                                         Sunday: Closed</p>
-
                                 </div>
-
                             </div>
                         </div>
 
@@ -796,10 +810,10 @@
                     }
                 });
         }
-        document.querySelector('#btn-book').addEventListener('click', () => {
+        // document.querySelector('#btn-book').addEventListener('click', () => {
 
-            booking();
-        })
+        //     booking();
+        // })
     </script>
 
 

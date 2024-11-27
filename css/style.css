@@ -400,6 +400,9 @@ header.sticky .btn-login-header {
     margin-top: 10px;
     width: 140px;
 }
+.home-page .btn-book:hover{
+    color: #fff;
+}
 
 /* end homepage
   ===================== */
@@ -861,13 +864,9 @@ header.sticky .btn-login-header {
 
 }
 
-/* .changeImg {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    margin-top: -5px;
+.changeImg {
     object-fit: cover;
-} */
+}
 
 header.sticky .icon-search-homepage {
     background-color: #f49943;
@@ -1420,7 +1419,8 @@ footer .content-center ul li a:hover {
     width: 290px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.main-training .train-course .card .card-body .btn-light:hover{
+
+.main-training .train-course .card .card-body .btn-light:hover {
     background-color: white;
     color: #f49943;
 }
@@ -1952,9 +1952,10 @@ header .btn-login:hover {
     width: 38px;
     height: 38px;
     border: 2px solid rgb(255, 255, 255);
-    
+
 }
-.ph-user2{
+
+.ph-user2 {
     width: 80px;
     height: 80px;
     border: 2px solid rgb(255, 255, 255);
@@ -1968,13 +1969,15 @@ header .btn-login:hover {
     height: 100%;
 }
 
-.faq .faq-q ul li{
+.faq .faq-q ul li {
     border-bottom: 1px solid gainsboro;
 }
-.faq .faq-q ul li:hover{
+
+.faq .faq-q ul li:hover {
     border-left: 2px solid #f49943;
     background-color: #f6f6f6;
 }
-.faq .faq-q ul li:hover a{
+
+.faq .faq-q ul li:hover a {
     color: #000 !important;
 }
