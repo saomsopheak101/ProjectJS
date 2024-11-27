@@ -861,13 +861,9 @@ header.sticky .btn-login-header {
 
 }
 
-/* .changeImg {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    margin-top: -5px;
+.changeImg {
     object-fit: cover;
-} */
+}
 
 header.sticky .icon-search-homepage {
     background-color: #f49943;
