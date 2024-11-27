@@ -1319,8 +1319,7 @@
 										<div>
 											<a class="btn btn-warning btn-sm" data-bs-toggle="offcanvas"
 												href="#offcanvasExample" role="button" onclick="document.querySelector('.update-employ').innerHTML = 'Add Employee';
-												document.querySelector('.change-subtxt').innerHTML = 'Submit'; clearAll();"
-												aria-controls="offcanvasExample">+ Add
+												document.querySelector('.change-subtxt').innerHTML = 'Submit'; clearAll();" aria-controls="offcanvasExample">+ Add
 												Employee</a>
 
 										</div>
@@ -1946,76 +1945,6 @@
 }
 
 
-			let avatar = document.querySelector('#upload-img').files[0];
-			let name = document.querySelector('#gname').value;
-			let number = document.querySelector('#pnumber').value;
-			let worktime = document.querySelector('#worktime').value;
-			let workday = document.querySelector('#workday').value;
-			let position = document.querySelector('#position').value;
-			let address = document.querySelector('#gaddress').value;
-			let description = document.querySelector('#gdescription').value
-
-			// Validate selection
-			if (!worktime) {
-				alert("Please select a work time.");
-				return;
-			}
-			if (!workday) {
-				alert("Please select a work day.");
-				return;
-			}
-			if (!position) {
-				alert("Please select a position.");
-				return;
-			}
-
-			console.log("Avatar:", avatar);
-			console.log("Name:", name);
-			console.log("Phone Number:", number);
-			console.log("Selected Work Time ID:", worktime);
-			console.log("Selected Work Time ID:", position);
-			console.log("Selected Work Time ID:", workday);
-			console.log("Selected Work Time ID:", description);
-
-			// Prepare form data
-			let formData = new FormData();
-			formData.append("image", avatar); // Append the avatar file
-			formData.append("name", name); // Append the name
-			formData.append("phone", number); // Append the phone number
-			formData.append("work_time_id", worktime);
-			formData.append("work_day_id", workday);
-			formData.append("position_id", position);
-			formData.append("address", address);
-			formData.append("description", description);
-
-			// Post employee data
-			fetch('https://mps4.chandalen.dev/api/employees', {
-				method: 'POST',
-				headers: {
-					'Accept': "application/json",
-					'Authorization': `Bearer ${authToken}`
-				},
-				body: formData // Send the form data
-			})
-				.then(res => res.json())
-				.then(json => {
-					if (json.result === true) {
-						employeeAll();
-						showModernToast(
-							{
-								title: 'Create Successfully!',
-								iconType: 'success'
-							})
-					} else {
-						Inconrrect(
-							{
-								title: 'Create incorrect!',
-								description: 'Please check again...',
-								// iconType: 'success'
-							})
-
-					}
-
 		function DeleteEmploy(row) {
 			console.log(row.dataset.id);
 			let id = row.dataset.id;
@@ -2033,16 +1962,8 @@
 						employeeAll();
 						alert(json.message);
 						console.log(json.message)
-						if (json.result === true) {
-							employeeAll();
-							showModernToast(
-								{
-									title: 'Delete Successfully!',
-									iconType: 'success'
-								})
-						}
 					} else {
-						alert(json.message)
+						alert(json.message);
 					}
 				})
 		}
@@ -2190,16 +2111,9 @@
 					if (json.result === true) {
 						employeeAll();
 						clearAll();
-						showModernToast({
-							title: 'Update Successfully!',
-							iconType: 'success'
-						})
+						alert(json.message)
 					} else {
-						Inconrrect({
-							title: 'Update incorrect!',
-							description: 'Please check again...',
-							// iconType: 'success'
-						})
+						alert(json.message)
 					}
 				})
 
@@ -2259,9 +2173,11 @@
         Scripts
     ***********************************-->
 	<!-- Required vendors -->
+	<script src="../js/dashboard/admin.js"></script>
+	<script src="../js/sweetalert2@11.js"></script>
+
 	<script src="../vendor/global/global.min.js"></script>
 	<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="../js/sweetalert2@11.js"></script>
 
 	<!-- Dashboard 1 -->
 	<script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
@@ -2276,8 +2192,6 @@
 	<script src="../js/deznav-init.js"></script>
 	<script src="../js/demo.js"></script>
 	<script src="../js/styleSwitcher.js"></script>
-	<script src="../js/sweetalert2@11.js"></script>
-	<script src="../js/petzone/toast.js"></script>
 
 	<!-- tagify -->
 	<script src="../vendor/tagify/dist/tagify.js"></script>

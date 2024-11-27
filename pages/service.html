@@ -1245,10 +1245,7 @@
 							<span class="nav-text">Consult</span>
 						</a>
 						<ul aria-expanded="false">
-
-							<li><a href="../pages/consult-pending-face to face.html">Pending Face to face</a></li>
-							<li><a href="../pages/consult-pending-online.html">Pending Online</a></li>
-
+							<li><a href="../pages/consult-reply.html">Reply Clients</a></li>
 							<li><a href="../pages/consult-table.html">History Clients</a></li>
 						</ul>
 					</li>
@@ -1286,6 +1283,7 @@
 							<span class="nav-text">Manage Clients</span>
 						</a>
 					</li>
+
 					<li>
 						<a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
 							<div class="menu-icon">
@@ -1399,7 +1397,7 @@
 										<!-- Animal Table -->
 										<div class="tab-pane fade" id="pills-animal" role="tabpanel"
 											aria-labelledby="pills-animal-tab">
-											<div class="container mt-5">
+											<div class="">
 												<div class="d-flex justify-content-between">
 													<h3 class="mb-3">Animals</h3>
 													<button class="btn btn-warning mb-3" data-bs-toggle="offcanvas"
@@ -1457,24 +1455,26 @@
 							<label for="service-title" class="form-label">Title</label>
 							<input type="text" id="service-title" class="form-control" required>
 							<div class="invalid-feedback" id="title-error">Please provide a title.</div>
-						  </div>
-						  <div class="mb-3">
+						</div>
+						<div class="mb-3">
 							<label for="service-feature" class="form-label">Feature</label>
 							<input type="text" id="service-feature" class="form-control">
 							<div class="invalid-feedback" id="feature-error">Feature cannot be empty.</div>
-						  </div>
-						  <div class="mb-3">
+						</div>
+						<div class="mb-3">
 							<label for="service-description" class="form-label">Description</label>
 							<textarea id="service-description" class="form-control"></textarea>
-							<div class="invalid-feedback" id="description-error">Description cannot exceed 500 characters.</div>
-						  </div>
-						  <div class="mb-3">
+							<div class="invalid-feedback" id="description-error">Description cannot exceed 500
+								characters.</div>
+						</div>
+						<div class="mb-3">
 							<label for="image" class="form-label">Image</label>
 							<input type="file" id="image" class="form-control">
 							<div class="invalid-feedback" id="image-error">Please select an image.</div>
-						  </div>
-						  <button type="button" id="btn-sub" class="btn btn-primary change-subtxt" onclick="btnCreate()">Submit</button>
-						  
+						</div>
+						<button type="button" id="btn-sub" class="btn btn-primary change-subtxt"
+							onclick="btnCreate()">Submit</button>
+
 					</form>
 				</div>
 			</div>
@@ -1763,247 +1763,149 @@
 				});
 		}
 		function CreateService() {
-  // Reset the form for creating a new service
-  document.getElementById('service-form').reset();
-  document.getElementById('service-id').value = '';
-  document.querySelector('.update-service').innerText = 'Add Service';
-  document.querySelector('.change-subtxt').innerText = 'Submit';
+			// Reset the form for creating a new service
+			document.getElementById('service-form').reset();
+			document.getElementById('service-id').value = '';
+			document.querySelector('.update-service').innerText = 'Add Service';
+			document.querySelector('.change-subtxt').innerText = 'Submit';
 
-  // Show the offcanvas form
-  const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
-  offcanvas.show();
-}
-
-function btnCreate() {
-  // Collect input values
-  const title = document.getElementById('service-title').value.trim();
-  const feature = document.getElementById('service-feature').value.trim();
-  const description = document.getElementById('service-description').value.trim();
-  const serviceId = document.getElementById('service-id').value;
-  const image = document.getElementById('image').files[0]; // Get the image file
-
-  // Clear previous error messages and styling
-  clearErrors();
-
-  // Flag to check if there are errors
-  let hasError = false;
-
-  // Validate required fields
-  if (!title) {
-    showError('service-title', 'title-error', 'Please provide a title.');
-    hasError = true;
-  }
-
-  if (!feature) {
-    showError('service-feature', 'feature-error', 'Feature cannot be empty.');
-    hasError = true;
-  }
-
-  // Validate Description length (max 500 characters)
-  if (!description) {
-    showError('service-description', 'description-error', 'Please provide a title .');
-    hasError = true;
-  }
-
-  if (!image) {
-    showError('image', 'image-error', 'Please select an image.');
-    hasError = true;
-  }
-
-  // If there are any validation errors, stop form submission
-  if (hasError) {
-    return;
-  }
-
-  const formData = new FormData();
-  formData.append('title', title);
-  formData.append('feature', feature);
-  formData.append('description', description);
-  formData.append('image', image); // Image is now required
-
-  // Determine method and URL based on serviceId
-  let method = serviceId ? 'POST' : 'POST';
-  let url = serviceId ? `https://mps4.chandalen.dev/api/services/${serviceId}` : 'https://mps4.chandalen.dev/api/services';
-
-  fetch(url, {
-    method: method,
-    headers: {
-      'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
-    },
-    body: formData // Send FormData instead of JSON
-  })
-    .then(response => response.json())
-    .then(result => {
-      if (result.result) {
-        alert(result.message);
-        AllService(); // Reload the services list
-        const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
-        offcanvas.hide(); // Hide offcanvas after submitting
-      } else {
-        alert(result.message || 'Failed to save service.');
-      }
-    })
-    .catch(error => console.error("Error submitting form:", error));
-}
-
-// Function to show error message and apply red border
-function showError(inputId, errorId, message) {
-  const inputField = document.getElementById(inputId);
-  const errorMessage = document.getElementById(errorId);
-  
-  // Apply red border to the input field
-  inputField.classList.add('is-invalid');
-
-  // Display the error message
-  errorMessage.textContent = message;
-  errorMessage.style.display = 'block';
-}
-
-
-// Function to clear error styles and messages
-function clearErrors() {
-  const inputFields = document.querySelectorAll('.form-control');
-  inputFields.forEach(input => {
-    input.classList.remove('is-invalid');
-  });
-
-  const errorMessages = document.querySelectorAll('.invalid-feedback');
-  errorMessages.forEach(error => {
-    error.style.display = 'none';
-  });
-}
-
-			// Send the create request
-			fetch('https://mps4.chandalen.dev/api/services', {
-				method: 'POST',
-				headers: {
-					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
-				},
-				body: formData
-			})
-				.then(response => response.json())
-				.then(result => {
-					if (result.result) {
-						showModernToast({
-							title: 'Service created successfully!',
-							iconType: 'success'
-						})
-						AllService(); // Reload the service list
-						const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasExample'));
-						offcanvas.hide();
-					} else {
-						alert(result.message || 'Failed to create service.');
-					}
-				})
-				.catch(error => console.error("Error creating service:", error));
+			// Show the offcanvas form
+			const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
+			offcanvas.show();
 		}
 
-
-
-
-
-
-function UpdateService(id) {
-  fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
-    headers: {
-      'Accept': 'application/json',
-      'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
-    }
-  })
-    .then(response => response.json())
-    .then(service => {
-      if (service.result) {
-        // Populate the form fields with fetched data
-        document.getElementById('service-title').value = service.data.title || '';
-        document.getElementById('service-feature').value = service.data.feature || '';
-        document.getElementById('service-description').value = service.data.description || '';
-        
-        // Reset image file input by setting its value to an empty string
-        document.getElementById('image').value = ''; // Clear the file input
-        
-        document.getElementById('service-id').value = service.data.id || '';
-
-        document.querySelector('.update-service').innerText = 'Update Service';
-        document.querySelector('.change-subtxt').innerText = 'Update';
-
-        const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
-        offcanvas.show();
-      } else {
-        alert(service.message || 'Failed to load service data.');
-      }
-    })
-    .catch(error => console.error("Error fetching service for update:", error));
-}
-
-		function btnUpdate() {
-			const serviceId = document.getElementById('service-id').value.trim(); // Retrieve service ID
+		function btnCreate() {
+			// Collect input values
 			const title = document.getElementById('service-title').value.trim();
 			const feature = document.getElementById('service-feature').value.trim();
 			const description = document.getElementById('service-description').value.trim();
-			const image = document.getElementById('image').files[0];
+			const serviceId = document.getElementById('service-id').value;
+			const image = document.getElementById('image').files[0]; // Get the image file
 
-			// Validate form fields
-			resetErrors();
-			let isValid = true;
+			// Clear previous error messages and styling
+			clearErrors();
 
+			// Flag to check if there are errors
+			let hasError = false;
+
+			// Validate required fields
 			if (!title) {
-				document.getElementById('title-error').style.display = 'block';
-				document.getElementById('service-title').style.border = '1px solid red';
-				isValid = false;
+				showError('service-title', 'title-error', 'Please provide a title.');
+				hasError = true;
 			}
-			if (!feature) {
-				document.getElementById('feature-error').style.display = 'block';
-				document.getElementById('service-feature').style.border = '1px solid red';
-				isValid = false;
-			}
-			if (!description) {
-				document.getElementById('description-error').style.display = 'block';
-				document.getElementById('service-description').style.border = '1px solid red';
-				isValid = false;
-			}
-			if (!serviceId) {
-				Inconrrect({
-					title: 'Service ID is missing.',
-					description: ' Cannot update.',
-					// iconType: 'success'
-				})
 
+			if (!feature) {
+				showError('service-feature', 'feature-error', 'Feature cannot be empty.');
+				hasError = true;
+			}
+
+			// Validate Description length (max 500 characters)
+			if (!description) {
+				showError('service-description', 'description-error', 'Please provide a title .');
+				hasError = true;
+			}
+
+			if (!image) {
+				showError('image', 'image-error', 'Please select an image.');
+				hasError = true;
+			}
+
+			// If there are any validation errors, stop form submission
+			if (hasError) {
 				return;
 			}
-			if (!isValid) return;
 
-			// Prepare form data for update
 			const formData = new FormData();
 			formData.append('title', title);
 			formData.append('feature', feature);
 			formData.append('description', description);
-			if (image) formData.append('image', image);
+			formData.append('image', image); // Image is now required
 
-			// Send the update request
-			fetch(`https://mps4.chandalen.dev/api/services/${serviceId}`, {
-				method: 'PUT',
+			// Determine method and URL based on serviceId
+			let method = serviceId ? 'POST' : 'POST';
+			let url = serviceId ? `https://mps4.chandalen.dev/api/services/${serviceId}` : 'https://mps4.chandalen.dev/api/services';
+
+			fetch(url, {
+				method: method,
 				headers: {
 					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
 				},
-				body: formData
+				body: formData // Send FormData instead of JSON
 			})
 				.then(response => response.json())
 				.then(result => {
 					if (result.result) {
-						showModernToast({
-							title: 'Service updated successfully!',
-							iconType: 'success'
-						})
-						AllService(); // Reload the service list
-						const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasExample'));
-						offcanvas.hide();
+						alert(result.message);
+						AllService(); // Reload the services list
+						const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
+						offcanvas.hide(); // Hide offcanvas after submitting
 					} else {
-						alert(result.message || 'Failed to update service.');
+						alert(result.message || 'Failed to save service.');
 					}
 				})
-				.catch(error => console.error("Error updating service:", error));
+				.catch(error => console.error("Error submitting form:", error));
 		}
 
+		// Function to show error message and apply red border
+		function showError(inputId, errorId, message) {
+			const inputField = document.getElementById(inputId);
+			const errorMessage = document.getElementById(errorId);
+
+			// Apply red border to the input field
+			inputField.classList.add('is-invalid');
+
+			// Display the error message
+			errorMessage.textContent = message;
+			errorMessage.style.display = 'block';
+		}
+
+		// Function to clear error styles and messages
+		function clearErrors() {
+			const inputFields = document.querySelectorAll('.form-control');
+			inputFields.forEach(input => {
+				input.classList.remove('is-invalid');
+			});
+
+			const errorMessages = document.querySelectorAll('.invalid-feedback');
+			errorMessages.forEach(error => {
+				error.style.display = 'none';
+			});
+		}
+
+
+
+
+		function UpdateService(id) {
+			fetch(`https://mps4.chandalen.dev/api/services/${id}`, {
+				headers: {
+					'Accept': 'application/json',
+					'Authorization': `Bearer ${sessionStorage.getItem('adminToken')}`
+				}
+			})
+				.then(response => response.json())
+				.then(service => {
+					if (service.result) {
+						// Populate the form fields with fetched data
+						document.getElementById('service-title').value = service.data.title || '';
+						document.getElementById('service-feature').value = service.data.feature || '';
+						document.getElementById('service-description').value = service.data.description || '';
+
+						// Reset image file input by setting its value to an empty string
+						document.getElementById('image').value = ''; // Clear the file input
+
+						document.getElementById('service-id').value = service.data.id || '';
+
+						document.querySelector('.update-service').innerText = 'Update Service';
+						document.querySelector('.change-subtxt').innerText = 'Update';
+
+						const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasExample'));
+						offcanvas.show();
+					} else {
+						alert(service.message || 'Failed to load service data.');
+					}
+				})
+				.catch(error => console.error("Error fetching service for update:", error));
+		}
 
 		function showAddPriceModal(serviceId) {
 			// Clear the form fields for adding a new price
@@ -2055,11 +1957,6 @@ function UpdateService(id) {
 						const modal = new bootstrap.Modal(document.getElementById('editPriceModal'));
 						modal.show();
 					} else {
-						Inconrrect({
-							title: 'Price data not found.',
-							description: 'Please check again...',
-							// iconType: 'success'
-						})
 						alert("Price data not found.");
 					}
 				})
@@ -2146,19 +2043,12 @@ function UpdateService(id) {
 				.then(response => response.json())
 				.then(result => {
 					if (result.result) {
-						showModernToast({
-							title: 'Price added successfully!',
-							iconType: 'success'
-						})
+						alert("Price added successfully!");
 						const modal = bootstrap.Modal.getInstance(document.getElementById("editPriceModal"));
 						modal.hide();
 						location.reload();
 					} else {
-						Inconrrect({
-							title: 'Failed to add price.',
-							description: 'Please check again...',
-							// iconType: 'success'
-						})
+						alert("Failed to add price.");
 					}
 				})
 				.catch(error => {
@@ -2192,21 +2082,12 @@ function UpdateService(id) {
 				.then(response => response.json())
 				.then(result => {
 					if (result.result) {
-						showModernToast(
-							{
-								title: 'Price updated successfully!',
-								iconType: 'success'
-							})
+						alert("Price updated successfully!");
 						const modal = bootstrap.Modal.getInstance(document.getElementById("editPriceModal"));
 						modal.hide();
 						location.reload();
 					} else {
-						Inconrrect(
-							{
-								title: 'Failed to update price.',
-								description: 'Please check again...',
-								// iconType: 'success'
-							})
+						alert("Failed to update price.");
 					}
 				})
 				.catch(error => {
@@ -2263,10 +2144,7 @@ function UpdateService(id) {
 						const modal = new bootstrap.Modal(document.getElementById('serviceModal'));
 						modal.show();
 					} else {
-						Inconrrect(
-							{
-								title: 'Failed to load service details.',
-							})
+						alert("Failed to load service details.");
 					}
 				})
 				.catch(error => console.error("Error loading service details:", error));
@@ -2365,12 +2243,7 @@ function UpdateService(id) {
 		function addAnimal(animalName) {
 			const adminToken = sessionStorage.getItem('adminToken');
 			if (!adminToken) {
-				showModernToast({
-					title: 'You are not authenticated. Please log in.',
-					description: 'Please log in.',
-					// iconType: 'success'
-				})
-
+				alert('You are not authenticated. Please log in.');
 				return;
 			}
 
@@ -2385,10 +2258,7 @@ function UpdateService(id) {
 				.then(response => response.json())
 				.then(data => {
 					if (data.result) {
-						showModernToast({
-							title: 'Animal added successfully!',
-							iconType: 'success'
-						})
+						alert('Animal added successfully!');
 						document.querySelector('#animal_name').value = ''; // Clear input field
 						getAllAnimals(); // Refresh the table
 					} else {
@@ -2412,19 +2282,10 @@ function UpdateService(id) {
 				.then(response => response.json())
 				.then(data => {
 					if (data.result) {
-						showModernToast({
-							title: 'Animal updated successfully!',
-							iconType: 'success'
-						})
-
+						alert('Animal updated successfully!');
 						getAllAnimals(); // Refresh the list
 					} else {
-						Inconrrect(
-							{
-								title: 'Failed to update animal.',
-								description: 'Please check again...',
-								// iconType: 'success'
-							})
+						alert('Failed to update animal.');
 					}
 				});
 		}
@@ -2449,10 +2310,7 @@ function UpdateService(id) {
 				})
 					.then(response => response.json())
 					.then(data => {
-						showModernToast({
-							title: 'Animal deleted successfully.',
-							iconType: 'success'
-						})
+						alert('Animal deleted successfully.');
 						getAllAnimals(); // Refresh the list
 					})
 			}
@@ -2465,6 +2323,9 @@ function UpdateService(id) {
         Scripts
     ***********************************-->
 	<!-- Required vendors -->
+	<script src="../js/dashboard/admin.js"></script>
+	<script src="../js/sweetalert2@11.js"></script>
+
 	<script src="../vendor/global/global.min.js"></script>
 	<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
@@ -2481,8 +2342,6 @@ function UpdateService(id) {
 	<script src="../js/deznav-init.js"></script>
 	<script src="../js/demo.js"></script>
 	<script src="../js/styleSwitcher.js"></script>
-	<script src="../js/sweetalert2@11.js"></script>
-	<script src="../js/petzone/toast.js"></script>
 
 	<!-- tagify -->
 	<script src="../vendor/tagify/dist/tagify.js"></script>
