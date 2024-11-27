@@ -50,7 +50,7 @@ function getdata() {
             signupButton.classList.remove('d-none');
 
             if (json.result === true) {
-                handleSignUpSuccess(json);
+                handleSignUpSuccess(json) ;
 
             } else {
                 alert("Invalid credentials.");
@@ -166,6 +166,8 @@ function handleSignUpSuccess(json) {
 
         if (roleName === 'Normal User') {
             sessionStorage.setItem('authToken', json.data.token);
+            // alert(json.message + " Token stored.");
+            // location.href = '../index.html';
             showModernToast(
                 {
                     title: 'Signup Successfully!',
@@ -181,4 +183,67 @@ function handleSignUpSuccess(json) {
     } else {
         alert(' no roles assigned to this user.');
     }
+}
+
+function showModernToast({
+    title = '',
+    description = '',
+    iconType = 'success',
+    position = 'top-right',
+    timer = 3000,
+    hasCloseButton = true,
+}) {
+    Swal.fire({
+        toast: true,
+        position: position,
+        icon: iconType,
+        title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
+        html: description
+            ? `<p style="margin: -4px; font-size: 13px; color: #101114;">${description}</p>`
+            : '',
+        customClass: {
+            popup: 'modern-toast',
+            closeButton: hasCloseButton ? 'swal-close-btn' : '',
+        },
+        showConfirmButton: false,
+        timer: timer,
+        timerProgressBar: true,
+        showCloseButton: hasCloseButton,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+        },
+    });
+
+}
+function Inconrrect({
+    title = '',
+    description = '',
+    iconType = 'error',
+    position = 'top-right',
+    timer = 3000,
+    hasCloseButton = true,
+}) {
+    Swal.fire({
+        toast: true,
+        position: position,
+        icon: iconType,
+        title: `<p style="color:#222222; margin-bottom:0px;">${title}</p>`,
+        html: description
+            ? `<p style="margin: -4px; font-size: 12px; color: #101114;">${description}</p>`
+            : '',
+        customClass: {
+            popup: 'modern-toast',
+            closeButton: hasCloseButton ? 'swal-close-btn' : '',
+        },
+        showConfirmButton: false,
+        timer: timer,
+        timerProgressBar: true,
+        showCloseButton: hasCloseButton,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+        },
+    });
+
 }

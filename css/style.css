@@ -400,6 +400,9 @@ header.sticky .btn-login-header {
     margin-top: 10px;
     width: 140px;
 }
+.home-page .btn-book:hover{
+    color: #fff;
+}
 
 /* end homepage
   ===================== */
