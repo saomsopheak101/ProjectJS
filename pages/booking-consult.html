@@ -510,22 +510,18 @@
 
         let nameEmployee = '';
         let price = 25;
-        if (employId == 1) {
+        if (employId == 6) {
+            nameEmployee = 'Cheav Ey';
+        } else if (employId == 5) {
+            nameEmployee = 'Sroeun Chanthy';
+        } else if (employId == 4) {
+            nameEmployee = 'Nheik Philen';
+        } else if (employId == 3) {
             nameEmployee = 'Oun Kimhong';
         } else if (employId == 2) {
-            nameEmployee = 'Nhiek Philen';
-        } else if (employId == 3) {
-            nameEmployee = 'Art Pengse';
-        } else if (employId == 4) {
-            nameEmployee = 'Lim teang';
-        } else if (employId == 5) {
-            nameEmployee = 'Sun Sopha';
-        } else if (employId == 6) {
-            nameEmployee = 'Song Eang';
-        } else if (employId == 7) {
-            nameEmployee = 'Siev Meng';
-        } else if (employId == 8) {
-            nameEmployee = 'Sat Makara';
+            nameEmployee = 'Saom Sopheak';
+        } else if (employId == 1) {
+            nameEmployee = 'Duongtha Sithat';
         }
         document.querySelector('#employLabel').value = nameEmployee;
         document.querySelector('#priceLabel').value = `$${price}`;
