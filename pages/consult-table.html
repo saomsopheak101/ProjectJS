@@ -1642,7 +1642,7 @@
 													<span class="">	${element.description}</span>
 												</td>
 												<td>
-													<span class="">${element.transaction_file === null ? 'N/A' : ''}</span>
+													<span class="">${element.transaction_file ?'QR code' : 'N/A'}</span>
 												</td>
 												<td>
 													<span class="">${element.datetime}</span>
@@ -1651,13 +1651,11 @@
 													<span class="badge ${element.status === 3 ? 'badge-danger' : element.status === 2 ? 'badge-success' : 'badge-secondary'} light border-0"> ${element.status === 3 ? 'Declined' : element.status === 2 ? 'Approved' : ''}</span>
 												</td>
 									
-												<td>
-													<span class="">
-														<button type="button" class="btn btn-info btn-icon-xs"><i class="fa-sharp fa-regular fa-eye"></i></button>
-														<button type="button" class="btn btn-danger btn-icon-xs"><i class="fa-solid fa-trash"></i></button>
-														
-													</span>
-												</td>
+												 <td>
+                    <button type="button" class="btn btn-danger btn-icon-md px-4 rounded-5 btn-icon-xs">
+                        <i class="fa-sharp fa-solid fa-bell"></i> Set Reminder
+                    </button>
+                </td>
 											</tr>
 							
                         `;

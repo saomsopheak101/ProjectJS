@@ -46,7 +46,7 @@
     ********************-->
 
 
-    <header class="">
+  <header class="">
         <nav class="navbar navbar-expand-lg  z-3">
             <div class="container px-5 py-3  px-md-0">
                 <a class="navbar-brand" href="">
@@ -88,9 +88,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item mx-lg-2 dropdown ">
-                            <a class="nav-link  fw-medium black-nav" href="../pages/about-us.html" role="button"
-                                aria-expanded="false">
+                        <li class="nav-item mx-lg-2  ">
+                            <a class="nav-link  fw-medium black-nav" href="../pages/about-us.html">
                                 About us
                             </a>
                         </li>
@@ -102,7 +101,13 @@
                         </li>
                     </ul>
                     <div class="d-flex align-items-center ">
-
+                        <div class="d-flex align-items-center">
+                            <button class="rounded-2 btn-login-header btn-light border-0 ms-3 btn-shadow" id="login"
+                                type="button" onclick="window.location.href='../pages/login.html';">Login</button>
+                            <button class=" rounded-2 btn-login-header btn-light border-0 ms-3 btn-shadow"
+                                id="signupForm" type="button"
+                                onclick="window.location.href='../pages/signup.html';">Signup</button>
+                        </div>
                         <!-- User profile -->
                         <div class="dropdown-center dropdown-account" id="profiles">
                             <div class="d-flex">
@@ -236,7 +241,6 @@
                     </div>
                 </div>
             </div>
-
         </nav>
     </header>
     <main>
@@ -524,6 +528,7 @@
     <script src="../js/auth-btn.js"></script>
     <script src="../js/petzone/search-header.js"></script>
     <script src="../js/sweetalert2@11.js"></script>
+    <script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
     <script src="../js/petzone/getdata-profile.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
