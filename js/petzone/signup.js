@@ -168,7 +168,7 @@ function handleSignUpSuccess(json) {
             sessionStorage.setItem('authToken', json.data.token);
             showModernToast(
                 {
-                    title: 'Signup Successful!',
+                    title: 'Signup Successfully!',
                     description: 'Redirecting to homepage...',
                     iconType: 'success'
                 },
@@ -180,43 +180,5 @@ function handleSignUpSuccess(json) {
         }
     } else {
         alert(' no roles assigned to this user.');
-    }
-}
-
-function handleLoginSuccess(json) {
-    if (json.data.roles && json.data.roles.length > 0) {
-        const roleName = json.data.roles[0].name;
-        if (roleName === 'Normal User') {
-            sessionStorage.setItem('authToken', json.data.token);
-            // alert(json.message + " Token stored.");
-            // location.href = '../index.html';
-            showModernToast(
-                {
-                    title: 'Login Successful!',
-                    description: 'Welcome back! Redirecting...',
-                    iconType: 'success'
-                },
-                setTimeout(() => {
-                    location.href = '../index.html';
-                }, 3000))
-
-        } else if (roleName === 'System Admin') {
-            sessionStorage.setItem('adminToken', json.data.token);
-            // alert(json.message + " Token stored.");
-            // location.href = '../pages/employee.html';
-            showModernToast(
-                {
-                    title: 'Login Successful!',
-                    description: 'Welcome back Admin! Redirecting...',
-                    iconType: 'success'
-                },
-                setTimeout(() => {
-                    location.href = '../pages/employee.html';
-                }, 3000))
-        } else {
-            alert("User role not recognized.");
-        }
-    } else {
-        alert("No roles assigned to this user.");
     }
 }

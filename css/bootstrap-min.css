@@ -2909,9 +2909,9 @@ textarea.form-control-lg {
 }
 
 .form-select:focus {
-  border-color: #86ccff;
+  border-color: #E6E6E6;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 153, 255, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(255, 122, 13, 0.25);
 }
 
 .form-select[multiple],
@@ -3471,7 +3471,7 @@ textarea.form-control.is-valid {
 
 .was-validated .form-select:valid,
 .form-select.is-valid {
-  border-color: var(--bs-form-valid-border-color);
+  /* border-color: var(--bs-form-valid-border-color); */
 }
 
 .was-validated .form-select:valid:not([multiple]):not([size]),
@@ -6429,6 +6429,80 @@ fieldset:disabled .btn {
 [data-bs-theme="dark"] .btn-close {
   filter: var(--bs-btn-close-white-filter);
 }
+
+/* style toast */
+
+.modern-toast {
+  background-color: #fff3e7 !important;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  /* padding: 16px; */
+  text-align: left;
+  border-radius: 8px;
+  box-shadow: 0 4px 5px rgba(52, 52, 52, 0.386) !important;
+  width: 350px !important;
+  animation: slideIn 0.5s ease-out;
+}
+
+.swal2-timer-progress-bar {
+  background-color: #f1870d;
+  height: 3px;
+  border-radius: 2px;
+}
+
+/* Change border and background of the success icon (checkmark) */
+.swal2-icon.swal2-success {
+  border-color: #f1870d;
+  /* Change border color */
+  background-color: #f1870d;
+  /* Change background color */
+}
+
+/* Change the color of the checkmark inside */
+.swal2-icon.swal2-success .swal2-success-line {
+  background-color: #ffffff;
+  /* Keep the checkmark line white */
+}
+
+/* Optional: Change the border color of the checkmark's circle */
+.swal2-icon.swal2-success .swal2-success-ring {
+  border-color: #f1870d;
+  /* Change ring border color */
+}
+
+.swal-close-btn {
+  color: #f1870d;
+  font-size: 40px !important;
+  position: absolute;
+  top: -2px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.swal2-icon.swal2-success {
+  border-color: #f1870d;
+}
+
+.swal2-icon.swal2-success [class^="swal2-success-line"] {
+  background-color: #f1870d;
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+
+
 
 .toast {
   --bs-toast-zindex: 1090;

@@ -1319,7 +1319,8 @@
 										<div>
 											<a class="btn btn-warning btn-sm" data-bs-toggle="offcanvas"
 												href="#offcanvasExample" role="button" onclick="document.querySelector('.update-employ').innerHTML = 'Add Employee';
-												document.querySelector('.change-subtxt').innerHTML = 'Submit'; clearAll();" aria-controls="offcanvasExample">+ Add
+												document.querySelector('.change-subtxt').innerHTML = 'Submit'; clearAll();"
+												aria-controls="offcanvasExample">+ Add
 												Employee</a>
 
 										</div>
@@ -1824,11 +1825,11 @@
 				return;
 			}
 			if (!workday) {
-				alert("Please select a work time.");
+				alert("Please select a work day.");
 				return;
 			}
 			if (!position) {
-				alert("Please select a work time.");
+				alert("Please select a position.");
 				return;
 			}
 
@@ -1864,10 +1865,19 @@
 				.then(json => {
 					if (json.result === true) {
 						employeeAll();
-						alert(json.message)
-						console.log(json.message)
+						showModernToast(
+							{
+								title: 'Create Successfully!',
+								iconType: 'success'
+							})
 					} else {
-						alert(json.message)
+						Inconrrect(
+							{
+								title: 'Create incorrect!',
+								description: 'Please check again...',
+								// iconType: 'success'
+							})
+
 					}
 
 				})
@@ -1890,8 +1900,16 @@
 						employeeAll();
 						alert(json.message);
 						console.log(json.message)
+						if (json.result === true) {
+							employeeAll();
+							showModernToast(
+								{
+									title: 'Delete Successfully!',
+									iconType: 'success'
+								})
+						}
 					} else {
-						alert(json.message);
+						alert(json.message)
 					}
 				})
 		}
@@ -2039,9 +2057,16 @@
 					if (json.result === true) {
 						employeeAll();
 						clearAll();
-						alert(json.message)
+						showModernToast({
+							title: 'Update Successfully!',
+							iconType: 'success'
+						})
 					} else {
-						alert(json.message)
+						Inconrrect({
+							title: 'Update incorrect!',
+							description: 'Please check again...',
+							// iconType: 'success'
+						})
 					}
 				})
 
@@ -2118,6 +2143,8 @@
 	<script src="../js/deznav-init.js"></script>
 	<script src="../js/demo.js"></script>
 	<script src="../js/styleSwitcher.js"></script>
+	<script src="../js/sweetalert2@11.js"></script>
+	<script src="../js/petzone/toast.js"></script>
 
 	<!-- tagify -->
 	<script src="../vendor/tagify/dist/tagify.js"></script>
