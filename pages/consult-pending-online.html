@@ -1531,11 +1531,11 @@
             console.log('this is rejectGet', rejectGet);
             if (rejectGet === '') {
                 showModernToast({
-                            title: 'Reason required!',
-                            description: 'Please reply to customer politely.',
-                            iconType: 'warning' // Use 'error' to signify a rejection action
-                        });    
-                            } else {
+                    title: 'Reason required!',
+                    description: 'Please reply to customer politely.',
+                    iconType: 'warning' // Use 'error' to signify a rejection action
+                });
+            } else {
                 declineReason(row, rejectGet);
                 getClients();
             }
@@ -1634,6 +1634,9 @@
     <script src="../js/deznav-init.js"></script>
     <script src="../js/demo.js"></script>
     <script src="../js/styleSwitcher.js"></script>
+    <script src="../vendor/toastr/js/toastr.min.js"></script>
+    <!-- <script src="../js/sweetalert2@11.js"></script> -->
+    <!-- <script src="../js/petzone/toast.js"></script> -->
 
     <!-- tagify -->
     <script src="../vendor/tagify/dist/tagify.js"></script>

@@ -102,7 +102,7 @@ function handleLoginSuccess(json) {
             // location.href = '../index.html';
             showModernToast(
                 {
-                    title: 'Login Successful!',
+                    title: 'Login Successfully!',
                     description: 'Welcome back! Redirecting...',
                     iconType: 'success'
                 },
@@ -116,7 +116,7 @@ function handleLoginSuccess(json) {
             // location.href = '../pages/employee.html';
             showModernToast(
                 {
-                    title: 'Login Successful!',
+                    title: 'Login Successfully!',
                     description: 'Welcome back Admin! Redirecting...',
                     iconType: 'success'
                 },
